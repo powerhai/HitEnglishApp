@@ -1,0 +1,8 @@
+Oliver: <S chinese="非常感谢你">Thank you very much.</S> <S chinese="快点，John">Hurry up, John!</S>
+John: <S chinese="不行，现在是红灯，停！">No! The light is red. Stop!</S>
+Oliver: <S chinese="对的，我们必须等等">That's right. We have to wait.</S>
+John: <S chinese="现在它绿了，我们走!">Now it's green. Let's go!</S>
+Oliver: <S chinese="不好意思，我们如何去人民公园？" audiostart="1" audioend="300">Excuse me, how do we get to the People's Park?</S>
+Woman: <S chinese="你可以坐5号公交车去，或者你可以步行前往" audiostart="1" audioend="300" >You can get there by the No.5 bus, or you can go on foot.</S>
+Oliver: <S chinese="我们怎么步行前往？">How do we go on foot?</S>
+Woman: <S chinese="这很容易，在红绿灯处左转">It's easy, Turn left at the traffic lights.</S> <S chinese="这个公园靠近一幢高大的建筑">The park is near a tall building.</S>

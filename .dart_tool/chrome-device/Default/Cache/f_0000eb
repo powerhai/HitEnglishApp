@@ -1,0 +1,536 @@
+define(['dart_sdk', 'packages/quiver/src/iterables/generating_iterable.dart'], (function load__packages__quiver__src__collection__lru_map_dart(dart_sdk, packages__quiver__src__iterables__generating_iterable$46dart) {
+  'use strict';
+  const core = dart_sdk.core;
+  const _js_helper = dart_sdk._js_helper;
+  const _interceptors = dart_sdk._interceptors;
+  const dart = dart_sdk.dart;
+  const dartx = dart_sdk.dartx;
+  const generating_iterable = packages__quiver__src__iterables__generating_iterable$46dart.src__iterables__generating_iterable;
+  var lru_map = Object.create(dart.library);
+  var $forEach = dartx.forEach;
+  var $clear = dartx.clear;
+  var $containsKey = dartx.containsKey;
+  var $contains = dartx.contains;
+  var $values = dartx.values;
+  var $map = dartx.map;
+  var $length = dartx.length;
+  var $isEmpty = dartx.isEmpty;
+  var $isNotEmpty = dartx.isNotEmpty;
+  var $putIfAbsent = dartx.putIfAbsent;
+  var $_get = dartx._get;
+  var $remove = dartx.remove;
+  var $add = dartx.add;
+  var $last = dartx.last;
+  var $removeLast = dartx.removeLast;
+  var $_set = dartx._set;
+  var $addAll = dartx.addAll;
+  var $addEntries = dartx.addEntries;
+  var $cast = dartx.cast;
+  var $containsValue = dartx.containsValue;
+  var $entries = dartx.entries;
+  var $keys = dartx.keys;
+  var $removeWhere = dartx.removeWhere;
+  var $toString = dartx.toString;
+  var $update = dartx.update;
+  var $updateAll = dartx.updateAll;
+  var $any = dartx.any;
+  dart._checkModuleNullSafetyMode(false);
+  var T = {
+    boolL: () => (T.boolL = dart.constFn(dart.legacy(core.bool)))(),
+    dynamicToboolL: () => (T.dynamicToboolL = dart.constFn(dart.fnType(T.boolL(), [dart.dynamic])))()
+  };
+  const CT = Object.create({
+    _: () => (C, CT)
+  });
+  var I = [
+    "package:quiver/src/collection/lru_map.dart",
+    "file:///d:/flutter/.pub-cache/hosted/pub.flutter-io.cn/quiver-2.1.5/lib/src/collection/lru_map.dart"
+  ];
+  var maximumSize = dart.privateName(lru_map, "LruMap.maximumSize");
+  const _is_LruMap_default = Symbol('_is_LruMap_default');
+  lru_map.LruMap$ = dart.generic((K, V) => {
+    class LruMap extends core.Object {
+      get maximumSize() {
+        return this[maximumSize];
+      }
+      set maximumSize(value) {
+        this[maximumSize] = value;
+      }
+    }
+    (LruMap[dart.mixinNew] = function() {
+      this[maximumSize] = null;
+    }).prototype = LruMap.prototype;
+    LruMap.prototype[dart.isMap] = true;
+    dart.addTypeTests(LruMap);
+    LruMap.prototype[_is_LruMap_default] = true;
+    dart.addTypeCaches(LruMap);
+    LruMap[dart.implements] = () => [core.Map$(dart.legacy(K), dart.legacy(V))];
+    dart.setLibraryUri(LruMap, I[0]);
+    dart.setFieldSignature(LruMap, () => ({
+      __proto__: dart.getFields(LruMap.__proto__),
+      maximumSize: dart.fieldType(dart.legacy(core.int))
+    }));
+    return LruMap;
+  });
+  lru_map.LruMap = lru_map.LruMap$();
+  dart.addTypeTests(lru_map.LruMap, _is_LruMap_default);
+  var key$ = dart.privateName(lru_map, "_LinkedEntry.key");
+  var value$ = dart.privateName(lru_map, "_LinkedEntry.value");
+  var next = dart.privateName(lru_map, "_LinkedEntry.next");
+  var previous = dart.privateName(lru_map, "_LinkedEntry.previous");
+  const _is__LinkedEntry_default = Symbol('_is__LinkedEntry_default');
+  lru_map._LinkedEntry$ = dart.generic((K, V) => {
+    var KL = () => (KL = dart.constFn(dart.legacy(K)))();
+    var _LinkedEntryOfKL$VL = () => (_LinkedEntryOfKL$VL = dart.constFn(lru_map._LinkedEntry$(KL(), VL())))();
+    var _LinkedEntryLOfKL$VL = () => (_LinkedEntryLOfKL$VL = dart.constFn(dart.legacy(_LinkedEntryOfKL$VL())))();
+    var VL = () => (VL = dart.constFn(dart.legacy(V)))();
+    class _LinkedEntry extends core.Object {
+      get key() {
+        return this[key$];
+      }
+      set key(value) {
+        this[key$] = KL().as(value);
+      }
+      get value() {
+        return this[value$];
+      }
+      set value(value) {
+        this[value$] = VL().as(value);
+      }
+      get next() {
+        return this[next];
+      }
+      set next(value) {
+        this[next] = _LinkedEntryLOfKL$VL().as(value);
+      }
+      get previous() {
+        return this[previous];
+      }
+      set previous(value) {
+        this[previous] = _LinkedEntryLOfKL$VL().as(value);
+      }
+    }
+    (_LinkedEntry.new = function(key = null, value = null) {
+      this[next] = null;
+      this[previous] = null;
+      this[key$] = key;
+      this[value$] = value;
+      ;
+    }).prototype = _LinkedEntry.prototype;
+    dart.addTypeTests(_LinkedEntry);
+    _LinkedEntry.prototype[_is__LinkedEntry_default] = true;
+    dart.addTypeCaches(_LinkedEntry);
+    dart.setLibraryUri(_LinkedEntry, I[0]);
+    dart.setFieldSignature(_LinkedEntry, () => ({
+      __proto__: dart.getFields(_LinkedEntry.__proto__),
+      key: dart.fieldType(dart.legacy(K)),
+      value: dart.fieldType(dart.legacy(V)),
+      next: dart.fieldType(dart.legacy(lru_map._LinkedEntry$(dart.legacy(K), dart.legacy(V)))),
+      previous: dart.fieldType(dart.legacy(lru_map._LinkedEntry$(dart.legacy(K), dart.legacy(V))))
+    }));
+    return _LinkedEntry;
+  });
+  lru_map._LinkedEntry = lru_map._LinkedEntry$();
+  dart.addTypeTests(lru_map._LinkedEntry, _is__LinkedEntry_default);
+  var _head = dart.privateName(lru_map, "_head");
+  var _tail = dart.privateName(lru_map, "_tail");
+  var _entries$ = dart.privateName(lru_map, "_entries");
+  var _maximumSize = dart.privateName(lru_map, "_maximumSize");
+  var _iterable = dart.privateName(lru_map, "_iterable");
+  var _removeLru = dart.privateName(lru_map, "_removeLru");
+  var _createEntry = dart.privateName(lru_map, "_createEntry");
+  var _promoteEntry = dart.privateName(lru_map, "_promoteEntry");
+  var _insertMru = dart.privateName(lru_map, "_insertMru");
+  const _is_LinkedLruHashMap_default = Symbol('_is_LinkedLruHashMap_default');
+  lru_map.LinkedLruHashMap$ = dart.generic((K, V) => {
+    var KL = () => (KL = dart.constFn(dart.legacy(K)))();
+    var MapOfKL$VL = () => (MapOfKL$VL = dart.constFn(core.Map$(KL(), VL())))();
+    var MapLOfKL$VL = () => (MapLOfKL$VL = dart.constFn(dart.legacy(MapOfKL$VL())))();
+    var KLAndVLToVL = () => (KLAndVLToVL = dart.constFn(dart.fnType(VL(), [KL(), VL()])))();
+    var MapEntryOfKL$VL = () => (MapEntryOfKL$VL = dart.constFn(core.MapEntry$(KL(), VL())))();
+    var MapEntryLOfKL$VL = () => (MapEntryLOfKL$VL = dart.constFn(dart.legacy(MapEntryOfKL$VL())))();
+    var IterableOfMapEntryLOfKL$VL = () => (IterableOfMapEntryLOfKL$VL = dart.constFn(core.Iterable$(MapEntryLOfKL$VL())))();
+    var IterableLOfMapEntryLOfKL$VL = () => (IterableLOfMapEntryLOfKL$VL = dart.constFn(dart.legacy(IterableOfMapEntryLOfKL$VL())))();
+    var _LinkedEntryOfKL$VL = () => (_LinkedEntryOfKL$VL = dart.constFn(lru_map._LinkedEntry$(KL(), VL())))();
+    var _LinkedEntryLOfKL$VL = () => (_LinkedEntryLOfKL$VL = dart.constFn(dart.legacy(_LinkedEntryOfKL$VL())))();
+    var _LinkedEntryLOfKL$VLToMapEntryLOfKL$VL = () => (_LinkedEntryLOfKL$VLToMapEntryLOfKL$VL = dart.constFn(dart.fnType(MapEntryLOfKL$VL(), [_LinkedEntryLOfKL$VL()])))();
+    var GeneratingIterableOf_LinkedEntryLOfKL$VL = () => (GeneratingIterableOf_LinkedEntryLOfKL$VL = dart.constFn(generating_iterable.GeneratingIterable$(_LinkedEntryLOfKL$VL())))();
+    var VoidTo_LinkedEntryLOfKL$VL = () => (VoidTo_LinkedEntryLOfKL$VL = dart.constFn(dart.fnType(_LinkedEntryLOfKL$VL(), [])))();
+    var _LinkedEntryLOfKL$VLTo_LinkedEntryLOfKL$VL = () => (_LinkedEntryLOfKL$VLTo_LinkedEntryLOfKL$VL = dart.constFn(dart.fnType(_LinkedEntryLOfKL$VL(), [_LinkedEntryLOfKL$VL()])))();
+    var _LinkedEntryLOfKL$VLToKL = () => (_LinkedEntryLOfKL$VLToKL = dart.constFn(dart.fnType(KL(), [_LinkedEntryLOfKL$VL()])))();
+    var _LinkedEntryLOfKL$VLToVL = () => (_LinkedEntryLOfKL$VLToVL = dart.constFn(dart.fnType(VL(), [_LinkedEntryLOfKL$VL()])))();
+    var JSArrayOfKL = () => (JSArrayOfKL = dart.constFn(_interceptors.JSArray$(KL())))();
+    var KLAnd_LinkedEntryLOfKL$VLToNull = () => (KLAnd_LinkedEntryLOfKL$VLToNull = dart.constFn(dart.fnType(core.Null, [KL(), _LinkedEntryLOfKL$VL()])))();
+    var KLAndVLToNull = () => (KLAndVLToNull = dart.constFn(dart.fnType(core.Null, [KL(), VL()])))();
+    var KLAndVLToLVL = () => (KLAndVLToLVL = dart.constFn(dart.legacy(KLAndVLToVL())))();
+    var VL = () => (VL = dart.constFn(dart.legacy(V)))();
+    var VoidToVL = () => (VoidToVL = dart.constFn(dart.fnType(VL(), [])))();
+    var VoidToLVL = () => (VoidToLVL = dart.constFn(dart.legacy(VoidToVL())))();
+    var VLToVL = () => (VLToVL = dart.constFn(dart.fnType(VL(), [VL()])))();
+    var VLToLVL = () => (VLToLVL = dart.constFn(dart.legacy(VLToVL())))();
+    class LinkedLruHashMap extends core.Object {
+      static new(opts) {
+        let maximumSize = opts && 'maximumSize' in opts ? opts.maximumSize : null;
+        return new (lru_map.LinkedLruHashMap$(dart.legacy(K), dart.legacy(V)))._fromMap(new (_js_helper.LinkedMap$(dart.legacy(K), dart.legacy(lru_map._LinkedEntry$(dart.legacy(K), dart.legacy(V))))).new(), {maximumSize: maximumSize});
+      }
+      addAll(other) {
+        MapLOfKL$VL().as(other);
+        return other[$forEach](dart.fn((k, v) => {
+          let t1, t0;
+          t0 = k;
+          t1 = v;
+          this._set(t0, t1);
+          return t1;
+        }, KLAndVLToVL()));
+      }
+      addEntries(entries) {
+        IterableLOfMapEntryLOfKL$VL().as(entries);
+        for (let entry of entries) {
+          this._set(entry.key, entry.value);
+        }
+      }
+      cast(K2, V2) {
+        dart.throw(new core.UnimplementedError.new("cast"));
+      }
+      clear() {
+        this[_entries$][$clear]();
+        this[_head] = this[_tail] = null;
+      }
+      containsKey(key) {
+        return this[_entries$][$containsKey](key);
+      }
+      containsValue(value) {
+        return this.values[$contains](value);
+      }
+      get entries() {
+        return this[_entries$][$values][$map](MapEntryLOfKL$VL(), dart.fn(entry => new (MapEntryOfKL$VL()).__(entry.key, entry.value), _LinkedEntryLOfKL$VLToMapEntryLOfKL$VL()));
+      }
+      forEach(action) {
+        let head = this[_head];
+        while (head != null) {
+          action(head.key, head.value);
+          head = head.next;
+        }
+      }
+      get length() {
+        return this[_entries$][$length];
+      }
+      get isEmpty() {
+        return this[_entries$][$isEmpty];
+      }
+      get isNotEmpty() {
+        return this[_entries$][$isNotEmpty];
+      }
+      [_iterable]() {
+        return new (GeneratingIterableOf_LinkedEntryLOfKL$VL()).new(dart.fn(() => this[_head], VoidTo_LinkedEntryLOfKL$VL()), dart.fn(n => n.next, _LinkedEntryLOfKL$VLTo_LinkedEntryLOfKL$VL()));
+      }
+      get keys() {
+        return this[_iterable]()[$map](KL(), dart.fn(e => e.key, _LinkedEntryLOfKL$VLToKL()));
+      }
+      get values() {
+        return this[_iterable]()[$map](VL(), dart.fn(e => e.value, _LinkedEntryLOfKL$VLToVL()));
+      }
+      map(K2, V2, transform) {
+        dart.throw(new core.UnimplementedError.new("map"));
+      }
+      get maximumSize() {
+        return this[_maximumSize];
+      }
+      set maximumSize(maximumSize) {
+        if (maximumSize == null) dart.throw(new core.ArgumentError.notNull("maximumSize"));
+        while (dart.notNull(this.length) > dart.notNull(maximumSize)) {
+          this[_removeLru]();
+        }
+        this[_maximumSize] = maximumSize;
+      }
+      putIfAbsent(key, ifAbsent) {
+        KL().as(key);
+        VoidToLVL().as(ifAbsent);
+        let entry = this[_entries$][$putIfAbsent](key, dart.fn(() => this[_createEntry](key, ifAbsent()), VoidTo_LinkedEntryLOfKL$VL()));
+        if (dart.notNull(this.length) > dart.notNull(this.maximumSize)) {
+          this[_removeLru]();
+        }
+        this[_promoteEntry](entry);
+        return entry.value;
+      }
+      _get(key) {
+        let entry = this[_entries$][$_get](key);
+        if (entry != null) {
+          this[_promoteEntry](entry);
+          return entry.value;
+        } else {
+          return null;
+        }
+      }
+      _set(key, value$) {
+        let value = value$;
+        KL().as(key);
+        VL().as(value);
+        this[_insertMru](this[_createEntry](key, value));
+        if (dart.notNull(this.length) > dart.notNull(this.maximumSize)) {
+          if (!(this.length === dart.notNull(this.maximumSize) + 1)) dart.assertFailed(null, I[1], 219, 14, "length == maximumSize + 1");
+          this[_removeLru]();
+        }
+        return value$;
+      }
+      remove(key) {
+        let t0, t0$;
+        let entry = this[_entries$][$remove](key);
+        if (entry != null) {
+          if (dart.equals(entry, this[_head]) && dart.equals(entry, this[_tail])) {
+            this[_head] = this[_tail] = null;
+          } else if (dart.equals(entry, this[_head])) {
+            this[_head] = this[_head].next;
+            t0 = this[_head];
+            t0 == null ? null : t0.previous = null;
+          } else if (dart.equals(entry, this[_tail])) {
+            this[_tail] = this[_tail].previous;
+            t0$ = this[_tail];
+            t0$ == null ? null : t0$.next = null;
+          } else {
+            entry.previous.next = entry.next;
+            entry.next.previous = entry.previous;
+          }
+          return entry.value;
+        }
+        return null;
+      }
+      removeWhere(test) {
+        let keysToRemove = JSArrayOfKL().of([]);
+        this[_entries$][$forEach](dart.fn((key, entry) => {
+          if (dart.test(test(key, entry.value))) keysToRemove[$add](key);
+        }, KLAnd_LinkedEntryLOfKL$VLToNull()));
+        keysToRemove[$forEach](dart.bind(this, 'remove'));
+      }
+      toString() {
+        if (dart.test(lru_map._isToStringVisiting(this))) {
+          return "{...}";
+        }
+        let result = new core.StringBuffer.new();
+        try {
+          lru_map._toStringVisiting[$add](this);
+          result.write("{");
+          let first = true;
+          this.forEach(dart.fn((k, v) => {
+            if (!first) {
+              result.write(", ");
+            }
+            first = false;
+            result.write(dart.str(k) + ": " + dart.str(v));
+          }, KLAndVLToNull()));
+          result.write("}");
+        } finally {
+          if (!(lru_map._toStringVisiting[$last] === this)) dart.assertFailed(null, I[1], 277, 14, "identical(_toStringVisiting.last, this)");
+          lru_map._toStringVisiting[$removeLast]();
+        }
+        return result.toString();
+      }
+      update(key, update, opts) {
+        KL().as(key);
+        VLToLVL().as(update);
+        let ifAbsent = opts && 'ifAbsent' in opts ? opts.ifAbsent : null;
+        VoidToLVL().as(ifAbsent);
+        let newValue = null;
+        if (dart.test(this.containsKey(key))) {
+          newValue = update(this._get(key));
+        } else {
+          if (ifAbsent == null) {
+            dart.throw(new core.ArgumentError.value(key, "key", "Key not in map"));
+          }
+          newValue = ifAbsent();
+        }
+        this[_insertMru](this[_createEntry](key, newValue));
+        if (dart.notNull(this.length) > dart.notNull(this.maximumSize)) {
+          if (!(this.length === dart.notNull(this.maximumSize) + 1)) dart.assertFailed(null, I[1], 301, 14, "length == maximumSize + 1");
+          this[_removeLru]();
+        }
+        return newValue;
+      }
+      updateAll(update) {
+        KLAndVLToLVL().as(update);
+        this[_entries$][$forEach](dart.fn((key, entry) => {
+          let newValue = this[_createEntry](key, update(key, entry.value));
+          this[_entries$][$_set](key, newValue);
+        }, KLAnd_LinkedEntryLOfKL$VLToNull()));
+      }
+      [_promoteEntry](entry) {
+        if (dart.equals(entry, this[_head])) {
+          return;
+        }
+        if (entry.previous != null) {
+          entry.previous.next = entry.next;
+          if (dart.equals(this[_tail], entry)) {
+            this[_tail] = entry.previous;
+          }
+        }
+        if (entry.next != null) {
+          entry.next.previous = entry.previous;
+        }
+        if (this[_head] != null) {
+          this[_head].previous = entry;
+        }
+        entry.previous = null;
+        entry.next = this[_head];
+        this[_head] = entry;
+        if (this[_tail] == null) {
+          if (!(this.length === 1)) dart.assertFailed(null, I[1], 346, 14, "length == 1");
+          this[_tail] = this[_head];
+        }
+      }
+      [_createEntry](key, value) {
+        return new (_LinkedEntryOfKL$VL()).new(key, value);
+      }
+      [_insertMru](entry) {
+        let t0;
+        let value = entry.value;
+        this[_promoteEntry]((t0 = this[_entries$][$putIfAbsent](entry.key, dart.fn(() => entry, VoidTo_LinkedEntryLOfKL$VL())), (() => {
+          t0.value = value;
+          return t0;
+        })()));
+      }
+      [_removeLru]() {
+        let t0;
+        this[_entries$][$remove](this[_tail].key);
+        this[_tail] = this[_tail].previous;
+        t0 = this[_tail];
+        t0 == null ? null : t0.next = null;
+        if (this[_tail] == null) {
+          this[_head] = null;
+        }
+      }
+    }
+    (LinkedLruHashMap._fromMap = function(_entries, opts) {
+      let t0;
+      let maximumSize = opts && 'maximumSize' in opts ? opts.maximumSize : null;
+      this[_head] = null;
+      this[_tail] = null;
+      this[_entries$] = _entries;
+      this[_maximumSize] = (t0 = maximumSize, t0 == null ? 100 : t0);
+      ;
+    }).prototype = LinkedLruHashMap.prototype;
+    dart.addTypeTests(LinkedLruHashMap);
+    LinkedLruHashMap.prototype[_is_LinkedLruHashMap_default] = true;
+    dart.addTypeCaches(LinkedLruHashMap);
+    LinkedLruHashMap[dart.implements] = () => [lru_map.LruMap$(dart.legacy(K), dart.legacy(V))];
+    dart.setMethodSignature(LinkedLruHashMap, () => ({
+      __proto__: dart.getMethods(LinkedLruHashMap.__proto__),
+      addAll: dart.fnType(dart.void, [dart.legacy(core.Object)]),
+      [$addAll]: dart.fnType(dart.void, [dart.legacy(core.Object)]),
+      addEntries: dart.fnType(dart.void, [dart.legacy(core.Object)]),
+      [$addEntries]: dart.fnType(dart.void, [dart.legacy(core.Object)]),
+      cast: dart.gFnType((K2, V2) => [dart.legacy(lru_map.LinkedLruHashMap$(dart.legacy(K2), dart.legacy(V2))), []]),
+      [$cast]: dart.gFnType((K2, V2) => [dart.legacy(lru_map.LinkedLruHashMap$(dart.legacy(K2), dart.legacy(V2))), []]),
+      clear: dart.fnType(dart.void, []),
+      [$clear]: dart.fnType(dart.void, []),
+      containsKey: dart.fnType(dart.legacy(core.bool), [dart.legacy(core.Object)]),
+      [$containsKey]: dart.fnType(dart.legacy(core.bool), [dart.legacy(core.Object)]),
+      containsValue: dart.fnType(dart.legacy(core.bool), [dart.legacy(core.Object)]),
+      [$containsValue]: dart.fnType(dart.legacy(core.bool), [dart.legacy(core.Object)]),
+      forEach: dart.fnType(dart.void, [dart.legacy(dart.fnType(dart.void, [dart.legacy(K), dart.legacy(V)]))]),
+      [$forEach]: dart.fnType(dart.void, [dart.legacy(dart.fnType(dart.void, [dart.legacy(K), dart.legacy(V)]))]),
+      [_iterable]: dart.fnType(dart.legacy(core.Iterable$(dart.legacy(lru_map._LinkedEntry$(dart.legacy(K), dart.legacy(V))))), []),
+      map: dart.gFnType((K2, V2) => [dart.legacy(core.Map$(dart.legacy(K2), dart.legacy(V2))), [dart.legacy(dart.fnType(dart.legacy(core.Object), [dart.legacy(K), dart.legacy(V)]))]]),
+      [$map]: dart.gFnType((K2, V2) => [dart.legacy(core.Map$(dart.legacy(K2), dart.legacy(V2))), [dart.legacy(dart.fnType(dart.legacy(core.Object), [dart.legacy(K), dart.legacy(V)]))]]),
+      putIfAbsent: dart.fnType(dart.legacy(V), [dart.legacy(core.Object), dart.legacy(core.Object)]),
+      [$putIfAbsent]: dart.fnType(dart.legacy(V), [dart.legacy(core.Object), dart.legacy(core.Object)]),
+      _get: dart.fnType(dart.legacy(V), [dart.legacy(core.Object)]),
+      [$_get]: dart.fnType(dart.legacy(V), [dart.legacy(core.Object)]),
+      _set: dart.fnType(dart.void, [dart.legacy(core.Object), dart.legacy(core.Object)]),
+      [$_set]: dart.fnType(dart.void, [dart.legacy(core.Object), dart.legacy(core.Object)]),
+      remove: dart.fnType(dart.legacy(V), [dart.legacy(core.Object)]),
+      [$remove]: dart.fnType(dart.legacy(V), [dart.legacy(core.Object)]),
+      removeWhere: dart.fnType(dart.void, [dart.legacy(dart.fnType(dart.legacy(core.bool), [dart.legacy(K), dart.legacy(V)]))]),
+      [$removeWhere]: dart.fnType(dart.void, [dart.legacy(dart.fnType(dart.legacy(core.bool), [dart.legacy(K), dart.legacy(V)]))]),
+      toString: dart.fnType(dart.legacy(core.String), []),
+      [$toString]: dart.fnType(dart.legacy(core.String), []),
+      update: dart.fnType(dart.legacy(V), [dart.legacy(core.Object), dart.legacy(core.Object)], {ifAbsent: dart.legacy(core.Object)}, {}),
+      [$update]: dart.fnType(dart.legacy(V), [dart.legacy(core.Object), dart.legacy(core.Object)], {ifAbsent: dart.legacy(core.Object)}, {}),
+      updateAll: dart.fnType(dart.void, [dart.legacy(core.Object)]),
+      [$updateAll]: dart.fnType(dart.void, [dart.legacy(core.Object)]),
+      [_promoteEntry]: dart.fnType(dart.void, [dart.legacy(lru_map._LinkedEntry$(dart.legacy(K), dart.legacy(V)))]),
+      [_createEntry]: dart.fnType(dart.legacy(lru_map._LinkedEntry$(dart.legacy(K), dart.legacy(V))), [dart.legacy(K), dart.legacy(V)]),
+      [_insertMru]: dart.fnType(dart.void, [dart.legacy(lru_map._LinkedEntry$(dart.legacy(K), dart.legacy(V)))]),
+      [_removeLru]: dart.fnType(dart.void, [])
+    }));
+    dart.setGetterSignature(LinkedLruHashMap, () => ({
+      __proto__: dart.getGetters(LinkedLruHashMap.__proto__),
+      entries: dart.legacy(core.Iterable$(dart.legacy(core.MapEntry$(dart.legacy(K), dart.legacy(V))))),
+      [$entries]: dart.legacy(core.Iterable$(dart.legacy(core.MapEntry$(dart.legacy(K), dart.legacy(V))))),
+      length: dart.legacy(core.int),
+      [$length]: dart.legacy(core.int),
+      isEmpty: dart.legacy(core.bool),
+      [$isEmpty]: dart.legacy(core.bool),
+      isNotEmpty: dart.legacy(core.bool),
+      [$isNotEmpty]: dart.legacy(core.bool),
+      keys: dart.legacy(core.Iterable$(dart.legacy(K))),
+      [$keys]: dart.legacy(core.Iterable$(dart.legacy(K))),
+      values: dart.legacy(core.Iterable$(dart.legacy(V))),
+      [$values]: dart.legacy(core.Iterable$(dart.legacy(V))),
+      maximumSize: dart.legacy(core.int)
+    }));
+    dart.setSetterSignature(LinkedLruHashMap, () => ({
+      __proto__: dart.getSetters(LinkedLruHashMap.__proto__),
+      maximumSize: dart.legacy(core.int)
+    }));
+    dart.setLibraryUri(LinkedLruHashMap, I[0]);
+    dart.setFieldSignature(LinkedLruHashMap, () => ({
+      __proto__: dart.getFields(LinkedLruHashMap.__proto__),
+      [_entries$]: dart.finalFieldType(dart.legacy(core.Map$(dart.legacy(K), dart.legacy(lru_map._LinkedEntry$(dart.legacy(K), dart.legacy(V)))))),
+      [_maximumSize]: dart.fieldType(dart.legacy(core.int)),
+      [_head]: dart.fieldType(dart.legacy(lru_map._LinkedEntry$(dart.legacy(K), dart.legacy(V)))),
+      [_tail]: dart.fieldType(dart.legacy(lru_map._LinkedEntry$(dart.legacy(K), dart.legacy(V))))
+    }));
+    dart.defineExtensionMethods(LinkedLruHashMap, [
+      'addAll',
+      'addEntries',
+      'cast',
+      'clear',
+      'containsKey',
+      'containsValue',
+      'forEach',
+      'map',
+      'putIfAbsent',
+      '_get',
+      '_set',
+      'remove',
+      'removeWhere',
+      'toString',
+      'update',
+      'updateAll'
+    ]);
+    dart.defineExtensionAccessors(LinkedLruHashMap, [
+      'entries',
+      'length',
+      'isEmpty',
+      'isNotEmpty',
+      'keys',
+      'values'
+    ]);
+    return LinkedLruHashMap;
+  });
+  lru_map.LinkedLruHashMap = lru_map.LinkedLruHashMap$();
+  dart.defineLazy(lru_map.LinkedLruHashMap, {
+    /*lru_map.LinkedLruHashMap._DEFAULT_MAXIMUM_SIZE*/get _DEFAULT_MAXIMUM_SIZE() {
+      return 100;
+    }
+  }, true);
+  dart.addTypeTests(lru_map.LinkedLruHashMap, _is_LinkedLruHashMap_default);
+  lru_map._isToStringVisiting = function _isToStringVisiting(o) {
+    return lru_map._toStringVisiting[$any](dart.fn(e => core.identical(o, e), T.dynamicToboolL()));
+  };
+  dart.defineLazy(lru_map, {
+    /*lru_map._toStringVisiting*/get _toStringVisiting() {
+      return [];
+    }
+  }, true);
+  dart.trackLibraries("packages/quiver/src/collection/lru_map.dart", {
+    "package:quiver/src/collection/lru_map.dart": lru_map
+  }, {
+  }, '{"version":3,"sourceRoot":"","sources":["lru_map.dart"],"names":[],"mappings":"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","file":"../../../../../../../../../O:/packages/quiver/src/collection/lru_map.dart.lib.js"}');
+  // Exports:
+  return {
+    src__collection__lru_map: lru_map
+  };
+}));
+
+//# sourceMappingURL=lru_map.dart.lib.js.map

@@ -1,0 +1,318 @@
+define(['dart_sdk', 'packages/english_teacher_app/models/server_models.dart', 'packages/english_teacher_app/models/grade.dart', 'packages/get/get_rx/src/rx_types/rx_types.dart', 'packages/get/get_instance/src/extension_instance.dart', 'packages/english_teacher_app/services/yaml_config_service.dart', 'packages/get/get_core/src/get_main.dart', 'packages/english_teacher_app/services/login_service.dart', 'packages/event_bus/event_bus.dart', 'packages/english_teacher_app/domain/event.dart', 'packages/flutter_easyloading/src/widgets/loading.dart', 'packages/get/get_navigation/src/routes/route_middleware.dart'], (function load__packages__english_teacher_app__modules__me__controller_me_dart(dart_sdk, packages__english_teacher_app__models__server_models$46dart, packages__english_teacher_app__models__grade$46dart, packages__get__get_rx__src__rx_types__rx_types$46dart, packages__get__get_instance__src__extension_instance$46dart, packages__english_teacher_app__services__yaml_config_service$46dart, packages__get__get_core__src__get_main$46dart, packages__english_teacher_app__services__login_service$46dart, packages__event_bus__event_bus$46dart, packages__english_teacher_app__domain__event$46dart, packages__flutter_easyloading__src__widgets__loading$46dart, packages__get__get_navigation__src__routes__route_middleware$46dart) {
+  'use strict';
+  const core = dart_sdk.core;
+  const _interceptors = dart_sdk._interceptors;
+  const async = dart_sdk.async;
+  const dart = dart_sdk.dart;
+  const dartx = dart_sdk.dartx;
+  const server_models = packages__english_teacher_app__models__server_models$46dart.models__server_models;
+  const grade = packages__english_teacher_app__models__grade$46dart.models__grade;
+  const rx_types = packages__get__get_rx__src__rx_types__rx_types$46dart.get_rx__src__rx_types__rx_types;
+  const extension_instance = packages__get__get_instance__src__extension_instance$46dart.get_instance__src__extension_instance;
+  const yaml_config_service = packages__english_teacher_app__services__yaml_config_service$46dart.services__yaml_config_service;
+  const get_main = packages__get__get_core__src__get_main$46dart.get_core__src__get_main;
+  const login_service = packages__english_teacher_app__services__login_service$46dart.services__login_service;
+  const event_bus = packages__event_bus__event_bus$46dart.event_bus;
+  const event = packages__english_teacher_app__domain__event$46dart.domain__event;
+  const easy_loading = packages__flutter_easyloading__src__widgets__loading$46dart.src__easy_loading;
+  const extension_navigation = packages__get__get_navigation__src__routes__route_middleware$46dart.get_navigation__src__extension_navigation;
+  const get_controllers = packages__get__get_navigation__src__routes__route_middleware$46dart.get_state_manager__src__simple__get_controllers;
+  var controller_me = Object.create(dart.library);
+  var $length = dartx.length;
+  var $any = dartx.any;
+  var $firstWhere = dartx.firstWhere;
+  var $indexWhere = dartx.indexWhere;
+  var $map = dartx.map;
+  var $toList = dartx.toList;
+  var $_get = dartx._get;
+  dart._checkModuleNullSafetyMode(false);
+  var T = {
+    PublisherSerModelL: () => (T.PublisherSerModelL = dart.constFn(dart.legacy(server_models.PublisherSerModel)))(),
+    JSArrayOfPublisherSerModelL: () => (T.JSArrayOfPublisherSerModelL = dart.constFn(_interceptors.JSArray$(T.PublisherSerModelL())))(),
+    GradeModelL: () => (T.GradeModelL = dart.constFn(dart.legacy(grade.GradeModel)))(),
+    JSArrayOfGradeModelL: () => (T.JSArrayOfGradeModelL = dart.constFn(_interceptors.JSArray$(T.GradeModelL())))(),
+    DateTimeL: () => (T.DateTimeL = dart.constFn(dart.legacy(core.DateTime)))(),
+    SexSerModelL: () => (T.SexSerModelL = dart.constFn(dart.legacy(server_models.SexSerModel)))(),
+    JSArrayOfSexSerModelL: () => (T.JSArrayOfSexSerModelL = dart.constFn(_interceptors.JSArray$(T.SexSerModelL())))(),
+    boolL: () => (T.boolL = dart.constFn(dart.legacy(core.bool)))(),
+    PublisherSerModelLToboolL: () => (T.PublisherSerModelLToboolL = dart.constFn(dart.fnType(T.boolL(), [T.PublisherSerModelL()])))(),
+    GradeModelLToboolL: () => (T.GradeModelLToboolL = dart.constFn(dart.fnType(T.boolL(), [T.GradeModelL()])))(),
+    ConfingService2L: () => (T.ConfingService2L = dart.constFn(dart.legacy(yaml_config_service.ConfingService2)))(),
+    LoginServiceL: () => (T.LoginServiceL = dart.constFn(dart.legacy(login_service.LoginService)))(),
+    EventBusL: () => (T.EventBusL = dart.constFn(dart.legacy(event_bus.EventBus)))(),
+    UserLoggedInEventL: () => (T.UserLoggedInEventL = dart.constFn(dart.legacy(event.UserLoggedInEvent)))(),
+    UserLoggedInEventLToNull: () => (T.UserLoggedInEventLToNull = dart.constFn(dart.fnType(core.Null, [T.UserLoggedInEventL()])))(),
+    GradeModelLToGradeModelL: () => (T.GradeModelLToGradeModelL = dart.constFn(dart.fnType(T.GradeModelL(), [T.GradeModelL()])))(),
+    SexSerModelLToboolL: () => (T.SexSerModelLToboolL = dart.constFn(dart.fnType(T.boolL(), [T.SexSerModelL()])))()
+  };
+  const CT = Object.create({
+    _: () => (C, CT)
+  });
+  var I = ["package:english_teacher_app/modules/me/controller_me.dart"];
+  var publishers = dart.privateName(controller_me, "MeController.publishers");
+  var grades = dart.privateName(controller_me, "MeController.grades");
+  var configService = dart.privateName(controller_me, "MeController.configService");
+  var name = dart.privateName(controller_me, "MeController.name");
+  var isLoggedIn = dart.privateName(controller_me, "MeController.isLoggedIn");
+  var publisher = dart.privateName(controller_me, "MeController.publisher");
+  var sex = dart.privateName(controller_me, "MeController.sex");
+  var sexString = dart.privateName(controller_me, "MeController.sexString");
+  var gradeString = dart.privateName(controller_me, "MeController.gradeString");
+  var publisherString = dart.privateName(controller_me, "MeController.publisherString");
+  var grade$ = dart.privateName(controller_me, "MeController.grade");
+  var school = dart.privateName(controller_me, "MeController.school");
+  var birthday = dart.privateName(controller_me, "MeController.birthday");
+  var sexMap = dart.privateName(controller_me, "MeController.sexMap");
+  var eventBus = dart.privateName(controller_me, "MeController.eventBus");
+  var loginService = dart.privateName(controller_me, "MeController.loginService");
+  controller_me.MeController = class MeController extends get_controllers.GetxController {
+    get publishers() {
+      return this[publishers];
+    }
+    set publishers(value) {
+      this[publishers] = value;
+    }
+    get grades() {
+      return this[grades];
+    }
+    set grades(value) {
+      this[grades] = value;
+    }
+    get configService() {
+      return this[configService];
+    }
+    set configService(value) {
+      this[configService] = value;
+    }
+    get name() {
+      return this[name];
+    }
+    set name(value) {
+      this[name] = value;
+    }
+    get isLoggedIn() {
+      return this[isLoggedIn];
+    }
+    set isLoggedIn(value) {
+      this[isLoggedIn] = value;
+    }
+    get publisher() {
+      return this[publisher];
+    }
+    set publisher(value) {
+      this[publisher] = value;
+    }
+    get sex() {
+      return this[sex];
+    }
+    set sex(value) {
+      this[sex] = value;
+    }
+    get sexString() {
+      return this[sexString];
+    }
+    set sexString(value) {
+      this[sexString] = value;
+    }
+    get gradeString() {
+      return this[gradeString];
+    }
+    set gradeString(value) {
+      this[gradeString] = value;
+    }
+    get publisherString() {
+      return this[publisherString];
+    }
+    set publisherString(value) {
+      this[publisherString] = value;
+    }
+    get grade() {
+      return this[grade$];
+    }
+    set grade(value) {
+      this[grade$] = value;
+    }
+    get school() {
+      return this[school];
+    }
+    set school(value) {
+      this[school] = value;
+    }
+    get birthday() {
+      return this[birthday];
+    }
+    set birthday(value) {
+      this[birthday] = value;
+    }
+    get sexMap() {
+      return this[sexMap];
+    }
+    set sexMap(value) {
+      this[sexMap] = value;
+    }
+    get eventBus() {
+      return this[eventBus];
+    }
+    set eventBus(value) {
+      this[eventBus] = value;
+    }
+    get loginService() {
+      return this[loginService];
+    }
+    set loginService(value) {
+      this[loginService] = value;
+    }
+    get publisherString2() {
+      if (dart.notNull(this.publishers[$length]) <= 0) return "";
+      if (!dart.test(this.publishers[$any](dart.fn(element => element.id == this.publisher, T.PublisherSerModelLToboolL())))) return "";
+      let v = this.publishers[$firstWhere](dart.fn(e => e.id == this.publisher, T.PublisherSerModelLToboolL())).name;
+      return v;
+    }
+    get publisherIndex() {
+      return this.publishers[$indexWhere](dart.fn(e => e.id == this.publisher, T.PublisherSerModelLToboolL()));
+    }
+    get gradeIndex() {
+      return this.grades[$indexWhere](dart.fn(e => e.id == this.grade, T.GradeModelLToboolL()));
+    }
+    onReady() {
+      super.onReady();
+    }
+    onInit() {
+      this.configService = extension_instance['Inst|find'](T.ConfingService2L(), get_main.Get);
+      this.loginService = extension_instance['Inst|find'](T.LoginServiceL(), get_main.Get);
+      this.eventBus = extension_instance['Inst|find'](T.EventBusL(), get_main.Get);
+      this.eventBus.on(T.UserLoggedInEventL()).listen(dart.fn(event => {
+        if (!dart.test(event.needRegister)) {
+          this.isLoggedIn.value = true;
+        }
+        this.isLoggedIn.value = true;
+      }, T.UserLoggedInEventLToNull()));
+      easy_loading.EasyLoading.show({status: "loading..."});
+      this.name.value = "黄新睿";
+      this.sex.value = 0;
+      this.school.value = "实验学校";
+      this.grade = 1;
+      this.publisher = "";
+      this.publishers = T.JSArrayOfPublisherSerModelL().of([new server_models.PublisherSerModel.new({id: "sfsdf", name: "ok"})]);
+      let gs = T.JSArrayOfGradeModelL().of([new grade.GradeModel.new({id: 1, name: "abc", group: "a "}), new grade.GradeModel.new({id: 3, name: "awerasd", group: "a "})]);
+      this.grades = gs[$map](T.GradeModelL(), dart.fn(p => new grade.GradeModel.new({id: p.id, name: p.name, group: ""}), T.GradeModelLToGradeModelL()))[$toList]();
+      let ss = T.JSArrayOfSexSerModelL().of([new server_models.SexSerModel.new({id: 1, name: "男"}), new server_models.SexSerModel.new({id: 2, name: "女"})]);
+      this.sexMap = ss;
+      easy_loading.EasyLoading.dismiss();
+      super.onInit();
+    }
+    gotoLoginPage() {
+      return async.async(dart.void, function* gotoLoginPage() {
+        yield extension_navigation['GetNavigation|toNamed'](dart.dynamic, get_main.Get, "Login");
+      });
+    }
+    updateName(name) {
+      this.name.value = name;
+    }
+    updateSchool(school) {
+      this.school.value = school;
+    }
+    updatePublisher(publisherIndex) {
+      this.publisher = this.publishers[$_get](publisherIndex).id;
+      if (dart.notNull(this.publishers[$length]) <= 0) {
+        this.publisherString.value = "";
+      } else {
+        if (!dart.test(this.publishers[$any](dart.fn(element => element.id == this.publisher, T.PublisherSerModelLToboolL())))) {
+          this.publisherString.value = "";
+        } else {
+          let v = this.publishers[$firstWhere](dart.fn(e => e.id == this.publisher, T.PublisherSerModelLToboolL())).name;
+          this.publisherString.value = v;
+        }
+      }
+    }
+    updateGrade(gradeId) {
+      this.grade = gradeId;
+      if (!dart.test(this.grades[$any](dart.fn(e => e.id == this.grade, T.GradeModelLToboolL())))) {
+        this.gradeString.value = "";
+      } else {
+        let g = this.grades[$firstWhere](dart.fn(e => e.id == this.grade, T.GradeModelLToboolL()));
+        this.gradeString.value = g.name;
+      }
+    }
+    updateBirthday(dt) {
+      this.birthday.value = dt;
+    }
+    updateSex(sexId) {
+      this.sex.value = sexId;
+      if (!dart.test(this.sexMap[$any](dart.fn(e => e.id == this.sex.value, T.SexSerModelLToboolL())))) {
+        this.sexString.value = "";
+      } else {
+        let s = this.sexMap[$firstWhere](dart.fn(e => e.id == this.sex.value, T.SexSerModelLToboolL()));
+        this.sexString.value = s.name;
+      }
+    }
+  };
+  (controller_me.MeController.new = function() {
+    this[publishers] = T.JSArrayOfPublisherSerModelL().of([]);
+    this[grades] = T.JSArrayOfGradeModelL().of([]);
+    this[configService] = null;
+    this[name] = rx_types['StringExtension|get#obs']("");
+    this[isLoggedIn] = rx_types['BoolExtension|get#obs'](false);
+    this[publisher] = "";
+    this[sex] = rx_types['IntExtension|get#obs'](0);
+    this[sexString] = rx_types['StringExtension|get#obs']("");
+    this[gradeString] = rx_types['StringExtension|get#obs']("");
+    this[publisherString] = rx_types['StringExtension|get#obs']("");
+    this[grade$] = 1;
+    this[school] = rx_types['StringExtension|get#obs']("");
+    this[birthday] = rx_types['RxT|get#obs'](T.DateTimeL(), new core.DateTime.new(2000));
+    this[sexMap] = T.JSArrayOfSexSerModelL().of([]);
+    this[eventBus] = null;
+    this[loginService] = null;
+    controller_me.MeController.__proto__.new.call(this);
+    ;
+  }).prototype = controller_me.MeController.prototype;
+  dart.addTypeTests(controller_me.MeController);
+  dart.addTypeCaches(controller_me.MeController);
+  dart.setMethodSignature(controller_me.MeController, () => ({
+    __proto__: dart.getMethods(controller_me.MeController.__proto__),
+    gotoLoginPage: dart.fnType(dart.legacy(async.Future$(dart.void)), []),
+    updateName: dart.fnType(dart.void, [dart.legacy(core.String)]),
+    updateSchool: dart.fnType(dart.void, [dart.legacy(core.String)]),
+    updatePublisher: dart.fnType(dart.void, [dart.legacy(core.int)]),
+    updateGrade: dart.fnType(dart.void, [dart.legacy(core.int)]),
+    updateBirthday: dart.fnType(dart.void, [dart.legacy(core.DateTime)]),
+    updateSex: dart.fnType(dart.void, [dart.legacy(core.int)])
+  }));
+  dart.setGetterSignature(controller_me.MeController, () => ({
+    __proto__: dart.getGetters(controller_me.MeController.__proto__),
+    publisherString2: dart.legacy(core.String),
+    publisherIndex: dart.legacy(core.int),
+    gradeIndex: dart.legacy(core.int)
+  }));
+  dart.setLibraryUri(controller_me.MeController, I[0]);
+  dart.setFieldSignature(controller_me.MeController, () => ({
+    __proto__: dart.getFields(controller_me.MeController.__proto__),
+    publishers: dart.fieldType(dart.legacy(core.List$(dart.legacy(server_models.PublisherSerModel)))),
+    grades: dart.fieldType(dart.legacy(core.List$(dart.legacy(grade.GradeModel)))),
+    configService: dart.fieldType(dart.dynamic),
+    name: dart.fieldType(dart.legacy(rx_types.RxString)),
+    isLoggedIn: dart.fieldType(dart.legacy(rx_types.RxBool)),
+    publisher: dart.fieldType(dart.legacy(core.String)),
+    sex: dart.fieldType(dart.legacy(rx_types.RxInt)),
+    sexString: dart.fieldType(dart.legacy(rx_types.RxString)),
+    gradeString: dart.fieldType(dart.legacy(rx_types.RxString)),
+    publisherString: dart.fieldType(dart.legacy(rx_types.RxString)),
+    grade: dart.fieldType(dart.legacy(core.int)),
+    school: dart.fieldType(dart.legacy(rx_types.RxString)),
+    birthday: dart.fieldType(dart.legacy(rx_types.Rx$(dart.legacy(core.DateTime)))),
+    sexMap: dart.fieldType(dart.legacy(core.List$(dart.legacy(server_models.SexSerModel)))),
+    eventBus: dart.fieldType(dart.legacy(event_bus.EventBus)),
+    loginService: dart.fieldType(dart.legacy(login_service.LoginService))
+  }));
+  dart.trackLibraries("packages/english_teacher_app/modules/me/controller_me.dart", {
+    "package:english_teacher_app/modules/me/controller_me.dart": controller_me
+  }, {
+  }, '{"version":3,"sourceRoot":"","sources":["controller_me.dart"],"names":[],"mappings":"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","file":"../../../../../packages/english_teacher_app/modules/me/controller_me.dart.lib.js"}');
+  // Exports:
+  return {
+    modules__me__controller_me: controller_me
+  };
+}));
+
+//# sourceMappingURL=controller_me.dart.lib.js.map

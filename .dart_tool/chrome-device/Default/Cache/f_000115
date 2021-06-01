@@ -1,0 +1,584 @@
+define(['dart_sdk', 'packages/camera_platform_interface/src/method_channel/method_channel_camera.dart', 'packages/flutter/src/widgets/widget_span.dart', 'packages/camera_platform_interface/src/types/camera_exception.dart', 'packages/flutter/src/services/system_channels.dart', 'packages/cross_file/src/types/html.dart', 'packages/flutter/src/foundation/_platform_web.dart', 'packages/camera/src/camera_image.dart', 'packages/flutter/src/foundation/change_notifier.dart', 'packages/camera_platform_interface/src/types/camera_description.dart', 'packages/camera_platform_interface/src/types/resolution_preset.dart'], (function load__packages__camera__src__camera_preview_dart(dart_sdk, packages__camera_platform_interface__src__method_channel__method_channel_camera$46dart, packages__flutter__src__widgets__widget_span$46dart, packages__camera_platform_interface__src__types__camera_exception$46dart, packages__flutter__src__services__system_channels$46dart, packages__cross_file__src__types__html$46dart, packages__flutter__src__foundation___platform_web$46dart, packages__camera__src__camera_image$46dart, packages__flutter__src__foundation__change_notifier$46dart, packages__camera_platform_interface__src__types__camera_description$46dart, packages__camera_platform_interface__src__types__resolution_preset$46dart) {
+  'use strict';
+  const core = dart_sdk.core;
+  const ui = dart_sdk.ui;
+  const async = dart_sdk.async;
+  const dart = dart_sdk.dart;
+  const dartx = dart_sdk.dartx;
+  const camera_platform = packages__camera_platform_interface__src__method_channel__method_channel_camera$46dart.src__platform_interface__camera_platform;
+  const camera_event = packages__camera_platform_interface__src__method_channel__method_channel_camera$46dart.src__events__camera_event;
+  const container = packages__flutter__src__widgets__widget_span$46dart.src__widgets__container;
+  const widget_inspector = packages__flutter__src__widgets__widget_span$46dart.src__widgets__widget_inspector;
+  const framework = packages__flutter__src__widgets__widget_span$46dart.src__widgets__framework;
+  const camera_exception = packages__camera_platform_interface__src__types__camera_exception$46dart.src__types__camera_exception;
+  const message_codec = packages__flutter__src__services__system_channels$46dart.src__services__message_codec;
+  const platform_channel = packages__flutter__src__services__system_channels$46dart.src__services__platform_channel;
+  const message_codecs = packages__flutter__src__services__system_channels$46dart.src__services__message_codecs;
+  const html = packages__cross_file__src__types__html$46dart.src__types__html;
+  const platform = packages__flutter__src__foundation___platform_web$46dart.src__foundation__platform;
+  const camera_image = packages__camera__src__camera_image$46dart.src__camera_image;
+  const change_notifier = packages__flutter__src__foundation__change_notifier$46dart.src__foundation__change_notifier;
+  const camera_description = packages__camera_platform_interface__src__types__camera_description$46dart.src__types__camera_description;
+  const resolution_preset = packages__camera_platform_interface__src__types__resolution_preset$46dart.src__types__resolution_preset;
+  var camera_preview = Object.create(dart.library);
+  var camera_controller = Object.create(dart.library);
+  var camera = Object.create(dart.library);
+  var $toString = dartx.toString;
+  dart._checkModuleNullSafetyMode(false);
+  var T = {
+    _LocationL: () => (T._LocationL = dart.constFn(dart.legacy(widget_inspector._Location)))(),
+    SizeL: () => (T.SizeL = dart.constFn(dart.legacy(ui.Size)))(),
+    CameraInitializedEventL: () => (T.CameraInitializedEventL = dart.constFn(dart.legacy(camera_event.CameraInitializedEvent)))(),
+    CameraInitializedEventLToSizeL: () => (T.CameraInitializedEventLToSizeL = dart.constFn(dart.fnType(T.SizeL(), [T.CameraInitializedEventL()])))(),
+    PlatformExceptionL: () => (T.PlatformExceptionL = dart.constFn(dart.legacy(message_codec.PlatformException)))(),
+    XFileL: () => (T.XFileL = dart.constFn(dart.legacy(html.XFile)))(),
+    MapL: () => (T.MapL = dart.constFn(dart.legacy(core.Map)))(),
+    dynamicToNull: () => (T.dynamicToNull = dart.constFn(dart.fnType(core.Null, [dart.dynamic])))(),
+    CameraDescriptionL: () => (T.CameraDescriptionL = dart.constFn(dart.legacy(camera_description.CameraDescription)))(),
+    ListOfCameraDescriptionL: () => (T.ListOfCameraDescriptionL = dart.constFn(core.List$(T.CameraDescriptionL())))(),
+    ListLOfCameraDescriptionL: () => (T.ListLOfCameraDescriptionL = dart.constFn(dart.legacy(T.ListOfCameraDescriptionL())))()
+  };
+  const CT = Object.create({
+    _: () => (C, CT)
+  });
+  dart.defineLazy(CT, {
+    get C1() {
+      return C[1] = dart.constList([], T._LocationL());
+    },
+    get C0() {
+      return C[0] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[1] || CT.C1,
+        [_Location_name]: null,
+        [_Location_column]: 11,
+        [_Location_line]: 21,
+        [_Location_file]: "file:///d:/flutter/.pub-cache/hosted/pub.flutter-io.cn/camera-0.6.0/lib/src/camera_preview.dart"
+      });
+    },
+    get C2() {
+      return C[2] = dart.const({
+        __proto__: camera_controller.CameraValue.prototype,
+        [previewSize$]: null,
+        [errorDescription$]: null,
+        [_isRecordingPaused]: false,
+        [isStreamingImages$]: false,
+        [isRecordingVideo$]: false,
+        [isTakingPicture$]: false,
+        [isInitialized$]: false
+      });
+    },
+    get C5() {
+      return C[5] = dart.const({
+        __proto__: message_codecs.StandardMessageCodec.prototype
+      });
+    },
+    get C4() {
+      return C[4] = dart.const({
+        __proto__: message_codecs.StandardMethodCodec.prototype,
+        [StandardMethodCodec_messageCodec]: C[5] || CT.C5
+      });
+    },
+    get C3() {
+      return C[3] = dart.const({
+        __proto__: platform_channel.EventChannel.prototype,
+        [EventChannel__binaryMessenger]: null,
+        [EventChannel_codec]: C[4] || CT.C4,
+        [EventChannel_name]: "plugins.flutter.io/camera/imageStream"
+      });
+    },
+    get C6() {
+      return C[6] = dart.const({
+        __proto__: platform_channel.MethodChannel.prototype,
+        [MethodChannel__binaryMessenger]: null,
+        [MethodChannel_codec]: C[4] || CT.C4,
+        [MethodChannel_name]: "plugins.flutter.io/camera"
+      });
+    }
+  }, false);
+  var C = Array(7).fill(void 0);
+  var I = [
+    "package:camera/src/camera_preview.dart",
+    "package:camera/src/camera_controller.dart",
+    "file:///d:/flutter/.pub-cache/hosted/pub.flutter-io.cn/camera-0.6.0/lib/src/camera_controller.dart"
+  ];
+  var controller$ = dart.privateName(camera_preview, "CameraPreview.controller");
+  var _Location_parameterLocations = dart.privateName(widget_inspector, "_Location.parameterLocations");
+  var _Location_name = dart.privateName(widget_inspector, "_Location.name");
+  var _Location_column = dart.privateName(widget_inspector, "_Location.column");
+  var _Location_line = dart.privateName(widget_inspector, "_Location.line");
+  var _Location_file = dart.privateName(widget_inspector, "_Location.file");
+  camera_preview.CameraPreview = class CameraPreview extends framework.StatelessWidget {
+    get controller() {
+      return this[controller$];
+    }
+    set controller(value) {
+      super.controller = value;
+    }
+    build(context) {
+      return dart.test(this.controller.value.isInitialized) ? camera_platform.CameraPlatform.instance.buildPreview(this.controller.cameraId) : new container.Container.new({$creationLocationd_0dea112b090073317d4: C[0] || CT.C0});
+    }
+  };
+  (camera_preview.CameraPreview.new = function(controller, opts) {
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    this[controller$] = controller;
+    camera_preview.CameraPreview.__proto__.new.call(this, {$creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+    ;
+  }).prototype = camera_preview.CameraPreview.prototype;
+  dart.addTypeTests(camera_preview.CameraPreview);
+  dart.addTypeCaches(camera_preview.CameraPreview);
+  dart.setMethodSignature(camera_preview.CameraPreview, () => ({
+    __proto__: dart.getMethods(camera_preview.CameraPreview.__proto__),
+    build: dart.fnType(dart.legacy(framework.Widget), [dart.legacy(framework.BuildContext)])
+  }));
+  dart.setLibraryUri(camera_preview.CameraPreview, I[0]);
+  dart.setFieldSignature(camera_preview.CameraPreview, () => ({
+    __proto__: dart.getFields(camera_preview.CameraPreview.__proto__),
+    controller: dart.finalFieldType(dart.legacy(camera_controller.CameraController))
+  }));
+  var isInitialized$ = dart.privateName(camera_controller, "CameraValue.isInitialized");
+  var isTakingPicture$ = dart.privateName(camera_controller, "CameraValue.isTakingPicture");
+  var isRecordingVideo$ = dart.privateName(camera_controller, "CameraValue.isRecordingVideo");
+  var isStreamingImages$ = dart.privateName(camera_controller, "CameraValue.isStreamingImages");
+  var _isRecordingPaused = dart.privateName(camera_controller, "CameraValue._isRecordingPaused");
+  var errorDescription$ = dart.privateName(camera_controller, "CameraValue.errorDescription");
+  var previewSize$ = dart.privateName(camera_controller, "CameraValue.previewSize");
+  var _isRecordingPaused$ = dart.privateName(camera_controller, "_isRecordingPaused");
+  camera_controller.CameraValue = class CameraValue extends core.Object {
+    get isInitialized() {
+      return this[isInitialized$];
+    }
+    set isInitialized(value) {
+      super.isInitialized = value;
+    }
+    get isTakingPicture() {
+      return this[isTakingPicture$];
+    }
+    set isTakingPicture(value) {
+      super.isTakingPicture = value;
+    }
+    get isRecordingVideo() {
+      return this[isRecordingVideo$];
+    }
+    set isRecordingVideo(value) {
+      super.isRecordingVideo = value;
+    }
+    get isStreamingImages() {
+      return this[isStreamingImages$];
+    }
+    set isStreamingImages(value) {
+      super.isStreamingImages = value;
+    }
+    get [_isRecordingPaused$]() {
+      return this[_isRecordingPaused];
+    }
+    set [_isRecordingPaused$](value) {
+      super[_isRecordingPaused$] = value;
+    }
+    get errorDescription() {
+      return this[errorDescription$];
+    }
+    set errorDescription(value) {
+      super.errorDescription = value;
+    }
+    get previewSize() {
+      return this[previewSize$];
+    }
+    set previewSize(value) {
+      super.previewSize = value;
+    }
+    get isRecordingPaused() {
+      return dart.test(this.isRecordingVideo) && dart.test(this[_isRecordingPaused$]);
+    }
+    get aspectRatio() {
+      return dart.notNull(this.previewSize.height) / dart.notNull(this.previewSize.width);
+    }
+    get hasError() {
+      return this.errorDescription != null;
+    }
+    copyWith(opts) {
+      let t0, t0$, t0$0, t0$1, t0$2, t0$3;
+      let isInitialized = opts && 'isInitialized' in opts ? opts.isInitialized : null;
+      let isRecordingVideo = opts && 'isRecordingVideo' in opts ? opts.isRecordingVideo : null;
+      let isTakingPicture = opts && 'isTakingPicture' in opts ? opts.isTakingPicture : null;
+      let isStreamingImages = opts && 'isStreamingImages' in opts ? opts.isStreamingImages : null;
+      let errorDescription = opts && 'errorDescription' in opts ? opts.errorDescription : null;
+      let previewSize = opts && 'previewSize' in opts ? opts.previewSize : null;
+      let isRecordingPaused = opts && 'isRecordingPaused' in opts ? opts.isRecordingPaused : null;
+      return new camera_controller.CameraValue.new({isInitialized: (t0 = isInitialized, t0 == null ? this.isInitialized : t0), errorDescription: errorDescription, previewSize: (t0$ = previewSize, t0$ == null ? this.previewSize : t0$), isRecordingVideo: (t0$0 = isRecordingVideo, t0$0 == null ? this.isRecordingVideo : t0$0), isTakingPicture: (t0$1 = isTakingPicture, t0$1 == null ? this.isTakingPicture : t0$1), isStreamingImages: (t0$2 = isStreamingImages, t0$2 == null ? this.isStreamingImages : t0$2), isRecordingPaused: (t0$3 = isRecordingPaused, t0$3 == null ? this[_isRecordingPaused$] : t0$3)});
+    }
+    toString() {
+      return dart.str(this.runtimeType) + "(" + "isRecordingVideo: " + dart.str(this.isRecordingVideo) + ", " + "isInitialized: " + dart.str(this.isInitialized) + ", " + "errorDescription: " + dart.str(this.errorDescription) + ", " + "previewSize: " + dart.str(this.previewSize) + ", " + "isStreamingImages: " + dart.str(this.isStreamingImages) + ")";
+    }
+  };
+  (camera_controller.CameraValue.new = function(opts) {
+    let isInitialized = opts && 'isInitialized' in opts ? opts.isInitialized : null;
+    let errorDescription = opts && 'errorDescription' in opts ? opts.errorDescription : null;
+    let previewSize = opts && 'previewSize' in opts ? opts.previewSize : null;
+    let isRecordingVideo = opts && 'isRecordingVideo' in opts ? opts.isRecordingVideo : null;
+    let isTakingPicture = opts && 'isTakingPicture' in opts ? opts.isTakingPicture : null;
+    let isStreamingImages = opts && 'isStreamingImages' in opts ? opts.isStreamingImages : null;
+    let isRecordingPaused = opts && 'isRecordingPaused' in opts ? opts.isRecordingPaused : null;
+    this[isInitialized$] = isInitialized;
+    this[errorDescription$] = errorDescription;
+    this[previewSize$] = previewSize;
+    this[isRecordingVideo$] = isRecordingVideo;
+    this[isTakingPicture$] = isTakingPicture;
+    this[isStreamingImages$] = isStreamingImages;
+    this[_isRecordingPaused] = isRecordingPaused;
+    ;
+  }).prototype = camera_controller.CameraValue.prototype;
+  (camera_controller.CameraValue.uninitialized = function() {
+    camera_controller.CameraValue.new.call(this, {isInitialized: false, isRecordingVideo: false, isTakingPicture: false, isStreamingImages: false, isRecordingPaused: false});
+  }).prototype = camera_controller.CameraValue.prototype;
+  dart.addTypeTests(camera_controller.CameraValue);
+  dart.addTypeCaches(camera_controller.CameraValue);
+  dart.setMethodSignature(camera_controller.CameraValue, () => ({
+    __proto__: dart.getMethods(camera_controller.CameraValue.__proto__),
+    copyWith: dart.fnType(dart.legacy(camera_controller.CameraValue), [], {errorDescription: dart.legacy(core.String), isInitialized: dart.legacy(core.bool), isRecordingPaused: dart.legacy(core.bool), isRecordingVideo: dart.legacy(core.bool), isStreamingImages: dart.legacy(core.bool), isTakingPicture: dart.legacy(core.bool), previewSize: dart.legacy(ui.Size)}, {}),
+    toString: dart.fnType(dart.legacy(core.String), []),
+    [$toString]: dart.fnType(dart.legacy(core.String), [])
+  }));
+  dart.setGetterSignature(camera_controller.CameraValue, () => ({
+    __proto__: dart.getGetters(camera_controller.CameraValue.__proto__),
+    isRecordingPaused: dart.legacy(core.bool),
+    aspectRatio: dart.legacy(core.double),
+    hasError: dart.legacy(core.bool)
+  }));
+  dart.setLibraryUri(camera_controller.CameraValue, I[1]);
+  dart.setFieldSignature(camera_controller.CameraValue, () => ({
+    __proto__: dart.getFields(camera_controller.CameraValue.__proto__),
+    isInitialized: dart.finalFieldType(dart.legacy(core.bool)),
+    isTakingPicture: dart.finalFieldType(dart.legacy(core.bool)),
+    isRecordingVideo: dart.finalFieldType(dart.legacy(core.bool)),
+    isStreamingImages: dart.finalFieldType(dart.legacy(core.bool)),
+    [_isRecordingPaused$]: dart.finalFieldType(dart.legacy(core.bool)),
+    errorDescription: dart.finalFieldType(dart.legacy(core.String)),
+    previewSize: dart.finalFieldType(dart.legacy(ui.Size))
+  }));
+  dart.defineExtensionMethods(camera_controller.CameraValue, ['toString']);
+  var description$ = dart.privateName(camera_controller, "CameraController.description");
+  var resolutionPreset$ = dart.privateName(camera_controller, "CameraController.resolutionPreset");
+  var enableAudio$ = dart.privateName(camera_controller, "CameraController.enableAudio");
+  var _cameraId = dart.privateName(camera_controller, "_cameraId");
+  var _isDisposed = dart.privateName(camera_controller, "_isDisposed");
+  var _imageStreamSubscription = dart.privateName(camera_controller, "_imageStreamSubscription");
+  var _initCalled = dart.privateName(camera_controller, "_initCalled");
+  var EventChannel__binaryMessenger = dart.privateName(platform_channel, "EventChannel._binaryMessenger");
+  var StandardMethodCodec_messageCodec = dart.privateName(message_codecs, "StandardMethodCodec.messageCodec");
+  var EventChannel_codec = dart.privateName(platform_channel, "EventChannel.codec");
+  var EventChannel_name = dart.privateName(platform_channel, "EventChannel.name");
+  const dispose = Symbol("dispose");
+  camera_controller.CameraController = class CameraController extends change_notifier.ValueNotifier$(dart.legacy(camera_controller.CameraValue)) {
+    get description() {
+      return this[description$];
+    }
+    set description(value) {
+      super.description = value;
+    }
+    get resolutionPreset() {
+      return this[resolutionPreset$];
+    }
+    set resolutionPreset(value) {
+      super.resolutionPreset = value;
+    }
+    get enableAudio() {
+      return this[enableAudio$];
+    }
+    set enableAudio(value) {
+      super.enableAudio = value;
+    }
+    debugCheckIsDisposed() {
+      if (!dart.test(this[_isDisposed])) dart.assertFailed(null, I[2], 162, 12, "_isDisposed");
+    }
+    get cameraId() {
+      return this[_cameraId];
+    }
+    initialize() {
+      return async.async(dart.void, (function* initialize() {
+        if (dart.test(this[_isDisposed])) {
+          dart.throw(new camera_exception.CameraException.new("Disposed CameraController", "initialize was called on a disposed CameraController"));
+        }
+        try {
+          this[_cameraId] = (yield camera_platform.CameraPlatform.instance.createCamera(this.description, this.resolutionPreset, {enableAudio: this.enableAudio}));
+          let previewSize = camera_platform.CameraPlatform.instance.onCameraInitialized(this[_cameraId]).map(T.SizeL(), dart.fn(event => new ui.Size.new(event.previewWidth, event.previewHeight), T.CameraInitializedEventLToSizeL())).first;
+          yield camera_platform.CameraPlatform.instance.initializeCamera(this[_cameraId]);
+          this.value = this.value.copyWith({isInitialized: true, previewSize: (yield previewSize)});
+        } catch (e$) {
+          let e = dart.getThrown(e$);
+          if (T.PlatformExceptionL().is(e)) {
+            dart.throw(new camera_exception.CameraException.new(e.code, e.message));
+          } else
+            throw e$;
+        }
+        this[_initCalled] = true;
+      }).bind(this));
+    }
+    prepareForVideoRecording() {
+      return async.async(dart.void, function* prepareForVideoRecording() {
+        yield camera_platform.CameraPlatform.instance.prepareForVideoRecording();
+      });
+    }
+    takePicture() {
+      return async.async(T.XFileL(), (function* takePicture() {
+        if (!dart.test(this.value.isInitialized) || dart.test(this[_isDisposed])) {
+          dart.throw(new camera_exception.CameraException.new("Uninitialized CameraController.", "takePicture was called on uninitialized CameraController"));
+        }
+        if (dart.test(this.value.isTakingPicture)) {
+          dart.throw(new camera_exception.CameraException.new("Previous capture has not returned yet.", "takePicture was called before the previous capture returned."));
+        }
+        try {
+          this.value = this.value.copyWith({isTakingPicture: true});
+          let file = (yield camera_platform.CameraPlatform.instance.takePicture(this[_cameraId]));
+          this.value = this.value.copyWith({isTakingPicture: false});
+          return file;
+        } catch (e$) {
+          let e = dart.getThrown(e$);
+          if (T.PlatformExceptionL().is(e)) {
+            this.value = this.value.copyWith({isTakingPicture: false});
+            dart.throw(new camera_exception.CameraException.new(e.code, e.message));
+          } else
+            throw e$;
+        }
+      }).bind(this));
+    }
+    startImageStream(onAvailable) {
+      return async.async(dart.void, (function* startImageStream() {
+        if (!(platform.defaultTargetPlatform == platform.TargetPlatform.android || platform.defaultTargetPlatform == platform.TargetPlatform.iOS)) dart.assertFailed(null, I[2], 272, 12, "defaultTargetPlatform == TargetPlatform.android ||\n        defaultTargetPlatform == TargetPlatform.iOS");
+        if (!dart.test(this.value.isInitialized) || dart.test(this[_isDisposed])) {
+          dart.throw(new camera_exception.CameraException.new("Uninitialized CameraController", "startImageStream was called on uninitialized CameraController."));
+        }
+        if (dart.test(this.value.isRecordingVideo)) {
+          dart.throw(new camera_exception.CameraException.new("A video recording is already started.", "startImageStream was called while a video is being recorded."));
+        }
+        if (dart.test(this.value.isStreamingImages)) {
+          dart.throw(new camera_exception.CameraException.new("A camera has started streaming images.", "startImageStream was called while a camera was streaming images."));
+        }
+        try {
+          yield camera_controller._channel.invokeMethod(dart.void, "startImageStream");
+          this.value = this.value.copyWith({isStreamingImages: true});
+        } catch (e$) {
+          let e = dart.getThrown(e$);
+          if (T.PlatformExceptionL().is(e)) {
+            dart.throw(new camera_exception.CameraException.new(e.code, e.message));
+          } else
+            throw e$;
+        }
+        let cameraEventChannel = C[3] || CT.C3;
+        this[_imageStreamSubscription] = cameraEventChannel.receiveBroadcastStream().listen(dart.fn(imageData => {
+          onAvailable(new camera_image.CameraImage.fromPlatformData(T.MapL().as(imageData)));
+        }, T.dynamicToNull()));
+      }).bind(this));
+    }
+    stopImageStream() {
+      return async.async(dart.void, (function* stopImageStream() {
+        if (!(platform.defaultTargetPlatform == platform.TargetPlatform.android || platform.defaultTargetPlatform == platform.TargetPlatform.iOS)) dart.assertFailed(null, I[2], 318, 12, "defaultTargetPlatform == TargetPlatform.android ||\n        defaultTargetPlatform == TargetPlatform.iOS");
+        if (!dart.test(this.value.isInitialized) || dart.test(this[_isDisposed])) {
+          dart.throw(new camera_exception.CameraException.new("Uninitialized CameraController", "stopImageStream was called on uninitialized CameraController."));
+        }
+        if (dart.test(this.value.isRecordingVideo)) {
+          dart.throw(new camera_exception.CameraException.new("A video recording is already started.", "stopImageStream was called while a video is being recorded."));
+        }
+        if (!dart.test(this.value.isStreamingImages)) {
+          dart.throw(new camera_exception.CameraException.new("No camera is streaming images", "stopImageStream was called when no camera is streaming images."));
+        }
+        try {
+          this.value = this.value.copyWith({isStreamingImages: false});
+          yield camera_controller._channel.invokeMethod(dart.void, "stopImageStream");
+        } catch (e$) {
+          let e = dart.getThrown(e$);
+          if (T.PlatformExceptionL().is(e)) {
+            dart.throw(new camera_exception.CameraException.new(e.code, e.message));
+          } else
+            throw e$;
+        }
+        yield this[_imageStreamSubscription].cancel();
+        this[_imageStreamSubscription] = null;
+      }).bind(this));
+    }
+    startVideoRecording() {
+      return async.async(dart.void, (function* startVideoRecording() {
+        if (!dart.test(this.value.isInitialized) || dart.test(this[_isDisposed])) {
+          dart.throw(new camera_exception.CameraException.new("Uninitialized CameraController", "startVideoRecording was called on uninitialized CameraController"));
+        }
+        if (dart.test(this.value.isRecordingVideo)) {
+          dart.throw(new camera_exception.CameraException.new("A video recording is already started.", "startVideoRecording was called when a recording is already started."));
+        }
+        if (dart.test(this.value.isStreamingImages)) {
+          dart.throw(new camera_exception.CameraException.new("A camera has started streaming images.", "startVideoRecording was called while a camera was streaming images."));
+        }
+        try {
+          yield camera_platform.CameraPlatform.instance.startVideoRecording(this[_cameraId]);
+          this.value = this.value.copyWith({isRecordingVideo: true, isRecordingPaused: false});
+        } catch (e$) {
+          let e = dart.getThrown(e$);
+          if (T.PlatformExceptionL().is(e)) {
+            dart.throw(new camera_exception.CameraException.new(e.code, e.message));
+          } else
+            throw e$;
+        }
+      }).bind(this));
+    }
+    stopVideoRecording() {
+      return async.async(T.XFileL(), (function* stopVideoRecording() {
+        if (!dart.test(this.value.isInitialized) || dart.test(this[_isDisposed])) {
+          dart.throw(new camera_exception.CameraException.new("Uninitialized CameraController", "stopVideoRecording was called on uninitialized CameraController"));
+        }
+        if (!dart.test(this.value.isRecordingVideo)) {
+          dart.throw(new camera_exception.CameraException.new("No video is recording", "stopVideoRecording was called when no video is recording."));
+        }
+        try {
+          let file = (yield camera_platform.CameraPlatform.instance.stopVideoRecording(this[_cameraId]));
+          this.value = this.value.copyWith({isRecordingVideo: false});
+          return file;
+        } catch (e$) {
+          let e = dart.getThrown(e$);
+          if (T.PlatformExceptionL().is(e)) {
+            dart.throw(new camera_exception.CameraException.new(e.code, e.message));
+          } else
+            throw e$;
+        }
+      }).bind(this));
+    }
+    pauseVideoRecording() {
+      return async.async(dart.void, (function* pauseVideoRecording() {
+        if (!dart.test(this.value.isInitialized) || dart.test(this[_isDisposed])) {
+          dart.throw(new camera_exception.CameraException.new("Uninitialized CameraController", "pauseVideoRecording was called on uninitialized CameraController"));
+        }
+        if (!dart.test(this.value.isRecordingVideo)) {
+          dart.throw(new camera_exception.CameraException.new("No video is recording", "pauseVideoRecording was called when no video is recording."));
+        }
+        try {
+          yield camera_platform.CameraPlatform.instance.pauseVideoRecording(this[_cameraId]);
+          this.value = this.value.copyWith({isRecordingPaused: true});
+        } catch (e$) {
+          let e = dart.getThrown(e$);
+          if (T.PlatformExceptionL().is(e)) {
+            dart.throw(new camera_exception.CameraException.new(e.code, e.message));
+          } else
+            throw e$;
+        }
+      }).bind(this));
+    }
+    resumeVideoRecording() {
+      return async.async(dart.void, (function* resumeVideoRecording() {
+        if (!dart.test(this.value.isInitialized) || dart.test(this[_isDisposed])) {
+          dart.throw(new camera_exception.CameraException.new("Uninitialized CameraController", "resumeVideoRecording was called on uninitialized CameraController"));
+        }
+        if (!dart.test(this.value.isRecordingVideo)) {
+          dart.throw(new camera_exception.CameraException.new("No video is recording", "resumeVideoRecording was called when no video is recording."));
+        }
+        try {
+          yield camera_platform.CameraPlatform.instance.resumeVideoRecording(this[_cameraId]);
+          this.value = this.value.copyWith({isRecordingPaused: false});
+        } catch (e$) {
+          let e = dart.getThrown(e$);
+          if (T.PlatformExceptionL().is(e)) {
+            dart.throw(new camera_exception.CameraException.new(e.code, e.message));
+          } else
+            throw e$;
+        }
+      }).bind(this));
+    }
+    buildPreview() {
+      if (!dart.test(this.value.isInitialized) || dart.test(this[_isDisposed])) {
+        dart.throw(new camera_exception.CameraException.new("Uninitialized CameraController", "buildView() was called on uninitialized CameraController."));
+      }
+      try {
+        return camera_platform.CameraPlatform.instance.buildPreview(this[_cameraId]);
+      } catch (e$) {
+        let e = dart.getThrown(e$);
+        if (T.PlatformExceptionL().is(e)) {
+          dart.throw(new camera_exception.CameraException.new(e.code, e.message));
+        } else
+          throw e$;
+      }
+    }
+    dispose() {
+      return async.async(dart.void, (function* dispose$() {
+        if (dart.test(this[_isDisposed])) {
+          return;
+        }
+        this[_isDisposed] = true;
+        this[dispose]();
+        if (this[_initCalled] != null) {
+          yield this[_initCalled];
+          yield camera_platform.CameraPlatform.instance.dispose(this[_cameraId]);
+        }
+      }).bind(this));
+    }
+    [dispose]() {
+      return super.dispose();
+    }
+  };
+  (camera_controller.CameraController.new = function(description, resolutionPreset, opts) {
+    let enableAudio = opts && 'enableAudio' in opts ? opts.enableAudio : true;
+    this[_cameraId] = null;
+    this[_isDisposed] = false;
+    this[_imageStreamSubscription] = null;
+    this[_initCalled] = null;
+    this[description$] = description;
+    this[resolutionPreset$] = resolutionPreset;
+    this[enableAudio$] = enableAudio;
+    camera_controller.CameraController.__proto__.new.call(this, C[2] || CT.C2);
+    ;
+  }).prototype = camera_controller.CameraController.prototype;
+  dart.addTypeTests(camera_controller.CameraController);
+  dart.addTypeCaches(camera_controller.CameraController);
+  dart.setMethodSignature(camera_controller.CameraController, () => ({
+    __proto__: dart.getMethods(camera_controller.CameraController.__proto__),
+    debugCheckIsDisposed: dart.fnType(dart.void, []),
+    initialize: dart.fnType(dart.legacy(async.Future$(dart.void)), []),
+    prepareForVideoRecording: dart.fnType(dart.legacy(async.Future$(dart.void)), []),
+    takePicture: dart.fnType(dart.legacy(async.Future$(dart.legacy(html.XFile))), []),
+    startImageStream: dart.fnType(dart.legacy(async.Future$(dart.void)), [dart.legacy(dart.fnType(dart.dynamic, [dart.legacy(camera_image.CameraImage)]))]),
+    stopImageStream: dart.fnType(dart.legacy(async.Future$(dart.void)), []),
+    startVideoRecording: dart.fnType(dart.legacy(async.Future$(dart.void)), []),
+    stopVideoRecording: dart.fnType(dart.legacy(async.Future$(dart.legacy(html.XFile))), []),
+    pauseVideoRecording: dart.fnType(dart.legacy(async.Future$(dart.void)), []),
+    resumeVideoRecording: dart.fnType(dart.legacy(async.Future$(dart.void)), []),
+    buildPreview: dart.fnType(dart.legacy(framework.Widget), []),
+    dispose: dart.fnType(dart.legacy(async.Future$(dart.void)), [])
+  }));
+  dart.setGetterSignature(camera_controller.CameraController, () => ({
+    __proto__: dart.getGetters(camera_controller.CameraController.__proto__),
+    cameraId: dart.legacy(core.int)
+  }));
+  dart.setLibraryUri(camera_controller.CameraController, I[1]);
+  dart.setFieldSignature(camera_controller.CameraController, () => ({
+    __proto__: dart.getFields(camera_controller.CameraController.__proto__),
+    description: dart.finalFieldType(dart.legacy(camera_description.CameraDescription)),
+    resolutionPreset: dart.finalFieldType(dart.legacy(resolution_preset.ResolutionPreset)),
+    enableAudio: dart.finalFieldType(dart.legacy(core.bool)),
+    [_cameraId]: dart.fieldType(dart.legacy(core.int)),
+    [_isDisposed]: dart.fieldType(dart.legacy(core.bool)),
+    [_imageStreamSubscription]: dart.fieldType(dart.legacy(async.StreamSubscription)),
+    [_initCalled]: dart.fieldType(dart.legacy(async.FutureOr$(dart.legacy(core.bool))))
+  }));
+  camera_controller.availableCameras = function availableCameras() {
+    return async.async(T.ListLOfCameraDescriptionL(), function* availableCameras() {
+      return camera_platform.CameraPlatform.instance.availableCameras();
+    });
+  };
+  var MethodChannel__binaryMessenger = dart.privateName(platform_channel, "MethodChannel._binaryMessenger");
+  var MethodChannel_codec = dart.privateName(platform_channel, "MethodChannel.codec");
+  var MethodChannel_name = dart.privateName(platform_channel, "MethodChannel.name");
+  dart.defineLazy(camera_controller, {
+    /*camera_controller._channel*/get _channel() {
+      return C[6] || CT.C6;
+    }
+  }, true);
+  dart.trackLibraries("packages/camera/src/camera_preview.dart", {
+    "package:camera/src/camera_preview.dart": camera_preview,
+    "package:camera/src/camera_controller.dart": camera_controller,
+    "package:camera/camera.dart": camera
+  }, {
+  }, '{"version":3,"sourceRoot":"","sources":["camera_preview.dart","camera_controller.dart"],"names":[],"mappings":"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","file":"../../../../../../../../O:/packages/camera/src/camera_preview.dart.lib.js"}');
+  // Exports:
+  return {
+    src__camera_preview: camera_preview,
+    src__camera_controller: camera_controller,
+    camera: camera
+  };
+}));
+
+//# sourceMappingURL=camera_preview.dart.lib.js.map

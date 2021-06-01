@@ -1,0 +1,288 @@
+define(['dart_sdk', 'packages/get/get_navigation/src/routes/route_middleware.dart', 'packages/flutter/src/material/icon_button.dart', 'packages/flutter/src/material/colors.dart', 'packages/english_teacher_app/modules/home/page_home.dart', 'packages/flutter/src/widgets/widget_span.dart', 'packages/english_teacher_app/modules/login/page_login.dart', 'packages/english_teacher_app/modules/register/register_page.dart', 'packages/fluwx/src/share/share_models.dart', 'packages/english_teacher_app/common/dio_http_helper.dart', 'packages/get/get_instance/src/extension_instance.dart', 'packages/english_teacher_app/modules/home/controller_home.dart', 'packages/get/get_core/src/get_main.dart', 'packages/english_teacher_app/modules/me/controller_me.dart', 'packages/english_teacher_app/modules/login/controller_login.dart', 'packages/english_teacher_app/modules/practice/controller_pratice_home.dart', 'packages/english_teacher_app/modules/discovery/ctr_discovery.dart', 'packages/english_teacher_app/modules/register/register_controller.dart', 'packages/event_bus/event_bus.dart', 'packages/english_teacher_app/services/yaml_config_service.dart', 'packages/english_teacher_app/services/event_bus_service.dart', 'packages/english_teacher_app/services/login_service.dart', 'packages/english_teacher_app/services/article_service.dart', 'packages/english_teacher_app/services/domain_service.dart', 'packages/english_teacher_app/services/baidu_ai_service.dart', 'packages/english_teacher_app/services/practice_service.dart', 'packages/english_teacher_app/services/publisher_service.dart', 'packages/english_teacher_app/services/wechat_service.dart', 'packages/english_teacher_app/services/camera_service.dart'], (function load__packages__english_teacher_app__main_dart(dart_sdk, packages__get__get_navigation__src__routes__route_middleware$46dart, packages__flutter__src__material__icon_button$46dart, packages__flutter__src__material__colors$46dart, packages__english_teacher_app__modules__home__page_home$46dart, packages__flutter__src__widgets__widget_span$46dart, packages__english_teacher_app__modules__login__page_login$46dart, packages__english_teacher_app__modules__register__register_page$46dart, packages__fluwx__src__share__share_models$46dart, packages__english_teacher_app__common__dio_http_helper$46dart, packages__get__get_instance__src__extension_instance$46dart, packages__english_teacher_app__modules__home__controller_home$46dart, packages__get__get_core__src__get_main$46dart, packages__english_teacher_app__modules__me__controller_me$46dart, packages__english_teacher_app__modules__login__controller_login$46dart, packages__english_teacher_app__modules__practice__controller_pratice_home$46dart, packages__english_teacher_app__modules__discovery__ctr_discovery$46dart, packages__english_teacher_app__modules__register__register_controller$46dart, packages__event_bus__event_bus$46dart, packages__english_teacher_app__services__yaml_config_service$46dart, packages__english_teacher_app__services__event_bus_service$46dart, packages__english_teacher_app__services__login_service$46dart, packages__english_teacher_app__services__article_service$46dart, packages__english_teacher_app__services__domain_service$46dart, packages__english_teacher_app__services__baidu_ai_service$46dart, packages__english_teacher_app__services__practice_service$46dart, packages__english_teacher_app__services__publisher_service$46dart, packages__english_teacher_app__services__wechat_service$46dart, packages__english_teacher_app__services__camera_service$46dart) {
+  'use strict';
+  const core = dart_sdk.core;
+  const _interceptors = dart_sdk._interceptors;
+  const async = dart_sdk.async;
+  const dart = dart_sdk.dart;
+  const dartx = dart_sdk.dartx;
+  const get_material_app = packages__get__get_navigation__src__routes__route_middleware$46dart.get_navigation__src__root__get_material_app;
+  const get_route = packages__get__get_navigation__src__routes__route_middleware$46dart.get_navigation__src__routes__get_route;
+  const theme_data = packages__flutter__src__material__icon_button$46dart.src__material__theme_data;
+  const colors = packages__flutter__src__material__colors$46dart.src__material__colors;
+  const page_home = packages__english_teacher_app__modules__home__page_home$46dart.modules__home__page_home;
+  const widget_inspector = packages__flutter__src__widgets__widget_span$46dart.src__widgets__widget_inspector;
+  const framework = packages__flutter__src__widgets__widget_span$46dart.src__widgets__framework;
+  const binding = packages__flutter__src__widgets__widget_span$46dart.src__widgets__binding;
+  const page_login = packages__english_teacher_app__modules__login__page_login$46dart.modules__login__page_login;
+  const register_page = packages__english_teacher_app__modules__register__register_page$46dart.modules__register__register_page;
+  const fluwx_iml = packages__fluwx__src__share__share_models$46dart.src__fluwx_iml;
+  const dio_http_helper = packages__english_teacher_app__common__dio_http_helper$46dart.common__dio_http_helper;
+  const extension_instance = packages__get__get_instance__src__extension_instance$46dart.get_instance__src__extension_instance;
+  const controller_home = packages__english_teacher_app__modules__home__controller_home$46dart.modules__home__controller_home;
+  const get_main = packages__get__get_core__src__get_main$46dart.get_core__src__get_main;
+  const controller_me = packages__english_teacher_app__modules__me__controller_me$46dart.modules__me__controller_me;
+  const controller_login = packages__english_teacher_app__modules__login__controller_login$46dart.modules__login__controller_login;
+  const controller_pratice_home = packages__english_teacher_app__modules__practice__controller_pratice_home$46dart.modules__practice__controller_pratice_home;
+  const ctr_discovery = packages__english_teacher_app__modules__discovery__ctr_discovery$46dart.modules__discovery__ctr_discovery;
+  const register_controller = packages__english_teacher_app__modules__register__register_controller$46dart.modules__register__register_controller;
+  const event_bus = packages__event_bus__event_bus$46dart.event_bus;
+  const yaml_config_service = packages__english_teacher_app__services__yaml_config_service$46dart.services__yaml_config_service;
+  const event_bus_service = packages__english_teacher_app__services__event_bus_service$46dart.services__event_bus_service;
+  const login_service = packages__english_teacher_app__services__login_service$46dart.services__login_service;
+  const article_service = packages__english_teacher_app__services__article_service$46dart.services__article_service;
+  const domain_service = packages__english_teacher_app__services__domain_service$46dart.services__domain_service;
+  const baidu_ai_service = packages__english_teacher_app__services__baidu_ai_service$46dart.services__baidu_ai_service;
+  const practice_service = packages__english_teacher_app__services__practice_service$46dart.services__practice_service;
+  const publisher_service = packages__english_teacher_app__services__publisher_service$46dart.services__publisher_service;
+  const wechat_service = packages__english_teacher_app__services__wechat_service$46dart.services__wechat_service;
+  const camera_service = packages__english_teacher_app__services__camera_service$46dart.services__camera_service;
+  var main = Object.create(dart.library);
+  dart._checkModuleNullSafetyMode(false);
+  var T = {
+    _LocationL: () => (T._LocationL = dart.constFn(dart.legacy(widget_inspector._Location)))(),
+    PageHomeL: () => (T.PageHomeL = dart.constFn(dart.legacy(page_home.PageHome)))(),
+    VoidToPageHomeL: () => (T.VoidToPageHomeL = dart.constFn(dart.fnType(T.PageHomeL(), [])))(),
+    PageLoginL: () => (T.PageLoginL = dart.constFn(dart.legacy(page_login.PageLogin)))(),
+    VoidToPageLoginL: () => (T.VoidToPageLoginL = dart.constFn(dart.fnType(T.PageLoginL(), [])))(),
+    RegisterPageL: () => (T.RegisterPageL = dart.constFn(dart.legacy(register_page.RegisterPage)))(),
+    VoidToRegisterPageL: () => (T.VoidToRegisterPageL = dart.constFn(dart.fnType(T.RegisterPageL(), [])))(),
+    GetPageL: () => (T.GetPageL = dart.constFn(dart.legacy(get_route.GetPage)))(),
+    JSArrayOfGetPageL: () => (T.JSArrayOfGetPageL = dart.constFn(_interceptors.JSArray$(T.GetPageL())))(),
+    HomeControllerL: () => (T.HomeControllerL = dart.constFn(dart.legacy(controller_home.HomeController)))(),
+    VoidToHomeControllerL: () => (T.VoidToHomeControllerL = dart.constFn(dart.fnType(T.HomeControllerL(), [])))(),
+    MeControllerL: () => (T.MeControllerL = dart.constFn(dart.legacy(controller_me.MeController)))(),
+    VoidToMeControllerL: () => (T.VoidToMeControllerL = dart.constFn(dart.fnType(T.MeControllerL(), [])))(),
+    LoginControllerL: () => (T.LoginControllerL = dart.constFn(dart.legacy(controller_login.LoginController)))(),
+    VoidToLoginControllerL: () => (T.VoidToLoginControllerL = dart.constFn(dart.fnType(T.LoginControllerL(), [])))(),
+    ControllerPraticeHomeL: () => (T.ControllerPraticeHomeL = dart.constFn(dart.legacy(controller_pratice_home.ControllerPraticeHome)))(),
+    VoidToControllerPraticeHomeL: () => (T.VoidToControllerPraticeHomeL = dart.constFn(dart.fnType(T.ControllerPraticeHomeL(), [])))(),
+    DiscoveryControllerL: () => (T.DiscoveryControllerL = dart.constFn(dart.legacy(ctr_discovery.DiscoveryController)))(),
+    VoidToDiscoveryControllerL: () => (T.VoidToDiscoveryControllerL = dart.constFn(dart.fnType(T.DiscoveryControllerL(), [])))(),
+    RegisterControllerL: () => (T.RegisterControllerL = dart.constFn(dart.legacy(register_controller.RegisterController)))(),
+    VoidToRegisterControllerL: () => (T.VoidToRegisterControllerL = dart.constFn(dart.fnType(T.RegisterControllerL(), [])))(),
+    EventBusL: () => (T.EventBusL = dart.constFn(dart.legacy(event_bus.EventBus)))(),
+    ConfingService2L: () => (T.ConfingService2L = dart.constFn(dart.legacy(yaml_config_service.ConfingService2)))(),
+    FutureOfConfingService2L: () => (T.FutureOfConfingService2L = dart.constFn(async.Future$(T.ConfingService2L())))(),
+    FutureLOfConfingService2L: () => (T.FutureLOfConfingService2L = dart.constFn(dart.legacy(T.FutureOfConfingService2L())))(),
+    VoidToFutureLOfConfingService2L: () => (T.VoidToFutureLOfConfingService2L = dart.constFn(dart.fnType(T.FutureLOfConfingService2L(), [])))(),
+    EventBusServiceL: () => (T.EventBusServiceL = dart.constFn(dart.legacy(event_bus_service.EventBusService)))(),
+    FutureOfEventBusServiceL: () => (T.FutureOfEventBusServiceL = dart.constFn(async.Future$(T.EventBusServiceL())))(),
+    FutureLOfEventBusServiceL: () => (T.FutureLOfEventBusServiceL = dart.constFn(dart.legacy(T.FutureOfEventBusServiceL())))(),
+    VoidToFutureLOfEventBusServiceL: () => (T.VoidToFutureLOfEventBusServiceL = dart.constFn(dart.fnType(T.FutureLOfEventBusServiceL(), [])))(),
+    LoginServiceL: () => (T.LoginServiceL = dart.constFn(dart.legacy(login_service.LoginService)))(),
+    FutureOfLoginServiceL: () => (T.FutureOfLoginServiceL = dart.constFn(async.Future$(T.LoginServiceL())))(),
+    FutureLOfLoginServiceL: () => (T.FutureLOfLoginServiceL = dart.constFn(dart.legacy(T.FutureOfLoginServiceL())))(),
+    VoidToFutureLOfLoginServiceL: () => (T.VoidToFutureLOfLoginServiceL = dart.constFn(dart.fnType(T.FutureLOfLoginServiceL(), [])))(),
+    ArticleServiceL: () => (T.ArticleServiceL = dart.constFn(dart.legacy(article_service.ArticleService)))(),
+    FutureOfArticleServiceL: () => (T.FutureOfArticleServiceL = dart.constFn(async.Future$(T.ArticleServiceL())))(),
+    FutureLOfArticleServiceL: () => (T.FutureLOfArticleServiceL = dart.constFn(dart.legacy(T.FutureOfArticleServiceL())))(),
+    VoidToFutureLOfArticleServiceL: () => (T.VoidToFutureLOfArticleServiceL = dart.constFn(dart.fnType(T.FutureLOfArticleServiceL(), [])))(),
+    DomainServiceL: () => (T.DomainServiceL = dart.constFn(dart.legacy(domain_service.DomainService)))(),
+    FutureOfDomainServiceL: () => (T.FutureOfDomainServiceL = dart.constFn(async.Future$(T.DomainServiceL())))(),
+    FutureLOfDomainServiceL: () => (T.FutureLOfDomainServiceL = dart.constFn(dart.legacy(T.FutureOfDomainServiceL())))(),
+    VoidToFutureLOfDomainServiceL: () => (T.VoidToFutureLOfDomainServiceL = dart.constFn(dart.fnType(T.FutureLOfDomainServiceL(), [])))(),
+    BaiduAIServiceL: () => (T.BaiduAIServiceL = dart.constFn(dart.legacy(baidu_ai_service.BaiduAIService)))(),
+    FutureOfBaiduAIServiceL: () => (T.FutureOfBaiduAIServiceL = dart.constFn(async.Future$(T.BaiduAIServiceL())))(),
+    FutureLOfBaiduAIServiceL: () => (T.FutureLOfBaiduAIServiceL = dart.constFn(dart.legacy(T.FutureOfBaiduAIServiceL())))(),
+    VoidToFutureLOfBaiduAIServiceL: () => (T.VoidToFutureLOfBaiduAIServiceL = dart.constFn(dart.fnType(T.FutureLOfBaiduAIServiceL(), [])))(),
+    PracticeServiceL: () => (T.PracticeServiceL = dart.constFn(dart.legacy(practice_service.PracticeService)))(),
+    FutureOfPracticeServiceL: () => (T.FutureOfPracticeServiceL = dart.constFn(async.Future$(T.PracticeServiceL())))(),
+    FutureLOfPracticeServiceL: () => (T.FutureLOfPracticeServiceL = dart.constFn(dart.legacy(T.FutureOfPracticeServiceL())))(),
+    VoidToFutureLOfPracticeServiceL: () => (T.VoidToFutureLOfPracticeServiceL = dart.constFn(dart.fnType(T.FutureLOfPracticeServiceL(), [])))(),
+    PublisherServiceL: () => (T.PublisherServiceL = dart.constFn(dart.legacy(publisher_service.PublisherService)))(),
+    FutureOfPublisherServiceL: () => (T.FutureOfPublisherServiceL = dart.constFn(async.Future$(T.PublisherServiceL())))(),
+    FutureLOfPublisherServiceL: () => (T.FutureLOfPublisherServiceL = dart.constFn(dart.legacy(T.FutureOfPublisherServiceL())))(),
+    VoidToFutureLOfPublisherServiceL: () => (T.VoidToFutureLOfPublisherServiceL = dart.constFn(dart.fnType(T.FutureLOfPublisherServiceL(), [])))(),
+    WechatServiceL: () => (T.WechatServiceL = dart.constFn(dart.legacy(wechat_service.WechatService)))(),
+    FutureOfWechatServiceL: () => (T.FutureOfWechatServiceL = dart.constFn(async.Future$(T.WechatServiceL())))(),
+    FutureLOfWechatServiceL: () => (T.FutureLOfWechatServiceL = dart.constFn(dart.legacy(T.FutureOfWechatServiceL())))(),
+    VoidToFutureLOfWechatServiceL: () => (T.VoidToFutureLOfWechatServiceL = dart.constFn(dart.fnType(T.FutureLOfWechatServiceL(), [])))(),
+    CameraServiceL: () => (T.CameraServiceL = dart.constFn(dart.legacy(camera_service.CameraService)))(),
+    FutureOfCameraServiceL: () => (T.FutureOfCameraServiceL = dart.constFn(async.Future$(T.CameraServiceL())))(),
+    FutureLOfCameraServiceL: () => (T.FutureLOfCameraServiceL = dart.constFn(dart.legacy(T.FutureOfCameraServiceL())))(),
+    VoidToFutureLOfCameraServiceL: () => (T.VoidToFutureLOfCameraServiceL = dart.constFn(dart.fnType(T.FutureLOfCameraServiceL(), [])))()
+  };
+  const CT = Object.create({
+    _: () => (C, CT)
+  });
+  dart.defineLazy(CT, {
+    get C1() {
+      return C[1] = dart.constList([], T._LocationL());
+    },
+    get C0() {
+      return C[0] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[1] || CT.C1,
+        [_Location_name]: null,
+        [_Location_column]: 13,
+        [_Location_line]: 75,
+        [_Location_file]: "file:///O:/Projects/english_teacher_app/lib/main.dart"
+      });
+    },
+    get C2() {
+      return C[2] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[1] || CT.C1,
+        [_Location_name]: null,
+        [_Location_column]: 43,
+        [_Location_line]: 77,
+        [_Location_file]: "file:///O:/Projects/english_teacher_app/lib/main.dart"
+      });
+    },
+    get C3() {
+      return C[3] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[1] || CT.C1,
+        [_Location_name]: null,
+        [_Location_column]: 44,
+        [_Location_line]: 78,
+        [_Location_file]: "file:///O:/Projects/english_teacher_app/lib/main.dart"
+      });
+    },
+    get C4() {
+      return C[4] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[1] || CT.C1,
+        [_Location_name]: null,
+        [_Location_column]: 47,
+        [_Location_line]: 80,
+        [_Location_file]: "file:///O:/Projects/english_teacher_app/lib/main.dart"
+      });
+    },
+    get C7() {
+      return C[7] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "title",
+        [_Location_column]: 7,
+        [_Location_line]: 71,
+        [_Location_file]: null
+      });
+    },
+    get C8() {
+      return C[8] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "theme",
+        [_Location_column]: 7,
+        [_Location_line]: 72,
+        [_Location_file]: null
+      });
+    },
+    get C9() {
+      return C[9] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "home",
+        [_Location_column]: 7,
+        [_Location_line]: 75,
+        [_Location_file]: null
+      });
+    },
+    get C10() {
+      return C[10] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "getPages",
+        [_Location_column]: 7,
+        [_Location_line]: 76,
+        [_Location_file]: null
+      });
+    },
+    get C6() {
+      return C[6] = dart.constList([C[7] || CT.C7, C[8] || CT.C8, C[9] || CT.C9, C[10] || CT.C10], T._LocationL());
+    },
+    get C5() {
+      return C[5] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[6] || CT.C6,
+        [_Location_name]: null,
+        [_Location_column]: 12,
+        [_Location_line]: 70,
+        [_Location_file]: "file:///O:/Projects/english_teacher_app/lib/main.dart"
+      });
+    },
+    get C11() {
+      return C[11] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[1] || CT.C1,
+        [_Location_name]: null,
+        [_Location_column]: 10,
+        [_Location_line]: 41,
+        [_Location_file]: "file:///O:/Projects/english_teacher_app/lib/main.dart"
+      });
+    }
+  }, false);
+  var C = Array(12).fill(void 0);
+  var I = ["package:english_teacher_app/main.dart"];
+  var _Location_parameterLocations = dart.privateName(widget_inspector, "_Location.parameterLocations");
+  var _Location_name = dart.privateName(widget_inspector, "_Location.name");
+  var _Location_column = dart.privateName(widget_inspector, "_Location.column");
+  var _Location_line = dart.privateName(widget_inspector, "_Location.line");
+  var _Location_file = dart.privateName(widget_inspector, "_Location.file");
+  main.MyApp = class MyApp extends framework.StatelessWidget {
+    build(context) {
+      return new get_material_app.GetMaterialApp.new({title: "English Teacher", theme: theme_data.ThemeData.new({primarySwatch: colors.Colors.blue}), home: new page_home.PageHome.new({$creationLocationd_0dea112b090073317d4: C[0] || CT.C0}), getPages: T.JSArrayOfGetPageL().of([new get_route.GetPage.new({name: "Home", page: dart.fn(() => new page_home.PageHome.new({$creationLocationd_0dea112b090073317d4: C[2] || CT.C2}), T.VoidToPageHomeL())}), new get_route.GetPage.new({name: "Login", page: dart.fn(() => new page_login.PageLogin.new({$creationLocationd_0dea112b090073317d4: C[3] || CT.C3}), T.VoidToPageLoginL())}), new get_route.GetPage.new({name: "Register", page: dart.fn(() => new register_page.RegisterPage.new({$creationLocationd_0dea112b090073317d4: C[4] || CT.C4}), T.VoidToRegisterPageL())})]), $creationLocationd_0dea112b090073317d4: C[5] || CT.C5});
+    }
+  };
+  (main.MyApp.new = function(opts) {
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    main.MyApp.__proto__.new.call(this, {$creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+    ;
+  }).prototype = main.MyApp.prototype;
+  dart.addTypeTests(main.MyApp);
+  dart.addTypeCaches(main.MyApp);
+  dart.setMethodSignature(main.MyApp, () => ({
+    __proto__: dart.getMethods(main.MyApp.__proto__),
+    build: dart.fnType(dart.legacy(framework.Widget), [dart.legacy(framework.BuildContext)])
+  }));
+  dart.setLibraryUri(main.MyApp, I[0]);
+  main.initFluwx = function initFluwx() {
+    return async.async(dart.dynamic, function* initFluwx() {
+      yield fluwx_iml.registerWxApi({appId: "wx93a21602a886e970", doOnAndroid: true, doOnIOS: true, universalLink: "ios 需要"});
+    });
+  };
+  main.main = function main$() {
+    return async.async(dart.void, function* main$() {
+      binding.WidgetsFlutterBinding.ensureInitialized();
+      dio_http_helper.DioHelper.Init();
+      yield main.initFluwx();
+      yield main.registerServices();
+      main.registerControllers();
+      binding.runApp(new main.MyApp.new({$creationLocationd_0dea112b090073317d4: C[11] || CT.C11}));
+    });
+  };
+  main.registerControllers = function registerControllers() {
+    extension_instance['Inst|lazyPut'](T.HomeControllerL(), get_main.Get, dart.fn(() => new controller_home.HomeController.new(), T.VoidToHomeControllerL()));
+    extension_instance['Inst|lazyPut'](T.MeControllerL(), get_main.Get, dart.fn(() => new controller_me.MeController.new(), T.VoidToMeControllerL()));
+    extension_instance['Inst|lazyPut'](T.LoginControllerL(), get_main.Get, dart.fn(() => new controller_login.LoginController.new(), T.VoidToLoginControllerL()), {fenix: true});
+    extension_instance['Inst|lazyPut'](T.ControllerPraticeHomeL(), get_main.Get, dart.fn(() => new controller_pratice_home.ControllerPraticeHome.new(), T.VoidToControllerPraticeHomeL()));
+    extension_instance['Inst|lazyPut'](T.DiscoveryControllerL(), get_main.Get, dart.fn(() => new ctr_discovery.DiscoveryController.new(), T.VoidToDiscoveryControllerL()));
+    extension_instance['Inst|lazyPut'](T.RegisterControllerL(), get_main.Get, dart.fn(() => new register_controller.RegisterController.new(), T.VoidToRegisterControllerL()));
+  };
+  main.registerServices = function registerServices() {
+    return async.async(dart.void, function* registerServices() {
+      extension_instance['Inst|put'](T.EventBusL(), get_main.Get, new event_bus.EventBus.new());
+      yield extension_instance['Inst|putAsync'](T.ConfingService2L(), get_main.Get, dart.fn(() => new yaml_config_service.ConfingService2.new().init(), T.VoidToFutureLOfConfingService2L()));
+      yield extension_instance['Inst|putAsync'](T.EventBusServiceL(), get_main.Get, dart.fn(() => new event_bus_service.EventBusService.new().init(), T.VoidToFutureLOfEventBusServiceL()));
+      yield extension_instance['Inst|putAsync'](T.LoginServiceL(), get_main.Get, dart.fn(() => new login_service.LoginService.new().init(), T.VoidToFutureLOfLoginServiceL()));
+      yield extension_instance['Inst|putAsync'](T.ArticleServiceL(), get_main.Get, dart.fn(() => new article_service.ArticleService.new().init(), T.VoidToFutureLOfArticleServiceL()));
+      yield extension_instance['Inst|putAsync'](T.DomainServiceL(), get_main.Get, dart.fn(() => new domain_service.DomainService.new().init(), T.VoidToFutureLOfDomainServiceL()));
+      yield extension_instance['Inst|putAsync'](T.BaiduAIServiceL(), get_main.Get, dart.fn(() => new baidu_ai_service.BaiduAIService.new().init(), T.VoidToFutureLOfBaiduAIServiceL()));
+      yield extension_instance['Inst|putAsync'](T.PracticeServiceL(), get_main.Get, dart.fn(() => new practice_service.PracticeService.new().init(), T.VoidToFutureLOfPracticeServiceL()));
+      yield extension_instance['Inst|putAsync'](T.PublisherServiceL(), get_main.Get, dart.fn(() => new publisher_service.PublisherService.new().init(), T.VoidToFutureLOfPublisherServiceL()));
+      yield extension_instance['Inst|putAsync'](T.WechatServiceL(), get_main.Get, dart.fn(() => new wechat_service.WechatService.new().init(), T.VoidToFutureLOfWechatServiceL()));
+      yield extension_instance['Inst|putAsync'](T.CameraServiceL(), get_main.Get, dart.fn(() => new camera_service.CameraService.new().init(), T.VoidToFutureLOfCameraServiceL()));
+    });
+  };
+  dart.trackLibraries("packages/english_teacher_app/main.dart", {
+    "package:english_teacher_app/main.dart": main
+  }, {
+  }, '{"version":3,"sourceRoot":"","sources":["main.dart"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;UAoE4B;AACxB,YAAO,iDACE,0BACA,yCACiB,4BAElB,+FACI,0BACR,iCAAc,cAAc,cAAM,6GAClC,iCAAc,eAAe,cAAM,gHAEnC,iCAAc,kBAAkB,cAAM;IAI5C;;;;;;EACF;;;;;;;;;AA1DS;AAKqB,MAJ5B,MAAM,gCACK,mCACM,eACJ,qBACM;IACrB;;;AAEiB;AAC0B,MAAnB;AACN,MAAN;AACO,MAAjB,MAAM;AACkB,MAAxB,MAAM;AACe,MAArB;AACe,MAAf,eAAO;IACT;;;AAGqC,IAA/B,wDAAJ,cAAY,cAAM;AACe,IAA7B,sDAAJ,cAAY,cAAM;AACgD,IAA9D,yDAAJ,cAA6B,cAAM,iFAA0B;AACnB,IAAtC,+DAAJ,cAAY,cAAM;AACsB,IAApC,6DAAJ,cAAY,cAAM;AACqB,IAAnC,4DAAJ,cAAY,cAAM;EACpB;;AAE6B;AACE,MAAzB,8CAAJ,cAAkB;AACgC,MAAlD,MAAU,0DAAJ,cAAa,cAAM,AAAkB;AACO,MAAlD,MAAU,0DAAJ,cAAa,cAAM,AAAkB;AACI,MAA/C,MAAU,uDAAJ,cAAa,cAAM,AAAe;AACS,MAAjD,MAAU,yDAAJ,cAAa,cAAM,AAAiB;AACM,MAAhD,MAAU,wDAAJ,cAAa,cAAM,AAAgB;AACQ,MAAjD,MAAU,yDAAJ,cAAa,cAAM,AAAiB;AACQ,MAAlD,MAAU,0DAAJ,cAAa,cAAM,AAAkB;AACQ,MAAnD,MAAU,2DAAJ,cAAa,cAAM,AAAmB;AACI,MAAhD,MAAU,wDAAJ,cAAa,cAAM,AAAgB;AACO,MAAhD,MAAU,wDAAJ,cAAa,cAAM,AAAgB;IAC3C","file":"../../../packages/english_teacher_app/main.dart.lib.js"}');
+  // Exports:
+  return {
+    main: main
+  };
+}));
+
+//# sourceMappingURL=main.dart.lib.js.map

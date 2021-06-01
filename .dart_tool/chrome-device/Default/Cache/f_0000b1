@@ -1,0 +1,388 @@
+define(['dart_sdk', 'packages/latlong/latlong.dart', 'packages/slugify2/slugify.dart'], (function load__packages__geopoint__src__models__geopoint_dart(dart_sdk, packages__latlong__latlong$46dart, packages__slugify2__slugify$46dart) {
+  'use strict';
+  const core = dart_sdk.core;
+  const _js_helper = dart_sdk._js_helper;
+  const io = dart_sdk.io;
+  const dart = dart_sdk.dart;
+  const dartx = dart_sdk.dartx;
+  const latlong = packages__latlong__latlong$46dart.latlong;
+  const slugify = packages__slugify2__slugify$46dart.slugify;
+  var geopoint = Object.create(dart.library);
+  var $_get = dartx._get;
+  var $_set = dartx._set;
+  var $toString = dartx.toString;
+  dart._checkModuleNullSafetyMode(false);
+  var T = {
+    StringL: () => (T.StringL = dart.constFn(dart.legacy(core.String)))(),
+    IdentityMapOfStringL$dynamic: () => (T.IdentityMapOfStringL$dynamic = dart.constFn(_js_helper.IdentityMap$(T.StringL(), dart.dynamic)))(),
+    IdentityMapOfStringL$StringL: () => (T.IdentityMapOfStringL$StringL = dart.constFn(_js_helper.IdentityMap$(T.StringL(), T.StringL())))()
+  };
+  const CT = Object.create({
+    _: () => (C, CT)
+  });
+  var I = [
+    "file:///d:/flutter/.pub-cache/hosted/pub.flutter-io.cn/geopoint-0.7.1/lib/src/models/geopoint.dart",
+    "package:geopoint/src/models/geopoint.dart"
+  ];
+  var name$ = dart.privateName(geopoint, "GeoPoint.name");
+  var latitude$ = dart.privateName(geopoint, "GeoPoint.latitude");
+  var longitude$ = dart.privateName(geopoint, "GeoPoint.longitude");
+  var slug$ = dart.privateName(geopoint, "GeoPoint.slug");
+  var id$ = dart.privateName(geopoint, "GeoPoint.id");
+  var timestamp$ = dart.privateName(geopoint, "GeoPoint.timestamp");
+  var altitude$ = dart.privateName(geopoint, "GeoPoint.altitude");
+  var speed$ = dart.privateName(geopoint, "GeoPoint.speed");
+  var accuracy$ = dart.privateName(geopoint, "GeoPoint.accuracy");
+  var speedAccuracy$ = dart.privateName(geopoint, "GeoPoint.speedAccuracy");
+  var heading$ = dart.privateName(geopoint, "GeoPoint.heading");
+  var number$ = dart.privateName(geopoint, "GeoPoint.number");
+  var street$ = dart.privateName(geopoint, "GeoPoint.street");
+  var locality$ = dart.privateName(geopoint, "GeoPoint.locality");
+  var sublocality$ = dart.privateName(geopoint, "GeoPoint.sublocality");
+  var postalCode$ = dart.privateName(geopoint, "GeoPoint.postalCode");
+  var subregion$ = dart.privateName(geopoint, "GeoPoint.subregion");
+  var region$ = dart.privateName(geopoint, "GeoPoint.region");
+  var country$ = dart.privateName(geopoint, "GeoPoint.country");
+  var images$ = dart.privateName(geopoint, "GeoPoint.images");
+  var _getAddress = dart.privateName(geopoint, "_getAddress");
+  var _toGeoJsonFeatureString = dart.privateName(geopoint, "_toGeoJsonFeatureString");
+  geopoint.GeoPoint = class GeoPoint extends core.Object {
+    get name() {
+      return this[name$];
+    }
+    set name(value) {
+      this[name$] = value;
+    }
+    get latitude() {
+      return this[latitude$];
+    }
+    set latitude(value) {
+      super.latitude = value;
+    }
+    get longitude() {
+      return this[longitude$];
+    }
+    set longitude(value) {
+      super.longitude = value;
+    }
+    get slug() {
+      return this[slug$];
+    }
+    set slug(value) {
+      this[slug$] = value;
+    }
+    get id() {
+      return this[id$];
+    }
+    set id(value) {
+      this[id$] = value;
+    }
+    get timestamp() {
+      return this[timestamp$];
+    }
+    set timestamp(value) {
+      this[timestamp$] = value;
+    }
+    get altitude() {
+      return this[altitude$];
+    }
+    set altitude(value) {
+      this[altitude$] = value;
+    }
+    get speed() {
+      return this[speed$];
+    }
+    set speed(value) {
+      this[speed$] = value;
+    }
+    get accuracy() {
+      return this[accuracy$];
+    }
+    set accuracy(value) {
+      this[accuracy$] = value;
+    }
+    get speedAccuracy() {
+      return this[speedAccuracy$];
+    }
+    set speedAccuracy(value) {
+      this[speedAccuracy$] = value;
+    }
+    get heading() {
+      return this[heading$];
+    }
+    set heading(value) {
+      this[heading$] = value;
+    }
+    get number() {
+      return this[number$];
+    }
+    set number(value) {
+      this[number$] = value;
+    }
+    get street() {
+      return this[street$];
+    }
+    set street(value) {
+      this[street$] = value;
+    }
+    get locality() {
+      return this[locality$];
+    }
+    set locality(value) {
+      this[locality$] = value;
+    }
+    get sublocality() {
+      return this[sublocality$];
+    }
+    set sublocality(value) {
+      this[sublocality$] = value;
+    }
+    get postalCode() {
+      return this[postalCode$];
+    }
+    set postalCode(value) {
+      this[postalCode$] = value;
+    }
+    get subregion() {
+      return this[subregion$];
+    }
+    set subregion(value) {
+      this[subregion$] = value;
+    }
+    get region() {
+      return this[region$];
+    }
+    set region(value) {
+      this[region$] = value;
+    }
+    get country() {
+      return this[country$];
+    }
+    set country(value) {
+      this[country$] = value;
+    }
+    get images() {
+      return this[images$];
+    }
+    set images(value) {
+      this[images$] = value;
+    }
+    get address() {
+      return this[_getAddress]();
+    }
+    get point() {
+      return new latlong.LatLng.new(this.latitude, this.longitude);
+    }
+    toMap(opts) {
+      let withId = opts && 'withId' in opts ? opts.withId : true;
+      let json = new (T.IdentityMapOfStringL$dynamic()).from(["name", this.name, "timestamp", this.timestamp, "latitude", this.latitude, "longitude", this.longitude, "altitude", this.altitude, "speed", this.speed, "heading", this.heading, "accuracy", this.accuracy, "speed_accuracy", this.speedAccuracy, "number", this.number, "street", this.street, "locality", this.locality, "sublocality", this.sublocality, "postal_code", this.postalCode, "subregion", this.subregion, "region", this.region, "country", this.country]);
+      if (dart.test(withId)) json[$_set]("id", this.id);
+      return json;
+    }
+    toStringsMap(opts) {
+      let withId = opts && 'withId' in opts ? opts.withId : true;
+      let json = new (T.IdentityMapOfStringL$StringL()).from(["name", dart.str(this.name), "timestamp", dart.str(this.timestamp), "latitude", dart.str(this.latitude), "longitude", dart.str(this.longitude), "altitude", dart.str(this.altitude), "speed", dart.str(this.speed), "heading", dart.str(this.heading), "accuracy", dart.str(this.accuracy), "speed_accuracy", dart.str(this.speedAccuracy), "number", dart.str(this.number), "street", dart.str(this.street), "locality", dart.str(this.locality), "sublocality", dart.str(this.sublocality), "postal_code", dart.str(this.postalCode), "subregion", dart.str(this.subregion), "region", dart.str(this.region), "country", dart.str(this.country)]);
+      if (dart.test(withId)) json[$_set]("id", dart.str(this.id));
+      return json;
+    }
+    toLatLng(opts) {
+      let ignoreErrors = opts && 'ignoreErrors' in opts ? opts.ignoreErrors : false;
+      let latLng = null;
+      try {
+        latLng = new latlong.LatLng.new(this.latitude, this.longitude);
+      } catch (e$) {
+        let e = dart.getThrown(e$);
+        if (!dart.test(ignoreErrors)) {
+          dart.rethrow(e$);
+        }
+      }
+      return latLng;
+    }
+    toGeoJsonFeatureString() {
+      return this[_toGeoJsonFeatureString]("Point");
+    }
+    [_toGeoJsonFeatureString](type) {
+      return "{\"type\":\"Feature\",\"properties\":{\"name\":\"" + dart.str(this.name) + "\"}, " + "\"geometry\":{\"type\":\"" + dart.str(type) + "\"," + "\"coordinates\":" + dart.notNull(this.toGeoJsonCoordinatesString()) + "}}";
+    }
+    toGeoJsonCoordinatesString() {
+      return "[" + dart.str(this.longitude) + "," + dart.str(this.latitude) + "]";
+    }
+    [_getAddress]() {
+      return dart.str(this.number) + " " + dart.str(this.street) + " " + dart.str(this.locality) + " " + dart.str(this.postalCode) + " " + dart.str(this.subregion) + " " + dart.str(this.region) + " " + dart.str(this.country);
+    }
+    toString() {
+      let n = null;
+      if (this.name != null) {
+        n = this.name;
+      } else {
+        n = dart.str(this.latitude) + "/" + dart.str(this.longitude);
+      }
+      return "Geopoint " + dart.str(n);
+    }
+    details() {
+      let str = "Geopoint: " + dart.str(this.name) + "\n";
+      str = str + ("Lat: " + dart.str(this.latitude) + "\n");
+      str = str + ("Lon: " + dart.str(this.longitude) + "\n");
+      str = str + ("Altitude: " + dart.str(this.altitude) + "\n");
+      str = str + ("Speed: " + dart.str(this.speed) + "\n");
+      str = str + ("Heading: " + dart.str(this.heading) + "\n");
+      return str;
+    }
+  };
+  (geopoint.GeoPoint.new = function(opts) {
+    let latitude = opts && 'latitude' in opts ? opts.latitude : null;
+    let longitude = opts && 'longitude' in opts ? opts.longitude : null;
+    let name = opts && 'name' in opts ? opts.name : null;
+    let id = opts && 'id' in opts ? opts.id : null;
+    let slug = opts && 'slug' in opts ? opts.slug : null;
+    let timestamp = opts && 'timestamp' in opts ? opts.timestamp : null;
+    let altitude = opts && 'altitude' in opts ? opts.altitude : null;
+    let speed = opts && 'speed' in opts ? opts.speed : null;
+    let accuracy = opts && 'accuracy' in opts ? opts.accuracy : null;
+    let heading = opts && 'heading' in opts ? opts.heading : null;
+    let country = opts && 'country' in opts ? opts.country : null;
+    let locality = opts && 'locality' in opts ? opts.locality : null;
+    let sublocality = opts && 'sublocality' in opts ? opts.sublocality : null;
+    let number = opts && 'number' in opts ? opts.number : null;
+    let postalCode = opts && 'postalCode' in opts ? opts.postalCode : null;
+    let region = opts && 'region' in opts ? opts.region : null;
+    let speedAccuracy = opts && 'speedAccuracy' in opts ? opts.speedAccuracy : null;
+    let street = opts && 'street' in opts ? opts.street : null;
+    let subregion = opts && 'subregion' in opts ? opts.subregion : null;
+    let images = opts && 'images' in opts ? opts.images : null;
+    this[latitude$] = latitude;
+    this[longitude$] = longitude;
+    this[name$] = name;
+    this[id$] = id;
+    this[slug$] = slug;
+    this[timestamp$] = timestamp;
+    this[altitude$] = altitude;
+    this[speed$] = speed;
+    this[accuracy$] = accuracy;
+    this[heading$] = heading;
+    this[country$] = country;
+    this[locality$] = locality;
+    this[sublocality$] = sublocality;
+    this[number$] = number;
+    this[postalCode$] = postalCode;
+    this[region$] = region;
+    this[speedAccuracy$] = speedAccuracy;
+    this[street$] = street;
+    this[subregion$] = subregion;
+    this[images$] = images;
+    if (!(latitude != null)) dart.assertFailed(null, I[0], 33, 16, "latitude != null");
+    if (!(longitude != null)) dart.assertFailed(null, I[0], 34, 16, "longitude != null");
+    if (this.slug == null && this.name != null) this.slug = geopoint._slugify.slugify(this.name);
+  }).prototype = geopoint.GeoPoint.prototype;
+  (geopoint.GeoPoint.fromJson = function(json) {
+    this[images$] = null;
+    this[slug$] = null;
+    this[id$] = core.int.tryParse(dart.str(json[$_get]("id")));
+    this[name$] = dart.str(json[$_get]("name"));
+    this[timestamp$] = core.int.tryParse(dart.str(json[$_get]("timestamp")));
+    this[latitude$] = core.double.tryParse(dart.str(json[$_get]("latitude")));
+    this[longitude$] = core.double.tryParse(dart.str(json[$_get]("longitude")));
+    this[altitude$] = core.double.tryParse(dart.str(json[$_get]("altitude")));
+    this[speed$] = core.double.tryParse(dart.str(json[$_get]("speed")));
+    this[accuracy$] = core.double.tryParse(dart.str(json[$_get]("accuracy")));
+    this[speedAccuracy$] = core.double.tryParse(dart.str(json[$_get]("speed_accuracy")));
+    this[heading$] = core.double.tryParse(dart.str(json[$_get]("heading")));
+    this[number$] = dart.str(json[$_get]("number"));
+    this[street$] = dart.str(json[$_get]("street"));
+    this[locality$] = dart.str(json[$_get]("locality"));
+    this[sublocality$] = dart.str(json[$_get]("sublocality"));
+    this[postalCode$] = dart.str(json[$_get]("postal_code"));
+    this[subregion$] = dart.str(json[$_get]("subregion"));
+    this[region$] = dart.str(json[$_get]("region"));
+    this[country$] = dart.str(json[$_get]("country"));
+    if (this.slug == null && this.name != null) {
+      this.slug = geopoint._slugify.slugify(dart.str(json[$_get]("name")));
+    }
+  }).prototype = geopoint.GeoPoint.prototype;
+  (geopoint.GeoPoint.fromLatLng = function(opts) {
+    let point = opts && 'point' in opts ? opts.point : null;
+    let name = opts && 'name' in opts ? opts.name : null;
+    this[images$] = null;
+    this[subregion$] = null;
+    this[street$] = null;
+    this[speedAccuracy$] = null;
+    this[region$] = null;
+    this[postalCode$] = null;
+    this[number$] = null;
+    this[sublocality$] = null;
+    this[locality$] = null;
+    this[country$] = null;
+    this[heading$] = null;
+    this[accuracy$] = null;
+    this[speed$] = null;
+    this[altitude$] = null;
+    this[timestamp$] = null;
+    this[slug$] = null;
+    this[id$] = null;
+    this[name$] = name;
+    this[latitude$] = point.latitude;
+    this[longitude$] = point.longitude;
+    if (this.name != null) this.slug = geopoint._slugify.slugify(this.name);
+  }).prototype = geopoint.GeoPoint.prototype;
+  dart.addTypeTests(geopoint.GeoPoint);
+  dart.addTypeCaches(geopoint.GeoPoint);
+  dart.setMethodSignature(geopoint.GeoPoint, () => ({
+    __proto__: dart.getMethods(geopoint.GeoPoint.__proto__),
+    toMap: dart.fnType(dart.legacy(core.Map$(dart.legacy(core.String), dart.dynamic)), [], {withId: dart.legacy(core.bool)}, {}),
+    toStringsMap: dart.fnType(dart.legacy(core.Map$(dart.legacy(core.String), dart.legacy(core.String))), [], {withId: dart.legacy(core.bool)}, {}),
+    toLatLng: dart.fnType(dart.legacy(latlong.LatLng), [], {ignoreErrors: dart.legacy(core.bool)}, {}),
+    toGeoJsonFeatureString: dart.fnType(dart.legacy(core.String), []),
+    [_toGeoJsonFeatureString]: dart.fnType(dart.legacy(core.String), [dart.legacy(core.String)]),
+    toGeoJsonCoordinatesString: dart.fnType(dart.legacy(core.String), []),
+    [_getAddress]: dart.fnType(dart.legacy(core.String), []),
+    toString: dart.fnType(dart.legacy(core.String), []),
+    [$toString]: dart.fnType(dart.legacy(core.String), []),
+    details: dart.fnType(dart.legacy(core.String), [])
+  }));
+  dart.setGetterSignature(geopoint.GeoPoint, () => ({
+    __proto__: dart.getGetters(geopoint.GeoPoint.__proto__),
+    address: dart.legacy(core.String),
+    point: dart.legacy(latlong.LatLng)
+  }));
+  dart.setLibraryUri(geopoint.GeoPoint, I[1]);
+  dart.setFieldSignature(geopoint.GeoPoint, () => ({
+    __proto__: dart.getFields(geopoint.GeoPoint.__proto__),
+    name: dart.fieldType(dart.legacy(core.String)),
+    latitude: dart.finalFieldType(dart.legacy(core.double)),
+    longitude: dart.finalFieldType(dart.legacy(core.double)),
+    slug: dart.fieldType(dart.legacy(core.String)),
+    id: dart.fieldType(dart.legacy(core.int)),
+    timestamp: dart.fieldType(dart.legacy(core.int)),
+    altitude: dart.fieldType(dart.legacy(core.double)),
+    speed: dart.fieldType(dart.legacy(core.double)),
+    accuracy: dart.fieldType(dart.legacy(core.double)),
+    speedAccuracy: dart.fieldType(dart.legacy(core.double)),
+    heading: dart.fieldType(dart.legacy(core.double)),
+    number: dart.fieldType(dart.legacy(core.String)),
+    street: dart.fieldType(dart.legacy(core.String)),
+    locality: dart.fieldType(dart.legacy(core.String)),
+    sublocality: dart.fieldType(dart.legacy(core.String)),
+    postalCode: dart.fieldType(dart.legacy(core.String)),
+    subregion: dart.fieldType(dart.legacy(core.String)),
+    region: dart.fieldType(dart.legacy(core.String)),
+    country: dart.fieldType(dart.legacy(core.String)),
+    images: dart.fieldType(dart.legacy(core.List$(dart.legacy(io.File))))
+  }));
+  dart.defineExtensionMethods(geopoint.GeoPoint, ['toString']);
+  dart.defineLazy(geopoint, {
+    /*geopoint._slugify*/get _slugify() {
+      return new slugify.Slugify.new();
+    },
+    set _slugify(_) {}
+  }, true);
+  dart.trackLibraries("packages/geopoint/src/models/geopoint.dart", {
+    "package:geopoint/src/models/geopoint.dart": geopoint
+  }, {
+  }, '{"version":3,"sourceRoot":"","sources":["geopoint.dart"],"names":[],"mappings":"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","file":"../../../../../../../../../O:/packages/geopoint/src/models/geopoint.dart.lib.js"}');
+  // Exports:
+  return {
+    src__models__geopoint: geopoint
+  };
+}));
+
+//# sourceMappingURL=geopoint.dart.lib.js.map

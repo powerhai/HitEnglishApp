@@ -1,0 +1,1101 @@
+define(['dart_sdk', 'packages/flutter/src/services/system_channels.dart', 'packages/camera_platform_interface/src/types/camera_description.dart', 'packages/camera_platform_interface/src/types/camera_exception.dart', 'packages/camera_platform_interface/src/types/image_format_group.dart', 'packages/stream_transform/src/where.dart', 'packages/cross_file/src/types/html.dart', 'packages/camera_platform_interface/src/types/exposure_mode.dart', 'packages/camera_platform_interface/src/types/focus_mode.dart', 'packages/flutter/src/widgets/texture.dart', 'packages/flutter/src/widgets/widget_span.dart', 'packages/camera_platform_interface/src/types/flash_mode.dart', 'packages/camera_platform_interface/src/types/resolution_preset.dart', 'packages/plugin_platform_interface/plugin_platform_interface.dart', 'packages/flutter/src/services/system_chrome.dart'], (function load__packages__camera_platform_interface__src__method_channel__method_channel_camera_dart(dart_sdk, packages__flutter__src__services__system_channels$46dart, packages__camera_platform_interface__src__types__camera_description$46dart, packages__camera_platform_interface__src__types__camera_exception$46dart, packages__camera_platform_interface__src__types__image_format_group$46dart, packages__stream_transform__src__where$46dart, packages__cross_file__src__types__html$46dart, packages__camera_platform_interface__src__types__exposure_mode$46dart, packages__camera_platform_interface__src__types__focus_mode$46dart, packages__flutter__src__widgets__texture$46dart, packages__flutter__src__widgets__widget_span$46dart, packages__camera_platform_interface__src__types__flash_mode$46dart, packages__camera_platform_interface__src__types__resolution_preset$46dart, packages__plugin_platform_interface__plugin_platform_interface$46dart, packages__flutter__src__services__system_chrome$46dart) {
+  'use strict';
+  const core = dart_sdk.core;
+  const _js_helper = dart_sdk._js_helper;
+  const async = dart_sdk.async;
+  const math = dart_sdk.math;
+  const dart = dart_sdk.dart;
+  const dartx = dart_sdk.dartx;
+  const platform_channel = packages__flutter__src__services__system_channels$46dart.src__services__platform_channel;
+  const message_codec = packages__flutter__src__services__system_channels$46dart.src__services__message_codec;
+  const message_codecs = packages__flutter__src__services__system_channels$46dart.src__services__message_codecs;
+  const camera_description = packages__camera_platform_interface__src__types__camera_description$46dart.src__types__camera_description;
+  const camera_exception = packages__camera_platform_interface__src__types__camera_exception$46dart.src__types__camera_exception;
+  const image_format_group = packages__camera_platform_interface__src__types__image_format_group$46dart.src__types__image_format_group;
+  const where = packages__stream_transform__src__where$46dart.src__where;
+  const html = packages__cross_file__src__types__html$46dart.src__types__html;
+  const exposure_mode = packages__camera_platform_interface__src__types__exposure_mode$46dart.src__types__exposure_mode;
+  const focus_mode = packages__camera_platform_interface__src__types__focus_mode$46dart.src__types__focus_mode;
+  const texture = packages__flutter__src__widgets__texture$46dart.src__widgets__texture;
+  const widget_inspector = packages__flutter__src__widgets__widget_span$46dart.src__widgets__widget_inspector;
+  const framework = packages__flutter__src__widgets__widget_span$46dart.src__widgets__framework;
+  const flash_mode = packages__camera_platform_interface__src__types__flash_mode$46dart.src__types__flash_mode;
+  const resolution_preset = packages__camera_platform_interface__src__types__resolution_preset$46dart.src__types__resolution_preset;
+  const plugin_platform_interface = packages__plugin_platform_interface__plugin_platform_interface$46dart.plugin_platform_interface;
+  const system_chrome = packages__flutter__src__services__system_chrome$46dart.src__services__system_chrome;
+  var method_channel_camera = Object.create(dart.library);
+  var camera_platform = Object.create(dart.library);
+  var utils = Object.create(dart.library);
+  var device_event = Object.create(dart.library);
+  var camera_event = Object.create(dart.library);
+  var camera_platform_interface = Object.create(dart.library);
+  var $_get = dartx._get;
+  var $map = dartx.map;
+  var $toList = dartx.toList;
+  var $putIfAbsent = dartx.putIfAbsent;
+  var $containsKey = dartx.containsKey;
+  var $remove = dartx.remove;
+  var $hashCode = dartx.hashCode;
+  var $_equals = dartx._equals;
+  dart._checkModuleNullSafetyMode(false);
+  var T = {
+    intL: () => (T.intL = dart.constFn(dart.legacy(core.int)))(),
+    MethodChannelL: () => (T.MethodChannelL = dart.constFn(dart.legacy(platform_channel.MethodChannel)))(),
+    IdentityMapOfintL$MethodChannelL: () => (T.IdentityMapOfintL$MethodChannelL = dart.constFn(_js_helper.IdentityMap$(T.intL(), T.MethodChannelL())))(),
+    CameraEventL: () => (T.CameraEventL = dart.constFn(dart.legacy(camera_event.CameraEvent)))(),
+    StreamControllerOfCameraEventL: () => (T.StreamControllerOfCameraEventL = dart.constFn(async.StreamController$(T.CameraEventL())))(),
+    DeviceEventL: () => (T.DeviceEventL = dart.constFn(dart.legacy(device_event.DeviceEvent)))(),
+    StreamControllerOfDeviceEventL: () => (T.StreamControllerOfDeviceEventL = dart.constFn(async.StreamController$(T.DeviceEventL())))(),
+    FutureL: () => (T.FutureL = dart.constFn(dart.legacy(async.Future)))(),
+    MethodCallL: () => (T.MethodCallL = dart.constFn(dart.legacy(message_codec.MethodCall)))(),
+    MethodCallLToFutureL: () => (T.MethodCallLToFutureL = dart.constFn(dart.fnType(T.FutureL(), [T.MethodCallL()])))(),
+    boolL: () => (T.boolL = dart.constFn(dart.legacy(core.bool)))(),
+    CameraEventLToboolL: () => (T.CameraEventLToboolL = dart.constFn(dart.fnType(T.boolL(), [T.CameraEventL()])))(),
+    MapL: () => (T.MapL = dart.constFn(dart.legacy(core.Map)))(),
+    CameraDescriptionL: () => (T.CameraDescriptionL = dart.constFn(dart.legacy(camera_description.CameraDescription)))(),
+    StringL: () => (T.StringL = dart.constFn(dart.legacy(core.String)))(),
+    MapLToCameraDescriptionL: () => (T.MapLToCameraDescriptionL = dart.constFn(dart.fnType(T.CameraDescriptionL(), [T.MapL()])))(),
+    PlatformExceptionL: () => (T.PlatformExceptionL = dart.constFn(dart.legacy(message_codec.PlatformException)))(),
+    ListOfCameraDescriptionL: () => (T.ListOfCameraDescriptionL = dart.constFn(core.List$(T.CameraDescriptionL())))(),
+    ListLOfCameraDescriptionL: () => (T.ListLOfCameraDescriptionL = dart.constFn(dart.legacy(T.ListOfCameraDescriptionL())))(),
+    IdentityMapOfStringL$dynamic: () => (T.IdentityMapOfStringL$dynamic = dart.constFn(_js_helper.IdentityMap$(T.StringL(), dart.dynamic)))(),
+    FutureOrOfintL: () => (T.FutureOrOfintL = dart.constFn(async.FutureOr$(T.intL())))(),
+    FutureOrLOfintL: () => (T.FutureOrLOfintL = dart.constFn(dart.legacy(T.FutureOrOfintL())))(),
+    VoidToMethodChannelL: () => (T.VoidToMethodChannelL = dart.constFn(dart.fnType(T.MethodChannelL(), [])))(),
+    CameraInitializedEventL: () => (T.CameraInitializedEventL = dart.constFn(dart.legacy(camera_event.CameraInitializedEvent)))(),
+    CameraInitializedEventLToNull: () => (T.CameraInitializedEventLToNull = dart.constFn(dart.fnType(core.Null, [T.CameraInitializedEventL()])))(),
+    CameraResolutionChangedEventL: () => (T.CameraResolutionChangedEventL = dart.constFn(dart.legacy(camera_event.CameraResolutionChangedEvent)))(),
+    CameraClosingEventL: () => (T.CameraClosingEventL = dart.constFn(dart.legacy(camera_event.CameraClosingEvent)))(),
+    CameraErrorEventL: () => (T.CameraErrorEventL = dart.constFn(dart.legacy(camera_event.CameraErrorEvent)))(),
+    DeviceOrientationChangedEventL: () => (T.DeviceOrientationChangedEventL = dart.constFn(dart.legacy(device_event.DeviceOrientationChangedEvent)))(),
+    XFileL: () => (T.XFileL = dart.constFn(dart.legacy(html.XFile)))(),
+    doubleL: () => (T.doubleL = dart.constFn(dart.legacy(core.double)))(),
+    _LocationL: () => (T._LocationL = dart.constFn(dart.legacy(widget_inspector._Location)))()
+  };
+  const CT = Object.create({
+    _: () => (C, CT)
+  });
+  dart.defineLazy(CT, {
+    get C2() {
+      return C[2] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "textureId",
+        [_Location_column]: 20,
+        [_Location_line]: 352,
+        [_Location_file]: null
+      });
+    },
+    get C1() {
+      return C[1] = dart.constList([C[2] || CT.C2], T._LocationL());
+    },
+    get C0() {
+      return C[0] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[1] || CT.C1,
+        [_Location_name]: null,
+        [_Location_column]: 12,
+        [_Location_line]: 352,
+        [_Location_file]: "file:///d:/flutter/.pub-cache/hosted/pub.flutter-io.cn/camera_platform_interface-1.5.0/lib/src/method_channel/method_channel_camera.dart"
+      });
+    },
+    get C3() {
+      return C[3] = dart.const({
+        __proto__: flash_mode.FlashMode.prototype,
+        [_name]: "FlashMode.off",
+        index: 0
+      });
+    },
+    get C4() {
+      return C[4] = dart.const({
+        __proto__: flash_mode.FlashMode.prototype,
+        [_name]: "FlashMode.auto",
+        index: 1
+      });
+    },
+    get C5() {
+      return C[5] = dart.const({
+        __proto__: flash_mode.FlashMode.prototype,
+        [_name]: "FlashMode.always",
+        index: 2
+      });
+    },
+    get C6() {
+      return C[6] = dart.const({
+        __proto__: flash_mode.FlashMode.prototype,
+        [_name]: "FlashMode.torch",
+        index: 3
+      });
+    },
+    get C7() {
+      return C[7] = dart.const({
+        __proto__: resolution_preset.ResolutionPreset.prototype,
+        [_name$]: "ResolutionPreset.max",
+        index: 5
+      });
+    },
+    get C8() {
+      return C[8] = dart.const({
+        __proto__: resolution_preset.ResolutionPreset.prototype,
+        [_name$]: "ResolutionPreset.ultraHigh",
+        index: 4
+      });
+    },
+    get C9() {
+      return C[9] = dart.const({
+        __proto__: resolution_preset.ResolutionPreset.prototype,
+        [_name$]: "ResolutionPreset.veryHigh",
+        index: 3
+      });
+    },
+    get C10() {
+      return C[10] = dart.const({
+        __proto__: resolution_preset.ResolutionPreset.prototype,
+        [_name$]: "ResolutionPreset.high",
+        index: 2
+      });
+    },
+    get C11() {
+      return C[11] = dart.const({
+        __proto__: resolution_preset.ResolutionPreset.prototype,
+        [_name$]: "ResolutionPreset.medium",
+        index: 1
+      });
+    },
+    get C12() {
+      return C[12] = dart.const({
+        __proto__: resolution_preset.ResolutionPreset.prototype,
+        [_name$]: "ResolutionPreset.low",
+        index: 0
+      });
+    },
+    get C15() {
+      return C[15] = dart.const({
+        __proto__: message_codecs.StandardMessageCodec.prototype
+      });
+    },
+    get C14() {
+      return C[14] = dart.const({
+        __proto__: message_codecs.StandardMethodCodec.prototype,
+        [StandardMethodCodec_messageCodec]: C[15] || CT.C15
+      });
+    },
+    get C13() {
+      return C[13] = dart.const({
+        __proto__: platform_channel.MethodChannel.prototype,
+        [MethodChannel__binaryMessenger]: null,
+        [MethodChannel_codec]: C[14] || CT.C14,
+        [MethodChannel_name]: "plugins.flutter.io/camera"
+      });
+    },
+    get C16() {
+      return C[16] = dart.const({
+        __proto__: system_chrome.DeviceOrientation.prototype,
+        [_name$0]: "DeviceOrientation.portraitUp",
+        index: 0
+      });
+    },
+    get C17() {
+      return C[17] = dart.const({
+        __proto__: system_chrome.DeviceOrientation.prototype,
+        [_name$0]: "DeviceOrientation.portraitDown",
+        index: 2
+      });
+    },
+    get C18() {
+      return C[18] = dart.const({
+        __proto__: system_chrome.DeviceOrientation.prototype,
+        [_name$0]: "DeviceOrientation.landscapeRight",
+        index: 3
+      });
+    },
+    get C19() {
+      return C[19] = dart.const({
+        __proto__: system_chrome.DeviceOrientation.prototype,
+        [_name$0]: "DeviceOrientation.landscapeLeft",
+        index: 1
+      });
+    }
+  }, false);
+  var C = Array(20).fill(void 0);
+  var I = [
+    "file:///d:/flutter/.pub-cache/hosted/pub.flutter-io.cn/camera_platform_interface-1.5.0/lib/src/method_channel/method_channel_camera.dart",
+    "package:camera_platform_interface/src/platform_interface/camera_platform.dart",
+    "package:camera_platform_interface/src/method_channel/method_channel_camera.dart",
+    "package:camera_platform_interface/src/events/device_event.dart",
+    "file:///d:/flutter/.pub-cache/hosted/pub.flutter-io.cn/camera_platform_interface-1.5.0/lib/src/events/camera_event.dart",
+    "package:camera_platform_interface/src/events/camera_event.dart"
+  ];
+  var cameraEventStreamController = dart.privateName(method_channel_camera, "MethodChannelCamera.cameraEventStreamController");
+  var deviceEventStreamController = dart.privateName(method_channel_camera, "MethodChannelCamera.deviceEventStreamController");
+  var _channels = dart.privateName(method_channel_camera, "_channels");
+  var _cameraEvents = dart.privateName(method_channel_camera, "_cameraEvents");
+  var _serializeResolutionPreset = dart.privateName(method_channel_camera, "_serializeResolutionPreset");
+  var _serializeFlashMode = dart.privateName(method_channel_camera, "_serializeFlashMode");
+  var _Location_parameterLocations = dart.privateName(widget_inspector, "_Location.parameterLocations");
+  var _Location_name = dart.privateName(widget_inspector, "_Location.name");
+  var _Location_column = dart.privateName(widget_inspector, "_Location.column");
+  var _Location_line = dart.privateName(widget_inspector, "_Location.line");
+  var _Location_file = dart.privateName(widget_inspector, "_Location.file");
+  var _name = dart.privateName(flash_mode, "_name");
+  var _name$ = dart.privateName(resolution_preset, "_name");
+  camera_platform.CameraPlatform = class CameraPlatform extends plugin_platform_interface.PlatformInterface {
+    static get instance() {
+      return camera_platform.CameraPlatform._instance;
+    }
+    static set instance(instance) {
+      plugin_platform_interface.PlatformInterface.verifyToken(instance, camera_platform.CameraPlatform._token);
+      camera_platform.CameraPlatform._instance = instance;
+    }
+    availableCameras() {
+      dart.throw(new core.UnimplementedError.new("availableCameras() is not implemented."));
+    }
+    createCamera(cameraDescription, resolutionPreset, opts) {
+      let enableAudio = opts && 'enableAudio' in opts ? opts.enableAudio : null;
+      dart.throw(new core.UnimplementedError.new("createCamera() is not implemented."));
+    }
+    initializeCamera(cameraId, opts) {
+      let imageFormatGroup = opts && 'imageFormatGroup' in opts ? opts.imageFormatGroup : null;
+      dart.throw(new core.UnimplementedError.new("initializeCamera() is not implemented."));
+    }
+    onCameraInitialized(cameraId) {
+      dart.throw(new core.UnimplementedError.new("onCameraInitialized() is not implemented."));
+    }
+    onCameraResolutionChanged(cameraId) {
+      dart.throw(new core.UnimplementedError.new("onResolutionChanged() is not implemented."));
+    }
+    onCameraClosing(cameraId) {
+      dart.throw(new core.UnimplementedError.new("onCameraClosing() is not implemented."));
+    }
+    onCameraError(cameraId) {
+      dart.throw(new core.UnimplementedError.new("onCameraError() is not implemented."));
+    }
+    onDeviceOrientationChanged() {
+      dart.throw(new core.UnimplementedError.new("onDeviceOrientationChanged() is not implemented."));
+    }
+    lockCaptureOrientation(cameraId, orientation) {
+      dart.throw(new core.UnimplementedError.new("lockCaptureOrientation() is not implemented."));
+    }
+    unlockCaptureOrientation(cameraId) {
+      dart.throw(new core.UnimplementedError.new("unlockCaptureOrientation() is not implemented."));
+    }
+    takePicture(cameraId) {
+      dart.throw(new core.UnimplementedError.new("takePicture() is not implemented."));
+    }
+    prepareForVideoRecording() {
+      dart.throw(new core.UnimplementedError.new("prepareForVideoRecording() is not implemented."));
+    }
+    startVideoRecording(cameraId, opts) {
+      let maxVideoDuration = opts && 'maxVideoDuration' in opts ? opts.maxVideoDuration : null;
+      dart.throw(new core.UnimplementedError.new("startVideoRecording() is not implemented."));
+    }
+    stopVideoRecording(cameraId) {
+      dart.throw(new core.UnimplementedError.new("stopVideoRecording() is not implemented."));
+    }
+    pauseVideoRecording(cameraId) {
+      dart.throw(new core.UnimplementedError.new("pauseVideoRecording() is not implemented."));
+    }
+    resumeVideoRecording(cameraId) {
+      dart.throw(new core.UnimplementedError.new("resumeVideoRecording() is not implemented."));
+    }
+    setFlashMode(cameraId, mode) {
+      dart.throw(new core.UnimplementedError.new("setFlashMode() is not implemented."));
+    }
+    setExposureMode(cameraId, mode) {
+      dart.throw(new core.UnimplementedError.new("setExposureMode() is not implemented."));
+    }
+    setExposurePoint(cameraId, point) {
+      dart.throw(new core.UnimplementedError.new("setExposurePoint() is not implemented."));
+    }
+    getMinExposureOffset(cameraId) {
+      dart.throw(new core.UnimplementedError.new("getMinExposureOffset() is not implemented."));
+    }
+    getMaxExposureOffset(cameraId) {
+      dart.throw(new core.UnimplementedError.new("getMaxExposureOffset() is not implemented."));
+    }
+    getExposureOffsetStepSize(cameraId) {
+      dart.throw(new core.UnimplementedError.new("getMinExposureOffset() is not implemented."));
+    }
+    setExposureOffset(cameraId, offset) {
+      dart.throw(new core.UnimplementedError.new("setExposureOffset() is not implemented."));
+    }
+    setFocusMode(cameraId, mode) {
+      dart.throw(new core.UnimplementedError.new("setFocusMode() is not implemented."));
+    }
+    setFocusPoint(cameraId, point) {
+      dart.throw(new core.UnimplementedError.new("setFocusPoint() is not implemented."));
+    }
+    getMaxZoomLevel(cameraId) {
+      dart.throw(new core.UnimplementedError.new("getMaxZoomLevel() is not implemented."));
+    }
+    getMinZoomLevel(cameraId) {
+      dart.throw(new core.UnimplementedError.new("getMinZoomLevel() is not implemented."));
+    }
+    setZoomLevel(cameraId, zoom) {
+      dart.throw(new core.UnimplementedError.new("setZoomLevel() is not implemented."));
+    }
+    buildPreview(cameraId) {
+      dart.throw(new core.UnimplementedError.new("buildView() has not been implemented."));
+    }
+    dispose(cameraId) {
+      dart.throw(new core.UnimplementedError.new("dispose() is not implemented."));
+    }
+  };
+  (camera_platform.CameraPlatform.new = function() {
+    camera_platform.CameraPlatform.__proto__.new.call(this, {token: camera_platform.CameraPlatform._token});
+    ;
+  }).prototype = camera_platform.CameraPlatform.prototype;
+  dart.addTypeTests(camera_platform.CameraPlatform);
+  dart.addTypeCaches(camera_platform.CameraPlatform);
+  dart.setMethodSignature(camera_platform.CameraPlatform, () => ({
+    __proto__: dart.getMethods(camera_platform.CameraPlatform.__proto__),
+    availableCameras: dart.fnType(dart.legacy(async.Future$(dart.legacy(core.List$(dart.legacy(camera_description.CameraDescription))))), []),
+    createCamera: dart.fnType(dart.legacy(async.Future$(dart.legacy(core.int))), [dart.legacy(camera_description.CameraDescription), dart.legacy(resolution_preset.ResolutionPreset)], {enableAudio: dart.legacy(core.bool)}, {}),
+    initializeCamera: dart.fnType(dart.legacy(async.Future$(dart.void)), [dart.legacy(core.int)], {imageFormatGroup: dart.legacy(image_format_group.ImageFormatGroup)}, {}),
+    onCameraInitialized: dart.fnType(dart.legacy(async.Stream$(dart.legacy(camera_event.CameraInitializedEvent))), [dart.legacy(core.int)]),
+    onCameraResolutionChanged: dart.fnType(dart.legacy(async.Stream$(dart.legacy(camera_event.CameraResolutionChangedEvent))), [dart.legacy(core.int)]),
+    onCameraClosing: dart.fnType(dart.legacy(async.Stream$(dart.legacy(camera_event.CameraClosingEvent))), [dart.legacy(core.int)]),
+    onCameraError: dart.fnType(dart.legacy(async.Stream$(dart.legacy(camera_event.CameraErrorEvent))), [dart.legacy(core.int)]),
+    onDeviceOrientationChanged: dart.fnType(dart.legacy(async.Stream$(dart.legacy(device_event.DeviceOrientationChangedEvent))), []),
+    lockCaptureOrientation: dart.fnType(dart.legacy(async.Future$(dart.void)), [dart.legacy(core.int), dart.legacy(system_chrome.DeviceOrientation)]),
+    unlockCaptureOrientation: dart.fnType(dart.legacy(async.Future$(dart.void)), [dart.legacy(core.int)]),
+    takePicture: dart.fnType(dart.legacy(async.Future$(dart.legacy(html.XFile))), [dart.legacy(core.int)]),
+    prepareForVideoRecording: dart.fnType(dart.legacy(async.Future$(dart.void)), []),
+    startVideoRecording: dart.fnType(dart.legacy(async.Future$(dart.void)), [dart.legacy(core.int)], {maxVideoDuration: dart.legacy(core.Duration)}, {}),
+    stopVideoRecording: dart.fnType(dart.legacy(async.Future$(dart.legacy(html.XFile))), [dart.legacy(core.int)]),
+    pauseVideoRecording: dart.fnType(dart.legacy(async.Future$(dart.void)), [dart.legacy(core.int)]),
+    resumeVideoRecording: dart.fnType(dart.legacy(async.Future$(dart.void)), [dart.legacy(core.int)]),
+    setFlashMode: dart.fnType(dart.legacy(async.Future$(dart.void)), [dart.legacy(core.int), dart.legacy(flash_mode.FlashMode)]),
+    setExposureMode: dart.fnType(dart.legacy(async.Future$(dart.void)), [dart.legacy(core.int), dart.legacy(exposure_mode.ExposureMode)]),
+    setExposurePoint: dart.fnType(dart.legacy(async.Future$(dart.void)), [dart.legacy(core.int), dart.legacy(math.Point$(dart.legacy(core.double)))]),
+    getMinExposureOffset: dart.fnType(dart.legacy(async.Future$(dart.legacy(core.double))), [dart.legacy(core.int)]),
+    getMaxExposureOffset: dart.fnType(dart.legacy(async.Future$(dart.legacy(core.double))), [dart.legacy(core.int)]),
+    getExposureOffsetStepSize: dart.fnType(dart.legacy(async.Future$(dart.legacy(core.double))), [dart.legacy(core.int)]),
+    setExposureOffset: dart.fnType(dart.legacy(async.Future$(dart.legacy(core.double))), [dart.legacy(core.int), dart.legacy(core.double)]),
+    setFocusMode: dart.fnType(dart.legacy(async.Future$(dart.void)), [dart.legacy(core.int), dart.legacy(focus_mode.FocusMode)]),
+    setFocusPoint: dart.fnType(dart.legacy(async.Future$(dart.void)), [dart.legacy(core.int), dart.legacy(math.Point$(dart.legacy(core.double)))]),
+    getMaxZoomLevel: dart.fnType(dart.legacy(async.Future$(dart.legacy(core.double))), [dart.legacy(core.int)]),
+    getMinZoomLevel: dart.fnType(dart.legacy(async.Future$(dart.legacy(core.double))), [dart.legacy(core.int)]),
+    setZoomLevel: dart.fnType(dart.legacy(async.Future$(dart.void)), [dart.legacy(core.int), dart.legacy(core.double)]),
+    buildPreview: dart.fnType(dart.legacy(framework.Widget), [dart.legacy(core.int)]),
+    dispose: dart.fnType(dart.legacy(async.Future$(dart.void)), [dart.legacy(core.int)])
+  }));
+  dart.setLibraryUri(camera_platform.CameraPlatform, I[1]);
+  dart.defineLazy(camera_platform.CameraPlatform, {
+    /*camera_platform.CameraPlatform._token*/get _token() {
+      return new core.Object.new();
+    },
+    /*camera_platform.CameraPlatform._instance*/get _instance() {
+      return new method_channel_camera.MethodChannelCamera.new();
+    },
+    set _instance(_) {}
+  }, true);
+  method_channel_camera.MethodChannelCamera = class MethodChannelCamera extends camera_platform.CameraPlatform {
+    get cameraEventStreamController() {
+      return this[cameraEventStreamController];
+    }
+    set cameraEventStreamController(value) {
+      super.cameraEventStreamController = value;
+    }
+    get deviceEventStreamController() {
+      return this[deviceEventStreamController];
+    }
+    set deviceEventStreamController(value) {
+      super.deviceEventStreamController = value;
+    }
+    [_cameraEvents](cameraId) {
+      return this.cameraEventStreamController.stream.where(dart.fn(event => event.cameraId == cameraId, T.CameraEventLToboolL()));
+    }
+    availableCameras() {
+      return async.async(T.ListLOfCameraDescriptionL(), function* availableCameras() {
+        try {
+          let cameras = (yield method_channel_camera._channel.invokeListMethod(T.MapL(), "availableCameras"));
+          return cameras[$map](T.CameraDescriptionL(), dart.fn(camera => new camera_description.CameraDescription.new({name: T.StringL().as(camera[$_get]("name")), lensDirection: utils.parseCameraLensDirection(T.StringL().as(camera[$_get]("lensFacing"))), sensorOrientation: T.intL().as(camera[$_get]("sensorOrientation"))}), T.MapLToCameraDescriptionL()))[$toList]();
+        } catch (e$) {
+          let e = dart.getThrown(e$);
+          if (T.PlatformExceptionL().is(e)) {
+            dart.throw(new camera_exception.CameraException.new(e.code, e.message));
+          } else
+            throw e$;
+        }
+      });
+    }
+    createCamera(cameraDescription, resolutionPreset, opts) {
+      let enableAudio = opts && 'enableAudio' in opts ? opts.enableAudio : null;
+      return async.async(T.intL(), (function* createCamera() {
+        try {
+          let reply = (yield method_channel_camera._channel.invokeMapMethod(T.StringL(), dart.dynamic, "create", new (T.IdentityMapOfStringL$dynamic()).from(["cameraName", cameraDescription.name, "resolutionPreset", resolutionPreset != null ? this[_serializeResolutionPreset](resolutionPreset) : null, "enableAudio", enableAudio])));
+          return T.FutureOrLOfintL().as(reply[$_get]("cameraId"));
+        } catch (e$) {
+          let e = dart.getThrown(e$);
+          if (T.PlatformExceptionL().is(e)) {
+            dart.throw(new camera_exception.CameraException.new(e.code, e.message));
+          } else
+            throw e$;
+        }
+      }).bind(this));
+    }
+    initializeCamera(cameraId, opts) {
+      let imageFormatGroup = opts && 'imageFormatGroup' in opts ? opts.imageFormatGroup : null;
+      this[_channels][$putIfAbsent](cameraId, dart.fn(() => {
+        let channel = new platform_channel.MethodChannel.new("flutter.io/cameraPlugin/camera" + dart.str(cameraId));
+        channel.setMethodCallHandler(dart.fn(call => this.handleCameraMethodCall(call, cameraId), T.MethodCallLToFutureL()));
+        return channel;
+      }, T.VoidToMethodChannelL()));
+      let _completer = async.Completer.new();
+      this.onCameraInitialized(cameraId).first.then(core.Null, dart.fn(value => {
+        _completer.complete();
+      }, T.CameraInitializedEventLToNull()));
+      method_channel_camera._channel.invokeMapMethod(T.StringL(), dart.dynamic, "initialize", new (T.IdentityMapOfStringL$dynamic()).from(["cameraId", cameraId, "imageFormatGroup", image_format_group['ImageFormatGroupName|name'](imageFormatGroup)]));
+      return _completer.future;
+    }
+    dispose(cameraId) {
+      return async.async(dart.void, (function* dispose() {
+        yield method_channel_camera._channel.invokeMethod(dart.void, "dispose", new (T.IdentityMapOfStringL$dynamic()).from(["cameraId", cameraId]));
+        if (dart.test(this[_channels][$containsKey](cameraId))) {
+          this[_channels][$_get](cameraId).setMethodCallHandler(null);
+          this[_channels][$remove](cameraId);
+        }
+      }).bind(this));
+    }
+    onCameraInitialized(cameraId) {
+      return where['Where|whereType'](T.CameraEventL(), T.CameraInitializedEventL(), this[_cameraEvents](cameraId));
+    }
+    onCameraResolutionChanged(cameraId) {
+      return where['Where|whereType'](T.CameraEventL(), T.CameraResolutionChangedEventL(), this[_cameraEvents](cameraId));
+    }
+    onCameraClosing(cameraId) {
+      return where['Where|whereType'](T.CameraEventL(), T.CameraClosingEventL(), this[_cameraEvents](cameraId));
+    }
+    onCameraError(cameraId) {
+      return where['Where|whereType'](T.CameraEventL(), T.CameraErrorEventL(), this[_cameraEvents](cameraId));
+    }
+    onDeviceOrientationChanged() {
+      return where['Where|whereType'](T.DeviceEventL(), T.DeviceOrientationChangedEventL(), this.deviceEventStreamController.stream);
+    }
+    lockCaptureOrientation(cameraId, orientation) {
+      return async.async(dart.void, function* lockCaptureOrientation() {
+        yield method_channel_camera._channel.invokeMethod(T.StringL(), "lockCaptureOrientation", new (T.IdentityMapOfStringL$dynamic()).from(["cameraId", cameraId, "orientation", utils.serializeDeviceOrientation(orientation)]));
+      });
+    }
+    unlockCaptureOrientation(cameraId) {
+      return async.async(dart.void, function* unlockCaptureOrientation() {
+        yield method_channel_camera._channel.invokeMethod(T.StringL(), "unlockCaptureOrientation", new (T.IdentityMapOfStringL$dynamic()).from(["cameraId", cameraId]));
+      });
+    }
+    takePicture(cameraId) {
+      return async.async(T.XFileL(), function* takePicture() {
+        let path = (yield method_channel_camera._channel.invokeMethod(T.StringL(), "takePicture", new (T.IdentityMapOfStringL$dynamic()).from(["cameraId", cameraId])));
+        return new html.XFile.new(path);
+      });
+    }
+    prepareForVideoRecording() {
+      return method_channel_camera._channel.invokeMethod(dart.void, "prepareForVideoRecording");
+    }
+    startVideoRecording(cameraId, opts) {
+      let maxVideoDuration = opts && 'maxVideoDuration' in opts ? opts.maxVideoDuration : null;
+      return async.async(dart.void, function* startVideoRecording() {
+        let t2;
+        yield method_channel_camera._channel.invokeMethod(dart.void, "startVideoRecording", new (T.IdentityMapOfStringL$dynamic()).from(["cameraId", cameraId, "maxVideoDuration", (t2 = maxVideoDuration, t2 == null ? null : t2.inMilliseconds)]));
+      });
+    }
+    stopVideoRecording(cameraId) {
+      return async.async(T.XFileL(), function* stopVideoRecording() {
+        let path = (yield method_channel_camera._channel.invokeMethod(T.StringL(), "stopVideoRecording", new (T.IdentityMapOfStringL$dynamic()).from(["cameraId", cameraId])));
+        return new html.XFile.new(path);
+      });
+    }
+    pauseVideoRecording(cameraId) {
+      return method_channel_camera._channel.invokeMethod(dart.void, "pauseVideoRecording", new (T.IdentityMapOfStringL$dynamic()).from(["cameraId", cameraId]));
+    }
+    resumeVideoRecording(cameraId) {
+      return method_channel_camera._channel.invokeMethod(dart.void, "resumeVideoRecording", new (T.IdentityMapOfStringL$dynamic()).from(["cameraId", cameraId]));
+    }
+    setFlashMode(cameraId, mode) {
+      return method_channel_camera._channel.invokeMethod(dart.void, "setFlashMode", new (T.IdentityMapOfStringL$dynamic()).from(["cameraId", cameraId, "mode", this[_serializeFlashMode](mode)]));
+    }
+    setExposureMode(cameraId, mode) {
+      return method_channel_camera._channel.invokeMethod(dart.void, "setExposureMode", new (T.IdentityMapOfStringL$dynamic()).from(["cameraId", cameraId, "mode", exposure_mode.serializeExposureMode(mode)]));
+    }
+    setExposurePoint(cameraId, point) {
+      let t2, t2$;
+      if (!(point == null || dart.notNull(point.x) >= 0 && dart.notNull(point.x) <= 1)) dart.assertFailed(null, I[0], 254, 12, "point == null || point.x >= 0 && point.x <= 1");
+      if (!(point == null || dart.notNull(point.y) >= 0 && dart.notNull(point.y) <= 1)) dart.assertFailed(null, I[0], 255, 12, "point == null || point.y >= 0 && point.y <= 1");
+      return method_channel_camera._channel.invokeMethod(dart.void, "setExposurePoint", new (T.IdentityMapOfStringL$dynamic()).from(["cameraId", cameraId, "reset", point == null, "x", (t2 = point, t2 == null ? null : t2.x), "y", (t2$ = point, t2$ == null ? null : t2$.y)]));
+    }
+    getMinExposureOffset(cameraId) {
+      return method_channel_camera._channel.invokeMethod(T.doubleL(), "getMinExposureOffset", new (T.IdentityMapOfStringL$dynamic()).from(["cameraId", cameraId]));
+    }
+    getMaxExposureOffset(cameraId) {
+      return method_channel_camera._channel.invokeMethod(T.doubleL(), "getMaxExposureOffset", new (T.IdentityMapOfStringL$dynamic()).from(["cameraId", cameraId]));
+    }
+    getExposureOffsetStepSize(cameraId) {
+      return method_channel_camera._channel.invokeMethod(T.doubleL(), "getExposureOffsetStepSize", new (T.IdentityMapOfStringL$dynamic()).from(["cameraId", cameraId]));
+    }
+    setExposureOffset(cameraId, offset) {
+      return method_channel_camera._channel.invokeMethod(T.doubleL(), "setExposureOffset", new (T.IdentityMapOfStringL$dynamic()).from(["cameraId", cameraId, "offset", offset]));
+    }
+    setFocusMode(cameraId, mode) {
+      return method_channel_camera._channel.invokeMethod(dart.void, "setFocusMode", new (T.IdentityMapOfStringL$dynamic()).from(["cameraId", cameraId, "mode", focus_mode.serializeFocusMode(mode)]));
+    }
+    setFocusPoint(cameraId, point) {
+      let t2, t2$;
+      if (!(point == null || dart.notNull(point.x) >= 0 && dart.notNull(point.x) <= 1)) dart.assertFailed(null, I[0], 310, 12, "point == null || point.x >= 0 && point.x <= 1");
+      if (!(point == null || dart.notNull(point.y) >= 0 && dart.notNull(point.y) <= 1)) dart.assertFailed(null, I[0], 311, 12, "point == null || point.y >= 0 && point.y <= 1");
+      return method_channel_camera._channel.invokeMethod(dart.void, "setFocusPoint", new (T.IdentityMapOfStringL$dynamic()).from(["cameraId", cameraId, "reset", point == null, "x", (t2 = point, t2 == null ? null : t2.x), "y", (t2$ = point, t2$ == null ? null : t2$.y)]));
+    }
+    getMaxZoomLevel(cameraId) {
+      return method_channel_camera._channel.invokeMethod(T.doubleL(), "getMaxZoomLevel", new (T.IdentityMapOfStringL$dynamic()).from(["cameraId", cameraId]));
+    }
+    getMinZoomLevel(cameraId) {
+      return method_channel_camera._channel.invokeMethod(T.doubleL(), "getMinZoomLevel", new (T.IdentityMapOfStringL$dynamic()).from(["cameraId", cameraId]));
+    }
+    setZoomLevel(cameraId, zoom) {
+      return async.async(dart.void, function* setZoomLevel() {
+        try {
+          yield method_channel_camera._channel.invokeMethod(T.doubleL(), "setZoomLevel", new (T.IdentityMapOfStringL$dynamic()).from(["cameraId", cameraId, "zoom", zoom]));
+        } catch (e$) {
+          let e = dart.getThrown(e$);
+          if (T.PlatformExceptionL().is(e)) {
+            dart.throw(new camera_exception.CameraException.new(e.code, e.message));
+          } else
+            throw e$;
+        }
+      });
+    }
+    buildPreview(cameraId) {
+      return new texture.Texture.new({textureId: cameraId, $creationLocationd_0dea112b090073317d4: C[0] || CT.C0});
+    }
+    [_serializeFlashMode](flashMode) {
+      switch (flashMode) {
+        case C[3] || CT.C3:
+        {
+          return "off";
+        }
+        case C[4] || CT.C4:
+        {
+          return "auto";
+        }
+        case C[5] || CT.C5:
+        {
+          return "always";
+        }
+        case C[6] || CT.C6:
+        {
+          return "torch";
+        }
+        default:
+        {
+          dart.throw(new core.ArgumentError.new("Unknown FlashMode value"));
+        }
+      }
+    }
+    [_serializeResolutionPreset](resolutionPreset) {
+      switch (resolutionPreset) {
+        case C[7] || CT.C7:
+        {
+          return "max";
+        }
+        case C[8] || CT.C8:
+        {
+          return "ultraHigh";
+        }
+        case C[9] || CT.C9:
+        {
+          return "veryHigh";
+        }
+        case C[10] || CT.C10:
+        {
+          return "high";
+        }
+        case C[11] || CT.C11:
+        {
+          return "medium";
+        }
+        case C[12] || CT.C12:
+        {
+          return "low";
+        }
+        default:
+        {
+          dart.throw(new core.ArgumentError.new("Unknown ResolutionPreset value"));
+        }
+      }
+    }
+    handleDeviceMethodCall(call) {
+      return async.async(dart.dynamic, (function* handleDeviceMethodCall() {
+        switch (call.method) {
+          case "orientation_changed":
+          {
+            this.deviceEventStreamController.add(new device_event.DeviceOrientationChangedEvent.new(utils.deserializeDeviceOrientation(T.StringL().as(dart.dsend(call.arguments, '_get', ["orientation"])))));
+            break;
+          }
+          default:
+          {
+            dart.throw(new message_codec.MissingPluginException.new());
+          }
+        }
+      }).bind(this));
+    }
+    handleCameraMethodCall(call, cameraId) {
+      return async.async(dart.dynamic, (function* handleCameraMethodCall() {
+        switch (call.method) {
+          case "initialized":
+          {
+            this.cameraEventStreamController.add(new camera_event.CameraInitializedEvent.new(cameraId, T.doubleL().as(dart.dsend(call.arguments, '_get', ["previewWidth"])), T.doubleL().as(dart.dsend(call.arguments, '_get', ["previewHeight"])), exposure_mode.deserializeExposureMode(T.StringL().as(dart.dsend(call.arguments, '_get', ["exposureMode"]))), T.boolL().as(dart.dsend(call.arguments, '_get', ["exposurePointSupported"])), focus_mode.deserializeFocusMode(T.StringL().as(dart.dsend(call.arguments, '_get', ["focusMode"]))), T.boolL().as(dart.dsend(call.arguments, '_get', ["focusPointSupported"]))));
+            break;
+          }
+          case "resolution_changed":
+          {
+            this.cameraEventStreamController.add(new camera_event.CameraResolutionChangedEvent.new(cameraId, T.doubleL().as(dart.dsend(call.arguments, '_get', ["captureWidth"])), T.doubleL().as(dart.dsend(call.arguments, '_get', ["captureHeight"]))));
+            break;
+          }
+          case "camera_closing":
+          {
+            this.cameraEventStreamController.add(new camera_event.CameraClosingEvent.new(cameraId));
+            break;
+          }
+          case "error":
+          {
+            this.cameraEventStreamController.add(new camera_event.CameraErrorEvent.new(cameraId, T.StringL().as(dart.dsend(call.arguments, '_get', ["description"]))));
+            break;
+          }
+          default:
+          {
+            dart.throw(new message_codec.MissingPluginException.new());
+          }
+        }
+      }).bind(this));
+    }
+  };
+  (method_channel_camera.MethodChannelCamera.new = function() {
+    this[_channels] = new (T.IdentityMapOfintL$MethodChannelL()).new();
+    this[cameraEventStreamController] = T.StreamControllerOfCameraEventL().broadcast();
+    this[deviceEventStreamController] = T.StreamControllerOfDeviceEventL().broadcast();
+    method_channel_camera.MethodChannelCamera.__proto__.new.call(this);
+    let channel = new platform_channel.MethodChannel.new("flutter.io/cameraPlugin/device");
+    channel.setMethodCallHandler(dart.fn(call => this.handleDeviceMethodCall(call), T.MethodCallLToFutureL()));
+  }).prototype = method_channel_camera.MethodChannelCamera.prototype;
+  dart.addTypeTests(method_channel_camera.MethodChannelCamera);
+  dart.addTypeCaches(method_channel_camera.MethodChannelCamera);
+  dart.setMethodSignature(method_channel_camera.MethodChannelCamera, () => ({
+    __proto__: dart.getMethods(method_channel_camera.MethodChannelCamera.__proto__),
+    [_cameraEvents]: dart.fnType(dart.legacy(async.Stream$(dart.legacy(camera_event.CameraEvent))), [dart.legacy(core.int)]),
+    [_serializeFlashMode]: dart.fnType(dart.legacy(core.String), [dart.legacy(flash_mode.FlashMode)]),
+    [_serializeResolutionPreset]: dart.fnType(dart.legacy(core.String), [dart.legacy(resolution_preset.ResolutionPreset)]),
+    handleDeviceMethodCall: dart.fnType(dart.legacy(async.Future), [dart.legacy(message_codec.MethodCall)]),
+    handleCameraMethodCall: dart.fnType(dart.legacy(async.Future), [dart.legacy(message_codec.MethodCall), dart.legacy(core.int)])
+  }));
+  dart.setLibraryUri(method_channel_camera.MethodChannelCamera, I[2]);
+  dart.setFieldSignature(method_channel_camera.MethodChannelCamera, () => ({
+    __proto__: dart.getFields(method_channel_camera.MethodChannelCamera.__proto__),
+    [_channels]: dart.finalFieldType(dart.legacy(core.Map$(dart.legacy(core.int), dart.legacy(platform_channel.MethodChannel)))),
+    cameraEventStreamController: dart.finalFieldType(dart.legacy(async.StreamController$(dart.legacy(camera_event.CameraEvent)))),
+    deviceEventStreamController: dart.finalFieldType(dart.legacy(async.StreamController$(dart.legacy(device_event.DeviceEvent))))
+  }));
+  var MethodChannel__binaryMessenger = dart.privateName(platform_channel, "MethodChannel._binaryMessenger");
+  var StandardMethodCodec_messageCodec = dart.privateName(message_codecs, "StandardMethodCodec.messageCodec");
+  var MethodChannel_codec = dart.privateName(platform_channel, "MethodChannel.codec");
+  var MethodChannel_name = dart.privateName(platform_channel, "MethodChannel.name");
+  dart.defineLazy(method_channel_camera, {
+    /*method_channel_camera._channel*/get _channel() {
+      return C[13] || CT.C13;
+    }
+  }, true);
+  var _name$0 = dart.privateName(system_chrome, "_name");
+  utils.parseCameraLensDirection = function parseCameraLensDirection(string) {
+    switch (string) {
+      case "front":
+      {
+        return camera_description.CameraLensDirection.front;
+      }
+      case "back":
+      {
+        return camera_description.CameraLensDirection.back;
+      }
+      case "external":
+      {
+        return camera_description.CameraLensDirection.external;
+      }
+    }
+    dart.throw(new core.ArgumentError.new("Unknown CameraLensDirection value"));
+  };
+  utils.serializeDeviceOrientation = function serializeDeviceOrientation(orientation) {
+    switch (orientation) {
+      case C[16] || CT.C16:
+      {
+        return "portraitUp";
+      }
+      case C[17] || CT.C17:
+      {
+        return "portraitDown";
+      }
+      case C[18] || CT.C18:
+      {
+        return "landscapeRight";
+      }
+      case C[19] || CT.C19:
+      {
+        return "landscapeLeft";
+      }
+      default:
+      {
+        dart.throw(new core.ArgumentError.new("Unknown DeviceOrientation value"));
+      }
+    }
+  };
+  utils.deserializeDeviceOrientation = function deserializeDeviceOrientation(str) {
+    switch (str) {
+      case "portraitUp":
+      {
+        return system_chrome.DeviceOrientation.portraitUp;
+      }
+      case "portraitDown":
+      {
+        return system_chrome.DeviceOrientation.portraitDown;
+      }
+      case "landscapeRight":
+      {
+        return system_chrome.DeviceOrientation.landscapeRight;
+      }
+      case "landscapeLeft":
+      {
+        return system_chrome.DeviceOrientation.landscapeLeft;
+      }
+      default:
+      {
+        dart.throw(new core.ArgumentError.new("\"" + dart.str(str) + "\" is not a valid DeviceOrientation value"));
+      }
+    }
+  };
+  device_event.DeviceEvent = class DeviceEvent extends core.Object {};
+  (device_event.DeviceEvent.new = function() {
+    ;
+  }).prototype = device_event.DeviceEvent.prototype;
+  dart.addTypeTests(device_event.DeviceEvent);
+  dart.addTypeCaches(device_event.DeviceEvent);
+  dart.setLibraryUri(device_event.DeviceEvent, I[3]);
+  var orientation$ = dart.privateName(device_event, "DeviceOrientationChangedEvent.orientation");
+  device_event.DeviceOrientationChangedEvent = class DeviceOrientationChangedEvent extends device_event.DeviceEvent {
+    get orientation() {
+      return this[orientation$];
+    }
+    set orientation(value) {
+      super.orientation = value;
+    }
+    toJson() {
+      return new (T.IdentityMapOfStringL$dynamic()).from(["orientation", utils.serializeDeviceOrientation(this.orientation)]);
+    }
+    _equals(other) {
+      if (other == null) return false;
+      return this === other || T.DeviceOrientationChangedEventL().is(other) && dart.equals(this.runtimeType, dart.runtimeType(other)) && this.orientation == other.orientation;
+    }
+    get hashCode() {
+      return dart.hashCode(this.orientation);
+    }
+  };
+  (device_event.DeviceOrientationChangedEvent.new = function(orientation) {
+    this[orientation$] = orientation;
+    ;
+  }).prototype = device_event.DeviceOrientationChangedEvent.prototype;
+  (device_event.DeviceOrientationChangedEvent.fromJson = function(json) {
+    this[orientation$] = utils.deserializeDeviceOrientation(T.StringL().as(json[$_get]("orientation")));
+    ;
+  }).prototype = device_event.DeviceOrientationChangedEvent.prototype;
+  dart.addTypeTests(device_event.DeviceOrientationChangedEvent);
+  dart.addTypeCaches(device_event.DeviceOrientationChangedEvent);
+  dart.setMethodSignature(device_event.DeviceOrientationChangedEvent, () => ({
+    __proto__: dart.getMethods(device_event.DeviceOrientationChangedEvent.__proto__),
+    toJson: dart.fnType(dart.legacy(core.Map$(dart.legacy(core.String), dart.dynamic)), []),
+    _equals: dart.fnType(dart.legacy(core.bool), [dart.legacy(core.Object)]),
+    [$_equals]: dart.fnType(dart.legacy(core.bool), [dart.legacy(core.Object)])
+  }));
+  dart.setGetterSignature(device_event.DeviceOrientationChangedEvent, () => ({
+    __proto__: dart.getGetters(device_event.DeviceOrientationChangedEvent.__proto__),
+    hashCode: dart.legacy(core.int),
+    [$hashCode]: dart.legacy(core.int)
+  }));
+  dart.setLibraryUri(device_event.DeviceOrientationChangedEvent, I[3]);
+  dart.setFieldSignature(device_event.DeviceOrientationChangedEvent, () => ({
+    __proto__: dart.getFields(device_event.DeviceOrientationChangedEvent.__proto__),
+    orientation: dart.finalFieldType(dart.legacy(system_chrome.DeviceOrientation))
+  }));
+  dart.defineExtensionMethods(device_event.DeviceOrientationChangedEvent, ['_equals']);
+  dart.defineExtensionAccessors(device_event.DeviceOrientationChangedEvent, ['hashCode']);
+  var cameraId$ = dart.privateName(camera_event, "CameraEvent.cameraId");
+  camera_event.CameraEvent = class CameraEvent extends core.Object {
+    get cameraId() {
+      return this[cameraId$];
+    }
+    set cameraId(value) {
+      super.cameraId = value;
+    }
+    _equals(other) {
+      if (other == null) return false;
+      return this === other || T.CameraEventL().is(other) && dart.equals(this.runtimeType, dart.runtimeType(other)) && this.cameraId == other.cameraId;
+    }
+    get hashCode() {
+      return dart.hashCode(this.cameraId);
+    }
+  };
+  (camera_event.CameraEvent.new = function(cameraId) {
+    this[cameraId$] = cameraId;
+    if (!(cameraId != null)) dart.assertFailed(null, I[4], 32, 39, "cameraId != null");
+    ;
+  }).prototype = camera_event.CameraEvent.prototype;
+  dart.addTypeTests(camera_event.CameraEvent);
+  dart.addTypeCaches(camera_event.CameraEvent);
+  dart.setMethodSignature(camera_event.CameraEvent, () => ({
+    __proto__: dart.getMethods(camera_event.CameraEvent.__proto__),
+    _equals: dart.fnType(dart.legacy(core.bool), [dart.legacy(core.Object)]),
+    [$_equals]: dart.fnType(dart.legacy(core.bool), [dart.legacy(core.Object)])
+  }));
+  dart.setGetterSignature(camera_event.CameraEvent, () => ({
+    __proto__: dart.getGetters(camera_event.CameraEvent.__proto__),
+    hashCode: dart.legacy(core.int),
+    [$hashCode]: dart.legacy(core.int)
+  }));
+  dart.setLibraryUri(camera_event.CameraEvent, I[5]);
+  dart.setFieldSignature(camera_event.CameraEvent, () => ({
+    __proto__: dart.getFields(camera_event.CameraEvent.__proto__),
+    cameraId: dart.finalFieldType(dart.legacy(core.int))
+  }));
+  dart.defineExtensionMethods(camera_event.CameraEvent, ['_equals']);
+  dart.defineExtensionAccessors(camera_event.CameraEvent, ['hashCode']);
+  var previewWidth$ = dart.privateName(camera_event, "CameraInitializedEvent.previewWidth");
+  var previewHeight$ = dart.privateName(camera_event, "CameraInitializedEvent.previewHeight");
+  var exposureMode$ = dart.privateName(camera_event, "CameraInitializedEvent.exposureMode");
+  var focusMode$ = dart.privateName(camera_event, "CameraInitializedEvent.focusMode");
+  var exposurePointSupported$ = dart.privateName(camera_event, "CameraInitializedEvent.exposurePointSupported");
+  var focusPointSupported$ = dart.privateName(camera_event, "CameraInitializedEvent.focusPointSupported");
+  camera_event.CameraInitializedEvent = class CameraInitializedEvent extends camera_event.CameraEvent {
+    get previewWidth() {
+      return this[previewWidth$];
+    }
+    set previewWidth(value) {
+      super.previewWidth = value;
+    }
+    get previewHeight() {
+      return this[previewHeight$];
+    }
+    set previewHeight(value) {
+      super.previewHeight = value;
+    }
+    get exposureMode() {
+      return this[exposureMode$];
+    }
+    set exposureMode(value) {
+      super.exposureMode = value;
+    }
+    get focusMode() {
+      return this[focusMode$];
+    }
+    set focusMode(value) {
+      super.focusMode = value;
+    }
+    get exposurePointSupported() {
+      return this[exposurePointSupported$];
+    }
+    set exposurePointSupported(value) {
+      super.exposurePointSupported = value;
+    }
+    get focusPointSupported() {
+      return this[focusPointSupported$];
+    }
+    set focusPointSupported(value) {
+      super.focusPointSupported = value;
+    }
+    toJson() {
+      return new (T.IdentityMapOfStringL$dynamic()).from(["cameraId", this.cameraId, "previewWidth", this.previewWidth, "previewHeight", this.previewHeight, "exposureMode", exposure_mode.serializeExposureMode(this.exposureMode), "exposurePointSupported", this.exposurePointSupported, "focusMode", focus_mode.serializeFocusMode(this.focusMode), "focusPointSupported", this.focusPointSupported]);
+    }
+    _equals(other) {
+      if (other == null) return false;
+      return this === other || super._equals(other) && T.CameraInitializedEventL().is(other) && dart.equals(this.runtimeType, dart.runtimeType(other)) && this.previewWidth == other.previewWidth && this.previewHeight == other.previewHeight && this.exposureMode == other.exposureMode && this.exposurePointSupported == other.exposurePointSupported && this.focusMode == other.focusMode && this.focusPointSupported == other.focusPointSupported;
+    }
+    get hashCode() {
+      return (dart.notNull(super.hashCode) ^ dart.hashCode(this.previewWidth) ^ dart.hashCode(this.previewHeight) ^ dart.notNull(dart.hashCode(this.exposureMode)) ^ dart.hashCode(this.exposurePointSupported) ^ dart.notNull(dart.hashCode(this.focusMode)) ^ dart.hashCode(this.focusPointSupported)) >>> 0;
+    }
+  };
+  (camera_event.CameraInitializedEvent.new = function(cameraId, previewWidth, previewHeight, exposureMode = null, exposurePointSupported = false, focusMode = null, focusPointSupported = false) {
+    this[previewWidth$] = previewWidth;
+    this[previewHeight$] = previewHeight;
+    this[exposureMode$] = exposureMode;
+    this[exposurePointSupported$] = exposurePointSupported;
+    this[focusMode$] = focusMode;
+    this[focusPointSupported$] = focusPointSupported;
+    camera_event.CameraInitializedEvent.__proto__.new.call(this, cameraId);
+    ;
+  }).prototype = camera_event.CameraInitializedEvent.prototype;
+  (camera_event.CameraInitializedEvent.fromJson = function(json) {
+    let t3, t3$;
+    this[previewWidth$] = T.doubleL().as(json[$_get]("previewWidth"));
+    this[previewHeight$] = T.doubleL().as(json[$_get]("previewHeight"));
+    this[exposureMode$] = exposure_mode.deserializeExposureMode(T.StringL().as(json[$_get]("exposureMode")));
+    this[exposurePointSupported$] = T.boolL().as((t3 = json[$_get]("exposurePointSupported"), t3 == null ? false : t3));
+    this[focusMode$] = focus_mode.deserializeFocusMode(T.StringL().as(json[$_get]("focusMode")));
+    this[focusPointSupported$] = T.boolL().as((t3$ = json[$_get]("focusPointSupported"), t3$ == null ? false : t3$));
+    camera_event.CameraInitializedEvent.__proto__.new.call(this, T.intL().as(json[$_get]("cameraId")));
+    ;
+  }).prototype = camera_event.CameraInitializedEvent.prototype;
+  dart.addTypeTests(camera_event.CameraInitializedEvent);
+  dart.addTypeCaches(camera_event.CameraInitializedEvent);
+  dart.setMethodSignature(camera_event.CameraInitializedEvent, () => ({
+    __proto__: dart.getMethods(camera_event.CameraInitializedEvent.__proto__),
+    toJson: dart.fnType(dart.legacy(core.Map$(dart.legacy(core.String), dart.dynamic)), [])
+  }));
+  dart.setLibraryUri(camera_event.CameraInitializedEvent, I[5]);
+  dart.setFieldSignature(camera_event.CameraInitializedEvent, () => ({
+    __proto__: dart.getFields(camera_event.CameraInitializedEvent.__proto__),
+    previewWidth: dart.finalFieldType(dart.legacy(core.double)),
+    previewHeight: dart.finalFieldType(dart.legacy(core.double)),
+    exposureMode: dart.finalFieldType(dart.legacy(exposure_mode.ExposureMode)),
+    focusMode: dart.finalFieldType(dart.legacy(focus_mode.FocusMode)),
+    exposurePointSupported: dart.finalFieldType(dart.legacy(core.bool)),
+    focusPointSupported: dart.finalFieldType(dart.legacy(core.bool))
+  }));
+  dart.defineExtensionMethods(camera_event.CameraInitializedEvent, ['_equals']);
+  dart.defineExtensionAccessors(camera_event.CameraInitializedEvent, ['hashCode']);
+  var captureWidth$ = dart.privateName(camera_event, "CameraResolutionChangedEvent.captureWidth");
+  var captureHeight$ = dart.privateName(camera_event, "CameraResolutionChangedEvent.captureHeight");
+  camera_event.CameraResolutionChangedEvent = class CameraResolutionChangedEvent extends camera_event.CameraEvent {
+    get captureWidth() {
+      return this[captureWidth$];
+    }
+    set captureWidth(value) {
+      super.captureWidth = value;
+    }
+    get captureHeight() {
+      return this[captureHeight$];
+    }
+    set captureHeight(value) {
+      super.captureHeight = value;
+    }
+    toJson() {
+      return new (T.IdentityMapOfStringL$dynamic()).from(["cameraId", this.cameraId, "captureWidth", this.captureWidth, "captureHeight", this.captureHeight]);
+    }
+    _equals(other) {
+      if (other == null) return false;
+      return this === other || T.CameraResolutionChangedEventL().is(other) && super._equals(other) && dart.equals(this.runtimeType, dart.runtimeType(other)) && this.captureWidth == other.captureWidth && this.captureHeight == other.captureHeight;
+    }
+    get hashCode() {
+      return (dart.notNull(super.hashCode) ^ dart.hashCode(this.captureWidth) ^ dart.hashCode(this.captureHeight)) >>> 0;
+    }
+  };
+  (camera_event.CameraResolutionChangedEvent.new = function(cameraId, captureWidth, captureHeight) {
+    this[captureWidth$] = captureWidth;
+    this[captureHeight$] = captureHeight;
+    camera_event.CameraResolutionChangedEvent.__proto__.new.call(this, cameraId);
+    ;
+  }).prototype = camera_event.CameraResolutionChangedEvent.prototype;
+  (camera_event.CameraResolutionChangedEvent.fromJson = function(json) {
+    this[captureWidth$] = T.doubleL().as(json[$_get]("captureWidth"));
+    this[captureHeight$] = T.doubleL().as(json[$_get]("captureHeight"));
+    camera_event.CameraResolutionChangedEvent.__proto__.new.call(this, T.intL().as(json[$_get]("cameraId")));
+    ;
+  }).prototype = camera_event.CameraResolutionChangedEvent.prototype;
+  dart.addTypeTests(camera_event.CameraResolutionChangedEvent);
+  dart.addTypeCaches(camera_event.CameraResolutionChangedEvent);
+  dart.setMethodSignature(camera_event.CameraResolutionChangedEvent, () => ({
+    __proto__: dart.getMethods(camera_event.CameraResolutionChangedEvent.__proto__),
+    toJson: dart.fnType(dart.legacy(core.Map$(dart.legacy(core.String), dart.dynamic)), [])
+  }));
+  dart.setLibraryUri(camera_event.CameraResolutionChangedEvent, I[5]);
+  dart.setFieldSignature(camera_event.CameraResolutionChangedEvent, () => ({
+    __proto__: dart.getFields(camera_event.CameraResolutionChangedEvent.__proto__),
+    captureWidth: dart.finalFieldType(dart.legacy(core.double)),
+    captureHeight: dart.finalFieldType(dart.legacy(core.double))
+  }));
+  dart.defineExtensionMethods(camera_event.CameraResolutionChangedEvent, ['_equals']);
+  dart.defineExtensionAccessors(camera_event.CameraResolutionChangedEvent, ['hashCode']);
+  camera_event.CameraClosingEvent = class CameraClosingEvent extends camera_event.CameraEvent {
+    toJson() {
+      return new (T.IdentityMapOfStringL$dynamic()).from(["cameraId", this.cameraId]);
+    }
+    _equals(other) {
+      if (other == null) return false;
+      return this === other || super._equals(other) && T.CameraClosingEventL().is(other) && dart.equals(this.runtimeType, dart.runtimeType(other));
+    }
+    get hashCode() {
+      return super.hashCode;
+    }
+  };
+  (camera_event.CameraClosingEvent.new = function(cameraId) {
+    camera_event.CameraClosingEvent.__proto__.new.call(this, cameraId);
+    ;
+  }).prototype = camera_event.CameraClosingEvent.prototype;
+  (camera_event.CameraClosingEvent.fromJson = function(json) {
+    camera_event.CameraClosingEvent.__proto__.new.call(this, T.intL().as(json[$_get]("cameraId")));
+    ;
+  }).prototype = camera_event.CameraClosingEvent.prototype;
+  dart.addTypeTests(camera_event.CameraClosingEvent);
+  dart.addTypeCaches(camera_event.CameraClosingEvent);
+  dart.setMethodSignature(camera_event.CameraClosingEvent, () => ({
+    __proto__: dart.getMethods(camera_event.CameraClosingEvent.__proto__),
+    toJson: dart.fnType(dart.legacy(core.Map$(dart.legacy(core.String), dart.dynamic)), [])
+  }));
+  dart.setLibraryUri(camera_event.CameraClosingEvent, I[5]);
+  dart.defineExtensionMethods(camera_event.CameraClosingEvent, ['_equals']);
+  dart.defineExtensionAccessors(camera_event.CameraClosingEvent, ['hashCode']);
+  var description$ = dart.privateName(camera_event, "CameraErrorEvent.description");
+  camera_event.CameraErrorEvent = class CameraErrorEvent extends camera_event.CameraEvent {
+    get description() {
+      return this[description$];
+    }
+    set description(value) {
+      super.description = value;
+    }
+    toJson() {
+      return new (T.IdentityMapOfStringL$dynamic()).from(["cameraId", this.cameraId, "description", this.description]);
+    }
+    _equals(other) {
+      if (other == null) return false;
+      return this === other || super._equals(other) && T.CameraErrorEventL().is(other) && dart.equals(this.runtimeType, dart.runtimeType(other)) && this.description == other.description;
+    }
+    get hashCode() {
+      return (dart.notNull(super.hashCode) ^ dart.hashCode(this.description)) >>> 0;
+    }
+  };
+  (camera_event.CameraErrorEvent.new = function(cameraId, description) {
+    this[description$] = description;
+    camera_event.CameraErrorEvent.__proto__.new.call(this, cameraId);
+    ;
+  }).prototype = camera_event.CameraErrorEvent.prototype;
+  (camera_event.CameraErrorEvent.fromJson = function(json) {
+    this[description$] = T.StringL().as(json[$_get]("description"));
+    camera_event.CameraErrorEvent.__proto__.new.call(this, T.intL().as(json[$_get]("cameraId")));
+    ;
+  }).prototype = camera_event.CameraErrorEvent.prototype;
+  dart.addTypeTests(camera_event.CameraErrorEvent);
+  dart.addTypeCaches(camera_event.CameraErrorEvent);
+  dart.setMethodSignature(camera_event.CameraErrorEvent, () => ({
+    __proto__: dart.getMethods(camera_event.CameraErrorEvent.__proto__),
+    toJson: dart.fnType(dart.legacy(core.Map$(dart.legacy(core.String), dart.dynamic)), [])
+  }));
+  dart.setLibraryUri(camera_event.CameraErrorEvent, I[5]);
+  dart.setFieldSignature(camera_event.CameraErrorEvent, () => ({
+    __proto__: dart.getFields(camera_event.CameraErrorEvent.__proto__),
+    description: dart.finalFieldType(dart.legacy(core.String))
+  }));
+  dart.defineExtensionMethods(camera_event.CameraErrorEvent, ['_equals']);
+  dart.defineExtensionAccessors(camera_event.CameraErrorEvent, ['hashCode']);
+  dart.trackLibraries("packages/camera_platform_interface/src/method_channel/method_channel_camera.dart", {
+    "package:camera_platform_interface/src/method_channel/method_channel_camera.dart": method_channel_camera,
+    "package:camera_platform_interface/src/platform_interface/camera_platform.dart": camera_platform,
+    "package:camera_platform_interface/src/utils/utils.dart": utils,
+    "package:camera_platform_interface/src/events/device_event.dart": device_event,
+    "package:camera_platform_interface/src/events/camera_event.dart": camera_event,
+    "package:camera_platform_interface/camera_platform_interface.dart": camera_platform_interface
+  }, {
+  }, '{"version":3,"sourceRoot":"","sources":["../platform_interface/camera_platform.dart","method_channel_camera.dart","../utils/utils.dart","../events/device_event.dart","../events/camera_event.dart"],"names":[],"mappings":"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","file":"../../../../../../../../../O:/packages/camera_platform_interface/src/method_channel/method_channel_camera.dart.lib.js"}');
+  // Exports:
+  return {
+    src__method_channel__method_channel_camera: method_channel_camera,
+    src__platform_interface__camera_platform: camera_platform,
+    src__utils__utils: utils,
+    src__events__device_event: device_event,
+    src__events__camera_event: camera_event,
+    camera_platform_interface: camera_platform_interface
+  };
+}));
+
+//# sourceMappingURL=method_channel_camera.dart.lib.js.map

@@ -1,0 +1,315 @@
+define(['dart_sdk', 'packages/get/get_instance/src/extension_instance.dart', 'packages/english_teacher_app/services/yaml_config_service.dart', 'packages/get/get_core/src/get_main.dart', 'packages/event_bus/event_bus.dart', 'packages/fluwx/src/share/share_models.dart', 'packages/fluwx/src/response/wechat_response.dart', 'packages/english_teacher_app/domain/event.dart', 'packages/english_teacher_app/common/dio_http_helper.dart', 'packages/dio/src/form_data.dart', 'packages/dio/src/multipart_file_stub.dart', 'packages/dio_http_cache/src/builder_dio.dart', 'packages/get/get_state_manager/src/rx_flutter/rx_disposable.dart'], (function load__packages__english_teacher_app__services__login_service_dart(dart_sdk, packages__get__get_instance__src__extension_instance$46dart, packages__english_teacher_app__services__yaml_config_service$46dart, packages__get__get_core__src__get_main$46dart, packages__event_bus__event_bus$46dart, packages__fluwx__src__share__share_models$46dart, packages__fluwx__src__response__wechat_response$46dart, packages__english_teacher_app__domain__event$46dart, packages__english_teacher_app__common__dio_http_helper$46dart, packages__dio__src__form_data$46dart, packages__dio__src__multipart_file_stub$46dart, packages__dio_http_cache__src__builder_dio$46dart, packages__get__get_state_manager__src__rx_flutter__rx_disposable$46dart) {
+  'use strict';
+  const core = dart_sdk.core;
+  const async = dart_sdk.async;
+  const _js_helper = dart_sdk._js_helper;
+  const dart = dart_sdk.dart;
+  const dartx = dart_sdk.dartx;
+  const extension_instance = packages__get__get_instance__src__extension_instance$46dart.get_instance__src__extension_instance;
+  const yaml_config_service = packages__english_teacher_app__services__yaml_config_service$46dart.services__yaml_config_service;
+  const get_main = packages__get__get_core__src__get_main$46dart.get_core__src__get_main;
+  const event_bus = packages__event_bus__event_bus$46dart.event_bus;
+  const fluwx_iml = packages__fluwx__src__share__share_models$46dart.src__fluwx_iml;
+  const wechat_response = packages__fluwx__src__response__wechat_response$46dart.src__response__wechat_response;
+  const event$ = packages__english_teacher_app__domain__event$46dart.domain__event;
+  const dio_http_helper = packages__english_teacher_app__common__dio_http_helper$46dart.common__dio_http_helper;
+  const form_data = packages__dio__src__form_data$46dart.src__form_data;
+  const multipart_file = packages__dio__src__multipart_file_stub$46dart.src__multipart_file;
+  const builder_dio = packages__dio_http_cache__src__builder_dio$46dart.src__builder_dio;
+  const rx_disposable = packages__get__get_state_manager__src__rx_flutter__rx_disposable$46dart.get_state_manager__src__rx_flutter__rx_disposable;
+  var login_service = Object.create(dart.library);
+  var $_get = dartx._get;
+  var $containsKey = dartx.containsKey;
+  dart._checkModuleNullSafetyMode(false);
+  var T = {
+    ConfingService2L: () => (T.ConfingService2L = dart.constFn(dart.legacy(yaml_config_service.ConfingService2)))(),
+    EventBusL: () => (T.EventBusL = dart.constFn(dart.legacy(event_bus.EventBus)))(),
+    LoginServiceL: () => (T.LoginServiceL = dart.constFn(dart.legacy(login_service.LoginService)))(),
+    WeChatAuthResponseL: () => (T.WeChatAuthResponseL = dart.constFn(dart.legacy(wechat_response.WeChatAuthResponse)))(),
+    FutureOfNull: () => (T.FutureOfNull = dart.constFn(async.Future$(core.Null)))(),
+    FutureLOfNull: () => (T.FutureLOfNull = dart.constFn(dart.legacy(T.FutureOfNull())))(),
+    BaseWeChatResponseL: () => (T.BaseWeChatResponseL = dart.constFn(dart.legacy(wechat_response.BaseWeChatResponse)))(),
+    BaseWeChatResponseLToFutureLOfNull: () => (T.BaseWeChatResponseLToFutureLOfNull = dart.constFn(dart.fnType(T.FutureLOfNull(), [T.BaseWeChatResponseL()])))(),
+    StringL: () => (T.StringL = dart.constFn(dart.legacy(core.String)))(),
+    IdentityMapOfStringL$dynamic: () => (T.IdentityMapOfStringL$dynamic = dart.constFn(_js_helper.IdentityMap$(T.StringL(), dart.dynamic)))(),
+    MapL: () => (T.MapL = dart.constFn(dart.legacy(core.Map)))(),
+    WebSiteLoginResponseL: () => (T.WebSiteLoginResponseL = dart.constFn(dart.legacy(login_service.WebSiteLoginResponse)))(),
+    boolL: () => (T.boolL = dart.constFn(dart.legacy(core.bool)))(),
+    boolLToNull: () => (T.boolLToNull = dart.constFn(dart.fnType(core.Null, [T.boolL()])))(),
+    dynamicToNull: () => (T.dynamicToNull = dart.constFn(dart.fnType(core.Null, [dart.dynamic])))(),
+    intL: () => (T.intL = dart.constFn(dart.legacy(core.int)))()
+  };
+  const CT = Object.create({
+    _: () => (C, CT)
+  });
+  var I = ["package:english_teacher_app/services/login_service.dart"];
+  var isUserLoggedIn = dart.privateName(login_service, "LoginService.isUserLoggedIn");
+  var userId = dart.privateName(login_service, "LoginService.userId");
+  var wechatCode = dart.privateName(login_service, "LoginService.wechatCode");
+  var isLoggedIn = dart.privateName(login_service, "LoginService.isLoggedIn");
+  var config = dart.privateName(login_service, "LoginService.config");
+  var eventBus = dart.privateName(login_service, "LoginService.eventBus");
+  var _serverAddress = dart.privateName(login_service, "_serverAddress");
+  login_service.LoginService = class LoginService extends rx_disposable.GetxService {
+    get isUserLoggedIn() {
+      return this[isUserLoggedIn];
+    }
+    set isUserLoggedIn(value) {
+      this[isUserLoggedIn] = value;
+    }
+    get userId() {
+      return this[userId];
+    }
+    set userId(value) {
+      this[userId] = value;
+    }
+    get wechatCode() {
+      return this[wechatCode];
+    }
+    set wechatCode(value) {
+      this[wechatCode] = value;
+    }
+    get isLoggedIn() {
+      return this[isLoggedIn];
+    }
+    set isLoggedIn(value) {
+      this[isLoggedIn] = value;
+    }
+    get config() {
+      return this[config];
+    }
+    set config(value) {
+      this[config] = value;
+    }
+    get eventBus() {
+      return this[eventBus];
+    }
+    set eventBus(value) {
+      this[eventBus] = value;
+    }
+    init() {
+      return async.async(T.LoginServiceL(), (function* init() {
+        this.config = extension_instance['Inst|find'](T.ConfingService2L(), get_main.Get);
+        this.eventBus = extension_instance['Inst|find'](T.EventBusL(), get_main.Get);
+        this[_serverAddress] = this.config.serverBaseUrl;
+        return this;
+      }).bind(this));
+    }
+    onInit() {
+      this.getUserId();
+      fluwx_iml.weChatResponseEventHandler.listen(dart.fn(event => async.async(core.Null, (function*() {
+        if (event.errCode === 0) {
+          let authEvent = T.WeChatAuthResponseL().as(event);
+          this.wechatCode = authEvent.code;
+          let rev = (yield this.loginWebSite());
+          this.eventBus.fire(new event$.UserLoggedInEvent.new(this.userId, rev.needRegister));
+        }
+      }).bind(this)), T.BaseWeChatResponseLToFutureLOfNull()));
+    }
+    login() {
+      this.wechatAuth();
+    }
+    loginWebSite() {
+      return async.async(T.WebSiteLoginResponseL(), (function* loginWebSite() {
+        let dio = dio_http_helper.DioHelper.getDioObject();
+        let res = (yield dio.get(dart.dynamic, dart.str(this[_serverAddress]) + "Authentication/Login", {queryParameters: new (T.IdentityMapOfStringL$dynamic()).from(["code", this.wechatCode])}));
+        let resData = new login_service.WebSiteLoginResponse.fromMap(T.MapL().as(res.data));
+        return resData;
+      }).bind(this));
+    }
+    registerUser(name, school, imageFilePath) {
+      return async.async(dart.void, (function* registerUser() {
+        let dio = dio_http_helper.DioHelper.getDioObject();
+        let formData = new form_data.FormData.fromMap(new (T.IdentityMapOfStringL$dynamic()).from(["name", name, "school", school, "file", (yield multipart_file.MultipartFile.fromFile(imageFilePath, {filename: "img.jpg"}))]));
+        let response = (yield dio.post(dart.dynamic, dart.str(this[_serverAddress]) + "User/RegisterUser", {data: formData}));
+      }).bind(this));
+    }
+    wechatAuth() {
+      fluwx_iml.sendWeChatAuth({scope: "snsapi_userinfo", state: "wechat_sdk_demo_test"}).then(core.Null, dart.fn(value => {
+        core.print(value);
+      }, T.boolLToNull())).catchError(dart.fn(e => {
+        core.print("weChatLogin e " + dart.str(e));
+      }, T.dynamicToNull()));
+    }
+    getUserId() {
+      return async.async(dart.dynamic, (function* getUserId() {
+        let dio = dio_http_helper.DioHelper.getDioObject();
+        let uri = core.Uri.parse(dart.str(this[_serverAddress]) + "user/LoginUser");
+        try {
+          let res = (yield dio.getUri(dart.dynamic, uri, {options: builder_dio.buildCacheOptions(new core.Duration.new({minutes: 1}), {primaryKey: "user/LoginUser", maxStale: new core.Duration.new({minutes: 1})})}));
+          this.userId = T.StringL().as(res.data);
+        } catch (e$) {
+          let e = dart.getThrown(e$);
+        }
+        this.isLoggedIn = true;
+      }).bind(this));
+    }
+  };
+  (login_service.LoginService.new = function() {
+    this[_serverAddress] = null;
+    this[isUserLoggedIn] = false;
+    this[userId] = null;
+    this[wechatCode] = "";
+    this[isLoggedIn] = false;
+    this[config] = null;
+    this[eventBus] = null;
+    login_service.LoginService.__proto__.new.call(this);
+    ;
+  }).prototype = login_service.LoginService.prototype;
+  dart.addTypeTests(login_service.LoginService);
+  dart.addTypeCaches(login_service.LoginService);
+  dart.setMethodSignature(login_service.LoginService, () => ({
+    __proto__: dart.getMethods(login_service.LoginService.__proto__),
+    init: dart.fnType(dart.legacy(async.Future$(dart.legacy(login_service.LoginService))), []),
+    login: dart.fnType(dart.void, []),
+    loginWebSite: dart.fnType(dart.legacy(async.Future$(dart.legacy(login_service.WebSiteLoginResponse))), []),
+    registerUser: dart.fnType(dart.legacy(async.Future$(dart.void)), [dart.legacy(core.String), dart.legacy(core.String), dart.legacy(core.String)]),
+    wechatAuth: dart.fnType(dart.dynamic, []),
+    getUserId: dart.fnType(dart.legacy(async.Future), [])
+  }));
+  dart.setLibraryUri(login_service.LoginService, I[0]);
+  dart.setFieldSignature(login_service.LoginService, () => ({
+    __proto__: dart.getFields(login_service.LoginService.__proto__),
+    [_serverAddress]: dart.fieldType(dart.legacy(core.String)),
+    isUserLoggedIn: dart.fieldType(dart.legacy(core.bool)),
+    userId: dart.fieldType(dart.legacy(core.String)),
+    wechatCode: dart.fieldType(dart.legacy(core.String)),
+    isLoggedIn: dart.fieldType(dart.legacy(core.bool)),
+    config: dart.fieldType(dart.legacy(yaml_config_service.ConfingService2)),
+    eventBus: dart.fieldType(dart.legacy(event_bus.EventBus))
+  }));
+  dart.defineLazy(login_service.LoginService, {
+    /*login_service.LoginService.WechatApiAccessToken*/get WechatApiAccessToken() {
+      return "https://api.weixin.qq.com/sns/oauth2/access_token";
+    },
+    /*login_service.LoginService.FingerAuthApi*/get FingerAuthApi() {
+      return "Authentication/Login";
+    },
+    /*login_service.LoginService.FingerRegisterApi*/get FingerRegisterApi() {
+      return "User/RegisterUser";
+    },
+    /*login_service.LoginService.ApiGetUser*/get ApiGetUser() {
+      return "user/LoginUser";
+    }
+  }, true);
+  var unionId = dart.privateName(login_service, "WebSiteLoginResponse.unionId");
+  var needRegister = dart.privateName(login_service, "WebSiteLoginResponse.needRegister");
+  login_service.WebSiteLoginResponse = class WebSiteLoginResponse extends core.Object {
+    get unionId() {
+      return this[unionId];
+    }
+    set unionId(value) {
+      super.unionId = value;
+    }
+    get needRegister() {
+      return this[needRegister];
+    }
+    set needRegister(value) {
+      super.needRegister = value;
+    }
+  };
+  (login_service.WebSiteLoginResponse.fromMap = function(map) {
+    this[unionId] = T.StringL().as(map[$_get]("unionId"));
+    this[needRegister] = T.boolL().as(map[$_get]("needRegister"));
+    ;
+  }).prototype = login_service.WebSiteLoginResponse.prototype;
+  dart.addTypeTests(login_service.WebSiteLoginResponse);
+  dart.addTypeCaches(login_service.WebSiteLoginResponse);
+  dart.setLibraryUri(login_service.WebSiteLoginResponse, I[0]);
+  dart.setFieldSignature(login_service.WebSiteLoginResponse, () => ({
+    __proto__: dart.getFields(login_service.WebSiteLoginResponse.__proto__),
+    unionId: dart.finalFieldType(dart.legacy(core.String)),
+    needRegister: dart.finalFieldType(dart.legacy(core.bool))
+  }));
+  var errCode = dart.privateName(login_service, "WeChatAccessTokenResponse.errCode");
+  var errStr = dart.privateName(login_service, "WeChatAccessTokenResponse.errStr");
+  var accessToken = dart.privateName(login_service, "WeChatAccessTokenResponse.accessToken");
+  var expiresIn = dart.privateName(login_service, "WeChatAccessTokenResponse.expiresIn");
+  var refreshToken = dart.privateName(login_service, "WeChatAccessTokenResponse.refreshToken");
+  var openId = dart.privateName(login_service, "WeChatAccessTokenResponse.openId");
+  var scope = dart.privateName(login_service, "WeChatAccessTokenResponse.scope");
+  login_service.WeChatAccessTokenResponse = class WeChatAccessTokenResponse extends core.Object {
+    get errCode() {
+      return this[errCode];
+    }
+    set errCode(value) {
+      super.errCode = value;
+    }
+    get errStr() {
+      return this[errStr];
+    }
+    set errStr(value) {
+      super.errStr = value;
+    }
+    get accessToken() {
+      return this[accessToken];
+    }
+    set accessToken(value) {
+      super.accessToken = value;
+    }
+    get expiresIn() {
+      return this[expiresIn];
+    }
+    set expiresIn(value) {
+      super.expiresIn = value;
+    }
+    get refreshToken() {
+      return this[refreshToken];
+    }
+    set refreshToken(value) {
+      super.refreshToken = value;
+    }
+    get openId() {
+      return this[openId];
+    }
+    set openId(value) {
+      super.openId = value;
+    }
+    get scope() {
+      return this[scope];
+    }
+    set scope(value) {
+      super.scope = value;
+    }
+    get isSuccessful() {
+      return this.errCode === 0;
+    }
+  };
+  (login_service.WeChatAccessTokenResponse.fromMap = function(map) {
+    this[errCode] = T.intL().as(dart.test(map[$containsKey]("errcode")) ? map[$_get]("errcode") : 0);
+    this[errStr] = T.StringL().as(map[$_get]("errmsg"));
+    this[accessToken] = T.StringL().as(map[$_get]("access_token"));
+    this[expiresIn] = T.intL().as(map[$_get]("expires_in"));
+    this[refreshToken] = T.StringL().as(map[$_get]("refresh_token"));
+    this[openId] = T.StringL().as(map[$_get]("openid"));
+    this[scope] = T.StringL().as(map[$_get]("scope"));
+    ;
+  }).prototype = login_service.WeChatAccessTokenResponse.prototype;
+  dart.addTypeTests(login_service.WeChatAccessTokenResponse);
+  dart.addTypeCaches(login_service.WeChatAccessTokenResponse);
+  dart.setGetterSignature(login_service.WeChatAccessTokenResponse, () => ({
+    __proto__: dart.getGetters(login_service.WeChatAccessTokenResponse.__proto__),
+    isSuccessful: dart.legacy(core.bool)
+  }));
+  dart.setLibraryUri(login_service.WeChatAccessTokenResponse, I[0]);
+  dart.setFieldSignature(login_service.WeChatAccessTokenResponse, () => ({
+    __proto__: dart.getFields(login_service.WeChatAccessTokenResponse.__proto__),
+    errCode: dart.finalFieldType(dart.legacy(core.int)),
+    errStr: dart.finalFieldType(dart.legacy(core.String)),
+    accessToken: dart.finalFieldType(dart.legacy(core.String)),
+    expiresIn: dart.finalFieldType(dart.legacy(core.int)),
+    refreshToken: dart.finalFieldType(dart.legacy(core.String)),
+    openId: dart.finalFieldType(dart.legacy(core.String)),
+    scope: dart.finalFieldType(dart.legacy(core.String))
+  }));
+  dart.trackLibraries("packages/english_teacher_app/services/login_service.dart", {
+    "package:english_teacher_app/services/login_service.dart": login_service
+  }, {
+  }, '{"version":3,"sourceRoot":"","sources":["login_service.dart"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;IAkBO;;;;;;IAGE;;;;;;IAEA;;;;;;IACF;;;;;;IAEW;;;;;;IAEP;;;;;;;AAEgB;AACa,QAApC,cAAa,sDAAJ;AACsB,QAA/B,gBAAe,+CAAJ;AAC0B,QAArC,uBAAiB,AAAO;AACxB,cAAO;MACT;;;AAIa,MAAX;AAUE,MARI,AAA2B,4CAAO,QAAC;AACvC,YAAI,AAAM,AAAQ,KAAT,aAAY;AACf,0BAAkB,2BAAN,KAAK;AACM,UAA3B,kBAAa,AAAU,SAAD;AAClB,qBAAM,MAAM;AAE+C,UAA/D,AAAS,mBAAK,iCAAuB,aAAQ,AAAI,GAAD;;MAEnD;IACH;;AAGc,MAAZ;IACF;;AAEyC;AACnC,kBAAgB;AAChB,mBAAM,MAAM,AACX,GADc,mBAC8B,SAAhC,kEAAmD,6CAClE,QAAa;AAGX,sBAA+B,2DAAQ,AAAI,GAAD;AAC9C,cAAO,QAAO;MAChB;;iBAGW,MAAa,QAAe;AADd;AAEnB,kBAAgB;AAChB,uBAAuB,+BAAQ,6CACjC,QAAQ,IAAI,EACZ,UAAU,MAAM,EAChB,SACI,MAAuB,sCAAS,aAAa,aAAY;AAE3D,wBAAW,MAAM,AAAI,GAAD,oBAAgD,SAAlC,oDAC5B,QAAQ;MACpB;;;AASI,MANF,AAEK,AAEF,iCAHwB,0BAA0B,yCAC3C,QAAC;AACG,QAAZ,WAAM,KAAK;sCACC,QAAC;AACY,QAAzB,WAAM,AAAkB,4BAAF,CAAC;;IAE3B;;AAEgB;AACV,kBAAgB;AAChB,kBAAU,eAAwD,SAA1C;AAC5B;AACM,qBAAM,MAAM,AAAI,GAAD,sBAAQ,GAAG,YACjB,8BAAkB,gCAAkB,8CACP,gCAAkB;AACtC,wBAAjB,eAAS,AAAI,GAAD;;cACV;;AACQ,QAAjB,kBAAa;MACf;;;;IAxFO;IAMF,uBAAiB;IAGf;IAEA,mBAAa;IACf,mBAAa;IAEF;IAEP;;;EAyEX;;;;;;;;;;;;;;;;;;;;;;;;MAxFsB,+CAAoB;;;MAEpB,wCAAa;;;MACb,4CAAiB;;;MAIjB,qCAAU;;;;;;;IAoFjB;;;;;;IACF;;;;;;;yDACsB;oBACnB,eAAE,AAAG,GAAA,QAAC;yBACD,aAAE,AAAG,GAAA,QAAC;;EAAe;;;;;;;;;;;;;;;;;IAI9B;;;;;;IACG;;;;;;IACA;;;;;;IACH;;;;;;IACG;;;;;;IACA;;;;;;IACA;;;;;;;AAEY,YAAA,AAAQ,kBAAG;IAAC;;8DACC;oBACxB,sBAAE,AAAI,GAAD,eAAa,cAAa,AAAG,GAAA,QAAC,aAAa;mBACjD,eAAE,AAAG,GAAA,QAAC;wBACD,eAAE,AAAG,GAAA,QAAC;sBACR,YAAE,AAAG,GAAA,QAAC;yBACH,eAAE,AAAG,GAAA,QAAC;mBACZ,eAAE,AAAG,GAAA,QAAC;kBACP,eAAE,AAAG,GAAA,QAAC;;EAAQ","file":"../../../../packages/english_teacher_app/services/login_service.dart.lib.js"}');
+  // Exports:
+  return {
+    services__login_service: login_service
+  };
+}));
+
+//# sourceMappingURL=login_service.dart.lib.js.map

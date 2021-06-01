@@ -1,0 +1,464 @@
+define(['dart_sdk', 'packages/flutter/src/widgets/widget_span.dart', 'packages/flutter/src/animation/animation_controller.dart', 'packages/flutter/src/animation/listener_helpers.dart', 'packages/flutter/src/animation/curves.dart', 'packages/flutter/src/rendering/custom_paint.dart'], (function load__packages__flutter_spinkit__src__pouring_hour_glass_dart(dart_sdk, packages__flutter__src__widgets__widget_span$46dart, packages__flutter__src__animation__animation_controller$46dart, packages__flutter__src__animation__listener_helpers$46dart, packages__flutter__src__animation__curves$46dart, packages__flutter__src__rendering__custom_paint$46dart) {
+  'use strict';
+  const core = dart_sdk.core;
+  const ui = dart_sdk.ui;
+  const _internal = dart_sdk._internal;
+  const math = dart_sdk.math;
+  const dart = dart_sdk.dart;
+  const dartx = dart_sdk.dartx;
+  const framework = packages__flutter__src__widgets__widget_span$46dart.src__widgets__framework;
+  const basic = packages__flutter__src__widgets__widget_span$46dart.src__widgets__basic;
+  const transitions = packages__flutter__src__widgets__widget_span$46dart.src__widgets__transitions;
+  const widget_inspector = packages__flutter__src__widgets__widget_span$46dart.src__widgets__widget_inspector;
+  const ticker_provider = packages__flutter__src__widgets__widget_span$46dart.src__widgets__ticker_provider;
+  const animation_controller = packages__flutter__src__animation__animation_controller$46dart.src__animation__animation_controller;
+  const animations = packages__flutter__src__animation__listener_helpers$46dart.src__animation__animations;
+  const tween = packages__flutter__src__animation__listener_helpers$46dart.src__animation__tween;
+  const animation = packages__flutter__src__animation__listener_helpers$46dart.src__animation__animation;
+  const curves = packages__flutter__src__animation__curves$46dart.src__animation__curves;
+  const custom_paint = packages__flutter__src__rendering__custom_paint$46dart.src__rendering__custom_paint;
+  var pouring_hour_glass = Object.create(dart.library);
+  dart._checkModuleNullSafetyMode(false);
+  var T = {
+    VoidTovoid: () => (T.VoidTovoid = dart.constFn(dart.fnType(dart.void, [])))(),
+    TweenOfdouble: () => (T.TweenOfdouble = dart.constFn(tween.Tween$(core.double)))(),
+    _LocationL: () => (T._LocationL = dart.constFn(dart.legacy(widget_inspector._Location)))()
+  };
+  const CT = Object.create({
+    _: () => (C, CT)
+  });
+  dart.defineLazy(CT, {
+    get C0() {
+      return C[0] = dart.const({
+        __proto__: core.Duration.prototype,
+        [Duration__duration]: 2400000
+      });
+    },
+    get C2() {
+      return C[2] = dart.const({
+        __proto__: curves._Linear.prototype
+      });
+    },
+    get C1() {
+      return C[1] = dart.const({
+        __proto__: curves.Interval.prototype,
+        [Interval_curve]: C[2] || CT.C2,
+        [Interval_end]: 0.9,
+        [Interval_begin]: 0
+      });
+    },
+    get C4() {
+      return C[4] = dart.const({
+        __proto__: curves.Cubic.prototype,
+        [Cubic_d]: 1,
+        [Cubic_c]: 0.2,
+        [Cubic_b]: 0,
+        [Cubic_a]: 0.4
+      });
+    },
+    get C3() {
+      return C[3] = dart.const({
+        __proto__: curves.Interval.prototype,
+        [Interval_curve]: C[4] || CT.C4,
+        [Interval_end]: 1,
+        [Interval_begin]: 0.9
+      });
+    },
+    get C7() {
+      return C[7] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "painter",
+        [_Location_column]: 13,
+        [_Location_line]: 56,
+        [_Location_file]: null
+      });
+    },
+    get C6() {
+      return C[6] = dart.constList([C[7] || CT.C7], T._LocationL());
+    },
+    get C5() {
+      return C[5] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[6] || CT.C6,
+        [_Location_name]: null,
+        [_Location_column]: 18,
+        [_Location_line]: 55,
+        [_Location_file]: "file:///d:/flutter/.pub-cache/hosted/pub.flutter-io.cn/flutter_spinkit-5.0.0/lib/src/pouring_hour_glass.dart"
+      });
+    },
+    get C10() {
+      return C[10] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "size",
+        [_Location_column]: 11,
+        [_Location_line]: 54,
+        [_Location_file]: null
+      });
+    },
+    get C11() {
+      return C[11] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 11,
+        [_Location_line]: 55,
+        [_Location_file]: null
+      });
+    },
+    get C9() {
+      return C[9] = dart.constList([C[10] || CT.C10, C[11] || CT.C11], T._LocationL());
+    },
+    get C8() {
+      return C[8] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[9] || CT.C9,
+        [_Location_name]: null,
+        [_Location_column]: 25,
+        [_Location_line]: 53,
+        [_Location_file]: "file:///d:/flutter/.pub-cache/hosted/pub.flutter-io.cn/flutter_spinkit-5.0.0/lib/src/pouring_hour_glass.dart"
+      });
+    },
+    get C14() {
+      return C[14] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "turns",
+        [_Location_column]: 9,
+        [_Location_line]: 52,
+        [_Location_file]: null
+      });
+    },
+    get C15() {
+      return C[15] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 9,
+        [_Location_line]: 53,
+        [_Location_file]: null
+      });
+    },
+    get C13() {
+      return C[13] = dart.constList([C[14] || CT.C14, C[15] || CT.C15], T._LocationL());
+    },
+    get C12() {
+      return C[12] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[13] || CT.C13,
+        [_Location_name]: null,
+        [_Location_column]: 14,
+        [_Location_line]: 51,
+        [_Location_file]: "file:///d:/flutter/.pub-cache/hosted/pub.flutter-io.cn/flutter_spinkit-5.0.0/lib/src/pouring_hour_glass.dart"
+      });
+    },
+    get C18() {
+      return C[18] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 7,
+        [_Location_line]: 51,
+        [_Location_file]: null
+      });
+    },
+    get C17() {
+      return C[17] = dart.constList([C[18] || CT.C18], T._LocationL());
+    },
+    get C16() {
+      return C[16] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[17] || CT.C17,
+        [_Location_name]: null,
+        [_Location_column]: 12,
+        [_Location_line]: 50,
+        [_Location_file]: "file:///d:/flutter/.pub-cache/hosted/pub.flutter-io.cn/flutter_spinkit-5.0.0/lib/src/pouring_hour_glass.dart"
+      });
+    }
+  }, false);
+  var C = Array(19).fill(void 0);
+  var I = [
+    "file:///d:/flutter/.pub-cache/hosted/pub.flutter-io.cn/flutter_spinkit-5.0.0/lib/src/pouring_hour_glass.dart",
+    "package:flutter_spinkit/src/pouring_hour_glass.dart"
+  ];
+  var size$ = dart.privateName(pouring_hour_glass, "SpinKitPouringHourglass.size");
+  var color$ = dart.privateName(pouring_hour_glass, "SpinKitPouringHourglass.color");
+  var duration$ = dart.privateName(pouring_hour_glass, "SpinKitPouringHourglass.duration");
+  var controller$ = dart.privateName(pouring_hour_glass, "SpinKitPouringHourglass.controller");
+  var Duration__duration = dart.privateName(core, "Duration._duration");
+  pouring_hour_glass.SpinKitPouringHourglass = class SpinKitPouringHourglass extends framework.StatefulWidget {
+    get size() {
+      return this[size$];
+    }
+    set size(value) {
+      super.size = value;
+    }
+    get color() {
+      return this[color$];
+    }
+    set color(value) {
+      super.color = value;
+    }
+    get duration() {
+      return this[duration$];
+    }
+    set duration(value) {
+      super.duration = value;
+    }
+    get controller() {
+      return this[controller$];
+    }
+    set controller(value) {
+      super.controller = value;
+    }
+    createState() {
+      return new pouring_hour_glass._SpinKitPouringHourglassState.new();
+    }
+  };
+  (pouring_hour_glass.SpinKitPouringHourglass.new = function(opts) {
+    let key = opts && 'key' in opts ? opts.key : null;
+    let color = opts && 'color' in opts ? opts.color : null;
+    if (color == null) dart.nullFailed(I[0], 9, 19, "color");
+    let size = opts && 'size' in opts ? opts.size : 50;
+    if (size == null) dart.nullFailed(I[0], 10, 10, "size");
+    let duration = opts && 'duration' in opts ? opts.duration : C[0] || CT.C0;
+    if (duration == null) dart.nullFailed(I[0], 11, 10, "duration");
+    let controller = opts && 'controller' in opts ? opts.controller : null;
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    this[color$] = color;
+    this[size$] = size;
+    this[duration$] = duration;
+    this[controller$] = controller;
+    pouring_hour_glass.SpinKitPouringHourglass.__proto__.new.call(this, {key: key, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+    ;
+  }).prototype = pouring_hour_glass.SpinKitPouringHourglass.prototype;
+  dart.addTypeTests(pouring_hour_glass.SpinKitPouringHourglass);
+  dart.addTypeCaches(pouring_hour_glass.SpinKitPouringHourglass);
+  dart.setMethodSignature(pouring_hour_glass.SpinKitPouringHourglass, () => ({
+    __proto__: dart.getMethods(pouring_hour_glass.SpinKitPouringHourglass.__proto__),
+    createState: dart.fnType(pouring_hour_glass._SpinKitPouringHourglassState, [])
+  }));
+  dart.setLibraryUri(pouring_hour_glass.SpinKitPouringHourglass, I[1]);
+  dart.setFieldSignature(pouring_hour_glass.SpinKitPouringHourglass, () => ({
+    __proto__: dart.getFields(pouring_hour_glass.SpinKitPouringHourglass.__proto__),
+    size: dart.finalFieldType(core.double),
+    color: dart.finalFieldType(ui.Color),
+    duration: dart.finalFieldType(core.Duration),
+    controller: dart.finalFieldType(dart.nullable(animation_controller.AnimationController))
+  }));
+  var ___SpinKitPouringHourglassState__controller = dart.privateName(pouring_hour_glass, "_#_SpinKitPouringHourglassState#_controller");
+  var ___SpinKitPouringHourglassState__controller_isSet = dart.privateName(pouring_hour_glass, "_#_SpinKitPouringHourglassState#_controller#isSet");
+  var ___SpinKitPouringHourglassState__pouringAnimation = dart.privateName(pouring_hour_glass, "_#_SpinKitPouringHourglassState#_pouringAnimation");
+  var ___SpinKitPouringHourglassState__pouringAnimation_isSet = dart.privateName(pouring_hour_glass, "_#_SpinKitPouringHourglassState#_pouringAnimation#isSet");
+  var ___SpinKitPouringHourglassState__rotationAnimation = dart.privateName(pouring_hour_glass, "_#_SpinKitPouringHourglassState#_rotationAnimation");
+  var ___SpinKitPouringHourglassState__rotationAnimation_isSet = dart.privateName(pouring_hour_glass, "_#_SpinKitPouringHourglassState#_rotationAnimation#isSet");
+  var _controller = dart.privateName(pouring_hour_glass, "_controller");
+  var _pouringAnimation = dart.privateName(pouring_hour_glass, "_pouringAnimation");
+  var _rotationAnimation = dart.privateName(pouring_hour_glass, "_rotationAnimation");
+  var Interval_curve = dart.privateName(curves, "Interval.curve");
+  var Interval_end = dart.privateName(curves, "Interval.end");
+  var Interval_begin = dart.privateName(curves, "Interval.begin");
+  var Cubic_d = dart.privateName(curves, "Cubic.d");
+  var Cubic_c = dart.privateName(curves, "Cubic.c");
+  var Cubic_b = dart.privateName(curves, "Cubic.b");
+  var Cubic_a = dart.privateName(curves, "Cubic.a");
+  var _Location_parameterLocations = dart.privateName(widget_inspector, "_Location.parameterLocations");
+  var _Location_name = dart.privateName(widget_inspector, "_Location.name");
+  var _Location_column = dart.privateName(widget_inspector, "_Location.column");
+  var _Location_line = dart.privateName(widget_inspector, "_Location.line");
+  var _Location_file = dart.privateName(widget_inspector, "_Location.file");
+  const State_SingleTickerProviderStateMixin$36 = class State_SingleTickerProviderStateMixin extends framework.State$(pouring_hour_glass.SpinKitPouringHourglass) {};
+  (State_SingleTickerProviderStateMixin$36.new = function() {
+    ticker_provider.SingleTickerProviderStateMixin$(pouring_hour_glass.SpinKitPouringHourglass)[dart.mixinNew].call(this);
+    State_SingleTickerProviderStateMixin$36.__proto__.new.call(this);
+  }).prototype = State_SingleTickerProviderStateMixin$36.prototype;
+  dart.applyMixin(State_SingleTickerProviderStateMixin$36, ticker_provider.SingleTickerProviderStateMixin$(pouring_hour_glass.SpinKitPouringHourglass));
+  pouring_hour_glass._SpinKitPouringHourglassState = class _SpinKitPouringHourglassState extends State_SingleTickerProviderStateMixin$36 {
+    get [_controller]() {
+      let t0;
+      return dart.test(this[___SpinKitPouringHourglassState__controller_isSet]) ? (t0 = this[___SpinKitPouringHourglassState__controller], t0) : dart.throw(new _internal.LateError.fieldNI("_controller"));
+    }
+    set [_controller](t0) {
+      if (t0 == null) dart.nullFailed(I[0], 25, 28, "null");
+      this[___SpinKitPouringHourglassState__controller_isSet] = true;
+      this[___SpinKitPouringHourglassState__controller] = t0;
+    }
+    get [_pouringAnimation]() {
+      let t1;
+      return dart.test(this[___SpinKitPouringHourglassState__pouringAnimation_isSet]) ? (t1 = this[___SpinKitPouringHourglassState__pouringAnimation], t1) : dart.throw(new _internal.LateError.fieldNI("_pouringAnimation"));
+    }
+    set [_pouringAnimation](t1) {
+      if (t1 == null) dart.nullFailed(I[0], 26, 26, "null");
+      this[___SpinKitPouringHourglassState__pouringAnimation_isSet] = true;
+      this[___SpinKitPouringHourglassState__pouringAnimation] = t1;
+    }
+    get [_rotationAnimation]() {
+      let t2;
+      return dart.test(this[___SpinKitPouringHourglassState__rotationAnimation_isSet]) ? (t2 = this[___SpinKitPouringHourglassState__rotationAnimation], t2) : dart.throw(new _internal.LateError.fieldNI("_rotationAnimation"));
+    }
+    set [_rotationAnimation](t2) {
+      if (t2 == null) dart.nullFailed(I[0], 27, 26, "null");
+      this[___SpinKitPouringHourglassState__rotationAnimation_isSet] = true;
+      this[___SpinKitPouringHourglassState__rotationAnimation] = t2;
+    }
+    initState() {
+      let t3, t3$, t3$0;
+      super.initState();
+      this[_controller] = (t3$ = (t3 = this.widget.controller, t3 == null ? new animation_controller.AnimationController.new({vsync: this, duration: this.widget.duration}) : t3), (() => {
+        t3$.addListener(dart.fn(() => this.setState(dart.fn(() => {
+        }, T.VoidTovoid())), T.VoidTovoid()));
+        t3$.repeat();
+        return t3$;
+      })());
+      this[_pouringAnimation] = (t3$0 = new animations.CurvedAnimation.new({parent: this[_controller], curve: C[1] || CT.C1}), (() => {
+        t3$0.addListener(dart.fn(() => this.setState(dart.fn(() => {
+        }, T.VoidTovoid())), T.VoidTovoid()));
+        return t3$0;
+      })());
+      this[_rotationAnimation] = new (T.TweenOfdouble()).new({begin: 0.0, end: 0.5}).animate(new animations.CurvedAnimation.new({parent: this[_controller], curve: C[3] || CT.C3}));
+    }
+    dispose() {
+      this[_controller].dispose();
+      super.dispose();
+    }
+    build(context) {
+      if (context == null) dart.nullFailed(I[0], 49, 29, "context");
+      return new basic.Center.new({child: new transitions.RotationTransition.new({turns: this[_rotationAnimation], child: new basic.SizedBox.fromSize({size: new ui.Size.square(dart.notNull(this.widget.size) * 0.7071067811865476), child: new basic.CustomPaint.new({painter: new pouring_hour_glass._HourGlassPaint.new({poured: this[_pouringAnimation].value, color: this.widget.color}), $creationLocationd_0dea112b090073317d4: C[5] || CT.C5}), $creationLocationd_0dea112b090073317d4: C[8] || CT.C8}), $creationLocationd_0dea112b090073317d4: C[12] || CT.C12}), $creationLocationd_0dea112b090073317d4: C[16] || CT.C16});
+    }
+  };
+  (pouring_hour_glass._SpinKitPouringHourglassState.new = function() {
+    this[___SpinKitPouringHourglassState__controller] = null;
+    this[___SpinKitPouringHourglassState__controller_isSet] = false;
+    this[___SpinKitPouringHourglassState__pouringAnimation] = null;
+    this[___SpinKitPouringHourglassState__pouringAnimation_isSet] = false;
+    this[___SpinKitPouringHourglassState__rotationAnimation] = null;
+    this[___SpinKitPouringHourglassState__rotationAnimation_isSet] = false;
+    pouring_hour_glass._SpinKitPouringHourglassState.__proto__.new.call(this);
+    ;
+  }).prototype = pouring_hour_glass._SpinKitPouringHourglassState.prototype;
+  dart.addTypeTests(pouring_hour_glass._SpinKitPouringHourglassState);
+  dart.addTypeCaches(pouring_hour_glass._SpinKitPouringHourglassState);
+  dart.setMethodSignature(pouring_hour_glass._SpinKitPouringHourglassState, () => ({
+    __proto__: dart.getMethods(pouring_hour_glass._SpinKitPouringHourglassState.__proto__),
+    build: dart.fnType(framework.Widget, [framework.BuildContext])
+  }));
+  dart.setGetterSignature(pouring_hour_glass._SpinKitPouringHourglassState, () => ({
+    __proto__: dart.getGetters(pouring_hour_glass._SpinKitPouringHourglassState.__proto__),
+    [_controller]: animation_controller.AnimationController,
+    [_pouringAnimation]: animation.Animation$(core.double),
+    [_rotationAnimation]: animation.Animation$(core.double)
+  }));
+  dart.setSetterSignature(pouring_hour_glass._SpinKitPouringHourglassState, () => ({
+    __proto__: dart.getSetters(pouring_hour_glass._SpinKitPouringHourglassState.__proto__),
+    [_controller]: animation_controller.AnimationController,
+    [_pouringAnimation]: animation.Animation$(core.double),
+    [_rotationAnimation]: animation.Animation$(core.double)
+  }));
+  dart.setLibraryUri(pouring_hour_glass._SpinKitPouringHourglassState, I[1]);
+  dart.setFieldSignature(pouring_hour_glass._SpinKitPouringHourglassState, () => ({
+    __proto__: dart.getFields(pouring_hour_glass._SpinKitPouringHourglassState.__proto__),
+    [___SpinKitPouringHourglassState__controller]: dart.fieldType(dart.nullable(animation_controller.AnimationController)),
+    [___SpinKitPouringHourglassState__controller_isSet]: dart.fieldType(core.bool),
+    [___SpinKitPouringHourglassState__pouringAnimation]: dart.fieldType(dart.nullable(animation.Animation$(core.double))),
+    [___SpinKitPouringHourglassState__pouringAnimation_isSet]: dart.fieldType(core.bool),
+    [___SpinKitPouringHourglassState__rotationAnimation]: dart.fieldType(dart.nullable(animation.Animation$(core.double))),
+    [___SpinKitPouringHourglassState__rotationAnimation_isSet]: dart.fieldType(core.bool)
+  }));
+  var _paint = dart.privateName(pouring_hour_glass, "_paint");
+  var _powderPaint = dart.privateName(pouring_hour_glass, "_powderPaint");
+  pouring_hour_glass._HourGlassPaint = class _HourGlassPaint extends custom_paint.CustomPainter {
+    paint(canvas, size) {
+      let t3, t3$, t3$0, t3$1;
+      if (canvas == null) dart.nullFailed(I[0], 81, 21, "canvas");
+      if (size == null) dart.nullFailed(I[0], 81, 34, "size");
+      let centerX = dart.notNull(size.width) / 2;
+      let halfHeight = dart.notNull(size.height) / 2;
+      let hourglassWidth = math.min(core.double, centerX * 0.8, halfHeight);
+      let gapWidth = math.max(core.double, 3.0, hourglassWidth * 0.05);
+      let yPadding = gapWidth / 2;
+      let top = yPadding;
+      let bottom = dart.notNull(size.height) - yPadding;
+      this[_paint].strokeWidth = gapWidth;
+      let hourglassPath = (t3 = ui.Path.new(), (() => {
+        t3.moveTo(centerX - hourglassWidth, top);
+        t3.lineTo(centerX + hourglassWidth, top);
+        t3.lineTo(centerX + gapWidth, halfHeight);
+        t3.lineTo(centerX + hourglassWidth, bottom);
+        t3.lineTo(centerX - hourglassWidth, bottom);
+        t3.lineTo(centerX - gapWidth, halfHeight);
+        t3.close();
+        return t3;
+      })());
+      canvas.drawPath(hourglassPath, this[_paint]);
+      let upperPart = (t3$ = ui.Path.new(), (() => {
+        t3$.moveTo(0.0, top);
+        t3$.addRect(new ui.Rect.fromLTRB(0.0, halfHeight * dart.nullCheck(this.poured), size.width, halfHeight));
+        return t3$;
+      })());
+      canvas.drawPath(ui.Path.combine(ui.PathOperation.intersect, hourglassPath, upperPart), this[_powderPaint]);
+      let lowerPartPath = (t3$0 = ui.Path.new(), (() => {
+        t3$0.moveTo(centerX, bottom);
+        t3$0.relativeLineTo(hourglassWidth * dart.nullCheck(this.poured), 0.0);
+        t3$0.lineTo(centerX, bottom - dart.nullCheck(this.poured) * halfHeight - gapWidth);
+        t3$0.lineTo(centerX - hourglassWidth * dart.nullCheck(this.poured), bottom);
+        t3$0.close();
+        return t3$0;
+      })());
+      let lowerPart = ui.Path.combine(ui.PathOperation.intersect, lowerPartPath, (t3$1 = ui.Path.new(), (() => {
+        t3$1.addRect(new ui.Rect.fromLTRB(0.0, halfHeight, size.width, size.height));
+        return t3$1;
+      })()));
+      canvas.drawPath(lowerPart, this[_powderPaint]);
+      canvas.drawLine(new ui.Offset.new(centerX, halfHeight), new ui.Offset.new(centerX, bottom), this[_paint]);
+    }
+    shouldRepaint(oldDelegate) {
+      custom_paint.CustomPainter.as(oldDelegate);
+      if (oldDelegate == null) dart.nullFailed(I[0], 123, 36, "oldDelegate");
+      return true;
+    }
+  };
+  (pouring_hour_glass._HourGlassPaint.new = function(opts) {
+    let t3, t3$;
+    let poured = opts && 'poured' in opts ? opts.poured : null;
+    let color = opts && 'color' in opts ? opts.color : null;
+    if (color == null) dart.nullFailed(I[0], 68, 48, "color");
+    this.poured = poured;
+    this[_paint] = (t3 = ui.Paint.new(), (() => {
+      t3.style = ui.PaintingStyle.stroke;
+      t3.color = color;
+      return t3;
+    })());
+    this[_powderPaint] = (t3$ = ui.Paint.new(), (() => {
+      t3$.style = ui.PaintingStyle.fill;
+      t3$.color = color;
+      return t3$;
+    })());
+    pouring_hour_glass._HourGlassPaint.__proto__.new.call(this);
+    ;
+  }).prototype = pouring_hour_glass._HourGlassPaint.prototype;
+  dart.addTypeTests(pouring_hour_glass._HourGlassPaint);
+  dart.addTypeCaches(pouring_hour_glass._HourGlassPaint);
+  dart.setMethodSignature(pouring_hour_glass._HourGlassPaint, () => ({
+    __proto__: dart.getMethods(pouring_hour_glass._HourGlassPaint.__proto__),
+    paint: dart.fnType(dart.void, [ui.Canvas, ui.Size]),
+    shouldRepaint: dart.fnType(core.bool, [dart.nullable(core.Object)])
+  }));
+  dart.setLibraryUri(pouring_hour_glass._HourGlassPaint, I[1]);
+  dart.setFieldSignature(pouring_hour_glass._HourGlassPaint, () => ({
+    __proto__: dart.getFields(pouring_hour_glass._HourGlassPaint.__proto__),
+    poured: dart.finalFieldType(dart.nullable(core.double)),
+    [_paint]: dart.finalFieldType(ui.Paint),
+    [_powderPaint]: dart.finalFieldType(ui.Paint)
+  }));
+  dart.trackLibraries("packages/flutter_spinkit/src/pouring_hour_glass.dart", {
+    "package:flutter_spinkit/src/pouring_hour_glass.dart": pouring_hour_glass
+  }, {
+  }, '{"version":3,"sourceRoot":"","sources":["pouring_hour_glass.dart"],"names":[],"mappings":"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","file":"../../../../../../../../O:/packages/flutter_spinkit/src/pouring_hour_glass.dart.lib.js"}');
+  // Exports:
+  return {
+    src__pouring_hour_glass: pouring_hour_glass
+  };
+}));
+
+//# sourceMappingURL=pouring_hour_glass.dart.lib.js.map

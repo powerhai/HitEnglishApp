@@ -1,0 +1,9 @@
+baidu.baseURL: "https://fanyi-api.baidu.com/api/trans/vip/translate"
+baidu.clientID: "20180527000167467"
+baidu.clientSecret: "1cuzoRdGSExIdAWbecTd"
+
+server.baseURL: "https://192.168.31.162:5000/" 
+
+wx.appId : "wx93a21602a886e970"
+wx.universalLink : "http://192.168.31.3"
+wx.appSecret : "wx93a21602a886e970"

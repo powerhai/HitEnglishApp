@@ -1,0 +1,1178 @@
+define(['dart_sdk', 'packages/fluwx/src/wechat_enums.dart', 'packages/fluwx/src/wechat_file.dart', 'packages/fluwx/src/response/wechat_response.dart', 'packages/flutter/src/services/system_channels.dart'], (function load__packages__fluwx__src__share__share_models_dart(dart_sdk, packages__fluwx__src__wechat_enums$46dart, packages__fluwx__src__wechat_file$46dart, packages__fluwx__src__response__wechat_response$46dart, packages__flutter__src__services__system_channels$46dart) {
+  'use strict';
+  const core = dart_sdk.core;
+  const _js_helper = dart_sdk._js_helper;
+  const async = dart_sdk.async;
+  const io = dart_sdk.io;
+  const dart = dart_sdk.dart;
+  const dartx = dart_sdk.dartx;
+  const wechat_enums = packages__fluwx__src__wechat_enums$46dart.src__wechat_enums;
+  const wechat_file = packages__fluwx__src__wechat_file$46dart.src__wechat_file;
+  const wechat_response = packages__fluwx__src__response__wechat_response$46dart.src__response__wechat_response;
+  const platform_channel = packages__flutter__src__services__system_channels$46dart.src__services__platform_channel;
+  const message_codec = packages__flutter__src__services__system_channels$46dart.src__services__message_codec;
+  var share_models = Object.create(dart.library);
+  var fluwx_iml = Object.create(dart.library);
+  var fluwx = Object.create(dart.library);
+  var $isNotEmpty = dartx.isNotEmpty;
+  var $isEmpty = dartx.isEmpty;
+  var $trim = dartx.trim;
+  var $startsWith = dartx.startsWith;
+  var $runtimeType = dartx.runtimeType;
+  var $containsKey = dartx.containsKey;
+  var $_get = dartx._get;
+  dart._checkModuleNullSafetyMode(false);
+  var T = {
+    FutureOrOfbool: () => (T.FutureOrOfbool = dart.constFn(async.FutureOr$(core.bool)))(),
+    ObjectN: () => (T.ObjectN = dart.constFn(dart.nullable(core.Object)))(),
+    IdentityMapOfString$ObjectN: () => (T.IdentityMapOfString$ObjectN = dart.constFn(_js_helper.IdentityMap$(core.String, T.ObjectN())))(),
+    FutureOrOfString: () => (T.FutureOrOfString = dart.constFn(async.FutureOr$(core.String)))(),
+    FutureOfbool: () => (T.FutureOfbool = dart.constFn(async.Future$(core.bool)))(),
+    IdentityMapOfString$String: () => (T.IdentityMapOfString$String = dart.constFn(_js_helper.IdentityMap$(core.String, core.String)))(),
+    IdentityMapOfString$Object: () => (T.IdentityMapOfString$Object = dart.constFn(_js_helper.IdentityMap$(core.String, core.Object)))(),
+    StringN: () => (T.StringN = dart.constFn(dart.nullable(core.String)))(),
+    IdentityMapOfString$StringN: () => (T.IdentityMapOfString$StringN = dart.constFn(_js_helper.IdentityMap$(core.String, T.StringN())))(),
+    TypeL: () => (T.TypeL = dart.constFn(dart.legacy(core.Type)))(),
+    StringL: () => (T.StringL = dart.constFn(dart.legacy(core.String)))(),
+    MethodCallToFuture: () => (T.MethodCallToFuture = dart.constFn(dart.fnType(async.Future, [message_codec.MethodCall])))(),
+    StreamControllerOfBaseWeChatResponse: () => (T.StreamControllerOfBaseWeChatResponse = dart.constFn(async.StreamController$(wechat_response.BaseWeChatResponse)))()
+  };
+  const CT = Object.create({
+    _: () => (C, CT)
+  });
+  dart.defineLazy(CT, {
+    get C0() {
+      return C[0] = dart.const({
+        __proto__: wechat_enums.WeChatScene.prototype,
+        [_name]: "WeChatScene.SESSION",
+        index: 0
+      });
+    },
+    get C1() {
+      return C[1] = dart.const({
+        __proto__: wechat_enums.WXMiniProgramType.prototype,
+        [_name]: "WXMiniProgramType.RELEASE",
+        index: 0
+      });
+    },
+    get C2() {
+      return C[2] = dart.constMap(T.TypeL(), T.StringL(), [dart.wrapType(share_models.WeChatShareTextModel), "shareText", dart.wrapType(share_models.WeChatShareImageModel), "shareImage", dart.wrapType(share_models.WeChatShareMusicModel), "shareMusic", dart.wrapType(share_models.WeChatShareVideoModel), "shareVideo", dart.wrapType(share_models.WeChatShareWebPageModel), "shareWebPage", dart.wrapType(share_models.WeChatShareMiniProgramModel), "shareMiniProgram", dart.wrapType(share_models.WeChatShareFileModel), "shareFile"]);
+    },
+    get C3() {
+      return C[3] = dart.fn(fluwx_iml._methodHandler, T.MethodCallToFuture());
+    }
+  }, false);
+  var C = Array(4).fill(void 0);
+  var I = [
+    "package:fluwx/src/share/share_models.dart",
+    "file:///d:/flutter/.pub-cache/hosted/pub.flutter-io.cn/fluwx-3.4.2/lib/src/share/share_models.dart",
+    "file:///d:/flutter/.pub-cache/hosted/pub.flutter-io.cn/fluwx-3.4.2/lib/src/fluwx_iml.dart"
+  ];
+  share_models.WeChatShareBaseModel = class WeChatShareBaseModel extends core.Object {};
+  share_models.WeChatShareBaseModel[dart.mixinOn] = Object => class WeChatShareBaseModel extends Object {};
+  (share_models.WeChatShareBaseModel[dart.mixinNew] = function() {
+  }).prototype = share_models.WeChatShareBaseModel.prototype;
+  dart.addTypeTests(share_models.WeChatShareBaseModel);
+  dart.addTypeCaches(share_models.WeChatShareBaseModel);
+  share_models.WeChatShareBaseModel[dart.implements] = () => [core.Object];
+  dart.setLibraryUri(share_models.WeChatShareBaseModel, I[0]);
+  var source$ = dart.privateName(share_models, "WeChatShareTextModel.source");
+  var scene$ = dart.privateName(share_models, "WeChatShareTextModel.scene");
+  var messageExt$ = dart.privateName(share_models, "WeChatShareTextModel.messageExt");
+  var messageAction$ = dart.privateName(share_models, "WeChatShareTextModel.messageAction");
+  var mediaTagName$ = dart.privateName(share_models, "WeChatShareTextModel.mediaTagName");
+  var title$ = dart.privateName(share_models, "WeChatShareTextModel.title");
+  var description$ = dart.privateName(share_models, "WeChatShareTextModel.description");
+  var _name = dart.privateName(wechat_enums, "_name");
+  share_models.WeChatShareTextModel = class WeChatShareTextModel extends core.Object {
+    get source() {
+      return this[source$];
+    }
+    set source(value) {
+      super.source = value;
+    }
+    get scene() {
+      return this[scene$];
+    }
+    set scene(value) {
+      super.scene = value;
+    }
+    get messageExt() {
+      return this[messageExt$];
+    }
+    set messageExt(value) {
+      super.messageExt = value;
+    }
+    get messageAction() {
+      return this[messageAction$];
+    }
+    set messageAction(value) {
+      super.messageAction = value;
+    }
+    get mediaTagName() {
+      return this[mediaTagName$];
+    }
+    set mediaTagName(value) {
+      super.mediaTagName = value;
+    }
+    get title() {
+      return this[title$];
+    }
+    set title(value) {
+      super.title = value;
+    }
+    get description() {
+      return this[description$];
+    }
+    set description(value) {
+      super.description = value;
+    }
+    toMap() {
+      return new _js_helper.LinkedMap.from(["scene", this.scene.index, "source", this.source, "messageExt", this.messageExt, "messageAction", this.messageAction, "mediaTagName ", this.mediaTagName, "title", this.title, "description", this.description]);
+    }
+  };
+  (share_models.WeChatShareTextModel.new = function(source, opts) {
+    let t0, t0$;
+    if (source == null) dart.nullFailed(I[1], 48, 29, "source");
+    let scene = opts && 'scene' in opts ? opts.scene : C[0] || CT.C0;
+    if (scene == null) dart.nullFailed(I[1], 49, 13, "scene");
+    let mediaTagName = opts && 'mediaTagName' in opts ? opts.mediaTagName : null;
+    let messageAction = opts && 'messageAction' in opts ? opts.messageAction : null;
+    let messageExt = opts && 'messageExt' in opts ? opts.messageExt : null;
+    let description = opts && 'description' in opts ? opts.description : null;
+    let title = opts && 'title' in opts ? opts.title : null;
+    this[source$] = source;
+    this[scene$] = scene;
+    this[mediaTagName$] = mediaTagName;
+    this[messageAction$] = messageAction;
+    this[messageExt$] = messageExt;
+    this[title$] = (t0 = title, t0 == null ? source : t0);
+    this[description$] = (t0$ = description, t0$ == null ? source : t0$);
+    ;
+  }).prototype = share_models.WeChatShareTextModel.prototype;
+  dart.addTypeTests(share_models.WeChatShareTextModel);
+  dart.addTypeCaches(share_models.WeChatShareTextModel);
+  share_models.WeChatShareTextModel[dart.implements] = () => [share_models.WeChatShareBaseModel];
+  dart.setMethodSignature(share_models.WeChatShareTextModel, () => ({
+    __proto__: dart.getMethods(share_models.WeChatShareTextModel.__proto__),
+    toMap: dart.fnType(core.Map, [])
+  }));
+  dart.setLibraryUri(share_models.WeChatShareTextModel, I[0]);
+  dart.setFieldSignature(share_models.WeChatShareTextModel, () => ({
+    __proto__: dart.getFields(share_models.WeChatShareTextModel.__proto__),
+    source: dart.finalFieldType(core.String),
+    scene: dart.finalFieldType(wechat_enums.WeChatScene),
+    messageExt: dart.finalFieldType(dart.nullable(core.String)),
+    messageAction: dart.finalFieldType(dart.nullable(core.String)),
+    mediaTagName: dart.finalFieldType(dart.nullable(core.String)),
+    title: dart.finalFieldType(dart.nullable(core.String)),
+    description: dart.finalFieldType(dart.nullable(core.String))
+  }));
+  var webPageUrl$ = dart.privateName(share_models, "WeChatShareMiniProgramModel.webPageUrl");
+  var miniProgramType$ = dart.privateName(share_models, "WeChatShareMiniProgramModel.miniProgramType");
+  var userName$ = dart.privateName(share_models, "WeChatShareMiniProgramModel.userName");
+  var path$ = dart.privateName(share_models, "WeChatShareMiniProgramModel.path");
+  var hdImagePath$ = dart.privateName(share_models, "WeChatShareMiniProgramModel.hdImagePath");
+  var title$0 = dart.privateName(share_models, "WeChatShareMiniProgramModel.title");
+  var description$0 = dart.privateName(share_models, "WeChatShareMiniProgramModel.description");
+  var thumbnail$ = dart.privateName(share_models, "WeChatShareMiniProgramModel.thumbnail");
+  var withShareTicket$ = dart.privateName(share_models, "WeChatShareMiniProgramModel.withShareTicket");
+  var messageExt$0 = dart.privateName(share_models, "WeChatShareMiniProgramModel.messageExt");
+  var messageAction$0 = dart.privateName(share_models, "WeChatShareMiniProgramModel.messageAction");
+  var mediaTagName$0 = dart.privateName(share_models, "WeChatShareMiniProgramModel.mediaTagName");
+  var compressThumbnail$ = dart.privateName(share_models, "WeChatShareMiniProgramModel.compressThumbnail");
+  share_models.WeChatShareMiniProgramModel = class WeChatShareMiniProgramModel extends core.Object {
+    get webPageUrl() {
+      return this[webPageUrl$];
+    }
+    set webPageUrl(value) {
+      super.webPageUrl = value;
+    }
+    get miniProgramType() {
+      return this[miniProgramType$];
+    }
+    set miniProgramType(value) {
+      super.miniProgramType = value;
+    }
+    get userName() {
+      return this[userName$];
+    }
+    set userName(value) {
+      super.userName = value;
+    }
+    get path() {
+      return this[path$];
+    }
+    set path(value) {
+      super.path = value;
+    }
+    get hdImagePath() {
+      return this[hdImagePath$];
+    }
+    set hdImagePath(value) {
+      super.hdImagePath = value;
+    }
+    get title() {
+      return this[title$0];
+    }
+    set title(value) {
+      super.title = value;
+    }
+    get description() {
+      return this[description$0];
+    }
+    set description(value) {
+      super.description = value;
+    }
+    get thumbnail() {
+      return this[thumbnail$];
+    }
+    set thumbnail(value) {
+      super.thumbnail = value;
+    }
+    get withShareTicket() {
+      return this[withShareTicket$];
+    }
+    set withShareTicket(value) {
+      super.withShareTicket = value;
+    }
+    get messageExt() {
+      return this[messageExt$0];
+    }
+    set messageExt(value) {
+      super.messageExt = value;
+    }
+    get messageAction() {
+      return this[messageAction$0];
+    }
+    set messageAction(value) {
+      super.messageAction = value;
+    }
+    get mediaTagName() {
+      return this[mediaTagName$0];
+    }
+    set mediaTagName(value) {
+      super.mediaTagName = value;
+    }
+    get compressThumbnail() {
+      return this[compressThumbnail$];
+    }
+    set compressThumbnail(value) {
+      super.compressThumbnail = value;
+    }
+    toMap() {
+      let t0, t0$;
+      return new _js_helper.LinkedMap.from(["webPageUrl", this.webPageUrl, "miniProgramType", wechat_enums['MiniProgramTypeExtensions|toNativeInt'](this.miniProgramType), "userName", this.userName, "path", this.path, "title", this.title, "description", this.description, "withShareTicket", this.withShareTicket, "thumbnail", (t0 = this.thumbnail, t0 == null ? null : t0.toMap()), "hdImagePath", (t0$ = this.hdImagePath, t0$ == null ? null : t0$.toMap()), "messageAction", this.messageAction, "mediaTagName ", this.mediaTagName, "compressThumbnail", this.compressThumbnail]);
+    }
+  };
+  (share_models.WeChatShareMiniProgramModel.new = function(opts) {
+    let webPageUrl = opts && 'webPageUrl' in opts ? opts.webPageUrl : null;
+    if (webPageUrl == null) dart.nullFailed(I[1], 91, 22, "webPageUrl");
+    let miniProgramType = opts && 'miniProgramType' in opts ? opts.miniProgramType : C[1] || CT.C1;
+    if (miniProgramType == null) dart.nullFailed(I[1], 92, 12, "miniProgramType");
+    let userName = opts && 'userName' in opts ? opts.userName : null;
+    if (userName == null) dart.nullFailed(I[1], 93, 21, "userName");
+    let path = opts && 'path' in opts ? opts.path : "/";
+    if (path == null) dart.nullFailed(I[1], 94, 12, "path");
+    let title = opts && 'title' in opts ? opts.title : null;
+    let description = opts && 'description' in opts ? opts.description : null;
+    let withShareTicket = opts && 'withShareTicket' in opts ? opts.withShareTicket : false;
+    if (withShareTicket == null) dart.nullFailed(I[1], 97, 12, "withShareTicket");
+    let thumbnail = opts && 'thumbnail' in opts ? opts.thumbnail : null;
+    let hdImagePath = opts && 'hdImagePath' in opts ? opts.hdImagePath : null;
+    let mediaTagName = opts && 'mediaTagName' in opts ? opts.mediaTagName : null;
+    let messageAction = opts && 'messageAction' in opts ? opts.messageAction : null;
+    let messageExt = opts && 'messageExt' in opts ? opts.messageExt : null;
+    let compressThumbnail = opts && 'compressThumbnail' in opts ? opts.compressThumbnail : true;
+    if (compressThumbnail == null) dart.nullFailed(I[1], 103, 12, "compressThumbnail");
+    this[webPageUrl$] = webPageUrl;
+    this[miniProgramType$] = miniProgramType;
+    this[userName$] = userName;
+    this[path$] = path;
+    this[title$0] = title;
+    this[description$0] = description;
+    this[withShareTicket$] = withShareTicket;
+    this[thumbnail$] = thumbnail;
+    this[hdImagePath$] = hdImagePath;
+    this[mediaTagName$0] = mediaTagName;
+    this[messageAction$0] = messageAction;
+    this[messageExt$0] = messageExt;
+    this[compressThumbnail$] = compressThumbnail;
+    if (!webPageUrl[$isNotEmpty]) dart.assertFailed(null, I[1], 104, 16, "webPageUrl.isNotEmpty");
+    if (!userName[$isNotEmpty]) dart.assertFailed(null, I[1], 105, 16, "userName.isNotEmpty");
+    if (!path[$isNotEmpty]) dart.assertFailed(null, I[1], 106, 16, "path.isNotEmpty");
+    ;
+  }).prototype = share_models.WeChatShareMiniProgramModel.prototype;
+  dart.addTypeTests(share_models.WeChatShareMiniProgramModel);
+  dart.addTypeCaches(share_models.WeChatShareMiniProgramModel);
+  share_models.WeChatShareMiniProgramModel[dart.implements] = () => [share_models.WeChatShareBaseModel];
+  dart.setMethodSignature(share_models.WeChatShareMiniProgramModel, () => ({
+    __proto__: dart.getMethods(share_models.WeChatShareMiniProgramModel.__proto__),
+    toMap: dart.fnType(core.Map, [])
+  }));
+  dart.setLibraryUri(share_models.WeChatShareMiniProgramModel, I[0]);
+  dart.setFieldSignature(share_models.WeChatShareMiniProgramModel, () => ({
+    __proto__: dart.getFields(share_models.WeChatShareMiniProgramModel.__proto__),
+    webPageUrl: dart.finalFieldType(core.String),
+    miniProgramType: dart.finalFieldType(wechat_enums.WXMiniProgramType),
+    userName: dart.finalFieldType(core.String),
+    path: dart.finalFieldType(core.String),
+    hdImagePath: dart.finalFieldType(dart.nullable(wechat_file.WeChatImage)),
+    title: dart.finalFieldType(dart.nullable(core.String)),
+    description: dart.finalFieldType(dart.nullable(core.String)),
+    thumbnail: dart.finalFieldType(dart.nullable(wechat_file.WeChatImage)),
+    withShareTicket: dart.finalFieldType(core.bool),
+    messageExt: dart.finalFieldType(dart.nullable(core.String)),
+    messageAction: dart.finalFieldType(dart.nullable(core.String)),
+    mediaTagName: dart.finalFieldType(dart.nullable(core.String)),
+    compressThumbnail: dart.finalFieldType(core.bool)
+  }));
+  var source$0 = dart.privateName(share_models, "WeChatShareImageModel.source");
+  var thumbnail$0 = dart.privateName(share_models, "WeChatShareImageModel.thumbnail");
+  var title$1 = dart.privateName(share_models, "WeChatShareImageModel.title");
+  var scene$0 = dart.privateName(share_models, "WeChatShareImageModel.scene");
+  var description$1 = dart.privateName(share_models, "WeChatShareImageModel.description");
+  var messageExt$1 = dart.privateName(share_models, "WeChatShareImageModel.messageExt");
+  var messageAction$1 = dart.privateName(share_models, "WeChatShareImageModel.messageAction");
+  var mediaTagName$1 = dart.privateName(share_models, "WeChatShareImageModel.mediaTagName");
+  var compressThumbnail$0 = dart.privateName(share_models, "WeChatShareImageModel.compressThumbnail");
+  share_models.WeChatShareImageModel = class WeChatShareImageModel extends core.Object {
+    get source() {
+      return this[source$0];
+    }
+    set source(value) {
+      super.source = value;
+    }
+    get thumbnail() {
+      return this[thumbnail$0];
+    }
+    set thumbnail(value) {
+      super.thumbnail = value;
+    }
+    get title() {
+      return this[title$1];
+    }
+    set title(value) {
+      super.title = value;
+    }
+    get scene() {
+      return this[scene$0];
+    }
+    set scene(value) {
+      super.scene = value;
+    }
+    get description() {
+      return this[description$1];
+    }
+    set description(value) {
+      super.description = value;
+    }
+    get messageExt() {
+      return this[messageExt$1];
+    }
+    set messageExt(value) {
+      super.messageExt = value;
+    }
+    get messageAction() {
+      return this[messageAction$1];
+    }
+    set messageAction(value) {
+      super.messageAction = value;
+    }
+    get mediaTagName() {
+      return this[mediaTagName$1];
+    }
+    set mediaTagName(value) {
+      super.mediaTagName = value;
+    }
+    get compressThumbnail() {
+      return this[compressThumbnail$0];
+    }
+    set compressThumbnail(value) {
+      super.compressThumbnail = value;
+    }
+    toMap() {
+      return new _js_helper.LinkedMap.from(["scene", this.scene.index, "source", this.source.toMap(), "thumbnail", this.thumbnail.toMap(), "title", this.title, "description", this.description, "messageAction", this.messageAction, "mediaTagName ", this.mediaTagName, "compressThumbnail", this.compressThumbnail]);
+    }
+  };
+  (share_models.WeChatShareImageModel.new = function(source, opts) {
+    let t0;
+    if (source == null) dart.nullFailed(I[1], 141, 30, "source");
+    let thumbnail = opts && 'thumbnail' in opts ? opts.thumbnail : null;
+    let title = opts && 'title' in opts ? opts.title : null;
+    let scene = opts && 'scene' in opts ? opts.scene : C[0] || CT.C0;
+    if (scene == null) dart.nullFailed(I[1], 144, 12, "scene");
+    let description = opts && 'description' in opts ? opts.description : null;
+    let mediaTagName = opts && 'mediaTagName' in opts ? opts.mediaTagName : null;
+    let messageAction = opts && 'messageAction' in opts ? opts.messageAction : null;
+    let messageExt = opts && 'messageExt' in opts ? opts.messageExt : null;
+    let compressThumbnail = opts && 'compressThumbnail' in opts ? opts.compressThumbnail : true;
+    if (compressThumbnail == null) dart.nullFailed(I[1], 149, 12, "compressThumbnail");
+    this[source$0] = source;
+    this[title$1] = title;
+    this[scene$0] = scene;
+    this[description$1] = description;
+    this[mediaTagName$1] = mediaTagName;
+    this[messageAction$1] = messageAction;
+    this[messageExt$1] = messageExt;
+    this[compressThumbnail$0] = compressThumbnail;
+    this[thumbnail$0] = (t0 = thumbnail, t0 == null ? source : t0);
+    ;
+  }).prototype = share_models.WeChatShareImageModel.prototype;
+  dart.addTypeTests(share_models.WeChatShareImageModel);
+  dart.addTypeCaches(share_models.WeChatShareImageModel);
+  share_models.WeChatShareImageModel[dart.implements] = () => [share_models.WeChatShareBaseModel];
+  dart.setMethodSignature(share_models.WeChatShareImageModel, () => ({
+    __proto__: dart.getMethods(share_models.WeChatShareImageModel.__proto__),
+    toMap: dart.fnType(core.Map, [])
+  }));
+  dart.setLibraryUri(share_models.WeChatShareImageModel, I[0]);
+  dart.setFieldSignature(share_models.WeChatShareImageModel, () => ({
+    __proto__: dart.getFields(share_models.WeChatShareImageModel.__proto__),
+    source: dart.finalFieldType(wechat_file.WeChatImage),
+    thumbnail: dart.finalFieldType(wechat_file.WeChatImage),
+    title: dart.finalFieldType(dart.nullable(core.String)),
+    scene: dart.finalFieldType(wechat_enums.WeChatScene),
+    description: dart.finalFieldType(dart.nullable(core.String)),
+    messageExt: dart.finalFieldType(dart.nullable(core.String)),
+    messageAction: dart.finalFieldType(dart.nullable(core.String)),
+    mediaTagName: dart.finalFieldType(dart.nullable(core.String)),
+    compressThumbnail: dart.finalFieldType(core.bool)
+  }));
+  var musicUrl$ = dart.privateName(share_models, "WeChatShareMusicModel.musicUrl");
+  var musicDataUrl$ = dart.privateName(share_models, "WeChatShareMusicModel.musicDataUrl");
+  var musicLowBandUrl$ = dart.privateName(share_models, "WeChatShareMusicModel.musicLowBandUrl");
+  var musicLowBandDataUrl$ = dart.privateName(share_models, "WeChatShareMusicModel.musicLowBandDataUrl");
+  var thumbnail$1 = dart.privateName(share_models, "WeChatShareMusicModel.thumbnail");
+  var title$2 = dart.privateName(share_models, "WeChatShareMusicModel.title");
+  var description$2 = dart.privateName(share_models, "WeChatShareMusicModel.description");
+  var scene$1 = dart.privateName(share_models, "WeChatShareMusicModel.scene");
+  var messageExt$2 = dart.privateName(share_models, "WeChatShareMusicModel.messageExt");
+  var messageAction$2 = dart.privateName(share_models, "WeChatShareMusicModel.messageAction");
+  var mediaTagName$2 = dart.privateName(share_models, "WeChatShareMusicModel.mediaTagName");
+  var compressThumbnail$1 = dart.privateName(share_models, "WeChatShareMusicModel.compressThumbnail");
+  share_models.WeChatShareMusicModel = class WeChatShareMusicModel extends core.Object {
+    get musicUrl() {
+      return this[musicUrl$];
+    }
+    set musicUrl(value) {
+      super.musicUrl = value;
+    }
+    get musicDataUrl() {
+      return this[musicDataUrl$];
+    }
+    set musicDataUrl(value) {
+      super.musicDataUrl = value;
+    }
+    get musicLowBandUrl() {
+      return this[musicLowBandUrl$];
+    }
+    set musicLowBandUrl(value) {
+      super.musicLowBandUrl = value;
+    }
+    get musicLowBandDataUrl() {
+      return this[musicLowBandDataUrl$];
+    }
+    set musicLowBandDataUrl(value) {
+      super.musicLowBandDataUrl = value;
+    }
+    get thumbnail() {
+      return this[thumbnail$1];
+    }
+    set thumbnail(value) {
+      super.thumbnail = value;
+    }
+    get title() {
+      return this[title$2];
+    }
+    set title(value) {
+      super.title = value;
+    }
+    get description() {
+      return this[description$2];
+    }
+    set description(value) {
+      super.description = value;
+    }
+    get scene() {
+      return this[scene$1];
+    }
+    set scene(value) {
+      super.scene = value;
+    }
+    get messageExt() {
+      return this[messageExt$2];
+    }
+    set messageExt(value) {
+      super.messageExt = value;
+    }
+    get messageAction() {
+      return this[messageAction$2];
+    }
+    set messageAction(value) {
+      super.messageAction = value;
+    }
+    get mediaTagName() {
+      return this[mediaTagName$2];
+    }
+    set mediaTagName(value) {
+      super.mediaTagName = value;
+    }
+    get compressThumbnail() {
+      return this[compressThumbnail$1];
+    }
+    set compressThumbnail(value) {
+      super.compressThumbnail = value;
+    }
+    toMap() {
+      let t0;
+      return new _js_helper.LinkedMap.from(["scene", this.scene.index, "musicUrl", this.musicUrl, "musicDataUrl", this.musicDataUrl, "musicLowBandUrl", this.musicLowBandUrl, "musicLowBandDataUrl", this.musicLowBandDataUrl, "thumbnail", (t0 = this.thumbnail, t0 == null ? null : t0.toMap()), "title", this.title, "description", this.description, "messageAction", this.messageAction, "mediaTagName ", this.mediaTagName, "compressThumbnail", this.compressThumbnail]);
+    }
+  };
+  (share_models.WeChatShareMusicModel.new = function(opts) {
+    let musicUrl = opts && 'musicUrl' in opts ? opts.musicUrl : null;
+    let musicLowBandUrl = opts && 'musicLowBandUrl' in opts ? opts.musicLowBandUrl : null;
+    let title = opts && 'title' in opts ? opts.title : "";
+    let description = opts && 'description' in opts ? opts.description : "";
+    let musicDataUrl = opts && 'musicDataUrl' in opts ? opts.musicDataUrl : null;
+    let musicLowBandDataUrl = opts && 'musicLowBandDataUrl' in opts ? opts.musicLowBandDataUrl : null;
+    let thumbnail = opts && 'thumbnail' in opts ? opts.thumbnail : null;
+    let mediaTagName = opts && 'mediaTagName' in opts ? opts.mediaTagName : null;
+    let messageAction = opts && 'messageAction' in opts ? opts.messageAction : null;
+    let messageExt = opts && 'messageExt' in opts ? opts.messageExt : null;
+    let scene = opts && 'scene' in opts ? opts.scene : C[0] || CT.C0;
+    if (scene == null) dart.nullFailed(I[1], 194, 12, "scene");
+    let compressThumbnail = opts && 'compressThumbnail' in opts ? opts.compressThumbnail : true;
+    if (compressThumbnail == null) dart.nullFailed(I[1], 195, 12, "compressThumbnail");
+    this[musicUrl$] = musicUrl;
+    this[musicLowBandUrl$] = musicLowBandUrl;
+    this[title$2] = title;
+    this[description$2] = description;
+    this[musicDataUrl$] = musicDataUrl;
+    this[musicLowBandDataUrl$] = musicLowBandDataUrl;
+    this[thumbnail$1] = thumbnail;
+    this[mediaTagName$2] = mediaTagName;
+    this[messageAction$2] = messageAction;
+    this[messageExt$2] = messageExt;
+    this[scene$1] = scene;
+    this[compressThumbnail$1] = compressThumbnail;
+    if (!(musicUrl != null || musicLowBandUrl != null)) dart.assertFailed(null, I[1], 196, 16, "musicUrl != null || musicLowBandUrl != null");
+    ;
+  }).prototype = share_models.WeChatShareMusicModel.prototype;
+  dart.addTypeTests(share_models.WeChatShareMusicModel);
+  dart.addTypeCaches(share_models.WeChatShareMusicModel);
+  share_models.WeChatShareMusicModel[dart.implements] = () => [share_models.WeChatShareBaseModel];
+  dart.setMethodSignature(share_models.WeChatShareMusicModel, () => ({
+    __proto__: dart.getMethods(share_models.WeChatShareMusicModel.__proto__),
+    toMap: dart.fnType(core.Map, [])
+  }));
+  dart.setLibraryUri(share_models.WeChatShareMusicModel, I[0]);
+  dart.setFieldSignature(share_models.WeChatShareMusicModel, () => ({
+    __proto__: dart.getFields(share_models.WeChatShareMusicModel.__proto__),
+    musicUrl: dart.finalFieldType(dart.nullable(core.String)),
+    musicDataUrl: dart.finalFieldType(dart.nullable(core.String)),
+    musicLowBandUrl: dart.finalFieldType(dart.nullable(core.String)),
+    musicLowBandDataUrl: dart.finalFieldType(dart.nullable(core.String)),
+    thumbnail: dart.finalFieldType(dart.nullable(wechat_file.WeChatImage)),
+    title: dart.finalFieldType(dart.nullable(core.String)),
+    description: dart.finalFieldType(dart.nullable(core.String)),
+    scene: dart.finalFieldType(wechat_enums.WeChatScene),
+    messageExt: dart.finalFieldType(dart.nullable(core.String)),
+    messageAction: dart.finalFieldType(dart.nullable(core.String)),
+    mediaTagName: dart.finalFieldType(dart.nullable(core.String)),
+    compressThumbnail: dart.finalFieldType(core.bool)
+  }));
+  var videoUrl$ = dart.privateName(share_models, "WeChatShareVideoModel.videoUrl");
+  var videoLowBandUrl$ = dart.privateName(share_models, "WeChatShareVideoModel.videoLowBandUrl");
+  var thumbnail$2 = dart.privateName(share_models, "WeChatShareVideoModel.thumbnail");
+  var title$3 = dart.privateName(share_models, "WeChatShareVideoModel.title");
+  var description$3 = dart.privateName(share_models, "WeChatShareVideoModel.description");
+  var scene$2 = dart.privateName(share_models, "WeChatShareVideoModel.scene");
+  var messageExt$3 = dart.privateName(share_models, "WeChatShareVideoModel.messageExt");
+  var messageAction$3 = dart.privateName(share_models, "WeChatShareVideoModel.messageAction");
+  var mediaTagName$3 = dart.privateName(share_models, "WeChatShareVideoModel.mediaTagName");
+  var compressThumbnail$2 = dart.privateName(share_models, "WeChatShareVideoModel.compressThumbnail");
+  share_models.WeChatShareVideoModel = class WeChatShareVideoModel extends core.Object {
+    get videoUrl() {
+      return this[videoUrl$];
+    }
+    set videoUrl(value) {
+      super.videoUrl = value;
+    }
+    get videoLowBandUrl() {
+      return this[videoLowBandUrl$];
+    }
+    set videoLowBandUrl(value) {
+      super.videoLowBandUrl = value;
+    }
+    get thumbnail() {
+      return this[thumbnail$2];
+    }
+    set thumbnail(value) {
+      super.thumbnail = value;
+    }
+    get title() {
+      return this[title$3];
+    }
+    set title(value) {
+      super.title = value;
+    }
+    get description() {
+      return this[description$3];
+    }
+    set description(value) {
+      super.description = value;
+    }
+    get scene() {
+      return this[scene$2];
+    }
+    set scene(value) {
+      super.scene = value;
+    }
+    get messageExt() {
+      return this[messageExt$3];
+    }
+    set messageExt(value) {
+      super.messageExt = value;
+    }
+    get messageAction() {
+      return this[messageAction$3];
+    }
+    set messageAction(value) {
+      super.messageAction = value;
+    }
+    get mediaTagName() {
+      return this[mediaTagName$3];
+    }
+    set mediaTagName(value) {
+      super.mediaTagName = value;
+    }
+    get compressThumbnail() {
+      return this[compressThumbnail$2];
+    }
+    set compressThumbnail(value) {
+      super.compressThumbnail = value;
+    }
+    toMap() {
+      let t0;
+      return new _js_helper.LinkedMap.from(["scene", this.scene.index, "videoUrl", this.videoUrl, "videoLowBandUrl", this.videoLowBandUrl, "thumbnail", (t0 = this.thumbnail, t0 == null ? null : t0.toMap()), "title", this.title, "description", this.description, "messageAction", this.messageAction, "mediaTagName ", this.mediaTagName, "compressThumbnail", this.compressThumbnail]);
+    }
+  };
+  (share_models.WeChatShareVideoModel.new = function(opts) {
+    let scene = opts && 'scene' in opts ? opts.scene : C[0] || CT.C0;
+    if (scene == null) dart.nullFailed(I[1], 231, 13, "scene");
+    let videoUrl = opts && 'videoUrl' in opts ? opts.videoUrl : null;
+    let videoLowBandUrl = opts && 'videoLowBandUrl' in opts ? opts.videoLowBandUrl : null;
+    let title = opts && 'title' in opts ? opts.title : "";
+    let description = opts && 'description' in opts ? opts.description : "";
+    let thumbnail = opts && 'thumbnail' in opts ? opts.thumbnail : null;
+    let mediaTagName = opts && 'mediaTagName' in opts ? opts.mediaTagName : null;
+    let messageAction = opts && 'messageAction' in opts ? opts.messageAction : null;
+    let messageExt = opts && 'messageExt' in opts ? opts.messageExt : null;
+    let compressThumbnail = opts && 'compressThumbnail' in opts ? opts.compressThumbnail : true;
+    if (compressThumbnail == null) dart.nullFailed(I[1], 240, 12, "compressThumbnail");
+    this[scene$2] = scene;
+    this[videoUrl$] = videoUrl;
+    this[videoLowBandUrl$] = videoLowBandUrl;
+    this[title$3] = title;
+    this[description$3] = description;
+    this[thumbnail$2] = thumbnail;
+    this[mediaTagName$3] = mediaTagName;
+    this[messageAction$3] = messageAction;
+    this[messageExt$3] = messageExt;
+    this[compressThumbnail$2] = compressThumbnail;
+    if (!(videoUrl != null || videoLowBandUrl != null)) dart.assertFailed(null, I[1], 241, 16, "videoUrl != null || videoLowBandUrl != null");
+    if (!(thumbnail != null)) dart.assertFailed(null, I[1], 242, 16, "thumbnail != null");
+    ;
+  }).prototype = share_models.WeChatShareVideoModel.prototype;
+  dart.addTypeTests(share_models.WeChatShareVideoModel);
+  dart.addTypeCaches(share_models.WeChatShareVideoModel);
+  share_models.WeChatShareVideoModel[dart.implements] = () => [share_models.WeChatShareBaseModel];
+  dart.setMethodSignature(share_models.WeChatShareVideoModel, () => ({
+    __proto__: dart.getMethods(share_models.WeChatShareVideoModel.__proto__),
+    toMap: dart.fnType(core.Map, [])
+  }));
+  dart.setLibraryUri(share_models.WeChatShareVideoModel, I[0]);
+  dart.setFieldSignature(share_models.WeChatShareVideoModel, () => ({
+    __proto__: dart.getFields(share_models.WeChatShareVideoModel.__proto__),
+    videoUrl: dart.finalFieldType(dart.nullable(core.String)),
+    videoLowBandUrl: dart.finalFieldType(dart.nullable(core.String)),
+    thumbnail: dart.finalFieldType(dart.nullable(wechat_file.WeChatImage)),
+    title: dart.finalFieldType(dart.nullable(core.String)),
+    description: dart.finalFieldType(dart.nullable(core.String)),
+    scene: dart.finalFieldType(wechat_enums.WeChatScene),
+    messageExt: dart.finalFieldType(dart.nullable(core.String)),
+    messageAction: dart.finalFieldType(dart.nullable(core.String)),
+    mediaTagName: dart.finalFieldType(dart.nullable(core.String)),
+    compressThumbnail: dart.finalFieldType(core.bool)
+  }));
+  var webPage$ = dart.privateName(share_models, "WeChatShareWebPageModel.webPage");
+  var thumbnail$3 = dart.privateName(share_models, "WeChatShareWebPageModel.thumbnail");
+  var title$4 = dart.privateName(share_models, "WeChatShareWebPageModel.title");
+  var description$4 = dart.privateName(share_models, "WeChatShareWebPageModel.description");
+  var scene$3 = dart.privateName(share_models, "WeChatShareWebPageModel.scene");
+  var messageExt$4 = dart.privateName(share_models, "WeChatShareWebPageModel.messageExt");
+  var messageAction$4 = dart.privateName(share_models, "WeChatShareWebPageModel.messageAction");
+  var mediaTagName$4 = dart.privateName(share_models, "WeChatShareWebPageModel.mediaTagName");
+  var compressThumbnail$3 = dart.privateName(share_models, "WeChatShareWebPageModel.compressThumbnail");
+  share_models.WeChatShareWebPageModel = class WeChatShareWebPageModel extends core.Object {
+    get webPage() {
+      return this[webPage$];
+    }
+    set webPage(value) {
+      super.webPage = value;
+    }
+    get thumbnail() {
+      return this[thumbnail$3];
+    }
+    set thumbnail(value) {
+      super.thumbnail = value;
+    }
+    get title() {
+      return this[title$4];
+    }
+    set title(value) {
+      super.title = value;
+    }
+    get description() {
+      return this[description$4];
+    }
+    set description(value) {
+      super.description = value;
+    }
+    get scene() {
+      return this[scene$3];
+    }
+    set scene(value) {
+      super.scene = value;
+    }
+    get messageExt() {
+      return this[messageExt$4];
+    }
+    set messageExt(value) {
+      super.messageExt = value;
+    }
+    get messageAction() {
+      return this[messageAction$4];
+    }
+    set messageAction(value) {
+      super.messageAction = value;
+    }
+    get mediaTagName() {
+      return this[mediaTagName$4];
+    }
+    set mediaTagName(value) {
+      super.mediaTagName = value;
+    }
+    get compressThumbnail() {
+      return this[compressThumbnail$3];
+    }
+    set compressThumbnail(value) {
+      super.compressThumbnail = value;
+    }
+    toMap() {
+      let t0;
+      return new _js_helper.LinkedMap.from(["scene", this.scene.index, "webPage", this.webPage, "thumbnail", (t0 = this.thumbnail, t0 == null ? null : t0.toMap()), "title", this.title, "messageAction", this.messageAction, "mediaTagName ", this.mediaTagName, "description", this.description, "compressThumbnail", this.compressThumbnail]);
+    }
+  };
+  (share_models.WeChatShareWebPageModel.new = function(webPage, opts) {
+    let t0;
+    if (webPage == null) dart.nullFailed(I[1], 273, 32, "webPage");
+    let title = opts && 'title' in opts ? opts.title : "";
+    if (title == null) dart.nullFailed(I[1], 274, 13, "title");
+    let description = opts && 'description' in opts ? opts.description : null;
+    let thumbnail = opts && 'thumbnail' in opts ? opts.thumbnail : null;
+    let scene = opts && 'scene' in opts ? opts.scene : C[0] || CT.C0;
+    if (scene == null) dart.nullFailed(I[1], 277, 12, "scene");
+    let mediaTagName = opts && 'mediaTagName' in opts ? opts.mediaTagName : null;
+    let messageAction = opts && 'messageAction' in opts ? opts.messageAction : null;
+    let messageExt = opts && 'messageExt' in opts ? opts.messageExt : null;
+    let compressThumbnail = opts && 'compressThumbnail' in opts ? opts.compressThumbnail : true;
+    if (compressThumbnail == null) dart.nullFailed(I[1], 281, 12, "compressThumbnail");
+    this[webPage$] = webPage;
+    this[title$4] = title;
+    this[thumbnail$3] = thumbnail;
+    this[scene$3] = scene;
+    this[mediaTagName$4] = mediaTagName;
+    this[messageAction$4] = messageAction;
+    this[messageExt$4] = messageExt;
+    this[compressThumbnail$3] = compressThumbnail;
+    if (!webPage[$isNotEmpty]) dart.assertFailed(null, I[1], 282, 16, "webPage.isNotEmpty");
+    this[description$4] = (t0 = description, t0 == null ? webPage : t0);
+    ;
+  }).prototype = share_models.WeChatShareWebPageModel.prototype;
+  dart.addTypeTests(share_models.WeChatShareWebPageModel);
+  dart.addTypeCaches(share_models.WeChatShareWebPageModel);
+  share_models.WeChatShareWebPageModel[dart.implements] = () => [share_models.WeChatShareBaseModel];
+  dart.setMethodSignature(share_models.WeChatShareWebPageModel, () => ({
+    __proto__: dart.getMethods(share_models.WeChatShareWebPageModel.__proto__),
+    toMap: dart.fnType(core.Map, [])
+  }));
+  dart.setLibraryUri(share_models.WeChatShareWebPageModel, I[0]);
+  dart.setFieldSignature(share_models.WeChatShareWebPageModel, () => ({
+    __proto__: dart.getFields(share_models.WeChatShareWebPageModel.__proto__),
+    webPage: dart.finalFieldType(core.String),
+    thumbnail: dart.finalFieldType(dart.nullable(wechat_file.WeChatImage)),
+    title: dart.finalFieldType(core.String),
+    description: dart.finalFieldType(core.String),
+    scene: dart.finalFieldType(wechat_enums.WeChatScene),
+    messageExt: dart.finalFieldType(dart.nullable(core.String)),
+    messageAction: dart.finalFieldType(dart.nullable(core.String)),
+    mediaTagName: dart.finalFieldType(dart.nullable(core.String)),
+    compressThumbnail: dart.finalFieldType(core.bool)
+  }));
+  var source$1 = dart.privateName(share_models, "WeChatShareFileModel.source");
+  var thumbnail$4 = dart.privateName(share_models, "WeChatShareFileModel.thumbnail");
+  var title$5 = dart.privateName(share_models, "WeChatShareFileModel.title");
+  var description$5 = dart.privateName(share_models, "WeChatShareFileModel.description");
+  var scene$4 = dart.privateName(share_models, "WeChatShareFileModel.scene");
+  var messageExt$5 = dart.privateName(share_models, "WeChatShareFileModel.messageExt");
+  var messageAction$5 = dart.privateName(share_models, "WeChatShareFileModel.messageAction");
+  var mediaTagName$5 = dart.privateName(share_models, "WeChatShareFileModel.mediaTagName");
+  var compressThumbnail$4 = dart.privateName(share_models, "WeChatShareFileModel.compressThumbnail");
+  share_models.WeChatShareFileModel = class WeChatShareFileModel extends core.Object {
+    get source() {
+      return this[source$1];
+    }
+    set source(value) {
+      super.source = value;
+    }
+    get thumbnail() {
+      return this[thumbnail$4];
+    }
+    set thumbnail(value) {
+      super.thumbnail = value;
+    }
+    get title() {
+      return this[title$5];
+    }
+    set title(value) {
+      super.title = value;
+    }
+    get description() {
+      return this[description$5];
+    }
+    set description(value) {
+      super.description = value;
+    }
+    get scene() {
+      return this[scene$4];
+    }
+    set scene(value) {
+      super.scene = value;
+    }
+    get messageExt() {
+      return this[messageExt$5];
+    }
+    set messageExt(value) {
+      super.messageExt = value;
+    }
+    get messageAction() {
+      return this[messageAction$5];
+    }
+    set messageAction(value) {
+      super.messageAction = value;
+    }
+    get mediaTagName() {
+      return this[mediaTagName$5];
+    }
+    set mediaTagName(value) {
+      super.mediaTagName = value;
+    }
+    get compressThumbnail() {
+      return this[compressThumbnail$4];
+    }
+    set compressThumbnail(value) {
+      super.compressThumbnail = value;
+    }
+    toMap() {
+      let t0;
+      return new _js_helper.LinkedMap.from(["scene", this.scene.index, "source", this.source.toMap(), "thumbnail", (t0 = this.thumbnail, t0 == null ? null : t0.toMap()), "title", this.title, "description", this.description, "messageAction", this.messageAction, "mediaTagName ", this.mediaTagName, "compressThumbnail", this.compressThumbnail]);
+    }
+  };
+  (share_models.WeChatShareFileModel.new = function(source, opts) {
+    if (source == null) dart.nullFailed(I[1], 314, 29, "source");
+    let title = opts && 'title' in opts ? opts.title : "";
+    if (title == null) dart.nullFailed(I[1], 315, 13, "title");
+    let description = opts && 'description' in opts ? opts.description : "";
+    if (description == null) dart.nullFailed(I[1], 316, 12, "description");
+    let thumbnail = opts && 'thumbnail' in opts ? opts.thumbnail : null;
+    let scene = opts && 'scene' in opts ? opts.scene : C[0] || CT.C0;
+    if (scene == null) dart.nullFailed(I[1], 318, 12, "scene");
+    let mediaTagName = opts && 'mediaTagName' in opts ? opts.mediaTagName : null;
+    let messageAction = opts && 'messageAction' in opts ? opts.messageAction : null;
+    let messageExt = opts && 'messageExt' in opts ? opts.messageExt : null;
+    let compressThumbnail = opts && 'compressThumbnail' in opts ? opts.compressThumbnail : true;
+    if (compressThumbnail == null) dart.nullFailed(I[1], 322, 12, "compressThumbnail");
+    this[source$1] = source;
+    this[title$5] = title;
+    this[description$5] = description;
+    this[thumbnail$4] = thumbnail;
+    this[scene$4] = scene;
+    this[mediaTagName$5] = mediaTagName;
+    this[messageAction$5] = messageAction;
+    this[messageExt$5] = messageExt;
+    this[compressThumbnail$4] = compressThumbnail;
+    ;
+  }).prototype = share_models.WeChatShareFileModel.prototype;
+  dart.addTypeTests(share_models.WeChatShareFileModel);
+  dart.addTypeCaches(share_models.WeChatShareFileModel);
+  share_models.WeChatShareFileModel[dart.implements] = () => [share_models.WeChatShareBaseModel];
+  dart.setMethodSignature(share_models.WeChatShareFileModel, () => ({
+    __proto__: dart.getMethods(share_models.WeChatShareFileModel.__proto__),
+    toMap: dart.fnType(core.Map, [])
+  }));
+  dart.setLibraryUri(share_models.WeChatShareFileModel, I[0]);
+  dart.setFieldSignature(share_models.WeChatShareFileModel, () => ({
+    __proto__: dart.getFields(share_models.WeChatShareFileModel.__proto__),
+    source: dart.finalFieldType(wechat_file.WeChatFile),
+    thumbnail: dart.finalFieldType(dart.nullable(wechat_file.WeChatImage)),
+    title: dart.finalFieldType(core.String),
+    description: dart.finalFieldType(core.String),
+    scene: dart.finalFieldType(wechat_enums.WeChatScene),
+    messageExt: dart.finalFieldType(dart.nullable(core.String)),
+    messageAction: dart.finalFieldType(dart.nullable(core.String)),
+    mediaTagName: dart.finalFieldType(dart.nullable(core.String)),
+    compressThumbnail: dart.finalFieldType(core.bool)
+  }));
+  dart.defineLazy(share_models, {
+    /*share_models._scene*/get _scene() {
+      return "scene";
+    },
+    /*share_models._source*/get _source() {
+      return "source";
+    },
+    /*share_models._thumbnail*/get _thumbnail() {
+      return "thumbnail";
+    },
+    /*share_models._title*/get _title() {
+      return "title";
+    },
+    /*share_models._description*/get _description() {
+      return "description";
+    },
+    /*share_models._messageExt*/get _messageExt() {
+      return "messageExt";
+    },
+    /*share_models._mediaTagName*/get _mediaTagName() {
+      return "mediaTagName ";
+    },
+    /*share_models._messageAction*/get _messageAction() {
+      return "messageAction";
+    },
+    /*share_models._compressThumbnail*/get _compressThumbnail() {
+      return "compressThumbnail";
+    }
+  }, false);
+  fluwx_iml.openWeChatApp = function openWeChatApp() {
+    return async.async(core.bool, function* openWeChatApp() {
+      return T.FutureOrOfbool().as(yield fluwx_iml._channel.invokeMethod(dart.dynamic, "openWXApp"));
+    });
+  };
+  fluwx_iml.registerWxApi = function registerWxApi(opts) {
+    let appId = opts && 'appId' in opts ? opts.appId : null;
+    if (appId == null) dart.nullFailed(I[2], 65, 22, "appId");
+    let doOnIOS = opts && 'doOnIOS' in opts ? opts.doOnIOS : true;
+    if (doOnIOS == null) dart.nullFailed(I[2], 66, 10, "doOnIOS");
+    let doOnAndroid = opts && 'doOnAndroid' in opts ? opts.doOnAndroid : true;
+    if (doOnAndroid == null) dart.nullFailed(I[2], 67, 10, "doOnAndroid");
+    let universalLink = opts && 'universalLink' in opts ? opts.universalLink : null;
+    return async.async(core.bool, function* registerWxApi() {
+      if (dart.test(doOnIOS) && dart.test(io.Platform.isIOS)) {
+        if (universalLink == null || universalLink[$trim]()[$isEmpty] || !universalLink[$startsWith]("https")) {
+          dart.throw(new core.ArgumentError.value(universalLink, "you're trying to use illegal universal link , see https://developers.weixin.qq.com/doc/oplatform/Mobile_App/Access_Guide/iOS.html for detail"));
+        }
+      }
+      return T.FutureOrOfbool().as(yield fluwx_iml._channel.invokeMethod(dart.dynamic, "registerApp", new (T.IdentityMapOfString$ObjectN()).from(["appId", appId, "iOS", doOnIOS, "android", doOnAndroid, "universalLink", universalLink])));
+    });
+  };
+  fluwx_iml.getExtMsg = function getExtMsg() {
+    return async.async(core.String, function* getExtMsg() {
+      return T.FutureOrOfString().as(yield fluwx_iml._channel.invokeMethod(dart.dynamic, "getExtMsg"));
+    });
+  };
+  fluwx_iml.shareToWeChat = function shareToWeChat(model) {
+    if (model == null) dart.nullFailed(I[2], 93, 49, "model");
+    return async.async(core.bool, function* shareToWeChat() {
+      if (dart.test(fluwx_iml._shareModelMethodMapper[$containsKey](dart.runtimeType(model)))) {
+        let methodChannel = fluwx_iml._shareModelMethodMapper[$_get](dart.runtimeType(model));
+        if (methodChannel == null) dart.throw(new core.ArgumentError.value(dart.str(dart.runtimeType(model)) + " method channel not found"));
+        return T.FutureOrOfbool().as(yield fluwx_iml._channel.invokeMethod(dart.dynamic, methodChannel, model.toMap()));
+      } else {
+        return T.FutureOfbool().error("no method mapper found[" + dart.str(dart.runtimeType(model)) + "]");
+      }
+    });
+  };
+  fluwx_iml.sendWeChatAuth = function sendWeChatAuth(opts) {
+    let scope = opts && 'scope' in opts ? opts.scope : null;
+    if (scope == null) dart.nullFailed(I[2], 113, 22, "scope");
+    let state = opts && 'state' in opts ? opts.state : "state";
+    if (state == null) dart.nullFailed(I[2], 113, 36, "state");
+    return async.async(core.bool, function* sendWeChatAuth() {
+      if (!scope[$trim]()[$isNotEmpty]) dart.assertFailed(null, I[2], 114, 10, "scope.trim().isNotEmpty");
+      return T.FutureOrOfbool().as(yield fluwx_iml._channel.invokeMethod(dart.dynamic, "sendAuth", new (T.IdentityMapOfString$String()).from(["scope", scope, "state", state])));
+    });
+  };
+  fluwx_iml.launchWeChatMiniProgram = function launchWeChatMiniProgram(opts) {
+    let username = opts && 'username' in opts ? opts.username : null;
+    if (username == null) dart.nullFailed(I[2], 122, 22, "username");
+    let path = opts && 'path' in opts ? opts.path : null;
+    let miniProgramType = opts && 'miniProgramType' in opts ? opts.miniProgramType : C[1] || CT.C1;
+    if (miniProgramType == null) dart.nullFailed(I[2], 124, 23, "miniProgramType");
+    return async.async(core.bool, function* launchWeChatMiniProgram() {
+      if (!username[$trim]()[$isNotEmpty]) dart.assertFailed(null, I[2], 125, 10, "username.trim().isNotEmpty");
+      return T.FutureOrOfbool().as(yield fluwx_iml._channel.invokeMethod(dart.dynamic, "launchMiniProgram", new (T.IdentityMapOfString$ObjectN()).from(["userName", username, "path", path, "miniProgramType", wechat_enums['MiniProgramTypeExtensions|toNativeInt'](miniProgramType)])));
+    });
+  };
+  fluwx_iml.payWithWeChat = function payWithWeChat(opts) {
+    let appId = opts && 'appId' in opts ? opts.appId : null;
+    if (appId == null) dart.nullFailed(I[2], 137, 22, "appId");
+    let partnerId = opts && 'partnerId' in opts ? opts.partnerId : null;
+    if (partnerId == null) dart.nullFailed(I[2], 138, 21, "partnerId");
+    let prepayId = opts && 'prepayId' in opts ? opts.prepayId : null;
+    if (prepayId == null) dart.nullFailed(I[2], 139, 21, "prepayId");
+    let packageValue = opts && 'packageValue' in opts ? opts.packageValue : null;
+    if (packageValue == null) dart.nullFailed(I[2], 140, 21, "packageValue");
+    let nonceStr = opts && 'nonceStr' in opts ? opts.nonceStr : null;
+    if (nonceStr == null) dart.nullFailed(I[2], 141, 21, "nonceStr");
+    let timeStamp = opts && 'timeStamp' in opts ? opts.timeStamp : null;
+    if (timeStamp == null) dart.nullFailed(I[2], 142, 18, "timeStamp");
+    let sign = opts && 'sign' in opts ? opts.sign : null;
+    if (sign == null) dart.nullFailed(I[2], 143, 21, "sign");
+    let signType = opts && 'signType' in opts ? opts.signType : null;
+    let extData = opts && 'extData' in opts ? opts.extData : null;
+    return async.async(core.bool, function* payWithWeChat() {
+      return T.FutureOrOfbool().as(yield fluwx_iml._channel.invokeMethod(dart.dynamic, "payWithFluwx", new (T.IdentityMapOfString$ObjectN()).from(["appId", appId, "partnerId", partnerId, "prepayId", prepayId, "packageValue", packageValue, "nonceStr", nonceStr, "timeStamp", timeStamp, "sign", sign, "signType", signType, "extData", extData])));
+    });
+  };
+  fluwx_iml.payWithWeChatHongKongWallet = function payWithWeChatHongKongWallet(opts) {
+    let prepayId = opts && 'prepayId' in opts ? opts.prepayId : null;
+    if (prepayId == null) dart.nullFailed(I[2], 161, 59, "prepayId");
+    return async.async(core.bool, function* payWithWeChatHongKongWallet() {
+      return T.FutureOrOfbool().as(yield fluwx_iml._channel.invokeMethod(dart.dynamic, "payWithHongKongWallet", new (T.IdentityMapOfString$String()).from(["prepayId", prepayId])));
+    });
+  };
+  fluwx_iml.subscribeWeChatMsg = function subscribeWeChatMsg(opts) {
+    let appId = opts && 'appId' in opts ? opts.appId : null;
+    if (appId == null) dart.nullFailed(I[2], 169, 19, "appId");
+    let scene = opts && 'scene' in opts ? opts.scene : null;
+    if (scene == null) dart.nullFailed(I[2], 170, 16, "scene");
+    let templateId = opts && 'templateId' in opts ? opts.templateId : null;
+    if (templateId == null) dart.nullFailed(I[2], 171, 19, "templateId");
+    let reserved = opts && 'reserved' in opts ? opts.reserved : null;
+    return async.async(core.bool, function* subscribeWeChatMsg() {
+      return T.FutureOrOfbool().as(yield fluwx_iml._channel.invokeMethod(dart.dynamic, "subscribeMsg", new (T.IdentityMapOfString$ObjectN()).from(["appId", appId, "scene", scene, "templateId", templateId, "reserved", reserved])));
+    });
+  };
+  fluwx_iml.autoDeDuctWeChat = function autoDeDuctWeChat(opts) {
+    let appId = opts && 'appId' in opts ? opts.appId : null;
+    if (appId == null) dart.nullFailed(I[2], 187, 22, "appId");
+    let mchId = opts && 'mchId' in opts ? opts.mchId : null;
+    if (mchId == null) dart.nullFailed(I[2], 188, 21, "mchId");
+    let planId = opts && 'planId' in opts ? opts.planId : null;
+    if (planId == null) dart.nullFailed(I[2], 189, 21, "planId");
+    let contractCode = opts && 'contractCode' in opts ? opts.contractCode : null;
+    if (contractCode == null) dart.nullFailed(I[2], 190, 21, "contractCode");
+    let requestSerial = opts && 'requestSerial' in opts ? opts.requestSerial : null;
+    if (requestSerial == null) dart.nullFailed(I[2], 191, 21, "requestSerial");
+    let contractDisplayAccount = opts && 'contractDisplayAccount' in opts ? opts.contractDisplayAccount : null;
+    if (contractDisplayAccount == null) dart.nullFailed(I[2], 192, 21, "contractDisplayAccount");
+    let notifyUrl = opts && 'notifyUrl' in opts ? opts.notifyUrl : null;
+    if (notifyUrl == null) dart.nullFailed(I[2], 193, 21, "notifyUrl");
+    let version = opts && 'version' in opts ? opts.version : null;
+    if (version == null) dart.nullFailed(I[2], 194, 21, "version");
+    let sign = opts && 'sign' in opts ? opts.sign : null;
+    if (sign == null) dart.nullFailed(I[2], 195, 21, "sign");
+    let timestamp = opts && 'timestamp' in opts ? opts.timestamp : null;
+    if (timestamp == null) dart.nullFailed(I[2], 196, 21, "timestamp");
+    let returnApp = opts && 'returnApp' in opts ? opts.returnApp : "3";
+    if (returnApp == null) dart.nullFailed(I[2], 197, 12, "returnApp");
+    let businessType = opts && 'businessType' in opts ? opts.businessType : 12;
+    if (businessType == null) dart.nullFailed(I[2], 198, 9, "businessType");
+    return async.async(core.bool, function* autoDeDuctWeChat() {
+      return T.FutureOrOfbool().as(yield fluwx_iml._channel.invokeMethod(dart.dynamic, "autoDeduct", new (T.IdentityMapOfString$Object()).from(["appid", appId, "mch_id", mchId, "plan_id", planId, "contract_code", contractCode, "request_serial", requestSerial, "contract_display_account", contractDisplayAccount, "notify_url", notifyUrl, "version", version, "sign", sign, "timestamp", timestamp, "return_app", returnApp, "businessType", businessType])));
+    });
+  };
+  fluwx_iml.authWeChatByQRCode = function authWeChatByQRCode(opts) {
+    let appId = opts && 'appId' in opts ? opts.appId : null;
+    if (appId == null) dart.nullFailed(I[2], 221, 22, "appId");
+    let scope = opts && 'scope' in opts ? opts.scope : null;
+    if (scope == null) dart.nullFailed(I[2], 222, 21, "scope");
+    let nonceStr = opts && 'nonceStr' in opts ? opts.nonceStr : null;
+    if (nonceStr == null) dart.nullFailed(I[2], 223, 21, "nonceStr");
+    let timeStamp = opts && 'timeStamp' in opts ? opts.timeStamp : null;
+    if (timeStamp == null) dart.nullFailed(I[2], 224, 21, "timeStamp");
+    let signature = opts && 'signature' in opts ? opts.signature : null;
+    if (signature == null) dart.nullFailed(I[2], 225, 21, "signature");
+    let schemeData = opts && 'schemeData' in opts ? opts.schemeData : null;
+    return async.async(core.bool, function* authWeChatByQRCode() {
+      if (!appId[$isNotEmpty]) dart.assertFailed(null, I[2], 227, 10, "appId.isNotEmpty");
+      if (!scope[$isNotEmpty]) dart.assertFailed(null, I[2], 228, 10, "scope.isNotEmpty");
+      if (!nonceStr[$isNotEmpty]) dart.assertFailed(null, I[2], 229, 10, "nonceStr.isNotEmpty");
+      if (!timeStamp[$isNotEmpty]) dart.assertFailed(null, I[2], 230, 10, "timeStamp.isNotEmpty");
+      if (!signature[$isNotEmpty]) dart.assertFailed(null, I[2], 231, 10, "signature.isNotEmpty");
+      return T.FutureOrOfbool().as(yield fluwx_iml._channel.invokeMethod(dart.dynamic, "authByQRCode", new (T.IdentityMapOfString$StringN()).from(["appId", appId, "scope", scope, "nonceStr", nonceStr, "timeStamp", timeStamp, "signature", signature, "schemeData", schemeData])));
+    });
+  };
+  fluwx_iml.stopWeChatAuthByQRCode = function stopWeChatAuthByQRCode() {
+    return async.async(core.bool, function* stopWeChatAuthByQRCode() {
+      return T.FutureOrOfbool().as(yield fluwx_iml._channel.invokeMethod(dart.dynamic, "stopAuthByQRCode"));
+    });
+  };
+  fluwx_iml._methodHandler = function _methodHandler(methodCall) {
+    if (methodCall == null) dart.nullFailed(I[2], 248, 34, "methodCall");
+    let response = wechat_response.BaseWeChatResponse.create(methodCall.method, core.Map.as(methodCall.arguments));
+    fluwx_iml._weChatResponseEventHandlerController.add(response);
+    return async.Future.value();
+  };
+  fluwx_iml.authWeChatByPhoneLogin = function authWeChatByPhoneLogin(opts) {
+    let scope = opts && 'scope' in opts ? opts.scope : null;
+    if (scope == null) dart.nullFailed(I[2], 257, 22, "scope");
+    let state = opts && 'state' in opts ? opts.state : "state";
+    if (state == null) dart.nullFailed(I[2], 257, 36, "state");
+    return async.async(core.bool, function* authWeChatByPhoneLogin() {
+      return T.FutureOrOfbool().as(yield fluwx_iml._channel.invokeMethod(dart.dynamic, "authByPhoneLogin", new (T.IdentityMapOfString$String()).from(["scope", scope, "state", state])));
+    });
+  };
+  dart.copyProperties(fluwx_iml, {
+    get weChatResponseEventHandler() {
+      return fluwx_iml._weChatResponseEventHandlerController.stream;
+    },
+    get isWeChatInstalled() {
+      return async.async(core.bool, function* isWeChatInstalled() {
+        return T.FutureOrOfbool().as(yield fluwx_iml._channel.invokeMethod(dart.dynamic, "isWeChatInstalled"));
+      });
+    }
+  });
+  dart.defineLazy(fluwx_iml, {
+    /*fluwx_iml._shareModelMethodMapper*/get _shareModelMethodMapper() {
+      return C[2] || CT.C2;
+    },
+    /*fluwx_iml._channel*/get _channel() {
+      let t0;
+      return t0 = new platform_channel.MethodChannel.new("com.jarvanmo/fluwx"), (() => {
+        t0.setMethodCallHandler(C[3] || CT.C3);
+        return t0;
+      })();
+    },
+    set _channel(_) {},
+    /*fluwx_iml._weChatResponseEventHandlerController*/get _weChatResponseEventHandlerController() {
+      return T.StreamControllerOfBaseWeChatResponse().broadcast();
+    },
+    set _weChatResponseEventHandlerController(_) {}
+  }, false);
+  dart.trackLibraries("packages/fluwx/src/share/share_models.dart", {
+    "package:fluwx/src/share/share_models.dart": share_models,
+    "package:fluwx/src/fluwx_iml.dart": fluwx_iml,
+    "package:fluwx/fluwx.dart": fluwx
+  }, {
+  }, '{"version":3,"sourceRoot":"","sources":["share_models.dart","../fluwx_iml.dart"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;IAuCe;;;;;;IACK;;;;;;IACJ;;;;;;IACA;;;;;;IACA;;;;;;IACA;;;;;;IACA;;;;;;;AAcZ,YAAO,yCACG,AAAM,4BACL,2BACI,kCACG,qCACD,4BACP,2BACM;IAElB;;oDArB0B;;;QAChB;;QACD;QACA;QACA;QACG;QACA;IANc;IAChB;IACD;IACA;IACA;IAGQ,gBAAQ,KAAN,KAAK,EAAL,aAAS,MAAM;IACX,sBAAc,MAAZ,WAAW,EAAX,cAAe,MAAM;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;IAoBjC;;;;;;IACW;;;;;;IACX;;;;;;IACA;;;;;;IACM;;;;;;IACL;;;;;;IACA;;;;;;IACK;;;;;;IACR;;;;;;IACG;;;;;;IACA;;;;;;IACA;;;;;;IACH;;;;;;;;AAsBT,YAAO,gCACL,cAAc,iBACd,mBAAmC,sDAAhB,uBACnB,YAAY,eACZ,QAAQ,WACR,SAAS,2BACK,kBACd,mBAAmB,sEACP,OAAW,aACvB,sDAAe,OAAa,+BACZ,qCACD,wCACK;IAExB;;;QAjCmB;;QACV;;QACS;;QACT;;QACA;QACA;QACA;;QACA;QACA;QACA;QACA;QACA;QACA;;IAZU;IACV;IACS;IACT;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;SACI,AAAW,UAAD;SACV,AAAS,QAAD;SACR,AAAK,IAAD;;EAAY;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;IAyBX;;;;;;IACA;;;;;;IACJ;;;;;;IACI;;;;;;IACJ;;;;;;IACA;;;;;;IACA;;;;;;IACA;;;;;;IACH;;;;;;;AAeT,YAAO,yCACG,AAAM,4BACL,AAAO,kCACJ,AAAU,iCACd,2BACM,mCACE,qCACD,wCACK;IAExB;;qDAvB2B;;;QACT;QACT;QACA;;QACA;QACA;QACA;QACA;QACA;;IARkB;IAElB;IACA;IACA;IACA;IACA;IACA;IACA;IACY,qBAAY,KAAV,SAAS,EAAT,aAAa,MAAM;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;IAoB5B;;;;;;IACA;;;;;;IACA;;;;;;IACA;;;;;;IACK;;;;;;IACL;;;;;;IACA;;;;;;IACI;;;;;;IACJ;;;;;;IACA;;;;;;IACA;;;;;;IACH;;;;;;;;AAmBT,YAAO,yCACG,AAAM,kBACd,YAAY,eACZ,gBAAgB,mBAChB,mBAAmB,sBACnB,uBAAuB,0EACX,OAAW,sBACf,2BACM,mCACE,qCACD,wCACK;IAExB;;;QA7BU;QACD;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;;QACA;;IAXC;IACD;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;UACI,AAAiB,QAAT,YAAY,eAAe;;EAAS;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;IAuB3C;;;;;;IACA;;;;;;IACK;;;;;;IACL;;;;;;IACA;;;;;;IACI;;;;;;IACJ;;;;;;IACA;;;;;;IACA;;;;;;IACH;;;;;;;;AAkBT,YAAO,yCACG,AAAM,kBACd,YAAY,eACZ,mBAAmB,sEACP,OAAW,sBACf,2BACM,mCACE,qCACD,wCACK;IAExB;;;QA1BU;;QACD;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;;IATC;IACD;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;UACI,AAAiB,QAAT,YAAY,eAAe;UACnC,AAAU,SAAD;;EAAS;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;IAqBlB;;;;;;IACM;;;;;;IACN;;;;;;IACA;;;;;;IACK;;;;;;IACJ;;;;;;IACA;;;;;;IACA;;;;;;IACH;;;;;;;;AAgBT,YAAO,yCACG,AAAM,kBACd,WAAW,8DACC,OAAW,sBACf,6BACQ,qCACD,kCACD,uCACM;IAExB;;uDAxB6B;;;QACnB;;QACE;QACH;QACA;;QACA;QACA;QACA;QACA;;IARoB;IACnB;IAED;IACA;IACA;IACA;IACA;IACA;SACI,AAAQ,OAAD;IACG,uBAAc,KAAZ,WAAW,EAAX,aAAe,OAAO;;;;;;;;;;;;;;;;;;;;;;;;;;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","file":"../../../../../../../../../O:/packages/fluwx/src/share/share_models.dart.lib.js"}');
+  // Exports:
+  return {
+    src__share__share_models: share_models,
+    src__fluwx_iml: fluwx_iml,
+    fluwx: fluwx
+  };
+}));
+
+//# sourceMappingURL=share_models.dart.lib.js.map

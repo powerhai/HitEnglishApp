@@ -1,0 +1,656 @@
+define(['dart_sdk', 'packages/flutter/src/widgets/widget_span.dart', 'packages/flutter/src/animation/animation_controller.dart', 'packages/flutter/src/animation/listener_helpers.dart', 'packages/flutter/src/animation/curves.dart', 'packages/flutter/src/rendering/flex.dart', 'packages/flutter/src/painting/box_decoration.dart'], (function load__packages__flutter_spinkit__src__cube_grid_dart(dart_sdk, packages__flutter__src__widgets__widget_span$46dart, packages__flutter__src__animation__animation_controller$46dart, packages__flutter__src__animation__listener_helpers$46dart, packages__flutter__src__animation__curves$46dart, packages__flutter__src__rendering__flex$46dart, packages__flutter__src__painting__box_decoration$46dart) {
+  'use strict';
+  const core = dart_sdk.core;
+  const ui = dart_sdk.ui;
+  const _internal = dart_sdk._internal;
+  const _interceptors = dart_sdk._interceptors;
+  const dart = dart_sdk.dart;
+  const dartx = dart_sdk.dartx;
+  const framework = packages__flutter__src__widgets__widget_span$46dart.src__widgets__framework;
+  const basic = packages__flutter__src__widgets__widget_span$46dart.src__widgets__basic;
+  const widget_inspector = packages__flutter__src__widgets__widget_span$46dart.src__widgets__widget_inspector;
+  const transitions = packages__flutter__src__widgets__widget_span$46dart.src__widgets__transitions;
+  const container = packages__flutter__src__widgets__widget_span$46dart.src__widgets__container;
+  const ticker_provider = packages__flutter__src__widgets__widget_span$46dart.src__widgets__ticker_provider;
+  const animation_controller = packages__flutter__src__animation__animation_controller$46dart.src__animation__animation_controller;
+  const tween = packages__flutter__src__animation__listener_helpers$46dart.src__animation__tween;
+  const animations = packages__flutter__src__animation__listener_helpers$46dart.src__animation__animations;
+  const animation = packages__flutter__src__animation__listener_helpers$46dart.src__animation__animation;
+  const curves = packages__flutter__src__animation__curves$46dart.src__animation__curves;
+  const flex = packages__flutter__src__rendering__flex$46dart.src__rendering__flex;
+  const box_decoration = packages__flutter__src__painting__box_decoration$46dart.src__painting__box_decoration;
+  var cube_grid = Object.create(dart.library);
+  dart._checkModuleNullSafetyMode(false);
+  var T = {
+    BuildContextAndintToWidget: () => (T.BuildContextAndintToWidget = dart.constFn(dart.fnType(framework.Widget, [framework.BuildContext, core.int])))(),
+    TweenOfdouble: () => (T.TweenOfdouble = dart.constFn(tween.Tween$(core.double)))(),
+    JSArrayOfWidget: () => (T.JSArrayOfWidget = dart.constFn(_interceptors.JSArray$(framework.Widget)))(),
+    _LocationL: () => (T._LocationL = dart.constFn(dart.legacy(widget_inspector._Location)))()
+  };
+  const CT = Object.create({
+    _: () => (C, CT)
+  });
+  dart.defineLazy(CT, {
+    get C0() {
+      return C[0] = dart.const({
+        __proto__: core.Duration.prototype,
+        [Duration__duration]: 1200000
+      });
+    },
+    get C2() {
+      return C[2] = dart.const({
+        __proto__: curves.Cubic.prototype,
+        [Cubic_d]: 1,
+        [Cubic_c]: 1,
+        [Cubic_b]: 0,
+        [Cubic_a]: 0.42
+      });
+    },
+    get C1() {
+      return C[1] = dart.const({
+        __proto__: curves.Interval.prototype,
+        [Interval_curve]: C[2] || CT.C2,
+        [Interval_end]: 0.6,
+        [Interval_begin]: 0.1
+      });
+    },
+    get C3() {
+      return C[3] = dart.const({
+        __proto__: curves.Interval.prototype,
+        [Interval_curve]: C[2] || CT.C2,
+        [Interval_end]: 0.7,
+        [Interval_begin]: 0.2
+      });
+    },
+    get C4() {
+      return C[4] = dart.const({
+        __proto__: curves.Interval.prototype,
+        [Interval_curve]: C[2] || CT.C2,
+        [Interval_end]: 0.8,
+        [Interval_begin]: 0.3
+      });
+    },
+    get C5() {
+      return C[5] = dart.const({
+        __proto__: curves.Interval.prototype,
+        [Interval_curve]: C[2] || CT.C2,
+        [Interval_end]: 0.9,
+        [Interval_begin]: 0.4
+      });
+    },
+    get C6() {
+      return C[6] = dart.const({
+        __proto__: curves.Interval.prototype,
+        [Interval_curve]: C[2] || CT.C2,
+        [Interval_end]: 1,
+        [Interval_begin]: 0.5
+      });
+    },
+    get C9() {
+      return C[9] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "mainAxisSize",
+        [_Location_column]: 13,
+        [_Location_line]: 66,
+        [_Location_file]: null
+      });
+    },
+    get C10() {
+      return C[10] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "mainAxisAlignment",
+        [_Location_column]: 13,
+        [_Location_line]: 67,
+        [_Location_file]: null
+      });
+    },
+    get C11() {
+      return C[11] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "children",
+        [_Location_column]: 13,
+        [_Location_line]: 68,
+        [_Location_file]: null
+      });
+    },
+    get C8() {
+      return C[8] = dart.constList([C[9] || CT.C9, C[10] || CT.C10, C[11] || CT.C11], T._LocationL());
+    },
+    get C7() {
+      return C[7] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[8] || CT.C8,
+        [_Location_name]: null,
+        [_Location_column]: 11,
+        [_Location_line]: 65,
+        [_Location_file]: "file:///d:/flutter/.pub-cache/hosted/pub.flutter-io.cn/flutter_spinkit-5.0.0/lib/src/cube_grid.dart"
+      });
+    },
+    get C14() {
+      return C[14] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "mainAxisSize",
+        [_Location_column]: 13,
+        [_Location_line]: 75,
+        [_Location_file]: null
+      });
+    },
+    get C15() {
+      return C[15] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "mainAxisAlignment",
+        [_Location_column]: 13,
+        [_Location_line]: 76,
+        [_Location_file]: null
+      });
+    },
+    get C16() {
+      return C[16] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "children",
+        [_Location_column]: 13,
+        [_Location_line]: 77,
+        [_Location_file]: null
+      });
+    },
+    get C13() {
+      return C[13] = dart.constList([C[14] || CT.C14, C[15] || CT.C15, C[16] || CT.C16], T._LocationL());
+    },
+    get C12() {
+      return C[12] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[13] || CT.C13,
+        [_Location_name]: null,
+        [_Location_column]: 11,
+        [_Location_line]: 74,
+        [_Location_file]: "file:///d:/flutter/.pub-cache/hosted/pub.flutter-io.cn/flutter_spinkit-5.0.0/lib/src/cube_grid.dart"
+      });
+    },
+    get C19() {
+      return C[19] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "mainAxisSize",
+        [_Location_column]: 13,
+        [_Location_line]: 84,
+        [_Location_file]: null
+      });
+    },
+    get C20() {
+      return C[20] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "mainAxisAlignment",
+        [_Location_column]: 13,
+        [_Location_line]: 85,
+        [_Location_file]: null
+      });
+    },
+    get C21() {
+      return C[21] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "children",
+        [_Location_column]: 13,
+        [_Location_line]: 86,
+        [_Location_file]: null
+      });
+    },
+    get C18() {
+      return C[18] = dart.constList([C[19] || CT.C19, C[20] || CT.C20, C[21] || CT.C21], T._LocationL());
+    },
+    get C17() {
+      return C[17] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[18] || CT.C18,
+        [_Location_name]: null,
+        [_Location_column]: 11,
+        [_Location_line]: 83,
+        [_Location_file]: "file:///d:/flutter/.pub-cache/hosted/pub.flutter-io.cn/flutter_spinkit-5.0.0/lib/src/cube_grid.dart"
+      });
+    },
+    get C24() {
+      return C[24] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "mainAxisAlignment",
+        [_Location_column]: 9,
+        [_Location_line]: 62,
+        [_Location_file]: null
+      });
+    },
+    get C25() {
+      return C[25] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "mainAxisSize",
+        [_Location_column]: 9,
+        [_Location_line]: 63,
+        [_Location_file]: null
+      });
+    },
+    get C26() {
+      return C[26] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "children",
+        [_Location_column]: 9,
+        [_Location_line]: 64,
+        [_Location_file]: null
+      });
+    },
+    get C23() {
+      return C[23] = dart.constList([C[24] || CT.C24, C[25] || CT.C25, C[26] || CT.C26], T._LocationL());
+    },
+    get C22() {
+      return C[22] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[23] || CT.C23,
+        [_Location_name]: null,
+        [_Location_column]: 14,
+        [_Location_line]: 61,
+        [_Location_file]: "file:///d:/flutter/.pub-cache/hosted/pub.flutter-io.cn/flutter_spinkit-5.0.0/lib/src/cube_grid.dart"
+      });
+    },
+    get C29() {
+      return C[29] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "size",
+        [_Location_column]: 7,
+        [_Location_line]: 60,
+        [_Location_file]: null
+      });
+    },
+    get C30() {
+      return C[30] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 7,
+        [_Location_line]: 61,
+        [_Location_file]: null
+      });
+    },
+    get C28() {
+      return C[28] = dart.constList([C[29] || CT.C29, C[30] || CT.C30], T._LocationL());
+    },
+    get C27() {
+      return C[27] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[28] || CT.C28,
+        [_Location_name]: null,
+        [_Location_column]: 21,
+        [_Location_line]: 59,
+        [_Location_file]: "file:///d:/flutter/.pub-cache/hosted/pub.flutter-io.cn/flutter_spinkit-5.0.0/lib/src/cube_grid.dart"
+      });
+    },
+    get C33() {
+      return C[33] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "size",
+        [_Location_column]: 32,
+        [_Location_line]: 100,
+        [_Location_file]: null
+      });
+    },
+    get C34() {
+      return C[34] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 68,
+        [_Location_line]: 100,
+        [_Location_file]: null
+      });
+    },
+    get C32() {
+      return C[32] = dart.constList([C[33] || CT.C33, C[34] || CT.C34], T._LocationL());
+    },
+    get C31() {
+      return C[31] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[32] || CT.C32,
+        [_Location_name]: null,
+        [_Location_column]: 23,
+        [_Location_line]: 100,
+        [_Location_file]: "file:///d:/flutter/.pub-cache/hosted/pub.flutter-io.cn/flutter_spinkit-5.0.0/lib/src/cube_grid.dart"
+      });
+    },
+    get C37() {
+      return C[37] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "scale",
+        [_Location_column]: 7,
+        [_Location_line]: 99,
+        [_Location_file]: null
+      });
+    },
+    get C38() {
+      return C[38] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 7,
+        [_Location_line]: 100,
+        [_Location_file]: null
+      });
+    },
+    get C36() {
+      return C[36] = dart.constList([C[37] || CT.C37, C[38] || CT.C38], T._LocationL());
+    },
+    get C35() {
+      return C[35] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[36] || CT.C36,
+        [_Location_name]: null,
+        [_Location_column]: 12,
+        [_Location_line]: 98,
+        [_Location_file]: "file:///d:/flutter/.pub-cache/hosted/pub.flutter-io.cn/flutter_spinkit-5.0.0/lib/src/cube_grid.dart"
+      });
+    },
+    get C41() {
+      return C[41] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "decoration",
+        [_Location_column]: 22,
+        [_Location_line]: 106,
+        [_Location_file]: null
+      });
+    },
+    get C40() {
+      return C[40] = dart.constList([C[41] || CT.C41], T._LocationL());
+    },
+    get C39() {
+      return C[39] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[40] || CT.C40,
+        [_Location_name]: null,
+        [_Location_column]: 9,
+        [_Location_line]: 106,
+        [_Location_file]: "file:///d:/flutter/.pub-cache/hosted/pub.flutter-io.cn/flutter_spinkit-5.0.0/lib/src/cube_grid.dart"
+      });
+    }
+  }, false);
+  var C = Array(42).fill(void 0);
+  var I = [
+    "file:///d:/flutter/.pub-cache/hosted/pub.flutter-io.cn/flutter_spinkit-5.0.0/lib/src/cube_grid.dart",
+    "package:flutter_spinkit/src/cube_grid.dart"
+  ];
+  var color$ = dart.privateName(cube_grid, "SpinKitCubeGrid.color");
+  var size$ = dart.privateName(cube_grid, "SpinKitCubeGrid.size");
+  var itemBuilder$ = dart.privateName(cube_grid, "SpinKitCubeGrid.itemBuilder");
+  var duration$ = dart.privateName(cube_grid, "SpinKitCubeGrid.duration");
+  var controller$ = dart.privateName(cube_grid, "SpinKitCubeGrid.controller");
+  var Duration__duration = dart.privateName(core, "Duration._duration");
+  cube_grid.SpinKitCubeGrid = class SpinKitCubeGrid extends framework.StatefulWidget {
+    get color() {
+      return this[color$];
+    }
+    set color(value) {
+      super.color = value;
+    }
+    get size() {
+      return this[size$];
+    }
+    set size(value) {
+      super.size = value;
+    }
+    get itemBuilder() {
+      return this[itemBuilder$];
+    }
+    set itemBuilder(value) {
+      super.itemBuilder = value;
+    }
+    get duration() {
+      return this[duration$];
+    }
+    set duration(value) {
+      super.duration = value;
+    }
+    get controller() {
+      return this[controller$];
+    }
+    set controller(value) {
+      super.controller = value;
+    }
+    createState() {
+      return new cube_grid._SpinKitCubeGridState.new();
+    }
+  };
+  (cube_grid.SpinKitCubeGrid.new = function(opts) {
+    let key = opts && 'key' in opts ? opts.key : null;
+    let color = opts && 'color' in opts ? opts.color : null;
+    let size = opts && 'size' in opts ? opts.size : 50;
+    if (size == null) dart.nullFailed(I[0], 7, 10, "size");
+    let itemBuilder = opts && 'itemBuilder' in opts ? opts.itemBuilder : null;
+    let duration = opts && 'duration' in opts ? opts.duration : C[0] || CT.C0;
+    if (duration == null) dart.nullFailed(I[0], 9, 10, "duration");
+    let controller = opts && 'controller' in opts ? opts.controller : null;
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    this[color$] = color;
+    this[size$] = size;
+    this[itemBuilder$] = itemBuilder;
+    this[duration$] = duration;
+    this[controller$] = controller;
+    if (!(!(T.BuildContextAndintToWidget().is(itemBuilder) && ui.Color.is(color)) && !(itemBuilder == null && color == null))) dart.assertFailed("You should specify either a itemBuilder or a color", I[0], 11, 16, "!(itemBuilder is IndexedWidgetBuilder && color is Color) && !(itemBuilder == null && color == null)");
+    cube_grid.SpinKitCubeGrid.__proto__.new.call(this, {key: key, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+    ;
+  }).prototype = cube_grid.SpinKitCubeGrid.prototype;
+  dart.addTypeTests(cube_grid.SpinKitCubeGrid);
+  dart.addTypeCaches(cube_grid.SpinKitCubeGrid);
+  dart.setMethodSignature(cube_grid.SpinKitCubeGrid, () => ({
+    __proto__: dart.getMethods(cube_grid.SpinKitCubeGrid.__proto__),
+    createState: dart.fnType(cube_grid._SpinKitCubeGridState, [])
+  }));
+  dart.setLibraryUri(cube_grid.SpinKitCubeGrid, I[1]);
+  dart.setFieldSignature(cube_grid.SpinKitCubeGrid, () => ({
+    __proto__: dart.getFields(cube_grid.SpinKitCubeGrid.__proto__),
+    color: dart.finalFieldType(dart.nullable(ui.Color)),
+    size: dart.finalFieldType(core.double),
+    itemBuilder: dart.finalFieldType(dart.nullable(dart.fnType(framework.Widget, [framework.BuildContext, core.int]))),
+    duration: dart.finalFieldType(core.Duration),
+    controller: dart.finalFieldType(dart.nullable(animation_controller.AnimationController))
+  }));
+  var ___SpinKitCubeGridState__controller = dart.privateName(cube_grid, "_#_SpinKitCubeGridState#_controller");
+  var ___SpinKitCubeGridState__controller_isSet = dart.privateName(cube_grid, "_#_SpinKitCubeGridState#_controller#isSet");
+  var ___SpinKitCubeGridState__anim1 = dart.privateName(cube_grid, "_#_SpinKitCubeGridState#_anim1");
+  var ___SpinKitCubeGridState__anim1_isSet = dart.privateName(cube_grid, "_#_SpinKitCubeGridState#_anim1#isSet");
+  var ___SpinKitCubeGridState__anim2 = dart.privateName(cube_grid, "_#_SpinKitCubeGridState#_anim2");
+  var ___SpinKitCubeGridState__anim2_isSet = dart.privateName(cube_grid, "_#_SpinKitCubeGridState#_anim2#isSet");
+  var ___SpinKitCubeGridState__anim3 = dart.privateName(cube_grid, "_#_SpinKitCubeGridState#_anim3");
+  var ___SpinKitCubeGridState__anim3_isSet = dart.privateName(cube_grid, "_#_SpinKitCubeGridState#_anim3#isSet");
+  var ___SpinKitCubeGridState__anim4 = dart.privateName(cube_grid, "_#_SpinKitCubeGridState#_anim4");
+  var ___SpinKitCubeGridState__anim4_isSet = dart.privateName(cube_grid, "_#_SpinKitCubeGridState#_anim4#isSet");
+  var ___SpinKitCubeGridState__anim5 = dart.privateName(cube_grid, "_#_SpinKitCubeGridState#_anim5");
+  var ___SpinKitCubeGridState__anim5_isSet = dart.privateName(cube_grid, "_#_SpinKitCubeGridState#_anim5#isSet");
+  var _controller = dart.privateName(cube_grid, "_controller");
+  var _anim1 = dart.privateName(cube_grid, "_anim1");
+  var _anim2 = dart.privateName(cube_grid, "_anim2");
+  var _anim3 = dart.privateName(cube_grid, "_anim3");
+  var _anim4 = dart.privateName(cube_grid, "_anim4");
+  var _anim5 = dart.privateName(cube_grid, "_anim5");
+  var Cubic_d = dart.privateName(curves, "Cubic.d");
+  var Cubic_c = dart.privateName(curves, "Cubic.c");
+  var Cubic_b = dart.privateName(curves, "Cubic.b");
+  var Cubic_a = dart.privateName(curves, "Cubic.a");
+  var Interval_curve = dart.privateName(curves, "Interval.curve");
+  var Interval_end = dart.privateName(curves, "Interval.end");
+  var Interval_begin = dart.privateName(curves, "Interval.begin");
+  var _square = dart.privateName(cube_grid, "_square");
+  var _Location_parameterLocations = dart.privateName(widget_inspector, "_Location.parameterLocations");
+  var _Location_name = dart.privateName(widget_inspector, "_Location.name");
+  var _Location_column = dart.privateName(widget_inspector, "_Location.column");
+  var _Location_line = dart.privateName(widget_inspector, "_Location.line");
+  var _Location_file = dart.privateName(widget_inspector, "_Location.file");
+  var _itemBuilder = dart.privateName(cube_grid, "_itemBuilder");
+  const State_SingleTickerProviderStateMixin$36 = class State_SingleTickerProviderStateMixin extends framework.State$(cube_grid.SpinKitCubeGrid) {};
+  (State_SingleTickerProviderStateMixin$36.new = function() {
+    ticker_provider.SingleTickerProviderStateMixin$(cube_grid.SpinKitCubeGrid)[dart.mixinNew].call(this);
+    State_SingleTickerProviderStateMixin$36.__proto__.new.call(this);
+  }).prototype = State_SingleTickerProviderStateMixin$36.prototype;
+  dart.applyMixin(State_SingleTickerProviderStateMixin$36, ticker_provider.SingleTickerProviderStateMixin$(cube_grid.SpinKitCubeGrid));
+  cube_grid._SpinKitCubeGridState = class _SpinKitCubeGridState extends State_SingleTickerProviderStateMixin$36 {
+    get [_controller]() {
+      let t0;
+      return dart.test(this[___SpinKitCubeGridState__controller_isSet]) ? (t0 = this[___SpinKitCubeGridState__controller], t0) : dart.throw(new _internal.LateError.fieldNI("_controller"));
+    }
+    set [_controller](t0) {
+      if (t0 == null) dart.nullFailed(I[0], 26, 28, "null");
+      this[___SpinKitCubeGridState__controller_isSet] = true;
+      this[___SpinKitCubeGridState__controller] = t0;
+    }
+    get [_anim1]() {
+      let t1;
+      return dart.test(this[___SpinKitCubeGridState__anim1_isSet]) ? (t1 = this[___SpinKitCubeGridState__anim1], t1) : dart.throw(new _internal.LateError.fieldNI("_anim1"));
+    }
+    set [_anim1](t1) {
+      if (t1 == null) dart.nullFailed(I[0], 27, 26, "null");
+      this[___SpinKitCubeGridState__anim1_isSet] = true;
+      this[___SpinKitCubeGridState__anim1] = t1;
+    }
+    get [_anim2]() {
+      let t2;
+      return dart.test(this[___SpinKitCubeGridState__anim2_isSet]) ? (t2 = this[___SpinKitCubeGridState__anim2], t2) : dart.throw(new _internal.LateError.fieldNI("_anim2"));
+    }
+    set [_anim2](t2) {
+      if (t2 == null) dart.nullFailed(I[0], 28, 26, "null");
+      this[___SpinKitCubeGridState__anim2_isSet] = true;
+      this[___SpinKitCubeGridState__anim2] = t2;
+    }
+    get [_anim3]() {
+      let t3;
+      return dart.test(this[___SpinKitCubeGridState__anim3_isSet]) ? (t3 = this[___SpinKitCubeGridState__anim3], t3) : dart.throw(new _internal.LateError.fieldNI("_anim3"));
+    }
+    set [_anim3](t3) {
+      if (t3 == null) dart.nullFailed(I[0], 29, 26, "null");
+      this[___SpinKitCubeGridState__anim3_isSet] = true;
+      this[___SpinKitCubeGridState__anim3] = t3;
+    }
+    get [_anim4]() {
+      let t4;
+      return dart.test(this[___SpinKitCubeGridState__anim4_isSet]) ? (t4 = this[___SpinKitCubeGridState__anim4], t4) : dart.throw(new _internal.LateError.fieldNI("_anim4"));
+    }
+    set [_anim4](t4) {
+      if (t4 == null) dart.nullFailed(I[0], 30, 26, "null");
+      this[___SpinKitCubeGridState__anim4_isSet] = true;
+      this[___SpinKitCubeGridState__anim4] = t4;
+    }
+    get [_anim5]() {
+      let t5;
+      return dart.test(this[___SpinKitCubeGridState__anim5_isSet]) ? (t5 = this[___SpinKitCubeGridState__anim5], t5) : dart.throw(new _internal.LateError.fieldNI("_anim5"));
+    }
+    set [_anim5](t5) {
+      if (t5 == null) dart.nullFailed(I[0], 31, 26, "null");
+      this[___SpinKitCubeGridState__anim5_isSet] = true;
+      this[___SpinKitCubeGridState__anim5] = t5;
+    }
+    initState() {
+      let t6, t6$;
+      super.initState();
+      this[_controller] = (t6$ = (t6 = this.widget.controller, t6 == null ? new animation_controller.AnimationController.new({vsync: this, duration: this.widget.duration}) : t6), (() => {
+        t6$.repeat({reverse: true});
+        return t6$;
+      })());
+      this[_anim1] = new (T.TweenOfdouble()).new({begin: 1.0, end: 0.0}).animate(new animations.CurvedAnimation.new({parent: this[_controller], curve: C[1] || CT.C1}));
+      this[_anim2] = new (T.TweenOfdouble()).new({begin: 1.0, end: 0.0}).animate(new animations.CurvedAnimation.new({parent: this[_controller], curve: C[3] || CT.C3}));
+      this[_anim3] = new (T.TweenOfdouble()).new({begin: 1.0, end: 0.0}).animate(new animations.CurvedAnimation.new({parent: this[_controller], curve: C[4] || CT.C4}));
+      this[_anim4] = new (T.TweenOfdouble()).new({begin: 1.0, end: 0.0}).animate(new animations.CurvedAnimation.new({parent: this[_controller], curve: C[5] || CT.C5}));
+      this[_anim5] = new (T.TweenOfdouble()).new({begin: 1.0, end: 0.0}).animate(new animations.CurvedAnimation.new({parent: this[_controller], curve: C[6] || CT.C6}));
+    }
+    dispose() {
+      this[_controller].dispose();
+      super.dispose();
+    }
+    build(context) {
+      if (context == null) dart.nullFailed(I[0], 58, 29, "context");
+      return new basic.SizedBox.fromSize({size: new ui.Size.square(this.widget.size), child: new basic.Column.new({mainAxisAlignment: flex.MainAxisAlignment.center, mainAxisSize: flex.MainAxisSize.max, children: T.JSArrayOfWidget().of([new basic.Row.new({mainAxisSize: flex.MainAxisSize.max, mainAxisAlignment: flex.MainAxisAlignment.center, children: T.JSArrayOfWidget().of([this[_square](this[_anim3], 0), this[_square](this[_anim4], 1), this[_square](this[_anim5], 2)]), $creationLocationd_0dea112b090073317d4: C[7] || CT.C7}), new basic.Row.new({mainAxisSize: flex.MainAxisSize.max, mainAxisAlignment: flex.MainAxisAlignment.center, children: T.JSArrayOfWidget().of([this[_square](this[_anim2], 3), this[_square](this[_anim3], 4), this[_square](this[_anim4], 5)]), $creationLocationd_0dea112b090073317d4: C[12] || CT.C12}), new basic.Row.new({mainAxisSize: flex.MainAxisSize.max, mainAxisAlignment: flex.MainAxisAlignment.center, children: T.JSArrayOfWidget().of([this[_square](this[_anim1], 6), this[_square](this[_anim2], 7), this[_square](this[_anim3], 8)]), $creationLocationd_0dea112b090073317d4: C[17] || CT.C17})]), $creationLocationd_0dea112b090073317d4: C[22] || CT.C22}), $creationLocationd_0dea112b090073317d4: C[27] || CT.C27});
+    }
+    [_square](animation, index) {
+      if (animation == null) dart.nullFailed(I[0], 97, 36, "animation");
+      if (index == null) dart.nullFailed(I[0], 97, 51, "index");
+      return new transitions.ScaleTransition.new({scale: animation, child: new basic.SizedBox.fromSize({size: new ui.Size.square(dart.notNull(this.widget.size) / 3), child: this[_itemBuilder](index), $creationLocationd_0dea112b090073317d4: C[31] || CT.C31}), $creationLocationd_0dea112b090073317d4: C[35] || CT.C35});
+    }
+    [_itemBuilder](index) {
+      if (index == null) dart.nullFailed(I[0], 104, 27, "index");
+      return this.widget.itemBuilder != null ? dart.nullCheck(this.widget.itemBuilder)(this.context, index) : new container.DecoratedBox.new({decoration: new box_decoration.BoxDecoration.new({color: this.widget.color}), $creationLocationd_0dea112b090073317d4: C[39] || CT.C39});
+    }
+  };
+  (cube_grid._SpinKitCubeGridState.new = function() {
+    this[___SpinKitCubeGridState__controller] = null;
+    this[___SpinKitCubeGridState__controller_isSet] = false;
+    this[___SpinKitCubeGridState__anim1] = null;
+    this[___SpinKitCubeGridState__anim1_isSet] = false;
+    this[___SpinKitCubeGridState__anim2] = null;
+    this[___SpinKitCubeGridState__anim2_isSet] = false;
+    this[___SpinKitCubeGridState__anim3] = null;
+    this[___SpinKitCubeGridState__anim3_isSet] = false;
+    this[___SpinKitCubeGridState__anim4] = null;
+    this[___SpinKitCubeGridState__anim4_isSet] = false;
+    this[___SpinKitCubeGridState__anim5] = null;
+    this[___SpinKitCubeGridState__anim5_isSet] = false;
+    cube_grid._SpinKitCubeGridState.__proto__.new.call(this);
+    ;
+  }).prototype = cube_grid._SpinKitCubeGridState.prototype;
+  dart.addTypeTests(cube_grid._SpinKitCubeGridState);
+  dart.addTypeCaches(cube_grid._SpinKitCubeGridState);
+  dart.setMethodSignature(cube_grid._SpinKitCubeGridState, () => ({
+    __proto__: dart.getMethods(cube_grid._SpinKitCubeGridState.__proto__),
+    build: dart.fnType(framework.Widget, [framework.BuildContext]),
+    [_square]: dart.fnType(framework.Widget, [animation.Animation$(core.double), core.int]),
+    [_itemBuilder]: dart.fnType(framework.Widget, [core.int])
+  }));
+  dart.setGetterSignature(cube_grid._SpinKitCubeGridState, () => ({
+    __proto__: dart.getGetters(cube_grid._SpinKitCubeGridState.__proto__),
+    [_controller]: animation_controller.AnimationController,
+    [_anim1]: animation.Animation$(core.double),
+    [_anim2]: animation.Animation$(core.double),
+    [_anim3]: animation.Animation$(core.double),
+    [_anim4]: animation.Animation$(core.double),
+    [_anim5]: animation.Animation$(core.double)
+  }));
+  dart.setSetterSignature(cube_grid._SpinKitCubeGridState, () => ({
+    __proto__: dart.getSetters(cube_grid._SpinKitCubeGridState.__proto__),
+    [_controller]: animation_controller.AnimationController,
+    [_anim1]: animation.Animation$(core.double),
+    [_anim2]: animation.Animation$(core.double),
+    [_anim3]: animation.Animation$(core.double),
+    [_anim4]: animation.Animation$(core.double),
+    [_anim5]: animation.Animation$(core.double)
+  }));
+  dart.setLibraryUri(cube_grid._SpinKitCubeGridState, I[1]);
+  dart.setFieldSignature(cube_grid._SpinKitCubeGridState, () => ({
+    __proto__: dart.getFields(cube_grid._SpinKitCubeGridState.__proto__),
+    [___SpinKitCubeGridState__controller]: dart.fieldType(dart.nullable(animation_controller.AnimationController)),
+    [___SpinKitCubeGridState__controller_isSet]: dart.fieldType(core.bool),
+    [___SpinKitCubeGridState__anim1]: dart.fieldType(dart.nullable(animation.Animation$(core.double))),
+    [___SpinKitCubeGridState__anim1_isSet]: dart.fieldType(core.bool),
+    [___SpinKitCubeGridState__anim2]: dart.fieldType(dart.nullable(animation.Animation$(core.double))),
+    [___SpinKitCubeGridState__anim2_isSet]: dart.fieldType(core.bool),
+    [___SpinKitCubeGridState__anim3]: dart.fieldType(dart.nullable(animation.Animation$(core.double))),
+    [___SpinKitCubeGridState__anim3_isSet]: dart.fieldType(core.bool),
+    [___SpinKitCubeGridState__anim4]: dart.fieldType(dart.nullable(animation.Animation$(core.double))),
+    [___SpinKitCubeGridState__anim4_isSet]: dart.fieldType(core.bool),
+    [___SpinKitCubeGridState__anim5]: dart.fieldType(dart.nullable(animation.Animation$(core.double))),
+    [___SpinKitCubeGridState__anim5_isSet]: dart.fieldType(core.bool)
+  }));
+  dart.trackLibraries("packages/flutter_spinkit/src/cube_grid.dart", {
+    "package:flutter_spinkit/src/cube_grid.dart": cube_grid
+  }, {
+  }, '{"version":3,"sourceRoot":"","sources":["cube_grid.dart"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;IAce;;;;;;IACA;;;;;;IACe;;;;;;IACb;;;;;;IACY;;;;;;;AAGY;IAAuB;;;QAjBvD;QACA;QACA;;QACA;QACA;;QACA;;IAJA;IACA;IACA;IACA;IACA;UAC+D,EAA3C,kCAAZ,WAAW,KAAkC,YAAN,KAAK,QAAgB,AAAY,WAAD,YAAY,AAAM,KAAD,8BAC7F;AACJ,6DAAW,GAAG;;EAAC;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;AAaI;IAAW;;;AAAX;;IAAW;;;AACb;IAAM;;;AAAN;;IAAM;;;AACN;IAAM;;;AAAN;;IAAM;;;AACN;IAAM;;;AAAN;;IAAM;;;AACN;IAAM;;;AAAN;;IAAM;;;AACN;IAAM;;;AAAN;;IAAM;;;AAIV,MAAX;AAGmB,MADzB,4BAAiC,KAAlB,AAAO,wBAAA,aAAc,yDAA2B,gBAAgB,AAAO,8BAArD;AAC7B,6BAAgB;;;AAEqF,MADzG,eAAS,AACJ,oCADiB,UAAU,cACnB,4CAAwB;AAEoE,MADzG,eAAS,AACJ,oCADiB,UAAU,cACnB,4CAAwB;AAEoE,MADzG,eAAS,AACJ,oCADiB,UAAU,cACnB,4CAAwB;AAEoE,MADzG,eAAS,AACJ,oCADiB,UAAU,cACnB,4CAAwB;AAEoE,MADzG,eAAS,AACJ,oCADiB,UAAU,cACnB,4CAAwB;IACvC;;AAIuB,MAArB,AAAY;AACG,MAAT;IACR;;UAG0B;AACxB,YAAgB,oCACH,mBAAO,AAAO,0BAClB,yCACgC,6CACV,iCACT,wBAChB,iCAC6B,0CACU,yCACnB,wBAChB,cAAQ,cAAQ,IAChB,cAAQ,cAAQ,IAChB,cAAQ,cAAQ,+DAGpB,iCAC6B,0CACU,yCACnB,wBAChB,cAAQ,cAAQ,IAChB,cAAQ,cAAQ,IAChB,cAAQ,cAAQ,iEAGpB,iCAC6B,0CACU,yCACnB,wBAChB,cAAQ,cAAQ,IAChB,cAAQ,cAAQ,IAChB,cAAQ,cAAQ;IAM5B;cAEiC,WAAe;UAAf;UAAe;AAC9C,YAAO,6CACE,SAAS,SACA,mCAAoB,mBAAmB,aAAZ,AAAO,oBAAO,WAAW,mBAAa,KAAK;IAE1F;;UAEwB;AAAU,YAAA,AAAO,AAAY,mCAC7B,AAAC,eAAnB,AAAO,yBAAa,cAAS,KAAK,IAClC,4CAAyB,6CAAqB,AAAO;IAAO;;;gDAhFzC;;2CACF;;2CACA;;2CACA;;2CACA;;2CACA;;;;EA4EzB","file":"../../../../../../../../O:/packages/flutter_spinkit/src/cube_grid.dart.lib.js"}');
+  // Exports:
+  return {
+    src__cube_grid: cube_grid
+  };
+}));
+
+//# sourceMappingURL=cube_grid.dart.lib.js.map

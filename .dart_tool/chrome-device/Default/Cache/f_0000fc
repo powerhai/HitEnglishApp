@@ -1,0 +1,551 @@
+define(['dart_sdk', 'packages/english_teacher_app/modules/discovery/page_discovery.dart', 'packages/flutter/src/widgets/widget_span.dart', 'packages/english_teacher_app/modules/practice/page_practice_home.dart', 'packages/english_teacher_app/domain/statistics/page_statistics.dart', 'packages/english_teacher_app/modules/me/page_me.dart', 'packages/flutter/src/material/icon_button.dart', 'packages/flutter/src/widgets/safe_area.dart', 'packages/get/get_state_manager/src/rx_flutter/rx_obx_widget.dart', 'packages/english_teacher_app/controls/lazy_index.dart', 'packages/flutter/src/widgets/bottom_navigation_bar_item.dart', 'packages/flutter/src/widgets/icon.dart', 'packages/flutter/src/material/icons.dart', 'packages/flutter/src/material/colors.dart', 'packages/get/get_state_manager/src/simple/get_view.dart', 'packages/english_teacher_app/modules/home/controller_home.dart'], (function load__packages__english_teacher_app__modules__home__page_home_dart(dart_sdk, packages__english_teacher_app__modules__discovery__page_discovery$46dart, packages__flutter__src__widgets__widget_span$46dart, packages__english_teacher_app__modules__practice__page_practice_home$46dart, packages__english_teacher_app__domain__statistics__page_statistics$46dart, packages__english_teacher_app__modules__me__page_me$46dart, packages__flutter__src__material__icon_button$46dart, packages__flutter__src__widgets__safe_area$46dart, packages__get__get_state_manager__src__rx_flutter__rx_obx_widget$46dart, packages__english_teacher_app__controls__lazy_index$46dart, packages__flutter__src__widgets__bottom_navigation_bar_item$46dart, packages__flutter__src__widgets__icon$46dart, packages__flutter__src__material__icons$46dart, packages__flutter__src__material__colors$46dart, packages__get__get_state_manager__src__simple__get_view$46dart, packages__english_teacher_app__modules__home__controller_home$46dart) {
+  'use strict';
+  const core = dart_sdk.core;
+  const _interceptors = dart_sdk._interceptors;
+  const dart = dart_sdk.dart;
+  const dartx = dart_sdk.dartx;
+  const page_discovery = packages__english_teacher_app__modules__discovery__page_discovery$46dart.modules__discovery__page_discovery;
+  const widget_inspector = packages__flutter__src__widgets__widget_span$46dart.src__widgets__widget_inspector;
+  const framework = packages__flutter__src__widgets__widget_span$46dart.src__widgets__framework;
+  const text = packages__flutter__src__widgets__widget_span$46dart.src__widgets__text;
+  const page_practice_home = packages__english_teacher_app__modules__practice__page_practice_home$46dart.modules__practice__page_practice_home;
+  const page_statistics = packages__english_teacher_app__domain__statistics__page_statistics$46dart.domain__statistics__page_statistics;
+  const page_me = packages__english_teacher_app__modules__me__page_me$46dart.modules__me__page_me;
+  const scaffold = packages__flutter__src__material__icon_button$46dart.src__material__scaffold;
+  const bottom_navigation_bar = packages__flutter__src__material__icon_button$46dart.src__material__bottom_navigation_bar;
+  const safe_area = packages__flutter__src__widgets__safe_area$46dart.src__widgets__safe_area;
+  const rx_obx_widget = packages__get__get_state_manager__src__rx_flutter__rx_obx_widget$46dart.get_state_manager__src__rx_flutter__rx_obx_widget;
+  const lazy_index = packages__english_teacher_app__controls__lazy_index$46dart.controls__lazy_index;
+  const bottom_navigation_bar_item = packages__flutter__src__widgets__bottom_navigation_bar_item$46dart.src__widgets__bottom_navigation_bar_item;
+  const icon = packages__flutter__src__widgets__icon$46dart.src__widgets__icon;
+  const icons = packages__flutter__src__material__icons$46dart.src__material__icons;
+  const colors = packages__flutter__src__material__colors$46dart.src__material__colors;
+  const get_view = packages__get__get_state_manager__src__simple__get_view$46dart.get_state_manager__src__simple__get_view;
+  const controller_home = packages__english_teacher_app__modules__home__controller_home$46dart.modules__home__controller_home;
+  var page_home = Object.create(dart.library);
+  var $length = dartx.length;
+  var $_get = dartx._get;
+  dart._checkModuleNullSafetyMode(false);
+  var T = {
+    StringL: () => (T.StringL = dart.constFn(dart.legacy(core.String)))(),
+    JSArrayOfStringL: () => (T.JSArrayOfStringL = dart.constFn(_interceptors.JSArray$(T.StringL())))(),
+    _LocationL: () => (T._LocationL = dart.constFn(dart.legacy(widget_inspector._Location)))(),
+    WidgetL: () => (T.WidgetL = dart.constFn(dart.legacy(framework.Widget)))(),
+    JSArrayOfWidgetL: () => (T.JSArrayOfWidgetL = dart.constFn(_interceptors.JSArray$(T.WidgetL())))(),
+    BuildContextL: () => (T.BuildContextL = dart.constFn(dart.legacy(framework.BuildContext)))(),
+    intL: () => (T.intL = dart.constFn(dart.legacy(core.int)))(),
+    BuildContextLAndintLToWidgetL: () => (T.BuildContextLAndintLToWidgetL = dart.constFn(dart.fnType(T.WidgetL(), [T.BuildContextL(), T.intL()])))(),
+    LazyIndexedStackL: () => (T.LazyIndexedStackL = dart.constFn(dart.legacy(lazy_index.LazyIndexedStack)))(),
+    VoidToLazyIndexedStackL: () => (T.VoidToLazyIndexedStackL = dart.constFn(dart.fnType(T.LazyIndexedStackL(), [])))(),
+    BottomNavigationBarItemL: () => (T.BottomNavigationBarItemL = dart.constFn(dart.legacy(bottom_navigation_bar_item.BottomNavigationBarItem)))(),
+    JSArrayOfBottomNavigationBarItemL: () => (T.JSArrayOfBottomNavigationBarItemL = dart.constFn(_interceptors.JSArray$(T.BottomNavigationBarItemL())))(),
+    intLToNull: () => (T.intLToNull = dart.constFn(dart.fnType(core.Null, [T.intL()])))(),
+    BottomNavigationBarL: () => (T.BottomNavigationBarL = dart.constFn(dart.legacy(bottom_navigation_bar.BottomNavigationBar)))(),
+    VoidToBottomNavigationBarL: () => (T.VoidToBottomNavigationBarL = dart.constFn(dart.fnType(T.BottomNavigationBarL(), [])))()
+  };
+  const CT = Object.create({
+    _: () => (C, CT)
+  });
+  dart.defineLazy(CT, {
+    get C1() {
+      return C[1] = dart.constList([], T._LocationL());
+    },
+    get C0() {
+      return C[0] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[1] || CT.C1,
+        [_Location_name]: null,
+        [_Location_column]: 5,
+        [_Location_line]: 14,
+        [_Location_file]: "file:///O:/Projects/english_teacher_app/lib/modules/home/page_home.dart"
+      });
+    },
+    get C2() {
+      return C[2] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[1] || CT.C1,
+        [_Location_name]: null,
+        [_Location_column]: 5,
+        [_Location_line]: 15,
+        [_Location_file]: "file:///O:/Projects/english_teacher_app/lib/modules/home/page_home.dart"
+      });
+    },
+    get C3() {
+      return C[3] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[1] || CT.C1,
+        [_Location_name]: null,
+        [_Location_column]: 5,
+        [_Location_line]: 16,
+        [_Location_file]: "file:///O:/Projects/english_teacher_app/lib/modules/home/page_home.dart"
+      });
+    },
+    get C4() {
+      return C[4] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[1] || CT.C1,
+        [_Location_name]: null,
+        [_Location_column]: 5,
+        [_Location_line]: 17,
+        [_Location_file]: "file:///O:/Projects/english_teacher_app/lib/modules/home/page_home.dart"
+      });
+    },
+    get C7() {
+      return C[7] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "reuse",
+        [_Location_column]: 19,
+        [_Location_line]: 25,
+        [_Location_file]: null
+      });
+    },
+    get C8() {
+      return C[8] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "itemCount",
+        [_Location_column]: 19,
+        [_Location_line]: 26,
+        [_Location_file]: null
+      });
+    },
+    get C9() {
+      return C[9] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "index",
+        [_Location_column]: 19,
+        [_Location_line]: 27,
+        [_Location_file]: null
+      });
+    },
+    get C10() {
+      return C[10] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "itemBuilder",
+        [_Location_column]: 19,
+        [_Location_line]: 28,
+        [_Location_file]: null
+      });
+    },
+    get C6() {
+      return C[6] = dart.constList([C[7] || CT.C7, C[8] || CT.C8, C[9] || CT.C9, C[10] || CT.C10], T._LocationL());
+    },
+    get C5() {
+      return C[5] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[6] || CT.C6,
+        [_Location_name]: null,
+        [_Location_column]: 30,
+        [_Location_line]: 24,
+        [_Location_file]: "file:///O:/Projects/english_teacher_app/lib/modules/home/page_home.dart"
+      });
+    },
+    get C13() {
+      return C[13] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "builder",
+        [_Location_column]: 24,
+        [_Location_line]: 24,
+        [_Location_file]: null
+      });
+    },
+    get C12() {
+      return C[12] = dart.constList([C[13] || CT.C13], T._LocationL());
+    },
+    get C11() {
+      return C[11] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[12] || CT.C12,
+        [_Location_name]: null,
+        [_Location_column]: 20,
+        [_Location_line]: 24,
+        [_Location_file]: "file:///O:/Projects/english_teacher_app/lib/modules/home/page_home.dart"
+      });
+    },
+    get C16() {
+      return C[16] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 13,
+        [_Location_line]: 24,
+        [_Location_file]: null
+      });
+    },
+    get C15() {
+      return C[15] = dart.constList([C[16] || CT.C16], T._LocationL());
+    },
+    get C14() {
+      return C[14] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[15] || CT.C15,
+        [_Location_name]: null,
+        [_Location_column]: 15,
+        [_Location_line]: 23,
+        [_Location_file]: "file:///O:/Projects/english_teacher_app/lib/modules/home/page_home.dart"
+      });
+    },
+    get C19() {
+      return C[19] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "icon",
+        [_Location_column]: 38,
+        [_Location_line]: 35,
+        [_Location_file]: null
+      });
+    },
+    get C18() {
+      return C[18] = dart.constList([C[19] || CT.C19], T._LocationL());
+    },
+    get C17() {
+      return C[17] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[18] || CT.C18,
+        [_Location_name]: null,
+        [_Location_column]: 27,
+        [_Location_line]: 35,
+        [_Location_file]: "file:///O:/Projects/english_teacher_app/lib/modules/home/page_home.dart"
+      });
+    },
+    get C22() {
+      return C[22] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "data",
+        [_Location_column]: 67,
+        [_Location_line]: 35,
+        [_Location_file]: null
+      });
+    },
+    get C21() {
+      return C[21] = dart.constList([C[22] || CT.C22], T._LocationL());
+    },
+    get C20() {
+      return C[20] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[21] || CT.C21,
+        [_Location_name]: null,
+        [_Location_column]: 55,
+        [_Location_line]: 35,
+        [_Location_file]: "file:///O:/Projects/english_teacher_app/lib/modules/home/page_home.dart"
+      });
+    },
+    get C25() {
+      return C[25] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "icon",
+        [_Location_column]: 38,
+        [_Location_line]: 37,
+        [_Location_file]: null
+      });
+    },
+    get C24() {
+      return C[24] = dart.constList([C[25] || CT.C25], T._LocationL());
+    },
+    get C23() {
+      return C[23] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[24] || CT.C24,
+        [_Location_name]: null,
+        [_Location_column]: 27,
+        [_Location_line]: 37,
+        [_Location_file]: "file:///O:/Projects/english_teacher_app/lib/modules/home/page_home.dart"
+      });
+    },
+    get C28() {
+      return C[28] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "data",
+        [_Location_column]: 68,
+        [_Location_line]: 37,
+        [_Location_file]: null
+      });
+    },
+    get C27() {
+      return C[27] = dart.constList([C[28] || CT.C28], T._LocationL());
+    },
+    get C26() {
+      return C[26] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[27] || CT.C27,
+        [_Location_name]: null,
+        [_Location_column]: 56,
+        [_Location_line]: 37,
+        [_Location_file]: "file:///O:/Projects/english_teacher_app/lib/modules/home/page_home.dart"
+      });
+    },
+    get C31() {
+      return C[31] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "icon",
+        [_Location_column]: 38,
+        [_Location_line]: 40,
+        [_Location_file]: null
+      });
+    },
+    get C30() {
+      return C[30] = dart.constList([C[31] || CT.C31], T._LocationL());
+    },
+    get C29() {
+      return C[29] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[30] || CT.C30,
+        [_Location_name]: null,
+        [_Location_column]: 27,
+        [_Location_line]: 40,
+        [_Location_file]: "file:///O:/Projects/english_teacher_app/lib/modules/home/page_home.dart"
+      });
+    },
+    get C34() {
+      return C[34] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "data",
+        [_Location_column]: 69,
+        [_Location_line]: 40,
+        [_Location_file]: null
+      });
+    },
+    get C33() {
+      return C[33] = dart.constList([C[34] || CT.C34], T._LocationL());
+    },
+    get C32() {
+      return C[32] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[33] || CT.C33,
+        [_Location_name]: null,
+        [_Location_column]: 57,
+        [_Location_line]: 40,
+        [_Location_file]: "file:///O:/Projects/english_teacher_app/lib/modules/home/page_home.dart"
+      });
+    },
+    get C37() {
+      return C[37] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "icon",
+        [_Location_column]: 38,
+        [_Location_line]: 42,
+        [_Location_file]: null
+      });
+    },
+    get C36() {
+      return C[36] = dart.constList([C[37] || CT.C37], T._LocationL());
+    },
+    get C35() {
+      return C[35] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[36] || CT.C36,
+        [_Location_name]: null,
+        [_Location_column]: 27,
+        [_Location_line]: 42,
+        [_Location_file]: "file:///O:/Projects/english_teacher_app/lib/modules/home/page_home.dart"
+      });
+    },
+    get C40() {
+      return C[40] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "data",
+        [_Location_column]: 64,
+        [_Location_line]: 42,
+        [_Location_file]: null
+      });
+    },
+    get C39() {
+      return C[39] = dart.constList([C[40] || CT.C40], T._LocationL());
+    },
+    get C38() {
+      return C[38] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[39] || CT.C39,
+        [_Location_name]: null,
+        [_Location_column]: 52,
+        [_Location_line]: 42,
+        [_Location_file]: "file:///O:/Projects/english_teacher_app/lib/modules/home/page_home.dart"
+      });
+    },
+    get C43() {
+      return C[43] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "items",
+        [_Location_column]: 15,
+        [_Location_line]: 33,
+        [_Location_file]: null
+      });
+    },
+    get C44() {
+      return C[44] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "currentIndex",
+        [_Location_column]: 15,
+        [_Location_line]: 44,
+        [_Location_file]: null
+      });
+    },
+    get C45() {
+      return C[45] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "selectedItemColor",
+        [_Location_column]: 15,
+        [_Location_line]: 45,
+        [_Location_file]: null
+      });
+    },
+    get C46() {
+      return C[46] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "unselectedItemColor",
+        [_Location_column]: 15,
+        [_Location_line]: 46,
+        [_Location_file]: null
+      });
+    },
+    get C47() {
+      return C[47] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onTap",
+        [_Location_column]: 15,
+        [_Location_line]: 47,
+        [_Location_file]: null
+      });
+    },
+    get C48() {
+      return C[48] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "type",
+        [_Location_column]: 15,
+        [_Location_line]: 50,
+        [_Location_file]: null
+      });
+    },
+    get C42() {
+      return C[42] = dart.constList([C[43] || CT.C43, C[44] || CT.C44, C[45] || CT.C45, C[46] || CT.C46, C[47] || CT.C47, C[48] || CT.C48], T._LocationL());
+    },
+    get C41() {
+      return C[41] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[42] || CT.C42,
+        [_Location_name]: null,
+        [_Location_column]: 40,
+        [_Location_line]: 32,
+        [_Location_file]: "file:///O:/Projects/english_teacher_app/lib/modules/home/page_home.dart"
+      });
+    },
+    get C51() {
+      return C[51] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "builder",
+        [_Location_column]: 34,
+        [_Location_line]: 32,
+        [_Location_file]: null
+      });
+    },
+    get C50() {
+      return C[50] = dart.constList([C[51] || CT.C51], T._LocationL());
+    },
+    get C49() {
+      return C[49] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[50] || CT.C50,
+        [_Location_name]: null,
+        [_Location_column]: 30,
+        [_Location_line]: 32,
+        [_Location_file]: "file:///O:/Projects/english_teacher_app/lib/modules/home/page_home.dart"
+      });
+    },
+    get C54() {
+      return C[54] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "body",
+        [_Location_column]: 9,
+        [_Location_line]: 23,
+        [_Location_file]: null
+      });
+    },
+    get C55() {
+      return C[55] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "bottomNavigationBar",
+        [_Location_column]: 9,
+        [_Location_line]: 32,
+        [_Location_file]: null
+      });
+    },
+    get C53() {
+      return C[53] = dart.constList([C[54] || CT.C54, C[55] || CT.C55], T._LocationL());
+    },
+    get C52() {
+      return C[52] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[53] || CT.C53,
+        [_Location_name]: null,
+        [_Location_column]: 12,
+        [_Location_line]: 22,
+        [_Location_file]: "file:///O:/Projects/english_teacher_app/lib/modules/home/page_home.dart"
+      });
+    }
+  }, false);
+  var C = Array(56).fill(void 0);
+  var I = ["package:english_teacher_app/modules/home/page_home.dart"];
+  var _titles = dart.privateName(page_home, "_titles");
+  var _pages = dart.privateName(page_home, "_pages");
+  var _Location_parameterLocations = dart.privateName(widget_inspector, "_Location.parameterLocations");
+  var _Location_name = dart.privateName(widget_inspector, "_Location.name");
+  var _Location_column = dart.privateName(widget_inspector, "_Location.column");
+  var _Location_line = dart.privateName(widget_inspector, "_Location.line");
+  var _Location_file = dart.privateName(widget_inspector, "_Location.file");
+  page_home.PageHome = class PageHome extends get_view.GetView$(dart.legacy(controller_home.HomeController)) {
+    build(context) {
+      return new scaffold.Scaffold.new({body: new safe_area.SafeArea.new({child: new rx_obx_widget.Obx.new(dart.fn(() => new lazy_index.LazyIndexedStack.new({reuse: false, itemCount: this[_pages][$length], index: this.controller.currentIndex.value, itemBuilder: dart.fn((context, index) => this[_pages][$_get](index), T.BuildContextLAndintLToWidgetL()), $creationLocationd_0dea112b090073317d4: C[5] || CT.C5}), T.VoidToLazyIndexedStackL()), {$creationLocationd_0dea112b090073317d4: C[11] || CT.C11}), $creationLocationd_0dea112b090073317d4: C[14] || CT.C14}), bottomNavigationBar: new rx_obx_widget.Obx.new(dart.fn(() => new bottom_navigation_bar.BottomNavigationBar.new({items: T.JSArrayOfBottomNavigationBarItemL().of([new bottom_navigation_bar_item.BottomNavigationBarItem.new({icon: new icon.Icon.new(icons.Icons.explore, {$creationLocationd_0dea112b090073317d4: C[17] || CT.C17}), title: new text.Text.new(this[_titles][$_get](0), {$creationLocationd_0dea112b090073317d4: C[20] || CT.C20})}), new bottom_navigation_bar_item.BottomNavigationBarItem.new({icon: new icon.Icon.new(icons.Icons.keyboard, {$creationLocationd_0dea112b090073317d4: C[23] || CT.C23}), title: new text.Text.new(this[_titles][$_get](1), {$creationLocationd_0dea112b090073317d4: C[26] || CT.C26})}), new bottom_navigation_bar_item.BottomNavigationBarItem.new({icon: new icon.Icon.new(icons.Icons.equalizer, {$creationLocationd_0dea112b090073317d4: C[29] || CT.C29}), title: new text.Text.new(this[_titles][$_get](3), {$creationLocationd_0dea112b090073317d4: C[32] || CT.C32})}), new bottom_navigation_bar_item.BottomNavigationBarItem.new({icon: new icon.Icon.new(icons.Icons.face, {$creationLocationd_0dea112b090073317d4: C[35] || CT.C35}), title: new text.Text.new(this[_titles][$_get](4), {$creationLocationd_0dea112b090073317d4: C[38] || CT.C38})})]), currentIndex: this.controller.currentIndex.value, selectedItemColor: colors.Colors.orange, unselectedItemColor: colors.Colors.grey._get(700), onTap: dart.fn(index => {
+            this.controller.setCurrentPageIndex(index);
+          }, T.intLToNull()), type: bottom_navigation_bar.BottomNavigationBarType.fixed, $creationLocationd_0dea112b090073317d4: C[41] || CT.C41}), T.VoidToBottomNavigationBarL()), {$creationLocationd_0dea112b090073317d4: C[49] || CT.C49}), $creationLocationd_0dea112b090073317d4: C[52] || CT.C52});
+    }
+  };
+  (page_home.PageHome.new = function(opts) {
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    this[_titles] = T.JSArrayOfStringL().of(["发现2", "练习", "商店", "成长", "我"]);
+    this[_pages] = T.JSArrayOfWidgetL().of([new page_discovery.PageDiscovery.new({$creationLocationd_0dea112b090073317d4: C[0] || CT.C0}), new page_practice_home.PagePraticeHome.new({$creationLocationd_0dea112b090073317d4: C[2] || CT.C2}), new page_statistics.PageStatistics.new({$creationLocationd_0dea112b090073317d4: C[3] || CT.C3}), new page_me.PageMe.new({$creationLocationd_0dea112b090073317d4: C[4] || CT.C4})]);
+    page_home.PageHome.__proto__.new.call(this, {$creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+    ;
+  }).prototype = page_home.PageHome.prototype;
+  dart.addTypeTests(page_home.PageHome);
+  dart.addTypeCaches(page_home.PageHome);
+  dart.setMethodSignature(page_home.PageHome, () => ({
+    __proto__: dart.getMethods(page_home.PageHome.__proto__),
+    build: dart.fnType(dart.legacy(framework.Widget), [dart.legacy(framework.BuildContext)])
+  }));
+  dart.setLibraryUri(page_home.PageHome, I[0]);
+  dart.setFieldSignature(page_home.PageHome, () => ({
+    __proto__: dart.getFields(page_home.PageHome.__proto__),
+    [_titles]: dart.fieldType(dart.legacy(core.List$(dart.legacy(core.String)))),
+    [_pages]: dart.fieldType(dart.legacy(core.List$(dart.legacy(framework.Widget))))
+  }));
+  dart.trackLibraries("packages/english_teacher_app/modules/home/page_home.dart", {
+    "package:english_teacher_app/modules/home/page_home.dart": page_home
+  }, {
+  }, '{"version":3,"sourceRoot":"","sources":["page_home.dart"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;UAoB4B;AACxB,YAAO,kCACG,mCACK,0BAAI,cAAM,4CACJ,kBACI,AAAO,8BACN,AAAW,AAAa,iDACvB,SAAc,SAAa,UAC/B,AAAM,oBAAC,KAAK,0QAGV,0BAAI,cAAM,0DAClB,0CACL,kEACU,kBAAW,wFAAiB,kBAAK,AAAO,qBAAC,kEACnD,kEACU,kBAAW,yFAAkB,kBAAK,AAAO,qBAAC,kEAEpD,kEACU,kBAAW,0FAAmB,kBAAK,AAAO,qBAAC,kEACrD,kEACU,kBAAW,qFAAc,kBAAK,AAAO,qBAAC,kFAE/B,AAAW,AAAa,uDACjB,2CACE,AAAI,wBAAC,aAC1B,QAAC;AACoC,YAArC,AAAW,oCAAoB,KAAK;oCAEb;IAE1C;;;;IAxCa,gBAAU,yBAAC,OAAO,MAAM,MAAM,MAAM;IACpC,eAAS,yBACpB,+FACA,qGACA,iGACA;;;EAoCJ","file":"../../../../../packages/english_teacher_app/modules/home/page_home.dart.lib.js"}');
+  // Exports:
+  return {
+    modules__home__page_home: page_home
+  };
+}));
+
+//# sourceMappingURL=page_home.dart.lib.js.map

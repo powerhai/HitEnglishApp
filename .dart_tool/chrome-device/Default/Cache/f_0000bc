@@ -1,0 +1,1312 @@
+define(['dart_sdk', 'packages/yaml/src/style.dart', 'packages/yaml/src/null_span.dart', 'packages/source_span/src/location_mixin.dart', 'packages/collection/src/union_set_controller.dart'], (function load__packages__yaml__src__yaml_node_wrapper_dart(dart_sdk, packages__yaml__src__style$46dart, packages__yaml__src__null_span$46dart, packages__source_span__src__location_mixin$46dart, packages__collection__src__union_set_controller$46dart) {
+  'use strict';
+  const core = dart_sdk.core;
+  const _js_helper = dart_sdk._js_helper;
+  const collection = dart_sdk.collection;
+  const _interceptors = dart_sdk._interceptors;
+  const dart = dart_sdk.dart;
+  const dartx = dart_sdk.dartx;
+  const style$ = packages__yaml__src__style$46dart.src__style;
+  const null_span = packages__yaml__src__null_span$46dart.src__null_span;
+  const span = packages__source_span__src__location_mixin$46dart.src__span;
+  const file = packages__source_span__src__location_mixin$46dart.src__file;
+  const unmodifiable_wrappers = packages__collection__src__union_set_controller$46dart.src__unmodifiable_wrappers;
+  var yaml_node_wrapper = Object.create(dart.library);
+  var yaml_document = Object.create(dart.library);
+  var event = Object.create(dart.library);
+  var yaml_node = Object.create(dart.library);
+  var $keys = dartx.keys;
+  var $_get = dartx._get;
+  var $hashCode = dartx.hashCode;
+  var $noSuchMethod = dartx.noSuchMethod;
+  var $map = dartx.map;
+  var $containsKey = dartx.containsKey;
+  var $length = dartx.length;
+  var $_set = dartx._set;
+  var $toString = dartx.toString;
+  dart._checkModuleNullSafetyMode(false);
+  var T = {
+    dynamicToYamlScalar: () => (T.dynamicToYamlScalar = dart.constFn(dart.fnType(yaml_node.YamlScalar, [dart.dynamic])))(),
+    UnmodifiableListViewOfTagDirective: () => (T.UnmodifiableListViewOfTagDirective = dart.constFn(collection.UnmodifiableListView$(yaml_document.TagDirective)))(),
+    JSArrayOfTagDirective: () => (T.JSArrayOfTagDirective = dart.constFn(_interceptors.JSArray$(yaml_document.TagDirective)))(),
+    EventTypeL: () => (T.EventTypeL = dart.constFn(dart.legacy(event.EventType)))(),
+    UnmodifiableMapViewOfdynamic$YamlNode: () => (T.UnmodifiableMapViewOfdynamic$YamlNode = dart.constFn(collection.UnmodifiableMapView$(dart.dynamic, yaml_node.YamlNode)))(),
+    dynamicTodynamic: () => (T.dynamicTodynamic = dart.constFn(dart.fnType(dart.dynamic, [dart.dynamic])))(),
+    UnmodifiableListViewOfYamlNode: () => (T.UnmodifiableListViewOfYamlNode = dart.constFn(collection.UnmodifiableListView$(yaml_node.YamlNode)))()
+  };
+  const CT = Object.create({
+    _: () => (C, CT)
+  });
+  dart.defineLazy(CT, {
+    get C0() {
+      return C[0] = dart.const({
+        __proto__: style$.CollectionStyle.prototype,
+        [CollectionStyle_name]: "ANY"
+      });
+    },
+    get C1() {
+      return C[1] = dart.const(new _js_helper.PrivateSymbol.new('_span', _span$));
+    },
+    get C2() {
+      return C[2] = dart.const(new _js_helper.PrivateSymbol.new('_span=', _span_));
+    },
+    get C3() {
+      return C[3] = dart.const({
+        __proto__: event.EventType.prototype,
+        [_name$]: "EventType.streamStart",
+        index: 0
+      });
+    },
+    get C4() {
+      return C[4] = dart.const({
+        __proto__: event.EventType.prototype,
+        [_name$]: "EventType.streamEnd",
+        index: 1
+      });
+    },
+    get C5() {
+      return C[5] = dart.const({
+        __proto__: event.EventType.prototype,
+        [_name$]: "EventType.documentStart",
+        index: 2
+      });
+    },
+    get C6() {
+      return C[6] = dart.const({
+        __proto__: event.EventType.prototype,
+        [_name$]: "EventType.documentEnd",
+        index: 3
+      });
+    },
+    get C7() {
+      return C[7] = dart.const({
+        __proto__: event.EventType.prototype,
+        [_name$]: "EventType.alias",
+        index: 4
+      });
+    },
+    get C8() {
+      return C[8] = dart.const({
+        __proto__: event.EventType.prototype,
+        [_name$]: "EventType.scalar",
+        index: 5
+      });
+    },
+    get C9() {
+      return C[9] = dart.const({
+        __proto__: event.EventType.prototype,
+        [_name$]: "EventType.sequenceStart",
+        index: 6
+      });
+    },
+    get C10() {
+      return C[10] = dart.const({
+        __proto__: event.EventType.prototype,
+        [_name$]: "EventType.sequenceEnd",
+        index: 7
+      });
+    },
+    get C11() {
+      return C[11] = dart.const({
+        __proto__: event.EventType.prototype,
+        [_name$]: "EventType.mappingStart",
+        index: 8
+      });
+    },
+    get C12() {
+      return C[12] = dart.const({
+        __proto__: event.EventType.prototype,
+        [_name$]: "EventType.mappingEnd",
+        index: 9
+      });
+    },
+    get C13() {
+      return C[13] = dart.constList([C[3] || CT.C3, C[4] || CT.C4, C[5] || CT.C5, C[6] || CT.C6, C[7] || CT.C7, C[8] || CT.C8, C[9] || CT.C9, C[10] || CT.C10, C[11] || CT.C11, C[12] || CT.C12], T.EventTypeL());
+    },
+    get C14() {
+      return C[14] = dart.constMap(dart.dynamic, dart.dynamic, []);
+    },
+    get C15() {
+      return C[15] = dart.constList([], dart.dynamic);
+    },
+    get C16() {
+      return C[16] = dart.const({
+        __proto__: style$.ScalarStyle.prototype,
+        [ScalarStyle_name]: "ANY"
+      });
+    }
+  }, false);
+  var C = Array(17).fill(void 0);
+  var I = [
+    "file:///d:/flutter/.pub-cache/hosted/pub.flutter-io.cn/yaml-3.1.0/lib/src/yaml_node_wrapper.dart",
+    "file:///d:/flutter/.pub-cache/hosted/pub.flutter-io.cn/yaml-3.1.0/lib/src/yaml_node.dart",
+    "package:yaml/src/yaml_node_wrapper.dart",
+    "package:yaml/src/yaml_node.dart",
+    "file:///d:/flutter/.pub-cache/hosted/pub.flutter-io.cn/yaml-3.1.0/lib/src/yaml_document.dart",
+    "package:yaml/src/yaml_document.dart",
+    "file:///d:/flutter/.pub-cache/hosted/pub.flutter-io.cn/yaml-3.1.0/lib/src/event.dart",
+    "package:yaml/src/event.dart"
+  ];
+  var style$0 = dart.privateName(yaml_node_wrapper, "YamlMapWrapper.style");
+  var span$ = dart.privateName(yaml_node_wrapper, "YamlMapWrapper.span");
+  var nodes = dart.privateName(yaml_node_wrapper, "YamlMapWrapper.nodes");
+  var CollectionStyle_name = dart.privateName(style$, "CollectionStyle.name");
+  var _dartMap$ = dart.privateName(yaml_node_wrapper, "_dartMap");
+  var _span$ = dart.privateName(yaml_node_wrapper, "_span");
+  var _span$0 = dart.privateName(yaml_node, "_span");
+  var _span_ = dart.privateName(yaml_node_wrapper, "_span=");
+  const MapBase_UnmodifiableMapMixin$36 = class MapBase_UnmodifiableMapMixin extends collection.MapBase {};
+  (MapBase_UnmodifiableMapMixin$36.new = function() {
+  }).prototype = MapBase_UnmodifiableMapMixin$36.prototype;
+  dart.applyMixin(MapBase_UnmodifiableMapMixin$36, unmodifiable_wrappers.UnmodifiableMapMixin);
+  yaml_node_wrapper.YamlMapWrapper = class YamlMapWrapper extends MapBase_UnmodifiableMapMixin$36 {
+    get style() {
+      return this[style$0];
+    }
+    set style(value) {
+      super.style = value;
+    }
+    get span() {
+      return this[span$];
+    }
+    set span(value) {
+      super.span = value;
+    }
+    get nodes() {
+      return this[nodes];
+    }
+    set nodes(value) {
+      super.nodes = value;
+    }
+    get value() {
+      return this;
+    }
+    get keys() {
+      return this[_dartMap$][$keys];
+    }
+    _get(key) {
+      let value = this[_dartMap$][$_get](key);
+      if (core.Map.is(value)) return new yaml_node_wrapper.YamlMapWrapper.__(value, this.span);
+      if (core.List.is(value)) return new yaml_node_wrapper.YamlListWrapper.__(value, this.span);
+      return value;
+    }
+    get hashCode() {
+      return dart.hashCode(this[_dartMap$]);
+    }
+    _equals(other) {
+      if (other == null) return false;
+      return yaml_node_wrapper.YamlMapWrapper.is(other) && dart.equals(other[_dartMap$], this[_dartMap$]);
+    }
+    get [_span$0]() {
+      return span.SourceSpan.as(this[$noSuchMethod](new core._Invocation.getter(C[1] || CT.C1)));
+    }
+    set [_span$0](value) {
+      if (value == null) dart.nullFailed(I[1], 30, 14, "value");
+      return this[$noSuchMethod](new core._Invocation.setter(C[2] || CT.C2, value));
+    }
+  };
+  (yaml_node_wrapper.YamlMapWrapper.new = function(dartMap, sourceUrl, opts) {
+    if (dartMap == null) dart.nullFailed(I[0], 35, 22, "dartMap");
+    let style = opts && 'style' in opts ? opts.style : C[0] || CT.C0;
+    if (style == null) dart.nullFailed(I[0], 36, 24, "style");
+    yaml_node_wrapper.YamlMapWrapper.__.call(this, dartMap, new null_span.NullSpan.new(sourceUrl), {style: style});
+  }).prototype = yaml_node_wrapper.YamlMapWrapper.prototype;
+  (yaml_node_wrapper.YamlMapWrapper.__ = function(dartMap, span, opts) {
+    if (dartMap == null) dart.nullFailed(I[0], 39, 24, "dartMap");
+    if (span == null) dart.nullFailed(I[0], 39, 44, "span");
+    let style = opts && 'style' in opts ? opts.style : C[0] || CT.C0;
+    if (style == null) dart.nullFailed(I[0], 40, 13, "style");
+    this[style$0] = style;
+    this[_dartMap$] = dartMap;
+    this[span$] = span;
+    this[nodes] = new yaml_node_wrapper._YamlMapNodes.new(dartMap, span);
+    core.ArgumentError.checkNotNull(style$.CollectionStyle, this.style, "style");
+  }).prototype = yaml_node_wrapper.YamlMapWrapper.prototype;
+  dart.addTypeTests(yaml_node_wrapper.YamlMapWrapper);
+  dart.addTypeCaches(yaml_node_wrapper.YamlMapWrapper);
+  yaml_node_wrapper.YamlMapWrapper[dart.implements] = () => [yaml_node.YamlMap];
+  dart.setMethodSignature(yaml_node_wrapper.YamlMapWrapper, () => ({
+    __proto__: dart.getMethods(yaml_node_wrapper.YamlMapWrapper.__proto__),
+    _get: dart.fnType(dart.dynamic, [dart.nullable(core.Object)]),
+    [$_get]: dart.fnType(dart.dynamic, [dart.nullable(core.Object)])
+  }));
+  dart.setGetterSignature(yaml_node_wrapper.YamlMapWrapper, () => ({
+    __proto__: dart.getGetters(yaml_node_wrapper.YamlMapWrapper.__proto__),
+    value: core.Map,
+    keys: core.Iterable,
+    [$keys]: core.Iterable,
+    [_span$0]: span.SourceSpan
+  }));
+  dart.setSetterSignature(yaml_node_wrapper.YamlMapWrapper, () => ({
+    __proto__: dart.getSetters(yaml_node_wrapper.YamlMapWrapper.__proto__),
+    [_span$0]: span.SourceSpan
+  }));
+  dart.setLibraryUri(yaml_node_wrapper.YamlMapWrapper, I[2]);
+  dart.setFieldSignature(yaml_node_wrapper.YamlMapWrapper, () => ({
+    __proto__: dart.getFields(yaml_node_wrapper.YamlMapWrapper.__proto__),
+    style: dart.finalFieldType(style$.CollectionStyle),
+    [_dartMap$]: dart.finalFieldType(core.Map),
+    span: dart.finalFieldType(span.SourceSpan),
+    nodes: dart.finalFieldType(core.Map$(dart.dynamic, yaml_node.YamlNode))
+  }));
+  dart.defineExtensionMethods(yaml_node_wrapper.YamlMapWrapper, ['_get', '_equals']);
+  dart.defineExtensionAccessors(yaml_node_wrapper.YamlMapWrapper, ['keys', 'hashCode']);
+  yaml_node.YamlNode = class YamlNode extends core.Object {
+    get span() {
+      return this[_span$0];
+    }
+  };
+  (yaml_node.YamlNode.__ = function(_span) {
+    if (_span == null) dart.nullFailed(I[1], 32, 19, "_span");
+    this[_span$0] = _span;
+    ;
+  }).prototype = yaml_node.YamlNode.prototype;
+  dart.addTypeTests(yaml_node.YamlNode);
+  dart.addTypeCaches(yaml_node.YamlNode);
+  dart.setGetterSignature(yaml_node.YamlNode, () => ({
+    __proto__: dart.getGetters(yaml_node.YamlNode.__proto__),
+    span: span.SourceSpan
+  }));
+  dart.setLibraryUri(yaml_node.YamlNode, I[3]);
+  dart.setFieldSignature(yaml_node.YamlNode, () => ({
+    __proto__: dart.getFields(yaml_node.YamlNode.__proto__),
+    [_span$0]: dart.fieldType(span.SourceSpan)
+  }));
+  const MapBase_UnmodifiableMapMixin$36$ = class MapBase_UnmodifiableMapMixin extends collection.MapBase$(dart.dynamic, yaml_node.YamlNode) {};
+  (MapBase_UnmodifiableMapMixin$36$.new = function() {
+  }).prototype = MapBase_UnmodifiableMapMixin$36$.prototype;
+  dart.applyMixin(MapBase_UnmodifiableMapMixin$36$, unmodifiable_wrappers.UnmodifiableMapMixin$(dart.dynamic, yaml_node.YamlNode));
+  yaml_node_wrapper._YamlMapNodes = class _YamlMapNodes extends MapBase_UnmodifiableMapMixin$36$ {
+    get keys() {
+      return this[_dartMap$][$keys][$map](dart.dynamic, dart.fn(key => new yaml_node.YamlScalar.internalWithSpan(key, this[_span$]), T.dynamicToYamlScalar()));
+    }
+    _get(key) {
+      if (yaml_node.YamlScalar.is(key)) key = key.value;
+      if (!dart.test(this[_dartMap$][$containsKey](key))) return null;
+      return yaml_node_wrapper._nodeForValue(this[_dartMap$][$_get](key), this[_span$]);
+    }
+    get hashCode() {
+      return dart.hashCode(this[_dartMap$]);
+    }
+    _equals(other) {
+      if (other == null) return false;
+      return yaml_node_wrapper._YamlMapNodes.is(other) && dart.equals(other[_dartMap$], this[_dartMap$]);
+    }
+  };
+  (yaml_node_wrapper._YamlMapNodes.new = function(_dartMap, _span) {
+    if (_dartMap == null) dart.nullFailed(I[0], 75, 22, "_dartMap");
+    if (_span == null) dart.nullFailed(I[0], 75, 37, "_span");
+    this[_dartMap$] = _dartMap;
+    this[_span$] = _span;
+    ;
+  }).prototype = yaml_node_wrapper._YamlMapNodes.prototype;
+  dart.addTypeTests(yaml_node_wrapper._YamlMapNodes);
+  dart.addTypeCaches(yaml_node_wrapper._YamlMapNodes);
+  dart.setMethodSignature(yaml_node_wrapper._YamlMapNodes, () => ({
+    __proto__: dart.getMethods(yaml_node_wrapper._YamlMapNodes.__proto__),
+    _get: dart.fnType(dart.nullable(yaml_node.YamlNode), [dart.nullable(core.Object)]),
+    [$_get]: dart.fnType(dart.nullable(yaml_node.YamlNode), [dart.nullable(core.Object)])
+  }));
+  dart.setGetterSignature(yaml_node_wrapper._YamlMapNodes, () => ({
+    __proto__: dart.getGetters(yaml_node_wrapper._YamlMapNodes.__proto__),
+    keys: core.Iterable,
+    [$keys]: core.Iterable
+  }));
+  dart.setLibraryUri(yaml_node_wrapper._YamlMapNodes, I[2]);
+  dart.setFieldSignature(yaml_node_wrapper._YamlMapNodes, () => ({
+    __proto__: dart.getFields(yaml_node_wrapper._YamlMapNodes.__proto__),
+    [_dartMap$]: dart.finalFieldType(core.Map),
+    [_span$]: dart.finalFieldType(span.SourceSpan)
+  }));
+  dart.defineExtensionMethods(yaml_node_wrapper._YamlMapNodes, ['_get', '_equals']);
+  dart.defineExtensionAccessors(yaml_node_wrapper._YamlMapNodes, ['keys', 'hashCode']);
+  var style$1 = dart.privateName(yaml_node_wrapper, "YamlListWrapper.style");
+  var span$0 = dart.privateName(yaml_node_wrapper, "YamlListWrapper.span");
+  var nodes$ = dart.privateName(yaml_node_wrapper, "YamlListWrapper.nodes");
+  var _dartList$ = dart.privateName(yaml_node_wrapper, "_dartList");
+  yaml_node_wrapper.YamlListWrapper = class YamlListWrapper extends collection.ListBase {
+    get style() {
+      return this[style$1];
+    }
+    set style(value) {
+      super.style = value;
+    }
+    get span() {
+      return this[span$0];
+    }
+    set span(value) {
+      super.span = value;
+    }
+    get nodes() {
+      return this[nodes$];
+    }
+    set nodes(value) {
+      super.nodes = value;
+    }
+    get value() {
+      return this;
+    }
+    get length() {
+      return this[_dartList$][$length];
+    }
+    set length(index) {
+      if (index == null) dart.nullFailed(I[0], 114, 18, "index");
+      dart.throw(new core.UnsupportedError.new("Cannot modify an unmodifiable List."));
+    }
+    _get(index) {
+      if (index == null) dart.nullFailed(I[0], 131, 27, "index");
+      let value = this[_dartList$][$_get](index);
+      if (core.Map.is(value)) return new yaml_node_wrapper.YamlMapWrapper.__(value, this.span);
+      if (core.List.is(value)) return new yaml_node_wrapper.YamlListWrapper.__(value, this.span);
+      return value;
+    }
+    _set(index, value$) {
+      let value = value$;
+      if (index == null) dart.nullFailed(I[0], 139, 20, "index");
+      dart.throw(new core.UnsupportedError.new("Cannot modify an unmodifiable List."));
+      return value$;
+    }
+    get hashCode() {
+      return dart.hashCode(this[_dartList$]);
+    }
+    _equals(other) {
+      if (other == null) return false;
+      return yaml_node_wrapper.YamlListWrapper.is(other) && dart.equals(other[_dartList$], this[_dartList$]);
+    }
+    get [_span$0]() {
+      return span.SourceSpan.as(this[$noSuchMethod](new core._Invocation.getter(C[1] || CT.C1)));
+    }
+    set [_span$0](value) {
+      if (value == null) dart.nullFailed(I[1], 30, 14, "value");
+      return this[$noSuchMethod](new core._Invocation.setter(C[2] || CT.C2, value));
+    }
+  };
+  (yaml_node_wrapper.YamlListWrapper.new = function(dartList, sourceUrl, opts) {
+    if (dartList == null) dart.nullFailed(I[0], 118, 24, "dartList");
+    let style = opts && 'style' in opts ? opts.style : C[0] || CT.C0;
+    if (style == null) dart.nullFailed(I[0], 119, 24, "style");
+    yaml_node_wrapper.YamlListWrapper.__.call(this, dartList, new null_span.NullSpan.new(sourceUrl), {style: style});
+  }).prototype = yaml_node_wrapper.YamlListWrapper.prototype;
+  (yaml_node_wrapper.YamlListWrapper.__ = function(dartList, span, opts) {
+    if (dartList == null) dart.nullFailed(I[0], 122, 26, "dartList");
+    if (span == null) dart.nullFailed(I[0], 122, 47, "span");
+    let style = opts && 'style' in opts ? opts.style : C[0] || CT.C0;
+    if (style == null) dart.nullFailed(I[0], 123, 13, "style");
+    this[style$1] = style;
+    this[_dartList$] = dartList;
+    this[span$0] = span;
+    this[nodes$] = new yaml_node_wrapper._YamlListNodes.new(dartList, span);
+    core.ArgumentError.checkNotNull(style$.CollectionStyle, this.style, "style");
+  }).prototype = yaml_node_wrapper.YamlListWrapper.prototype;
+  dart.addTypeTests(yaml_node_wrapper.YamlListWrapper);
+  dart.addTypeCaches(yaml_node_wrapper.YamlListWrapper);
+  yaml_node_wrapper.YamlListWrapper[dart.implements] = () => [yaml_node.YamlList];
+  dart.setMethodSignature(yaml_node_wrapper.YamlListWrapper, () => ({
+    __proto__: dart.getMethods(yaml_node_wrapper.YamlListWrapper.__proto__),
+    _get: dart.fnType(dart.dynamic, [core.int]),
+    [$_get]: dart.fnType(dart.dynamic, [core.int]),
+    _set: dart.fnType(dart.void, [core.int, dart.nullable(core.Object)]),
+    [$_set]: dart.fnType(dart.void, [core.int, dart.nullable(core.Object)])
+  }));
+  dart.setGetterSignature(yaml_node_wrapper.YamlListWrapper, () => ({
+    __proto__: dart.getGetters(yaml_node_wrapper.YamlListWrapper.__proto__),
+    value: core.List,
+    length: core.int,
+    [$length]: core.int,
+    [_span$0]: span.SourceSpan
+  }));
+  dart.setSetterSignature(yaml_node_wrapper.YamlListWrapper, () => ({
+    __proto__: dart.getSetters(yaml_node_wrapper.YamlListWrapper.__proto__),
+    length: core.int,
+    [$length]: core.int,
+    [_span$0]: span.SourceSpan
+  }));
+  dart.setLibraryUri(yaml_node_wrapper.YamlListWrapper, I[2]);
+  dart.setFieldSignature(yaml_node_wrapper.YamlListWrapper, () => ({
+    __proto__: dart.getFields(yaml_node_wrapper.YamlListWrapper.__proto__),
+    style: dart.finalFieldType(style$.CollectionStyle),
+    [_dartList$]: dart.finalFieldType(core.List),
+    span: dart.finalFieldType(span.SourceSpan),
+    nodes: dart.finalFieldType(core.List$(yaml_node.YamlNode))
+  }));
+  dart.defineExtensionMethods(yaml_node_wrapper.YamlListWrapper, ['_get', '_set', '_equals']);
+  dart.defineExtensionAccessors(yaml_node_wrapper.YamlListWrapper, ['length', 'hashCode']);
+  yaml_node_wrapper._YamlListNodes = class _YamlListNodes extends collection.ListBase$(yaml_node.YamlNode) {
+    get length() {
+      return this[_dartList$][$length];
+    }
+    set length(index) {
+      if (index == null) dart.nullFailed(I[0], 163, 18, "index");
+      dart.throw(new core.UnsupportedError.new("Cannot modify an unmodifiable List."));
+    }
+    _get(index) {
+      if (index == null) dart.nullFailed(I[0], 170, 28, "index");
+      return yaml_node_wrapper._nodeForValue(this[_dartList$][$_get](index), this[_span$]);
+    }
+    _set(index, value$) {
+      let value = value$;
+      if (index == null) dart.nullFailed(I[0], 173, 20, "index");
+      yaml_node.YamlNode.as(value);
+      if (value == null) dart.nullFailed(I[0], 173, 27, "value");
+      dart.throw(new core.UnsupportedError.new("Cannot modify an unmodifiable List."));
+      return value$;
+    }
+    get hashCode() {
+      return dart.hashCode(this[_dartList$]);
+    }
+    _equals(other) {
+      if (other == null) return false;
+      return yaml_node_wrapper._YamlListNodes.is(other) && dart.equals(other[_dartList$], this[_dartList$]);
+    }
+  };
+  (yaml_node_wrapper._YamlListNodes.new = function(_dartList, _span) {
+    if (_dartList == null) dart.nullFailed(I[0], 167, 23, "_dartList");
+    if (_span == null) dart.nullFailed(I[0], 167, 39, "_span");
+    this[_dartList$] = _dartList;
+    this[_span$] = _span;
+    ;
+  }).prototype = yaml_node_wrapper._YamlListNodes.prototype;
+  dart.addTypeTests(yaml_node_wrapper._YamlListNodes);
+  dart.addTypeCaches(yaml_node_wrapper._YamlListNodes);
+  dart.setMethodSignature(yaml_node_wrapper._YamlListNodes, () => ({
+    __proto__: dart.getMethods(yaml_node_wrapper._YamlListNodes.__proto__),
+    _get: dart.fnType(yaml_node.YamlNode, [core.int]),
+    [$_get]: dart.fnType(yaml_node.YamlNode, [core.int]),
+    _set: dart.fnType(dart.void, [core.int, dart.nullable(core.Object)]),
+    [$_set]: dart.fnType(dart.void, [core.int, dart.nullable(core.Object)])
+  }));
+  dart.setGetterSignature(yaml_node_wrapper._YamlListNodes, () => ({
+    __proto__: dart.getGetters(yaml_node_wrapper._YamlListNodes.__proto__),
+    length: core.int,
+    [$length]: core.int
+  }));
+  dart.setSetterSignature(yaml_node_wrapper._YamlListNodes, () => ({
+    __proto__: dart.getSetters(yaml_node_wrapper._YamlListNodes.__proto__),
+    length: core.int,
+    [$length]: core.int
+  }));
+  dart.setLibraryUri(yaml_node_wrapper._YamlListNodes, I[2]);
+  dart.setFieldSignature(yaml_node_wrapper._YamlListNodes, () => ({
+    __proto__: dart.getFields(yaml_node_wrapper._YamlListNodes.__proto__),
+    [_dartList$]: dart.finalFieldType(core.List),
+    [_span$]: dart.finalFieldType(span.SourceSpan)
+  }));
+  dart.defineExtensionMethods(yaml_node_wrapper._YamlListNodes, ['_get', '_set', '_equals']);
+  dart.defineExtensionAccessors(yaml_node_wrapper._YamlListNodes, ['length', 'hashCode']);
+  yaml_node_wrapper._nodeForValue = function _nodeForValue(value, span) {
+    if (span == null) dart.nullFailed(I[0], 185, 42, "span");
+    if (core.Map.is(value)) return new yaml_node_wrapper.YamlMapWrapper.__(value, span);
+    if (core.List.is(value)) return new yaml_node_wrapper.YamlListWrapper.__(value, span);
+    return new yaml_node.YamlScalar.internalWithSpan(value, span);
+  };
+  var contents$ = dart.privateName(yaml_document, "YamlDocument.contents");
+  var span$1 = dart.privateName(yaml_document, "YamlDocument.span");
+  var versionDirective$ = dart.privateName(yaml_document, "YamlDocument.versionDirective");
+  var tagDirectives$ = dart.privateName(yaml_document, "YamlDocument.tagDirectives");
+  var startImplicit$ = dart.privateName(yaml_document, "YamlDocument.startImplicit");
+  var endImplicit$ = dart.privateName(yaml_document, "YamlDocument.endImplicit");
+  yaml_document.YamlDocument = class YamlDocument extends core.Object {
+    get contents() {
+      return this[contents$];
+    }
+    set contents(value) {
+      super.contents = value;
+    }
+    get span() {
+      return this[span$1];
+    }
+    set span(value) {
+      super.span = value;
+    }
+    get versionDirective() {
+      return this[versionDirective$];
+    }
+    set versionDirective(value) {
+      super.versionDirective = value;
+    }
+    get tagDirectives() {
+      return this[tagDirectives$];
+    }
+    set tagDirectives(value) {
+      super.tagDirectives = value;
+    }
+    get startImplicit() {
+      return this[startImplicit$];
+    }
+    set startImplicit(value) {
+      super.startImplicit = value;
+    }
+    get endImplicit() {
+      return this[endImplicit$];
+    }
+    set endImplicit(value) {
+      super.endImplicit = value;
+    }
+    toString() {
+      return dart.toString(this.contents);
+    }
+  };
+  (yaml_document.YamlDocument.internal = function(contents, span, versionDirective, tagDirectives, opts) {
+    if (contents == null) dart.nullFailed(I[4], 33, 30, "contents");
+    if (span == null) dart.nullFailed(I[4], 33, 45, "span");
+    if (tagDirectives == null) dart.nullFailed(I[4], 34, 26, "tagDirectives");
+    let startImplicit = opts && 'startImplicit' in opts ? opts.startImplicit : false;
+    if (startImplicit == null) dart.nullFailed(I[4], 35, 13, "startImplicit");
+    let endImplicit = opts && 'endImplicit' in opts ? opts.endImplicit : false;
+    if (endImplicit == null) dart.nullFailed(I[4], 35, 41, "endImplicit");
+    this[contents$] = contents;
+    this[span$1] = span;
+    this[versionDirective$] = versionDirective;
+    this[startImplicit$] = startImplicit;
+    this[endImplicit$] = endImplicit;
+    this[tagDirectives$] = new (T.UnmodifiableListViewOfTagDirective()).new(tagDirectives);
+    ;
+  }).prototype = yaml_document.YamlDocument.prototype;
+  dart.addTypeTests(yaml_document.YamlDocument);
+  dart.addTypeCaches(yaml_document.YamlDocument);
+  dart.setLibraryUri(yaml_document.YamlDocument, I[5]);
+  dart.setFieldSignature(yaml_document.YamlDocument, () => ({
+    __proto__: dart.getFields(yaml_document.YamlDocument.__proto__),
+    contents: dart.finalFieldType(yaml_node.YamlNode),
+    span: dart.finalFieldType(span.SourceSpan),
+    versionDirective: dart.finalFieldType(dart.nullable(yaml_document.VersionDirective)),
+    tagDirectives: dart.finalFieldType(core.List$(yaml_document.TagDirective)),
+    startImplicit: dart.finalFieldType(core.bool),
+    endImplicit: dart.finalFieldType(core.bool)
+  }));
+  dart.defineExtensionMethods(yaml_document.YamlDocument, ['toString']);
+  var major$ = dart.privateName(yaml_document, "VersionDirective.major");
+  var minor$ = dart.privateName(yaml_document, "VersionDirective.minor");
+  yaml_document.VersionDirective = class VersionDirective extends core.Object {
+    get major() {
+      return this[major$];
+    }
+    set major(value) {
+      super.major = value;
+    }
+    get minor() {
+      return this[minor$];
+    }
+    set minor(value) {
+      super.minor = value;
+    }
+    toString() {
+      return "%YAML " + dart.str(this.major) + "." + dart.str(this.minor);
+    }
+  };
+  (yaml_document.VersionDirective.new = function(major, minor) {
+    if (major == null) dart.nullFailed(I[4], 50, 25, "major");
+    if (minor == null) dart.nullFailed(I[4], 50, 37, "minor");
+    this[major$] = major;
+    this[minor$] = minor;
+    ;
+  }).prototype = yaml_document.VersionDirective.prototype;
+  dart.addTypeTests(yaml_document.VersionDirective);
+  dart.addTypeCaches(yaml_document.VersionDirective);
+  dart.setLibraryUri(yaml_document.VersionDirective, I[5]);
+  dart.setFieldSignature(yaml_document.VersionDirective, () => ({
+    __proto__: dart.getFields(yaml_document.VersionDirective.__proto__),
+    major: dart.finalFieldType(core.int),
+    minor: dart.finalFieldType(core.int)
+  }));
+  dart.defineExtensionMethods(yaml_document.VersionDirective, ['toString']);
+  var handle$ = dart.privateName(yaml_document, "TagDirective.handle");
+  var prefix$ = dart.privateName(yaml_document, "TagDirective.prefix");
+  yaml_document.TagDirective = class TagDirective extends core.Object {
+    get handle() {
+      return this[handle$];
+    }
+    set handle(value) {
+      super.handle = value;
+    }
+    get prefix() {
+      return this[prefix$];
+    }
+    set prefix(value) {
+      super.prefix = value;
+    }
+    toString() {
+      return "%TAG " + dart.str(this.handle) + " " + dart.str(this.prefix);
+    }
+  };
+  (yaml_document.TagDirective.new = function(handle, prefix) {
+    if (handle == null) dart.nullFailed(I[4], 64, 21, "handle");
+    if (prefix == null) dart.nullFailed(I[4], 64, 34, "prefix");
+    this[handle$] = handle;
+    this[prefix$] = prefix;
+    ;
+  }).prototype = yaml_document.TagDirective.prototype;
+  dart.addTypeTests(yaml_document.TagDirective);
+  dart.addTypeCaches(yaml_document.TagDirective);
+  dart.setLibraryUri(yaml_document.TagDirective, I[5]);
+  dart.setFieldSignature(yaml_document.TagDirective, () => ({
+    __proto__: dart.getFields(yaml_document.TagDirective.__proto__),
+    handle: dart.finalFieldType(core.String),
+    prefix: dart.finalFieldType(core.String)
+  }));
+  dart.defineExtensionMethods(yaml_document.TagDirective, ['toString']);
+  var type$ = dart.privateName(event, "Event.type");
+  var span$2 = dart.privateName(event, "Event.span");
+  event.Event = class Event extends core.Object {
+    get type() {
+      return this[type$];
+    }
+    set type(value) {
+      super.type = value;
+    }
+    get span() {
+      return this[span$2];
+    }
+    set span(value) {
+      super.span = value;
+    }
+    toString() {
+      return dart.toString(this.type);
+    }
+  };
+  (event.Event.new = function(type, span) {
+    if (type == null) dart.nullFailed(I[6], 15, 14, "type");
+    if (span == null) dart.nullFailed(I[6], 15, 25, "span");
+    this[type$] = type;
+    this[span$2] = span;
+    ;
+  }).prototype = event.Event.prototype;
+  dart.addTypeTests(event.Event);
+  dart.addTypeCaches(event.Event);
+  dart.setLibraryUri(event.Event, I[7]);
+  dart.setFieldSignature(event.Event, () => ({
+    __proto__: dart.getFields(event.Event.__proto__),
+    type: dart.finalFieldType(event.EventType),
+    span: dart.finalFieldType(file.FileSpan)
+  }));
+  dart.defineExtensionMethods(event.Event, ['toString']);
+  var span$3 = dart.privateName(event, "DocumentStartEvent.span");
+  var versionDirective$0 = dart.privateName(event, "DocumentStartEvent.versionDirective");
+  var tagDirectives$0 = dart.privateName(event, "DocumentStartEvent.tagDirectives");
+  var isImplicit$ = dart.privateName(event, "DocumentStartEvent.isImplicit");
+  event.DocumentStartEvent = class DocumentStartEvent extends core.Object {
+    get span() {
+      return this[span$3];
+    }
+    set span(value) {
+      super.span = value;
+    }
+    get versionDirective() {
+      return this[versionDirective$0];
+    }
+    set versionDirective(value) {
+      super.versionDirective = value;
+    }
+    get tagDirectives() {
+      return this[tagDirectives$0];
+    }
+    set tagDirectives(value) {
+      super.tagDirectives = value;
+    }
+    get isImplicit() {
+      return this[isImplicit$];
+    }
+    set isImplicit(value) {
+      super.isImplicit = value;
+    }
+    get type() {
+      return event.EventType.documentStart;
+    }
+    toString() {
+      return "DOCUMENT_START";
+    }
+  };
+  (event.DocumentStartEvent.new = function(span, opts) {
+    let t0;
+    if (span == null) dart.nullFailed(I[6], 38, 27, "span");
+    let versionDirective = opts && 'versionDirective' in opts ? opts.versionDirective : null;
+    let tagDirectives = opts && 'tagDirectives' in opts ? opts.tagDirectives : null;
+    let isImplicit = opts && 'isImplicit' in opts ? opts.isImplicit : true;
+    if (isImplicit == null) dart.nullFailed(I[6], 41, 12, "isImplicit");
+    this[span$3] = span;
+    this[versionDirective$0] = versionDirective;
+    this[isImplicit$] = isImplicit;
+    this[tagDirectives$0] = (t0 = tagDirectives, t0 == null ? T.JSArrayOfTagDirective().of([]) : t0);
+    ;
+  }).prototype = event.DocumentStartEvent.prototype;
+  dart.addTypeTests(event.DocumentStartEvent);
+  dart.addTypeCaches(event.DocumentStartEvent);
+  event.DocumentStartEvent[dart.implements] = () => [event.Event];
+  dart.setGetterSignature(event.DocumentStartEvent, () => ({
+    __proto__: dart.getGetters(event.DocumentStartEvent.__proto__),
+    type: event.EventType
+  }));
+  dart.setLibraryUri(event.DocumentStartEvent, I[7]);
+  dart.setFieldSignature(event.DocumentStartEvent, () => ({
+    __proto__: dart.getFields(event.DocumentStartEvent.__proto__),
+    span: dart.finalFieldType(file.FileSpan),
+    versionDirective: dart.finalFieldType(dart.nullable(yaml_document.VersionDirective)),
+    tagDirectives: dart.finalFieldType(core.List$(yaml_document.TagDirective)),
+    isImplicit: dart.finalFieldType(core.bool)
+  }));
+  dart.defineExtensionMethods(event.DocumentStartEvent, ['toString']);
+  var span$4 = dart.privateName(event, "DocumentEndEvent.span");
+  var isImplicit$0 = dart.privateName(event, "DocumentEndEvent.isImplicit");
+  event.DocumentEndEvent = class DocumentEndEvent extends core.Object {
+    get span() {
+      return this[span$4];
+    }
+    set span(value) {
+      super.span = value;
+    }
+    get isImplicit() {
+      return this[isImplicit$0];
+    }
+    set isImplicit(value) {
+      super.isImplicit = value;
+    }
+    get type() {
+      return event.EventType.documentEnd;
+    }
+    toString() {
+      return "DOCUMENT_END";
+    }
+  };
+  (event.DocumentEndEvent.new = function(span, opts) {
+    if (span == null) dart.nullFailed(I[6], 59, 25, "span");
+    let isImplicit = opts && 'isImplicit' in opts ? opts.isImplicit : true;
+    if (isImplicit == null) dart.nullFailed(I[6], 59, 37, "isImplicit");
+    this[span$4] = span;
+    this[isImplicit$0] = isImplicit;
+    ;
+  }).prototype = event.DocumentEndEvent.prototype;
+  dart.addTypeTests(event.DocumentEndEvent);
+  dart.addTypeCaches(event.DocumentEndEvent);
+  event.DocumentEndEvent[dart.implements] = () => [event.Event];
+  dart.setGetterSignature(event.DocumentEndEvent, () => ({
+    __proto__: dart.getGetters(event.DocumentEndEvent.__proto__),
+    type: event.EventType
+  }));
+  dart.setLibraryUri(event.DocumentEndEvent, I[7]);
+  dart.setFieldSignature(event.DocumentEndEvent, () => ({
+    __proto__: dart.getFields(event.DocumentEndEvent.__proto__),
+    span: dart.finalFieldType(file.FileSpan),
+    isImplicit: dart.finalFieldType(core.bool)
+  }));
+  dart.defineExtensionMethods(event.DocumentEndEvent, ['toString']);
+  var span$5 = dart.privateName(event, "AliasEvent.span");
+  var name$ = dart.privateName(event, "AliasEvent.name");
+  event.AliasEvent = class AliasEvent extends core.Object {
+    get span() {
+      return this[span$5];
+    }
+    set span(value) {
+      super.span = value;
+    }
+    get name() {
+      return this[name$];
+    }
+    set name(value) {
+      super.name = value;
+    }
+    get type() {
+      return event.EventType.alias;
+    }
+    toString() {
+      return "ALIAS " + dart.str(this.name);
+    }
+  };
+  (event.AliasEvent.new = function(span, name) {
+    if (span == null) dart.nullFailed(I[6], 75, 19, "span");
+    if (name == null) dart.nullFailed(I[6], 75, 30, "name");
+    this[span$5] = span;
+    this[name$] = name;
+    ;
+  }).prototype = event.AliasEvent.prototype;
+  dart.addTypeTests(event.AliasEvent);
+  dart.addTypeCaches(event.AliasEvent);
+  event.AliasEvent[dart.implements] = () => [event.Event];
+  dart.setGetterSignature(event.AliasEvent, () => ({
+    __proto__: dart.getGetters(event.AliasEvent.__proto__),
+    type: event.EventType
+  }));
+  dart.setLibraryUri(event.AliasEvent, I[7]);
+  dart.setFieldSignature(event.AliasEvent, () => ({
+    __proto__: dart.getFields(event.AliasEvent.__proto__),
+    span: dart.finalFieldType(file.FileSpan),
+    name: dart.finalFieldType(core.String)
+  }));
+  dart.defineExtensionMethods(event.AliasEvent, ['toString']);
+  event._ValueEvent = class _ValueEvent extends core.Object {
+    toString() {
+      let buffer = new core.StringBuffer.new(dart.str(this.type));
+      if (this.anchor != null) buffer.write(" &" + dart.str(this.anchor));
+      if (this.tag != null) buffer.write(" " + dart.str(this.tag));
+      return buffer.toString();
+    }
+  };
+  (event._ValueEvent.new = function() {
+    ;
+  }).prototype = event._ValueEvent.prototype;
+  dart.addTypeTests(event._ValueEvent);
+  dart.addTypeCaches(event._ValueEvent);
+  event._ValueEvent[dart.implements] = () => [event.Event];
+  dart.setLibraryUri(event._ValueEvent, I[7]);
+  dart.defineExtensionMethods(event._ValueEvent, ['toString']);
+  var span$6 = dart.privateName(event, "ScalarEvent.span");
+  var anchor$ = dart.privateName(event, "ScalarEvent.anchor");
+  var tag$ = dart.privateName(event, "ScalarEvent.tag");
+  var value$ = dart.privateName(event, "ScalarEvent.value");
+  var style$2 = dart.privateName(event, "ScalarEvent.style");
+  event.ScalarEvent = class ScalarEvent extends event._ValueEvent {
+    get span() {
+      return this[span$6];
+    }
+    set span(value) {
+      super.span = value;
+    }
+    get anchor() {
+      return this[anchor$];
+    }
+    set anchor(value) {
+      super.anchor = value;
+    }
+    get tag() {
+      return this[tag$];
+    }
+    set tag(value) {
+      super.tag = value;
+    }
+    get value() {
+      return this[value$];
+    }
+    set value(value) {
+      super.value = value;
+    }
+    get style() {
+      return this[style$2];
+    }
+    set style(value) {
+      super.style = value;
+    }
+    get type() {
+      return event.EventType.scalar;
+    }
+    toString() {
+      return dart.str(super.toString()) + " \"" + dart.str(this.value) + "\"";
+    }
+  };
+  (event.ScalarEvent.new = function(span, value, style, opts) {
+    if (span == null) dart.nullFailed(I[6], 115, 20, "span");
+    if (value == null) dart.nullFailed(I[6], 115, 31, "value");
+    if (style == null) dart.nullFailed(I[6], 115, 43, "style");
+    let anchor = opts && 'anchor' in opts ? opts.anchor : null;
+    let tag = opts && 'tag' in opts ? opts.tag : null;
+    this[span$6] = span;
+    this[value$] = value;
+    this[style$2] = style;
+    this[anchor$] = anchor;
+    this[tag$] = tag;
+    ;
+  }).prototype = event.ScalarEvent.prototype;
+  dart.addTypeTests(event.ScalarEvent);
+  dart.addTypeCaches(event.ScalarEvent);
+  dart.setGetterSignature(event.ScalarEvent, () => ({
+    __proto__: dart.getGetters(event.ScalarEvent.__proto__),
+    type: event.EventType
+  }));
+  dart.setLibraryUri(event.ScalarEvent, I[7]);
+  dart.setFieldSignature(event.ScalarEvent, () => ({
+    __proto__: dart.getFields(event.ScalarEvent.__proto__),
+    span: dart.finalFieldType(file.FileSpan),
+    anchor: dart.finalFieldType(dart.nullable(core.String)),
+    tag: dart.finalFieldType(dart.nullable(core.String)),
+    value: dart.finalFieldType(core.String),
+    style: dart.finalFieldType(style$.ScalarStyle)
+  }));
+  dart.defineExtensionMethods(event.ScalarEvent, ['toString']);
+  var span$7 = dart.privateName(event, "SequenceStartEvent.span");
+  var anchor$0 = dart.privateName(event, "SequenceStartEvent.anchor");
+  var tag$0 = dart.privateName(event, "SequenceStartEvent.tag");
+  var style$3 = dart.privateName(event, "SequenceStartEvent.style");
+  event.SequenceStartEvent = class SequenceStartEvent extends event._ValueEvent {
+    get span() {
+      return this[span$7];
+    }
+    set span(value) {
+      super.span = value;
+    }
+    get anchor() {
+      return this[anchor$0];
+    }
+    set anchor(value) {
+      super.anchor = value;
+    }
+    get tag() {
+      return this[tag$0];
+    }
+    set tag(value) {
+      super.tag = value;
+    }
+    get style() {
+      return this[style$3];
+    }
+    set style(value) {
+      super.style = value;
+    }
+    get type() {
+      return event.EventType.sequenceStart;
+    }
+  };
+  (event.SequenceStartEvent.new = function(span, style, opts) {
+    if (span == null) dart.nullFailed(I[6], 135, 27, "span");
+    if (style == null) dart.nullFailed(I[6], 135, 38, "style");
+    let anchor = opts && 'anchor' in opts ? opts.anchor : null;
+    let tag = opts && 'tag' in opts ? opts.tag : null;
+    this[span$7] = span;
+    this[style$3] = style;
+    this[anchor$0] = anchor;
+    this[tag$0] = tag;
+    ;
+  }).prototype = event.SequenceStartEvent.prototype;
+  dart.addTypeTests(event.SequenceStartEvent);
+  dart.addTypeCaches(event.SequenceStartEvent);
+  dart.setGetterSignature(event.SequenceStartEvent, () => ({
+    __proto__: dart.getGetters(event.SequenceStartEvent.__proto__),
+    type: event.EventType
+  }));
+  dart.setLibraryUri(event.SequenceStartEvent, I[7]);
+  dart.setFieldSignature(event.SequenceStartEvent, () => ({
+    __proto__: dart.getFields(event.SequenceStartEvent.__proto__),
+    span: dart.finalFieldType(file.FileSpan),
+    anchor: dart.finalFieldType(dart.nullable(core.String)),
+    tag: dart.finalFieldType(dart.nullable(core.String)),
+    style: dart.finalFieldType(style$.CollectionStyle)
+  }));
+  var span$8 = dart.privateName(event, "MappingStartEvent.span");
+  var anchor$1 = dart.privateName(event, "MappingStartEvent.anchor");
+  var tag$1 = dart.privateName(event, "MappingStartEvent.tag");
+  var style$4 = dart.privateName(event, "MappingStartEvent.style");
+  event.MappingStartEvent = class MappingStartEvent extends event._ValueEvent {
+    get span() {
+      return this[span$8];
+    }
+    set span(value) {
+      super.span = value;
+    }
+    get anchor() {
+      return this[anchor$1];
+    }
+    set anchor(value) {
+      super.anchor = value;
+    }
+    get tag() {
+      return this[tag$1];
+    }
+    set tag(value) {
+      super.tag = value;
+    }
+    get style() {
+      return this[style$4];
+    }
+    set style(value) {
+      super.style = value;
+    }
+    get type() {
+      return event.EventType.mappingStart;
+    }
+  };
+  (event.MappingStartEvent.new = function(span, style, opts) {
+    if (span == null) dart.nullFailed(I[6], 152, 26, "span");
+    if (style == null) dart.nullFailed(I[6], 152, 37, "style");
+    let anchor = opts && 'anchor' in opts ? opts.anchor : null;
+    let tag = opts && 'tag' in opts ? opts.tag : null;
+    this[span$8] = span;
+    this[style$4] = style;
+    this[anchor$1] = anchor;
+    this[tag$1] = tag;
+    ;
+  }).prototype = event.MappingStartEvent.prototype;
+  dart.addTypeTests(event.MappingStartEvent);
+  dart.addTypeCaches(event.MappingStartEvent);
+  dart.setGetterSignature(event.MappingStartEvent, () => ({
+    __proto__: dart.getGetters(event.MappingStartEvent.__proto__),
+    type: event.EventType
+  }));
+  dart.setLibraryUri(event.MappingStartEvent, I[7]);
+  dart.setFieldSignature(event.MappingStartEvent, () => ({
+    __proto__: dart.getFields(event.MappingStartEvent.__proto__),
+    span: dart.finalFieldType(file.FileSpan),
+    anchor: dart.finalFieldType(dart.nullable(core.String)),
+    tag: dart.finalFieldType(dart.nullable(core.String)),
+    style: dart.finalFieldType(style$.CollectionStyle)
+  }));
+  var _name$ = dart.privateName(event, "_name");
+  event.EventType = class EventType extends core.Object {
+    toString() {
+      return this[_name$];
+    }
+  };
+  (event.EventType.new = function(index, _name) {
+    if (index == null) dart.nullFailed(I[6], 156, 6, "index");
+    if (_name == null) dart.nullFailed(I[6], 156, 6, "_name");
+    this.index = index;
+    this[_name$] = _name;
+    ;
+  }).prototype = event.EventType.prototype;
+  dart.addTypeTests(event.EventType);
+  dart.addTypeCaches(event.EventType);
+  dart.setLibraryUri(event.EventType, I[7]);
+  dart.setFieldSignature(event.EventType, () => ({
+    __proto__: dart.getFields(event.EventType.__proto__),
+    index: dart.finalFieldType(core.int),
+    [_name$]: dart.finalFieldType(core.String)
+  }));
+  dart.defineExtensionMethods(event.EventType, ['toString']);
+  event.EventType.streamStart = C[3] || CT.C3;
+  event.EventType.streamEnd = C[4] || CT.C4;
+  event.EventType.documentStart = C[5] || CT.C5;
+  event.EventType.documentEnd = C[6] || CT.C6;
+  event.EventType.alias = C[7] || CT.C7;
+  event.EventType.scalar = C[8] || CT.C8;
+  event.EventType.sequenceStart = C[9] || CT.C9;
+  event.EventType.sequenceEnd = C[10] || CT.C10;
+  event.EventType.mappingStart = C[11] || CT.C11;
+  event.EventType.mappingEnd = C[12] || CT.C12;
+  event.EventType.values = C[13] || CT.C13;
+  var nodes$0 = dart.privateName(yaml_node, "YamlMap.nodes");
+  var style$5 = dart.privateName(yaml_node, "YamlMap.style");
+  const YamlNode_MapMixin$36 = class YamlNode_MapMixin extends yaml_node.YamlNode {};
+  (YamlNode_MapMixin$36.__ = function(_span) {
+    YamlNode_MapMixin$36.__proto__.__.call(this, _span);
+  }).prototype = YamlNode_MapMixin$36.prototype;
+  dart.applyMixin(YamlNode_MapMixin$36, collection.MapMixin);
+  const YamlNode_UnmodifiableMapMixin$36 = class YamlNode_UnmodifiableMapMixin extends YamlNode_MapMixin$36 {};
+  (YamlNode_UnmodifiableMapMixin$36.__ = function(_span) {
+    YamlNode_UnmodifiableMapMixin$36.__proto__.__.call(this, _span);
+  }).prototype = YamlNode_UnmodifiableMapMixin$36.prototype;
+  dart.applyMixin(YamlNode_UnmodifiableMapMixin$36, unmodifiable_wrappers.UnmodifiableMapMixin);
+  yaml_node.YamlMap = class YamlMap extends YamlNode_UnmodifiableMapMixin$36 {
+    get nodes() {
+      return this[nodes$0];
+    }
+    set nodes(value) {
+      super.nodes = value;
+    }
+    get style() {
+      return this[style$5];
+    }
+    set style(value) {
+      super.style = value;
+    }
+    get value() {
+      return this;
+    }
+    get keys() {
+      return this.nodes[$keys][$map](dart.dynamic, dart.fn(node => dart.dload(node, 'value'), T.dynamicTodynamic()));
+    }
+    static new(opts) {
+      let sourceUrl = opts && 'sourceUrl' in opts ? opts.sourceUrl : null;
+      return new yaml_node_wrapper.YamlMapWrapper.new(C[14] || CT.C14, sourceUrl);
+    }
+    static wrap(dartMap, opts) {
+      if (dartMap == null) dart.nullFailed(I[1], 81, 28, "dartMap");
+      let sourceUrl = opts && 'sourceUrl' in opts ? opts.sourceUrl : null;
+      let style = opts && 'style' in opts ? opts.style : C[0] || CT.C0;
+      if (style == null) dart.nullFailed(I[1], 82, 39, "style");
+      return new yaml_node_wrapper.YamlMapWrapper.new(dartMap, sourceUrl, {style: style});
+    }
+    _get(key) {
+      let t0;
+      t0 = this.nodes[$_get](key);
+      return t0 == null ? null : t0.value;
+    }
+  };
+  (yaml_node.YamlMap.internal = function(nodes, span, style) {
+    if (nodes == null) dart.nullFailed(I[1], 86, 43, "nodes");
+    if (span == null) dart.nullFailed(I[1], 86, 61, "span");
+    if (style == null) dart.nullFailed(I[1], 86, 72, "style");
+    this[style$5] = style;
+    this[nodes$0] = new (T.UnmodifiableMapViewOfdynamic$YamlNode()).new(nodes);
+    yaml_node.YamlMap.__proto__.__.call(this, span);
+    ;
+  }).prototype = yaml_node.YamlMap.prototype;
+  dart.addTypeTests(yaml_node.YamlMap);
+  dart.addTypeCaches(yaml_node.YamlMap);
+  dart.setMethodSignature(yaml_node.YamlMap, () => ({
+    __proto__: dart.getMethods(yaml_node.YamlMap.__proto__),
+    _get: dart.fnType(dart.dynamic, [dart.nullable(core.Object)]),
+    [$_get]: dart.fnType(dart.dynamic, [dart.nullable(core.Object)])
+  }));
+  dart.setGetterSignature(yaml_node.YamlMap, () => ({
+    __proto__: dart.getGetters(yaml_node.YamlMap.__proto__),
+    value: core.Map,
+    keys: core.Iterable,
+    [$keys]: core.Iterable
+  }));
+  dart.setLibraryUri(yaml_node.YamlMap, I[3]);
+  dart.setFieldSignature(yaml_node.YamlMap, () => ({
+    __proto__: dart.getFields(yaml_node.YamlMap.__proto__),
+    nodes: dart.finalFieldType(core.Map$(dart.dynamic, yaml_node.YamlNode)),
+    style: dart.finalFieldType(style$.CollectionStyle)
+  }));
+  dart.defineExtensionMethods(yaml_node.YamlMap, ['_get']);
+  dart.defineExtensionAccessors(yaml_node.YamlMap, ['keys']);
+  var nodes$1 = dart.privateName(yaml_node, "YamlList.nodes");
+  var style$6 = dart.privateName(yaml_node, "YamlList.style");
+  const YamlNode_ListMixin$36 = class YamlNode_ListMixin extends yaml_node.YamlNode {};
+  (YamlNode_ListMixin$36.__ = function(_span) {
+    YamlNode_ListMixin$36.__proto__.__.call(this, _span);
+  }).prototype = YamlNode_ListMixin$36.prototype;
+  dart.applyMixin(YamlNode_ListMixin$36, collection.ListMixin);
+  yaml_node.YamlList = class YamlList extends YamlNode_ListMixin$36 {
+    get nodes() {
+      return this[nodes$1];
+    }
+    set nodes(value) {
+      super.nodes = value;
+    }
+    get style() {
+      return this[style$6];
+    }
+    set style(value) {
+      super.style = value;
+    }
+    get value() {
+      return this;
+    }
+    get length() {
+      return this.nodes[$length];
+    }
+    set length(index) {
+      if (index == null) dart.nullFailed(I[1], 109, 18, "index");
+      dart.throw(new core.UnsupportedError.new("Cannot modify an unmodifiable List"));
+    }
+    static new(opts) {
+      let sourceUrl = opts && 'sourceUrl' in opts ? opts.sourceUrl : null;
+      return new yaml_node_wrapper.YamlListWrapper.new(C[15] || CT.C15, sourceUrl);
+    }
+    static wrap(dartList, opts) {
+      if (dartList == null) dart.nullFailed(I[1], 131, 30, "dartList");
+      let sourceUrl = opts && 'sourceUrl' in opts ? opts.sourceUrl : null;
+      let style = opts && 'style' in opts ? opts.style : C[0] || CT.C0;
+      if (style == null) dart.nullFailed(I[1], 132, 39, "style");
+      return new yaml_node_wrapper.YamlListWrapper.new(dartList, sourceUrl, {style: style});
+    }
+    _get(index) {
+      if (index == null) dart.nullFailed(I[1], 141, 27, "index");
+      return this.nodes[$_get](index).value;
+    }
+    _set(index, value$) {
+      let value = value$;
+      if (index == null) dart.nullFailed(I[1], 144, 20, "index");
+      dart.throw(new core.UnsupportedError.new("Cannot modify an unmodifiable List"));
+      return value$;
+    }
+  };
+  (yaml_node.YamlList.internal = function(nodes, span, style) {
+    if (nodes == null) dart.nullFailed(I[1], 136, 36, "nodes");
+    if (span == null) dart.nullFailed(I[1], 136, 54, "span");
+    if (style == null) dart.nullFailed(I[1], 136, 65, "style");
+    this[style$6] = style;
+    this[nodes$1] = new (T.UnmodifiableListViewOfYamlNode()).new(nodes);
+    yaml_node.YamlList.__proto__.__.call(this, span);
+    ;
+  }).prototype = yaml_node.YamlList.prototype;
+  dart.addTypeTests(yaml_node.YamlList);
+  dart.addTypeCaches(yaml_node.YamlList);
+  dart.setMethodSignature(yaml_node.YamlList, () => ({
+    __proto__: dart.getMethods(yaml_node.YamlList.__proto__),
+    _get: dart.fnType(dart.dynamic, [core.int]),
+    [$_get]: dart.fnType(dart.dynamic, [core.int]),
+    _set: dart.fnType(dart.void, [core.int, dart.nullable(core.Object)]),
+    [$_set]: dart.fnType(dart.void, [core.int, dart.nullable(core.Object)])
+  }));
+  dart.setGetterSignature(yaml_node.YamlList, () => ({
+    __proto__: dart.getGetters(yaml_node.YamlList.__proto__),
+    value: core.List,
+    length: core.int,
+    [$length]: core.int
+  }));
+  dart.setSetterSignature(yaml_node.YamlList, () => ({
+    __proto__: dart.getSetters(yaml_node.YamlList.__proto__),
+    length: core.int,
+    [$length]: core.int
+  }));
+  dart.setLibraryUri(yaml_node.YamlList, I[3]);
+  dart.setFieldSignature(yaml_node.YamlList, () => ({
+    __proto__: dart.getFields(yaml_node.YamlList.__proto__),
+    nodes: dart.finalFieldType(core.List$(yaml_node.YamlNode)),
+    style: dart.finalFieldType(style$.CollectionStyle)
+  }));
+  dart.defineExtensionMethods(yaml_node.YamlList, ['_get', '_set']);
+  dart.defineExtensionAccessors(yaml_node.YamlList, ['length']);
+  var value$0 = dart.privateName(yaml_node, "YamlScalar.value");
+  var style$7 = dart.privateName(yaml_node, "YamlScalar.style");
+  var ScalarStyle_name = dart.privateName(style$, "ScalarStyle.name");
+  yaml_node.YamlScalar = class YamlScalar extends yaml_node.YamlNode {
+    get value() {
+      return this[value$0];
+    }
+    set value(value) {
+      super.value = value;
+    }
+    get style() {
+      return this[style$7];
+    }
+    set style(value) {
+      super.style = value;
+    }
+    toString() {
+      return dart.toString(this.value);
+    }
+  };
+  (yaml_node.YamlScalar.wrap = function(value, opts) {
+    let sourceUrl = opts && 'sourceUrl' in opts ? opts.sourceUrl : null;
+    let style = opts && 'style' in opts ? opts.style : C[16] || CT.C16;
+    if (style == null) dart.nullFailed(I[1], 164, 48, "style");
+    this[value$0] = value;
+    this[style$7] = style;
+    yaml_node.YamlScalar.__proto__.__.call(this, new null_span.NullSpan.new(sourceUrl));
+    core.ArgumentError.checkNotNull(style$.ScalarStyle, this.style, "style");
+  }).prototype = yaml_node.YamlScalar.prototype;
+  (yaml_node.YamlScalar.internal = function(value, scalar) {
+    if (scalar == null) dart.nullFailed(I[1], 170, 47, "scalar");
+    this[value$0] = value;
+    this[style$7] = scalar.style;
+    yaml_node.YamlScalar.__proto__.__.call(this, scalar.span);
+    ;
+  }).prototype = yaml_node.YamlScalar.prototype;
+  (yaml_node.YamlScalar.internalWithSpan = function(value, span) {
+    if (span == null) dart.nullFailed(I[1], 175, 54, "span");
+    this[value$0] = value;
+    this[style$7] = style$.ScalarStyle.ANY;
+    yaml_node.YamlScalar.__proto__.__.call(this, span);
+    ;
+  }).prototype = yaml_node.YamlScalar.prototype;
+  dart.addTypeTests(yaml_node.YamlScalar);
+  dart.addTypeCaches(yaml_node.YamlScalar);
+  dart.setLibraryUri(yaml_node.YamlScalar, I[3]);
+  dart.setFieldSignature(yaml_node.YamlScalar, () => ({
+    __proto__: dart.getFields(yaml_node.YamlScalar.__proto__),
+    value: dart.finalFieldType(dart.dynamic),
+    style: dart.finalFieldType(style$.ScalarStyle)
+  }));
+  dart.defineExtensionMethods(yaml_node.YamlScalar, ['toString']);
+  yaml_node.setSpan = function setSpan(node, span) {
+    if (node == null) dart.nullFailed(I[1], 186, 23, "node");
+    if (span == null) dart.nullFailed(I[1], 186, 40, "span");
+    node[_span$0] = span;
+  };
+  dart.trackLibraries("packages/yaml/src/yaml_node_wrapper.dart", {
+    "package:yaml/src/yaml_node_wrapper.dart": yaml_node_wrapper,
+    "package:yaml/src/yaml_document.dart": yaml_document,
+    "package:yaml/src/event.dart": event,
+    "package:yaml/src/yaml_node.dart": yaml_node
+  }, {
+  }, '{"version":3,"sourceRoot":"","sources":["yaml_node_wrapper.dart","yaml_node.dart","yaml_document.dart","event.dart"],"names":[],"mappings":"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","file":"../../../../../../../../O:/packages/yaml/src/yaml_node_wrapper.dart.lib.js"}');
+  // Exports:
+  return {
+    src__yaml_node_wrapper: yaml_node_wrapper,
+    src__yaml_document: yaml_document,
+    src__event: event,
+    src__yaml_node: yaml_node
+  };
+}));
+
+//# sourceMappingURL=yaml_node_wrapper.dart.lib.js.map

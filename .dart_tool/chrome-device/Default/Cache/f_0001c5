@@ -1,0 +1,877 @@
+define(['dart_sdk', 'packages/yaml/src/yaml_node_wrapper.dart', 'packages/yaml/src/scanner.dart', 'packages/yaml/src/yaml_exception.dart', 'packages/string_scanner/src/utils.dart', 'packages/yaml/src/token.dart', 'packages/yaml/src/style.dart', 'packages/source_span/src/location_mixin.dart', 'packages/yaml/src/utils.dart'], (function load__packages__yaml__src__parser_dart(dart_sdk, packages__yaml__src__yaml_node_wrapper$46dart, packages__yaml__src__scanner$46dart, packages__yaml__src__yaml_exception$46dart, packages__string_scanner__src__utils$46dart, packages__yaml__src__token$46dart, packages__yaml__src__style$46dart, packages__source_span__src__location_mixin$46dart, packages__yaml__src__utils$46dart) {
+  'use strict';
+  const core = dart_sdk.core;
+  const _interceptors = dart_sdk._interceptors;
+  const _js_helper = dart_sdk._js_helper;
+  const dart = dart_sdk.dart;
+  const dartx = dart_sdk.dartx;
+  const yaml_document = packages__yaml__src__yaml_node_wrapper$46dart.src__yaml_document;
+  const event = packages__yaml__src__yaml_node_wrapper$46dart.src__event;
+  const scanner = packages__yaml__src__scanner$46dart.src__scanner;
+  const yaml_exception = packages__yaml__src__yaml_exception$46dart.src__yaml_exception;
+  const exception = packages__string_scanner__src__utils$46dart.src__exception;
+  const token$ = packages__yaml__src__token$46dart.src__token;
+  const style = packages__yaml__src__style$46dart.src__style;
+  const file = packages__source_span__src__location_mixin$46dart.src__file;
+  const location = packages__source_span__src__location_mixin$46dart.src__location;
+  const utils = packages__yaml__src__utils$46dart.src__utils;
+  var parser = Object.create(dart.library);
+  var $add = dartx.add;
+  var $removeLast = dartx.removeLast;
+  var $clear = dartx.clear;
+  var $_get = dartx._get;
+  var $containsKey = dartx.containsKey;
+  var $_set = dartx._set;
+  dart._checkModuleNullSafetyMode(false);
+  var T = {
+    JSArrayOf_State: () => (T.JSArrayOf_State = dart.constFn(_interceptors.JSArray$(parser._State)))(),
+    IdentityMapOfString$TagDirective: () => (T.IdentityMapOfString$TagDirective = dart.constFn(_js_helper.IdentityMap$(core.String, yaml_document.TagDirective)))(),
+    AnchorTokenToToken: () => (T.AnchorTokenToToken = dart.constFn(dart.fnType(token$.Token, [token$.AnchorToken])))(),
+    TagTokenToToken: () => (T.TagTokenToToken = dart.constFn(dart.fnType(token$.Token, [token$.TagToken])))(),
+    JSArrayOfTagDirective: () => (T.JSArrayOfTagDirective = dart.constFn(_interceptors.JSArray$(yaml_document.TagDirective)))(),
+    VersionDirectiveN: () => (T.VersionDirectiveN = dart.constFn(dart.nullable(yaml_document.VersionDirective)))(),
+    ListOfTagDirective: () => (T.ListOfTagDirective = dart.constFn(core.List$(yaml_document.TagDirective)))(),
+    PairOfVersionDirectiveN$ListOfTagDirective: () => (T.PairOfVersionDirectiveN$ListOfTagDirective = dart.constFn(utils.Pair$(T.VersionDirectiveN(), T.ListOfTagDirective())))()
+  };
+  const CT = Object.create({
+    _: () => (C, CT)
+  });
+  dart.defineLazy(CT, {
+    get C0() {
+      return C[0] = dart.const({
+        __proto__: parser._State.prototype,
+        [_State_name]: "STREAM_START"
+      });
+    },
+    get C1() {
+      return C[1] = dart.const({
+        __proto__: parser._State.prototype,
+        [_State_name]: "DOCUMENT_START"
+      });
+    },
+    get C2() {
+      return C[2] = dart.const({
+        __proto__: parser._State.prototype,
+        [_State_name]: "DOCUMENT_CONTENT"
+      });
+    },
+    get C3() {
+      return C[3] = dart.const({
+        __proto__: parser._State.prototype,
+        [_State_name]: "DOCUMENT_END"
+      });
+    },
+    get C4() {
+      return C[4] = dart.const({
+        __proto__: parser._State.prototype,
+        [_State_name]: "BLOCK_NODE"
+      });
+    },
+    get C5() {
+      return C[5] = dart.const({
+        __proto__: parser._State.prototype,
+        [_State_name]: "BLOCK_NODE_OR_INDENTLESS_SEQUENCE"
+      });
+    },
+    get C6() {
+      return C[6] = dart.const({
+        __proto__: parser._State.prototype,
+        [_State_name]: "FLOW_NODE"
+      });
+    },
+    get C7() {
+      return C[7] = dart.const({
+        __proto__: parser._State.prototype,
+        [_State_name]: "BLOCK_SEQUENCE_FIRST_ENTRY"
+      });
+    },
+    get C8() {
+      return C[8] = dart.const({
+        __proto__: parser._State.prototype,
+        [_State_name]: "BLOCK_SEQUENCE_ENTRY"
+      });
+    },
+    get C9() {
+      return C[9] = dart.const({
+        __proto__: parser._State.prototype,
+        [_State_name]: "INDENTLESS_SEQUENCE_ENTRY"
+      });
+    },
+    get C10() {
+      return C[10] = dart.const({
+        __proto__: parser._State.prototype,
+        [_State_name]: "BLOCK_MAPPING_FIRST_KEY"
+      });
+    },
+    get C11() {
+      return C[11] = dart.const({
+        __proto__: parser._State.prototype,
+        [_State_name]: "BLOCK_MAPPING_KEY"
+      });
+    },
+    get C12() {
+      return C[12] = dart.const({
+        __proto__: parser._State.prototype,
+        [_State_name]: "BLOCK_MAPPING_VALUE"
+      });
+    },
+    get C13() {
+      return C[13] = dart.const({
+        __proto__: parser._State.prototype,
+        [_State_name]: "FLOW_SEQUENCE_FIRST_ENTRY"
+      });
+    },
+    get C14() {
+      return C[14] = dart.const({
+        __proto__: parser._State.prototype,
+        [_State_name]: "FLOW_SEQUENCE_ENTRY"
+      });
+    },
+    get C15() {
+      return C[15] = dart.const({
+        __proto__: parser._State.prototype,
+        [_State_name]: "FLOW_SEQUENCE_ENTRY_MAPPING_KEY"
+      });
+    },
+    get C16() {
+      return C[16] = dart.const({
+        __proto__: parser._State.prototype,
+        [_State_name]: "FLOW_SEQUENCE_ENTRY_MAPPING_VALUE"
+      });
+    },
+    get C17() {
+      return C[17] = dart.const({
+        __proto__: parser._State.prototype,
+        [_State_name]: "FLOW_SEQUENCE_ENTRY_MAPPING_END"
+      });
+    },
+    get C18() {
+      return C[18] = dart.const({
+        __proto__: parser._State.prototype,
+        [_State_name]: "FLOW_MAPPING_FIRST_KEY"
+      });
+    },
+    get C19() {
+      return C[19] = dart.const({
+        __proto__: parser._State.prototype,
+        [_State_name]: "FLOW_MAPPING_KEY"
+      });
+    },
+    get C20() {
+      return C[20] = dart.const({
+        __proto__: parser._State.prototype,
+        [_State_name]: "FLOW_MAPPING_VALUE"
+      });
+    },
+    get C21() {
+      return C[21] = dart.const({
+        __proto__: parser._State.prototype,
+        [_State_name]: "FLOW_MAPPING_EMPTY_VALUE"
+      });
+    },
+    get C22() {
+      return C[22] = dart.const({
+        __proto__: token$.TokenType.prototype,
+        [_name]: "TokenType.versionDirective",
+        index: 2
+      });
+    },
+    get C23() {
+      return C[23] = dart.const({
+        __proto__: token$.TokenType.prototype,
+        [_name]: "TokenType.tagDirective",
+        index: 3
+      });
+    },
+    get C24() {
+      return C[24] = dart.const({
+        __proto__: token$.TokenType.prototype,
+        [_name]: "TokenType.documentStart",
+        index: 4
+      });
+    },
+    get C25() {
+      return C[25] = dart.const({
+        __proto__: token$.TokenType.prototype,
+        [_name]: "TokenType.documentEnd",
+        index: 5
+      });
+    },
+    get C26() {
+      return C[26] = dart.const({
+        __proto__: token$.TokenType.prototype,
+        [_name]: "TokenType.streamEnd",
+        index: 1
+      });
+    },
+    get C27() {
+      return C[27] = dart.const({
+        __proto__: parser._State.prototype,
+        [_State_name]: "END"
+      });
+    }
+  }, false);
+  var C = Array(28).fill(void 0);
+  var I = [
+    "file:///d:/flutter/.pub-cache/hosted/pub.flutter-io.cn/yaml-3.1.0/lib/src/parser.dart",
+    "package:yaml/src/parser.dart"
+  ];
+  var _states = dart.privateName(parser, "_states");
+  var _state = dart.privateName(parser, "_state");
+  var _tagDirectives = dart.privateName(parser, "_tagDirectives");
+  var _scanner = dart.privateName(parser, "_scanner");
+  var _stateMachine = dart.privateName(parser, "_stateMachine");
+  var _parseStreamStart = dart.privateName(parser, "_parseStreamStart");
+  var _State_name = dart.privateName(parser, "_State.name");
+  var _parseDocumentStart = dart.privateName(parser, "_parseDocumentStart");
+  var _parseDocumentContent = dart.privateName(parser, "_parseDocumentContent");
+  var _parseDocumentEnd = dart.privateName(parser, "_parseDocumentEnd");
+  var _parseNode = dart.privateName(parser, "_parseNode");
+  var _parseBlockSequenceEntry = dart.privateName(parser, "_parseBlockSequenceEntry");
+  var _parseIndentlessSequenceEntry = dart.privateName(parser, "_parseIndentlessSequenceEntry");
+  var _parseBlockMappingKey = dart.privateName(parser, "_parseBlockMappingKey");
+  var _parseBlockMappingValue = dart.privateName(parser, "_parseBlockMappingValue");
+  var _parseFlowSequenceEntry = dart.privateName(parser, "_parseFlowSequenceEntry");
+  var _parseFlowSequenceEntryMappingKey = dart.privateName(parser, "_parseFlowSequenceEntryMappingKey");
+  var _parseFlowSequenceEntryMappingValue = dart.privateName(parser, "_parseFlowSequenceEntryMappingValue");
+  var _parseFlowSequenceEntryMappingEnd = dart.privateName(parser, "_parseFlowSequenceEntryMappingEnd");
+  var _parseFlowMappingKey = dart.privateName(parser, "_parseFlowMappingKey");
+  var _parseFlowMappingValue = dart.privateName(parser, "_parseFlowMappingValue");
+  var _processDirectives = dart.privateName(parser, "_processDirectives");
+  var _processEmptyScalar = dart.privateName(parser, "_processEmptyScalar");
+  var _name = dart.privateName(token$, "_name");
+  var _appendTagDirective = dart.privateName(parser, "_appendTagDirective");
+  parser.Parser = class Parser extends core.Object {
+    get isDone() {
+      return dart.equals(this[_state], parser._State.END);
+    }
+    parse() {
+      try {
+        if (dart.test(this.isDone)) dart.throw(new core.StateError.new("No more events."));
+        let event = this[_stateMachine]();
+        return event;
+      } catch (e) {
+        let error = dart.getThrown(e);
+        if (exception.StringScannerException.is(error)) {
+          dart.throw(new yaml_exception.YamlException.new(error.message, error.span));
+        } else
+          throw e;
+      }
+    }
+    [_stateMachine]() {
+      switch (this[_state]) {
+        case C[0] || CT.C0:
+        {
+          return this[_parseStreamStart]();
+        }
+        case C[1] || CT.C1:
+        {
+          return this[_parseDocumentStart]();
+        }
+        case C[2] || CT.C2:
+        {
+          return this[_parseDocumentContent]();
+        }
+        case C[3] || CT.C3:
+        {
+          return this[_parseDocumentEnd]();
+        }
+        case C[4] || CT.C4:
+        {
+          return this[_parseNode]({block: true});
+        }
+        case C[5] || CT.C5:
+        {
+          return this[_parseNode]({block: true, indentlessSequence: true});
+        }
+        case C[6] || CT.C6:
+        {
+          return this[_parseNode]();
+        }
+        case C[7] || CT.C7:
+        {
+          this[_scanner].scan();
+          return this[_parseBlockSequenceEntry]();
+        }
+        case C[8] || CT.C8:
+        {
+          return this[_parseBlockSequenceEntry]();
+        }
+        case C[9] || CT.C9:
+        {
+          return this[_parseIndentlessSequenceEntry]();
+        }
+        case C[10] || CT.C10:
+        {
+          this[_scanner].scan();
+          return this[_parseBlockMappingKey]();
+        }
+        case C[11] || CT.C11:
+        {
+          return this[_parseBlockMappingKey]();
+        }
+        case C[12] || CT.C12:
+        {
+          return this[_parseBlockMappingValue]();
+        }
+        case C[13] || CT.C13:
+        {
+          return this[_parseFlowSequenceEntry]({first: true});
+        }
+        case C[14] || CT.C14:
+        {
+          return this[_parseFlowSequenceEntry]();
+        }
+        case C[15] || CT.C15:
+        {
+          return this[_parseFlowSequenceEntryMappingKey]();
+        }
+        case C[16] || CT.C16:
+        {
+          return this[_parseFlowSequenceEntryMappingValue]();
+        }
+        case C[17] || CT.C17:
+        {
+          return this[_parseFlowSequenceEntryMappingEnd]();
+        }
+        case C[18] || CT.C18:
+        {
+          return this[_parseFlowMappingKey]({first: true});
+        }
+        case C[19] || CT.C19:
+        {
+          return this[_parseFlowMappingKey]();
+        }
+        case C[20] || CT.C20:
+        {
+          return this[_parseFlowMappingValue]();
+        }
+        case C[21] || CT.C21:
+        {
+          return this[_parseFlowMappingValue]({empty: true});
+        }
+        default:
+        {
+          dart.throw("Unreachable");
+        }
+      }
+    }
+    [_parseStreamStart]() {
+      let token = this[_scanner].scan();
+      if (!(token.type == token$.TokenType.streamStart)) dart.assertFailed(null, I[0], 128, 12, "token.type == TokenType.streamStart");
+      this[_state] = parser._State.DOCUMENT_START;
+      return new event.Event.new(event.EventType.streamStart, token.span);
+    }
+    [_parseDocumentStart]() {
+      let token = dart.nullCheck(this[_scanner].peek());
+      while (token.type == token$.TokenType.documentEnd) {
+        token = dart.nullCheck(this[_scanner].advance());
+      }
+      if (token.type != token$.TokenType.versionDirective && token.type != token$.TokenType.tagDirective && token.type != token$.TokenType.documentStart && token.type != token$.TokenType.streamEnd) {
+        this[_processDirectives]();
+        this[_states][$add](parser._State.DOCUMENT_END);
+        this[_state] = parser._State.BLOCK_NODE;
+        return new event.DocumentStartEvent.new(token.span.start.pointSpan());
+      }
+      if (token.type == token$.TokenType.streamEnd) {
+        this[_state] = parser._State.END;
+        this[_scanner].scan();
+        return new event.Event.new(event.EventType.streamEnd, token.span);
+      }
+      let start = token.span;
+      let pair = this[_processDirectives]();
+      let versionDirective = pair.first;
+      let tagDirectives = pair.last;
+      token = dart.nullCheck(this[_scanner].peek());
+      if (token.type != token$.TokenType.documentStart) {
+        dart.throw(new yaml_exception.YamlException.new("Expected document start.", token.span));
+      }
+      this[_states][$add](parser._State.DOCUMENT_END);
+      this[_state] = parser._State.DOCUMENT_CONTENT;
+      this[_scanner].scan();
+      return new event.DocumentStartEvent.new(start.expand(token.span), {versionDirective: versionDirective, tagDirectives: tagDirectives, isImplicit: false});
+    }
+    [_parseDocumentContent]() {
+      let token = dart.nullCheck(this[_scanner].peek());
+      switch (token.type) {
+        case C[22] || CT.C22:
+        case C[23] || CT.C23:
+        case C[24] || CT.C24:
+        case C[25] || CT.C25:
+        case C[26] || CT.C26:
+        {
+          this[_state] = this[_states][$removeLast]();
+          return this[_processEmptyScalar](token.span.start);
+        }
+        default:
+        {
+          return this[_parseNode]({block: true});
+        }
+      }
+    }
+    [_parseDocumentEnd]() {
+      this[_tagDirectives][$clear]();
+      this[_state] = parser._State.DOCUMENT_START;
+      let token = dart.nullCheck(this[_scanner].peek());
+      if (token.type == token$.TokenType.documentEnd) {
+        this[_scanner].scan();
+        return new event.DocumentEndEvent.new(token.span, {isImplicit: false});
+      } else {
+        return new event.DocumentEndEvent.new(token.span.start.pointSpan(), {isImplicit: true});
+      }
+    }
+    [_parseNode](opts) {
+      let t1, t1$;
+      let block = opts && 'block' in opts ? opts.block : false;
+      if (block == null) dart.nullFailed(I[0], 257, 26, "block");
+      let indentlessSequence = opts && 'indentlessSequence' in opts ? opts.indentlessSequence : false;
+      if (indentlessSequence == null) dart.nullFailed(I[0], 257, 46, "indentlessSequence");
+      let token = dart.nullCheck(this[_scanner].peek());
+      if (token$.AliasToken.is(token)) {
+        this[_scanner].scan();
+        this[_state] = this[_states][$removeLast]();
+        return new event.AliasEvent.new(token.span, token.name);
+      }
+      let anchor = null;
+      let tagToken = null;
+      let span = token.span.start.pointSpan();
+      const parseAnchor = token => {
+        if (token == null) dart.nullFailed(I[0], 269, 35, "token");
+        anchor = token.name;
+        span = span.expand(token.span);
+        return dart.nullCheck(this[_scanner].advance());
+      };
+      dart.fn(parseAnchor, T.AnchorTokenToToken());
+      const parseTag = token => {
+        if (token == null) dart.nullFailed(I[0], 275, 29, "token");
+        tagToken = token;
+        span = span.expand(token.span);
+        return dart.nullCheck(this[_scanner].advance());
+      };
+      dart.fn(parseTag, T.TagTokenToToken());
+      if (token$.AnchorToken.is(token)) {
+        token = parseAnchor(token);
+        if (token$.TagToken.is(token)) token = parseTag(token);
+      } else if (token$.TagToken.is(token)) {
+        token = parseTag(token);
+        if (token$.AnchorToken.is(token)) token = parseAnchor(token);
+      }
+      let tag = null;
+      if (tagToken != null) {
+        if (dart.nullCheck(tagToken).handle == null) {
+          tag = dart.nullCheck(tagToken).suffix;
+        } else {
+          let tagDirective = this[_tagDirectives][$_get](dart.nullCheck(tagToken).handle);
+          if (tagDirective == null) {
+            dart.throw(new yaml_exception.YamlException.new("Undefined tag handle.", dart.nullCheck(tagToken).span));
+          }
+          tag = dart.notNull(tagDirective.prefix) + dart.notNull((t1$ = (t1 = tagToken, t1 == null ? null : t1.suffix), t1$ == null ? "" : t1$));
+        }
+      }
+      if (dart.test(indentlessSequence) && token.type == token$.TokenType.blockEntry) {
+        this[_state] = parser._State.INDENTLESS_SEQUENCE_ENTRY;
+        return new event.SequenceStartEvent.new(span.expand(token.span), style.CollectionStyle.BLOCK, {anchor: anchor, tag: tag});
+      }
+      if (token$.ScalarToken.is(token)) {
+        if (tag == null && !dart.equals(token.style, style.ScalarStyle.PLAIN)) tag = "!";
+        this[_state] = this[_states][$removeLast]();
+        this[_scanner].scan();
+        return new event.ScalarEvent.new(span.expand(token.span), token.value, token.style, {anchor: anchor, tag: tag});
+      }
+      if (token.type == token$.TokenType.flowSequenceStart) {
+        this[_state] = parser._State.FLOW_SEQUENCE_FIRST_ENTRY;
+        return new event.SequenceStartEvent.new(span.expand(token.span), style.CollectionStyle.FLOW, {anchor: anchor, tag: tag});
+      }
+      if (token.type == token$.TokenType.flowMappingStart) {
+        this[_state] = parser._State.FLOW_MAPPING_FIRST_KEY;
+        return new event.MappingStartEvent.new(span.expand(token.span), style.CollectionStyle.FLOW, {anchor: anchor, tag: tag});
+      }
+      if (dart.test(block) && token.type == token$.TokenType.blockSequenceStart) {
+        this[_state] = parser._State.BLOCK_SEQUENCE_FIRST_ENTRY;
+        return new event.SequenceStartEvent.new(span.expand(token.span), style.CollectionStyle.BLOCK, {anchor: anchor, tag: tag});
+      }
+      if (dart.test(block) && token.type == token$.TokenType.blockMappingStart) {
+        this[_state] = parser._State.BLOCK_MAPPING_FIRST_KEY;
+        return new event.MappingStartEvent.new(span.expand(token.span), style.CollectionStyle.BLOCK, {anchor: anchor, tag: tag});
+      }
+      if (anchor != null || tag != null) {
+        this[_state] = this[_states][$removeLast]();
+        return new event.ScalarEvent.new(span, "", style.ScalarStyle.PLAIN, {anchor: anchor, tag: tag});
+      }
+      dart.throw(new yaml_exception.YamlException.new("Expected node content.", span));
+    }
+    [_parseBlockSequenceEntry]() {
+      let token = dart.nullCheck(this[_scanner].peek());
+      if (token.type == token$.TokenType.blockEntry) {
+        let start = token.span.start;
+        token = dart.nullCheck(this[_scanner].advance());
+        if (token.type == token$.TokenType.blockEntry || token.type == token$.TokenType.blockEnd) {
+          this[_state] = parser._State.BLOCK_SEQUENCE_ENTRY;
+          return this[_processEmptyScalar](start);
+        } else {
+          this[_states][$add](parser._State.BLOCK_SEQUENCE_ENTRY);
+          return this[_parseNode]({block: true});
+        }
+      }
+      if (token.type == token$.TokenType.blockEnd) {
+        this[_scanner].scan();
+        this[_state] = this[_states][$removeLast]();
+        return new event.Event.new(event.EventType.sequenceEnd, token.span);
+      }
+      dart.throw(new yaml_exception.YamlException.new("While parsing a block collection, expected '-'.", token.span.start.pointSpan()));
+    }
+    [_parseIndentlessSequenceEntry]() {
+      let token = dart.nullCheck(this[_scanner].peek());
+      if (token.type != token$.TokenType.blockEntry) {
+        this[_state] = this[_states][$removeLast]();
+        return new event.Event.new(event.EventType.sequenceEnd, token.span.start.pointSpan());
+      }
+      let start = token.span.start;
+      token = dart.nullCheck(this[_scanner].advance());
+      if (token.type == token$.TokenType.blockEntry || token.type == token$.TokenType.key || token.type == token$.TokenType.value || token.type == token$.TokenType.blockEnd) {
+        this[_state] = parser._State.INDENTLESS_SEQUENCE_ENTRY;
+        return this[_processEmptyScalar](start);
+      } else {
+        this[_states][$add](parser._State.INDENTLESS_SEQUENCE_ENTRY);
+        return this[_parseNode]({block: true});
+      }
+    }
+    [_parseBlockMappingKey]() {
+      let token = dart.nullCheck(this[_scanner].peek());
+      if (token.type == token$.TokenType.key) {
+        let start = token.span.start;
+        token = dart.nullCheck(this[_scanner].advance());
+        if (token.type == token$.TokenType.key || token.type == token$.TokenType.value || token.type == token$.TokenType.blockEnd) {
+          this[_state] = parser._State.BLOCK_MAPPING_VALUE;
+          return this[_processEmptyScalar](start);
+        } else {
+          this[_states][$add](parser._State.BLOCK_MAPPING_VALUE);
+          return this[_parseNode]({block: true, indentlessSequence: true});
+        }
+      }
+      if (token.type == token$.TokenType.value) {
+        this[_state] = parser._State.BLOCK_MAPPING_VALUE;
+        return this[_processEmptyScalar](token.span.start);
+      }
+      if (token.type == token$.TokenType.blockEnd) {
+        this[_scanner].scan();
+        this[_state] = this[_states][$removeLast]();
+        return new event.Event.new(event.EventType.mappingEnd, token.span);
+      }
+      dart.throw(new yaml_exception.YamlException.new("Expected a key while parsing a block mapping.", token.span.start.pointSpan()));
+    }
+    [_parseBlockMappingValue]() {
+      let token = dart.nullCheck(this[_scanner].peek());
+      if (token.type != token$.TokenType.value) {
+        this[_state] = parser._State.BLOCK_MAPPING_KEY;
+        return this[_processEmptyScalar](token.span.start);
+      }
+      let start = token.span.start;
+      token = dart.nullCheck(this[_scanner].advance());
+      if (token.type == token$.TokenType.key || token.type == token$.TokenType.value || token.type == token$.TokenType.blockEnd) {
+        this[_state] = parser._State.BLOCK_MAPPING_KEY;
+        return this[_processEmptyScalar](start);
+      } else {
+        this[_states][$add](parser._State.BLOCK_MAPPING_KEY);
+        return this[_parseNode]({block: true, indentlessSequence: true});
+      }
+    }
+    [_parseFlowSequenceEntry](opts) {
+      let first = opts && 'first' in opts ? opts.first : false;
+      if (first == null) dart.nullFailed(I[0], 499, 39, "first");
+      if (dart.test(first)) this[_scanner].scan();
+      let token = dart.nullCheck(this[_scanner].peek());
+      if (token.type != token$.TokenType.flowSequenceEnd) {
+        if (!dart.test(first)) {
+          if (token.type != token$.TokenType.flowEntry) {
+            dart.throw(new yaml_exception.YamlException.new("While parsing a flow sequence, expected ',' or ']'.", token.span.start.pointSpan()));
+          }
+          token = dart.nullCheck(this[_scanner].advance());
+        }
+        if (token.type == token$.TokenType.key) {
+          this[_state] = parser._State.FLOW_SEQUENCE_ENTRY_MAPPING_KEY;
+          this[_scanner].scan();
+          return new event.MappingStartEvent.new(token.span, style.CollectionStyle.FLOW);
+        } else if (token.type != token$.TokenType.flowSequenceEnd) {
+          this[_states][$add](parser._State.FLOW_SEQUENCE_ENTRY);
+          return this[_parseNode]();
+        }
+      }
+      this[_scanner].scan();
+      this[_state] = this[_states][$removeLast]();
+      return new event.Event.new(event.EventType.sequenceEnd, token.span);
+    }
+    [_parseFlowSequenceEntryMappingKey]() {
+      let token = dart.nullCheck(this[_scanner].peek());
+      if (token.type == token$.TokenType.value || token.type == token$.TokenType.flowEntry || token.type == token$.TokenType.flowSequenceEnd) {
+        let start = token.span.start;
+        this[_state] = parser._State.FLOW_SEQUENCE_ENTRY_MAPPING_VALUE;
+        return this[_processEmptyScalar](start);
+      } else {
+        this[_states][$add](parser._State.FLOW_SEQUENCE_ENTRY_MAPPING_VALUE);
+        return this[_parseNode]();
+      }
+    }
+    [_parseFlowSequenceEntryMappingValue]() {
+      let token = dart.nullCheck(this[_scanner].peek());
+      if (token.type == token$.TokenType.value) {
+        token = dart.nullCheck(this[_scanner].advance());
+        if (token.type != token$.TokenType.flowEntry && token.type != token$.TokenType.flowSequenceEnd) {
+          this[_states][$add](parser._State.FLOW_SEQUENCE_ENTRY_MAPPING_END);
+          return this[_parseNode]();
+        }
+      }
+      this[_state] = parser._State.FLOW_SEQUENCE_ENTRY_MAPPING_END;
+      return this[_processEmptyScalar](token.span.start);
+    }
+    [_parseFlowSequenceEntryMappingEnd]() {
+      this[_state] = parser._State.FLOW_SEQUENCE_ENTRY;
+      return new event.Event.new(event.EventType.mappingEnd, dart.nullCheck(this[_scanner].peek()).span.start.pointSpan());
+    }
+    [_parseFlowMappingKey](opts) {
+      let first = opts && 'first' in opts ? opts.first : false;
+      if (first == null) dart.nullFailed(I[0], 597, 36, "first");
+      if (dart.test(first)) this[_scanner].scan();
+      let token = dart.nullCheck(this[_scanner].peek());
+      if (token.type != token$.TokenType.flowMappingEnd) {
+        if (!dart.test(first)) {
+          if (token.type != token$.TokenType.flowEntry) {
+            dart.throw(new yaml_exception.YamlException.new("While parsing a flow mapping, expected ',' or '}'.", token.span.start.pointSpan()));
+          }
+          token = dart.nullCheck(this[_scanner].advance());
+        }
+        if (token.type == token$.TokenType.key) {
+          token = dart.nullCheck(this[_scanner].advance());
+          if (token.type != token$.TokenType.value && token.type != token$.TokenType.flowEntry && token.type != token$.TokenType.flowMappingEnd) {
+            this[_states][$add](parser._State.FLOW_MAPPING_VALUE);
+            return this[_parseNode]();
+          } else {
+            this[_state] = parser._State.FLOW_MAPPING_VALUE;
+            return this[_processEmptyScalar](token.span.start);
+          }
+        } else if (token.type != token$.TokenType.flowMappingEnd) {
+          this[_states][$add](parser._State.FLOW_MAPPING_EMPTY_VALUE);
+          return this[_parseNode]();
+        }
+      }
+      this[_scanner].scan();
+      this[_state] = this[_states][$removeLast]();
+      return new event.Event.new(event.EventType.mappingEnd, token.span);
+    }
+    [_parseFlowMappingValue](opts) {
+      let empty = opts && 'empty' in opts ? opts.empty : false;
+      if (empty == null) dart.nullFailed(I[0], 639, 38, "empty");
+      let token = dart.nullCheck(this[_scanner].peek());
+      if (dart.test(empty)) {
+        this[_state] = parser._State.FLOW_MAPPING_KEY;
+        return this[_processEmptyScalar](token.span.start);
+      }
+      if (token.type == token$.TokenType.value) {
+        token = dart.nullCheck(this[_scanner].advance());
+        if (token.type != token$.TokenType.flowEntry && token.type != token$.TokenType.flowMappingEnd) {
+          this[_states][$add](parser._State.FLOW_MAPPING_KEY);
+          return this[_parseNode]();
+        }
+      }
+      this[_state] = parser._State.FLOW_MAPPING_KEY;
+      return this[_processEmptyScalar](token.span.start);
+    }
+    [_processEmptyScalar](location) {
+      if (location == null) dart.nullFailed(I[0], 661, 44, "location");
+      return new event.ScalarEvent.new(file.FileSpan.as(location.pointSpan()), "", style.ScalarStyle.PLAIN);
+    }
+    [_processDirectives]() {
+      let token = dart.nullCheck(this[_scanner].peek());
+      let versionDirective = null;
+      let tagDirectives = T.JSArrayOfTagDirective().of([]);
+      while (token.type == token$.TokenType.versionDirective || token.type == token$.TokenType.tagDirective) {
+        if (token$.VersionDirectiveToken.is(token)) {
+          if (versionDirective != null) {
+            dart.throw(new yaml_exception.YamlException.new("Duplicate %YAML directive.", token.span));
+          }
+          if (token.major !== 1 || token.minor === 0) {
+            dart.throw(new yaml_exception.YamlException.new("Incompatible YAML document. This parser only supports YAML 1.1 " + "and 1.2.", token.span));
+          } else if (dart.notNull(token.minor) > 2) {
+            utils.warn("Warning: this parser only supports YAML 1.1 and 1.2.", token.span);
+          }
+          versionDirective = new yaml_document.VersionDirective.new(token.major, token.minor);
+        } else if (token$.TagDirectiveToken.is(token)) {
+          let tagDirective = new yaml_document.TagDirective.new(token.handle, token.prefix);
+          this[_appendTagDirective](tagDirective, token.span);
+          tagDirectives[$add](tagDirective);
+        }
+        token = dart.nullCheck(this[_scanner].advance());
+      }
+      this[_appendTagDirective](new yaml_document.TagDirective.new("!", "!"), token.span.start.pointSpan(), {allowDuplicates: true});
+      this[_appendTagDirective](new yaml_document.TagDirective.new("!!", "tag:yaml.org,2002:"), token.span.start.pointSpan(), {allowDuplicates: true});
+      return new (T.PairOfVersionDirectiveN$ListOfTagDirective()).new(versionDirective, tagDirectives);
+    }
+    [_appendTagDirective](newDirective, span, opts) {
+      if (newDirective == null) dart.nullFailed(I[0], 709, 41, "newDirective");
+      if (span == null) dart.nullFailed(I[0], 709, 64, "span");
+      let allowDuplicates = opts && 'allowDuplicates' in opts ? opts.allowDuplicates : false;
+      if (allowDuplicates == null) dart.nullFailed(I[0], 710, 13, "allowDuplicates");
+      if (dart.test(this[_tagDirectives][$containsKey](newDirective.handle))) {
+        if (dart.test(allowDuplicates)) return;
+        dart.throw(new yaml_exception.YamlException.new("Duplicate %TAG directive.", span));
+      }
+      this[_tagDirectives][$_set](newDirective.handle, newDirective);
+    }
+  };
+  (parser.Parser.new = function(source, opts) {
+    if (source == null) dart.nullFailed(I[0], 44, 17, "source");
+    let sourceUrl = opts && 'sourceUrl' in opts ? opts.sourceUrl : null;
+    let recover = opts && 'recover' in opts ? opts.recover : false;
+    if (recover == null) dart.nullFailed(I[0], 45, 29, "recover");
+    let errorListener = opts && 'errorListener' in opts ? opts.errorListener : null;
+    this[_states] = T.JSArrayOf_State().of([]);
+    this[_state] = parser._State.STREAM_START;
+    this[_tagDirectives] = new (T.IdentityMapOfString$TagDirective()).new();
+    if (!(dart.test(recover) || errorListener == null)) dart.assertFailed(null, I[0], 46, 16, "recover || errorListener == null");
+    this[_scanner] = new scanner.Scanner.new(source, {sourceUrl: sourceUrl, recover: recover, errorListener: errorListener});
+    ;
+  }).prototype = parser.Parser.prototype;
+  dart.addTypeTests(parser.Parser);
+  dart.addTypeCaches(parser.Parser);
+  dart.setMethodSignature(parser.Parser, () => ({
+    __proto__: dart.getMethods(parser.Parser.__proto__),
+    parse: dart.fnType(event.Event, []),
+    [_stateMachine]: dart.fnType(event.Event, []),
+    [_parseStreamStart]: dart.fnType(event.Event, []),
+    [_parseDocumentStart]: dart.fnType(event.Event, []),
+    [_parseDocumentContent]: dart.fnType(event.Event, []),
+    [_parseDocumentEnd]: dart.fnType(event.Event, []),
+    [_parseNode]: dart.fnType(event.Event, [], {block: core.bool, indentlessSequence: core.bool}, {}),
+    [_parseBlockSequenceEntry]: dart.fnType(event.Event, []),
+    [_parseIndentlessSequenceEntry]: dart.fnType(event.Event, []),
+    [_parseBlockMappingKey]: dart.fnType(event.Event, []),
+    [_parseBlockMappingValue]: dart.fnType(event.Event, []),
+    [_parseFlowSequenceEntry]: dart.fnType(event.Event, [], {first: core.bool}, {}),
+    [_parseFlowSequenceEntryMappingKey]: dart.fnType(event.Event, []),
+    [_parseFlowSequenceEntryMappingValue]: dart.fnType(event.Event, []),
+    [_parseFlowSequenceEntryMappingEnd]: dart.fnType(event.Event, []),
+    [_parseFlowMappingKey]: dart.fnType(event.Event, [], {first: core.bool}, {}),
+    [_parseFlowMappingValue]: dart.fnType(event.Event, [], {empty: core.bool}, {}),
+    [_processEmptyScalar]: dart.fnType(event.Event, [location.SourceLocation]),
+    [_processDirectives]: dart.fnType(utils.Pair$(dart.nullable(yaml_document.VersionDirective), core.List$(yaml_document.TagDirective)), []),
+    [_appendTagDirective]: dart.fnType(dart.void, [yaml_document.TagDirective, file.FileSpan], {allowDuplicates: core.bool}, {})
+  }));
+  dart.setGetterSignature(parser.Parser, () => ({
+    __proto__: dart.getGetters(parser.Parser.__proto__),
+    isDone: core.bool
+  }));
+  dart.setLibraryUri(parser.Parser, I[1]);
+  dart.setFieldSignature(parser.Parser, () => ({
+    __proto__: dart.getFields(parser.Parser.__proto__),
+    [_scanner]: dart.finalFieldType(scanner.Scanner),
+    [_states]: dart.finalFieldType(core.List$(parser._State)),
+    [_state]: dart.fieldType(parser._State),
+    [_tagDirectives]: dart.finalFieldType(core.Map$(core.String, yaml_document.TagDirective))
+  }));
+  const name$ = _State_name;
+  parser._State = class _State extends core.Object {
+    get name() {
+      return this[name$];
+    }
+    set name(value) {
+      super.name = value;
+    }
+    toString() {
+      return this.name;
+    }
+  };
+  (parser._State.new = function(name) {
+    if (name == null) dart.nullFailed(I[0], 798, 21, "name");
+    this[name$] = name;
+    ;
+  }).prototype = parser._State.prototype;
+  dart.addTypeTests(parser._State);
+  dart.addTypeCaches(parser._State);
+  dart.setLibraryUri(parser._State, I[1]);
+  dart.setFieldSignature(parser._State, () => ({
+    __proto__: dart.getFields(parser._State.__proto__),
+    name: dart.finalFieldType(core.String)
+  }));
+  dart.defineExtensionMethods(parser._State, ['toString']);
+  dart.defineLazy(parser._State, {
+    /*parser._State.STREAM_START*/get STREAM_START() {
+      return C[0] || CT.C0;
+    },
+    /*parser._State.DOCUMENT_START*/get DOCUMENT_START() {
+      return C[1] || CT.C1;
+    },
+    /*parser._State.DOCUMENT_CONTENT*/get DOCUMENT_CONTENT() {
+      return C[2] || CT.C2;
+    },
+    /*parser._State.DOCUMENT_END*/get DOCUMENT_END() {
+      return C[3] || CT.C3;
+    },
+    /*parser._State.BLOCK_NODE*/get BLOCK_NODE() {
+      return C[4] || CT.C4;
+    },
+    /*parser._State.BLOCK_NODE_OR_INDENTLESS_SEQUENCE*/get BLOCK_NODE_OR_INDENTLESS_SEQUENCE() {
+      return C[5] || CT.C5;
+    },
+    /*parser._State.FLOW_NODE*/get FLOW_NODE() {
+      return C[6] || CT.C6;
+    },
+    /*parser._State.BLOCK_SEQUENCE_FIRST_ENTRY*/get BLOCK_SEQUENCE_FIRST_ENTRY() {
+      return C[7] || CT.C7;
+    },
+    /*parser._State.BLOCK_SEQUENCE_ENTRY*/get BLOCK_SEQUENCE_ENTRY() {
+      return C[8] || CT.C8;
+    },
+    /*parser._State.INDENTLESS_SEQUENCE_ENTRY*/get INDENTLESS_SEQUENCE_ENTRY() {
+      return C[9] || CT.C9;
+    },
+    /*parser._State.BLOCK_MAPPING_FIRST_KEY*/get BLOCK_MAPPING_FIRST_KEY() {
+      return C[10] || CT.C10;
+    },
+    /*parser._State.BLOCK_MAPPING_KEY*/get BLOCK_MAPPING_KEY() {
+      return C[11] || CT.C11;
+    },
+    /*parser._State.BLOCK_MAPPING_VALUE*/get BLOCK_MAPPING_VALUE() {
+      return C[12] || CT.C12;
+    },
+    /*parser._State.FLOW_SEQUENCE_FIRST_ENTRY*/get FLOW_SEQUENCE_FIRST_ENTRY() {
+      return C[13] || CT.C13;
+    },
+    /*parser._State.FLOW_SEQUENCE_ENTRY*/get FLOW_SEQUENCE_ENTRY() {
+      return C[14] || CT.C14;
+    },
+    /*parser._State.FLOW_SEQUENCE_ENTRY_MAPPING_KEY*/get FLOW_SEQUENCE_ENTRY_MAPPING_KEY() {
+      return C[15] || CT.C15;
+    },
+    /*parser._State.FLOW_SEQUENCE_ENTRY_MAPPING_VALUE*/get FLOW_SEQUENCE_ENTRY_MAPPING_VALUE() {
+      return C[16] || CT.C16;
+    },
+    /*parser._State.FLOW_SEQUENCE_ENTRY_MAPPING_END*/get FLOW_SEQUENCE_ENTRY_MAPPING_END() {
+      return C[17] || CT.C17;
+    },
+    /*parser._State.FLOW_MAPPING_FIRST_KEY*/get FLOW_MAPPING_FIRST_KEY() {
+      return C[18] || CT.C18;
+    },
+    /*parser._State.FLOW_MAPPING_KEY*/get FLOW_MAPPING_KEY() {
+      return C[19] || CT.C19;
+    },
+    /*parser._State.FLOW_MAPPING_VALUE*/get FLOW_MAPPING_VALUE() {
+      return C[20] || CT.C20;
+    },
+    /*parser._State.FLOW_MAPPING_EMPTY_VALUE*/get FLOW_MAPPING_EMPTY_VALUE() {
+      return C[21] || CT.C21;
+    },
+    /*parser._State.END*/get END() {
+      return C[27] || CT.C27;
+    }
+  }, false);
+  dart.trackLibraries("packages/yaml/src/parser.dart", {
+    "package:yaml/src/parser.dart": parser
+  }, {
+  }, '{"version":3,"sourceRoot":"","sources":["parser.dart"],"names":[],"mappings":"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","file":"../../../../../../../../O:/packages/yaml/src/parser.dart.lib.js"}');
+  // Exports:
+  return {
+    src__parser: parser
+  };
+}));
+
+//# sourceMappingURL=parser.dart.lib.js.map

@@ -1,0 +1,559 @@
+define(['dart_sdk', 'packages/source_span/src/location_mixin.dart', 'packages/yaml/src/style.dart'], (function load__packages__yaml__src__token_dart(dart_sdk, packages__source_span__src__location_mixin$46dart, packages__yaml__src__style$46dart) {
+  'use strict';
+  const core = dart_sdk.core;
+  const dart = dart_sdk.dart;
+  const dartx = dart_sdk.dartx;
+  const file = packages__source_span__src__location_mixin$46dart.src__file;
+  const style = packages__yaml__src__style$46dart.src__style;
+  var token = Object.create(dart.library);
+  dart._checkModuleNullSafetyMode(false);
+  var T = {
+    TokenTypeL: () => (T.TokenTypeL = dart.constFn(dart.legacy(token.TokenType)))()
+  };
+  const CT = Object.create({
+    _: () => (C, CT)
+  });
+  dart.defineLazy(CT, {
+    get C0() {
+      return C[0] = dart.const({
+        __proto__: token.TokenType.prototype,
+        [_name$]: "TokenType.streamStart",
+        index: 0
+      });
+    },
+    get C1() {
+      return C[1] = dart.const({
+        __proto__: token.TokenType.prototype,
+        [_name$]: "TokenType.streamEnd",
+        index: 1
+      });
+    },
+    get C2() {
+      return C[2] = dart.const({
+        __proto__: token.TokenType.prototype,
+        [_name$]: "TokenType.versionDirective",
+        index: 2
+      });
+    },
+    get C3() {
+      return C[3] = dart.const({
+        __proto__: token.TokenType.prototype,
+        [_name$]: "TokenType.tagDirective",
+        index: 3
+      });
+    },
+    get C4() {
+      return C[4] = dart.const({
+        __proto__: token.TokenType.prototype,
+        [_name$]: "TokenType.documentStart",
+        index: 4
+      });
+    },
+    get C5() {
+      return C[5] = dart.const({
+        __proto__: token.TokenType.prototype,
+        [_name$]: "TokenType.documentEnd",
+        index: 5
+      });
+    },
+    get C6() {
+      return C[6] = dart.const({
+        __proto__: token.TokenType.prototype,
+        [_name$]: "TokenType.blockSequenceStart",
+        index: 6
+      });
+    },
+    get C7() {
+      return C[7] = dart.const({
+        __proto__: token.TokenType.prototype,
+        [_name$]: "TokenType.blockMappingStart",
+        index: 7
+      });
+    },
+    get C8() {
+      return C[8] = dart.const({
+        __proto__: token.TokenType.prototype,
+        [_name$]: "TokenType.blockEnd",
+        index: 8
+      });
+    },
+    get C9() {
+      return C[9] = dart.const({
+        __proto__: token.TokenType.prototype,
+        [_name$]: "TokenType.flowSequenceStart",
+        index: 9
+      });
+    },
+    get C10() {
+      return C[10] = dart.const({
+        __proto__: token.TokenType.prototype,
+        [_name$]: "TokenType.flowSequenceEnd",
+        index: 10
+      });
+    },
+    get C11() {
+      return C[11] = dart.const({
+        __proto__: token.TokenType.prototype,
+        [_name$]: "TokenType.flowMappingStart",
+        index: 11
+      });
+    },
+    get C12() {
+      return C[12] = dart.const({
+        __proto__: token.TokenType.prototype,
+        [_name$]: "TokenType.flowMappingEnd",
+        index: 12
+      });
+    },
+    get C13() {
+      return C[13] = dart.const({
+        __proto__: token.TokenType.prototype,
+        [_name$]: "TokenType.blockEntry",
+        index: 13
+      });
+    },
+    get C14() {
+      return C[14] = dart.const({
+        __proto__: token.TokenType.prototype,
+        [_name$]: "TokenType.flowEntry",
+        index: 14
+      });
+    },
+    get C15() {
+      return C[15] = dart.const({
+        __proto__: token.TokenType.prototype,
+        [_name$]: "TokenType.key",
+        index: 15
+      });
+    },
+    get C16() {
+      return C[16] = dart.const({
+        __proto__: token.TokenType.prototype,
+        [_name$]: "TokenType.value",
+        index: 16
+      });
+    },
+    get C17() {
+      return C[17] = dart.const({
+        __proto__: token.TokenType.prototype,
+        [_name$]: "TokenType.alias",
+        index: 17
+      });
+    },
+    get C18() {
+      return C[18] = dart.const({
+        __proto__: token.TokenType.prototype,
+        [_name$]: "TokenType.anchor",
+        index: 18
+      });
+    },
+    get C19() {
+      return C[19] = dart.const({
+        __proto__: token.TokenType.prototype,
+        [_name$]: "TokenType.tag",
+        index: 19
+      });
+    },
+    get C20() {
+      return C[20] = dart.const({
+        __proto__: token.TokenType.prototype,
+        [_name$]: "TokenType.scalar",
+        index: 20
+      });
+    },
+    get C21() {
+      return C[21] = dart.constList([C[0] || CT.C0, C[1] || CT.C1, C[2] || CT.C2, C[3] || CT.C3, C[4] || CT.C4, C[5] || CT.C5, C[6] || CT.C6, C[7] || CT.C7, C[8] || CT.C8, C[9] || CT.C9, C[10] || CT.C10, C[11] || CT.C11, C[12] || CT.C12, C[13] || CT.C13, C[14] || CT.C14, C[15] || CT.C15, C[16] || CT.C16, C[17] || CT.C17, C[18] || CT.C18, C[19] || CT.C19, C[20] || CT.C20], T.TokenTypeL());
+    }
+  }, false);
+  var C = Array(22).fill(void 0);
+  var I = [
+    "file:///d:/flutter/.pub-cache/hosted/pub.flutter-io.cn/yaml-3.1.0/lib/src/token.dart",
+    "package:yaml/src/token.dart"
+  ];
+  var type$ = dart.privateName(token, "Token.type");
+  var span$ = dart.privateName(token, "Token.span");
+  token.Token = class Token extends core.Object {
+    get type() {
+      return this[type$];
+    }
+    set type(value) {
+      super.type = value;
+    }
+    get span() {
+      return this[span$];
+    }
+    set span(value) {
+      super.span = value;
+    }
+    toString() {
+      return dart.toString(this.type);
+    }
+  };
+  (token.Token.new = function(type, span) {
+    if (type == null) dart.nullFailed(I[0], 14, 14, "type");
+    if (span == null) dart.nullFailed(I[0], 14, 25, "span");
+    this[type$] = type;
+    this[span$] = span;
+    ;
+  }).prototype = token.Token.prototype;
+  dart.addTypeTests(token.Token);
+  dart.addTypeCaches(token.Token);
+  dart.setLibraryUri(token.Token, I[1]);
+  dart.setFieldSignature(token.Token, () => ({
+    __proto__: dart.getFields(token.Token.__proto__),
+    type: dart.finalFieldType(token.TokenType),
+    span: dart.finalFieldType(file.FileSpan)
+  }));
+  dart.defineExtensionMethods(token.Token, ['toString']);
+  var span$0 = dart.privateName(token, "VersionDirectiveToken.span");
+  var major$ = dart.privateName(token, "VersionDirectiveToken.major");
+  var minor$ = dart.privateName(token, "VersionDirectiveToken.minor");
+  token.VersionDirectiveToken = class VersionDirectiveToken extends core.Object {
+    get span() {
+      return this[span$0];
+    }
+    set span(value) {
+      super.span = value;
+    }
+    get major() {
+      return this[major$];
+    }
+    set major(value) {
+      super.major = value;
+    }
+    get minor() {
+      return this[minor$];
+    }
+    set minor(value) {
+      super.minor = value;
+    }
+    get type() {
+      return token.TokenType.versionDirective;
+    }
+    toString() {
+      return "VERSION_DIRECTIVE " + dart.str(this.major) + "." + dart.str(this.minor);
+    }
+  };
+  (token.VersionDirectiveToken.new = function(span, major, minor) {
+    if (span == null) dart.nullFailed(I[0], 33, 30, "span");
+    if (major == null) dart.nullFailed(I[0], 33, 41, "major");
+    if (minor == null) dart.nullFailed(I[0], 33, 53, "minor");
+    this[span$0] = span;
+    this[major$] = major;
+    this[minor$] = minor;
+    ;
+  }).prototype = token.VersionDirectiveToken.prototype;
+  dart.addTypeTests(token.VersionDirectiveToken);
+  dart.addTypeCaches(token.VersionDirectiveToken);
+  token.VersionDirectiveToken[dart.implements] = () => [token.Token];
+  dart.setGetterSignature(token.VersionDirectiveToken, () => ({
+    __proto__: dart.getGetters(token.VersionDirectiveToken.__proto__),
+    type: token.TokenType
+  }));
+  dart.setLibraryUri(token.VersionDirectiveToken, I[1]);
+  dart.setFieldSignature(token.VersionDirectiveToken, () => ({
+    __proto__: dart.getFields(token.VersionDirectiveToken.__proto__),
+    span: dart.finalFieldType(file.FileSpan),
+    major: dart.finalFieldType(core.int),
+    minor: dart.finalFieldType(core.int)
+  }));
+  dart.defineExtensionMethods(token.VersionDirectiveToken, ['toString']);
+  var span$1 = dart.privateName(token, "TagDirectiveToken.span");
+  var handle$ = dart.privateName(token, "TagDirectiveToken.handle");
+  var prefix$ = dart.privateName(token, "TagDirectiveToken.prefix");
+  token.TagDirectiveToken = class TagDirectiveToken extends core.Object {
+    get span() {
+      return this[span$1];
+    }
+    set span(value) {
+      super.span = value;
+    }
+    get handle() {
+      return this[handle$];
+    }
+    set handle(value) {
+      super.handle = value;
+    }
+    get prefix() {
+      return this[prefix$];
+    }
+    set prefix(value) {
+      super.prefix = value;
+    }
+    get type() {
+      return token.TokenType.tagDirective;
+    }
+    toString() {
+      return "TAG_DIRECTIVE " + dart.str(this.handle) + " " + dart.str(this.prefix);
+    }
+  };
+  (token.TagDirectiveToken.new = function(span, handle, prefix) {
+    if (span == null) dart.nullFailed(I[0], 52, 26, "span");
+    if (handle == null) dart.nullFailed(I[0], 52, 37, "handle");
+    if (prefix == null) dart.nullFailed(I[0], 52, 50, "prefix");
+    this[span$1] = span;
+    this[handle$] = handle;
+    this[prefix$] = prefix;
+    ;
+  }).prototype = token.TagDirectiveToken.prototype;
+  dart.addTypeTests(token.TagDirectiveToken);
+  dart.addTypeCaches(token.TagDirectiveToken);
+  token.TagDirectiveToken[dart.implements] = () => [token.Token];
+  dart.setGetterSignature(token.TagDirectiveToken, () => ({
+    __proto__: dart.getGetters(token.TagDirectiveToken.__proto__),
+    type: token.TokenType
+  }));
+  dart.setLibraryUri(token.TagDirectiveToken, I[1]);
+  dart.setFieldSignature(token.TagDirectiveToken, () => ({
+    __proto__: dart.getFields(token.TagDirectiveToken.__proto__),
+    span: dart.finalFieldType(file.FileSpan),
+    handle: dart.finalFieldType(core.String),
+    prefix: dart.finalFieldType(core.String)
+  }));
+  dart.defineExtensionMethods(token.TagDirectiveToken, ['toString']);
+  var span$2 = dart.privateName(token, "AnchorToken.span");
+  var name$ = dart.privateName(token, "AnchorToken.name");
+  token.AnchorToken = class AnchorToken extends core.Object {
+    get span() {
+      return this[span$2];
+    }
+    set span(value) {
+      super.span = value;
+    }
+    get name() {
+      return this[name$];
+    }
+    set name(value) {
+      super.name = value;
+    }
+    get type() {
+      return token.TokenType.anchor;
+    }
+    toString() {
+      return "ANCHOR " + dart.str(this.name);
+    }
+  };
+  (token.AnchorToken.new = function(span, name) {
+    if (span == null) dart.nullFailed(I[0], 67, 20, "span");
+    if (name == null) dart.nullFailed(I[0], 67, 31, "name");
+    this[span$2] = span;
+    this[name$] = name;
+    ;
+  }).prototype = token.AnchorToken.prototype;
+  dart.addTypeTests(token.AnchorToken);
+  dart.addTypeCaches(token.AnchorToken);
+  token.AnchorToken[dart.implements] = () => [token.Token];
+  dart.setGetterSignature(token.AnchorToken, () => ({
+    __proto__: dart.getGetters(token.AnchorToken.__proto__),
+    type: token.TokenType
+  }));
+  dart.setLibraryUri(token.AnchorToken, I[1]);
+  dart.setFieldSignature(token.AnchorToken, () => ({
+    __proto__: dart.getFields(token.AnchorToken.__proto__),
+    span: dart.finalFieldType(file.FileSpan),
+    name: dart.finalFieldType(core.String)
+  }));
+  dart.defineExtensionMethods(token.AnchorToken, ['toString']);
+  var span$3 = dart.privateName(token, "AliasToken.span");
+  var name$0 = dart.privateName(token, "AliasToken.name");
+  token.AliasToken = class AliasToken extends core.Object {
+    get span() {
+      return this[span$3];
+    }
+    set span(value) {
+      super.span = value;
+    }
+    get name() {
+      return this[name$0];
+    }
+    set name(value) {
+      super.name = value;
+    }
+    get type() {
+      return token.TokenType.alias;
+    }
+    toString() {
+      return "ALIAS " + dart.str(this.name);
+    }
+  };
+  (token.AliasToken.new = function(span, name) {
+    if (span == null) dart.nullFailed(I[0], 82, 19, "span");
+    if (name == null) dart.nullFailed(I[0], 82, 30, "name");
+    this[span$3] = span;
+    this[name$0] = name;
+    ;
+  }).prototype = token.AliasToken.prototype;
+  dart.addTypeTests(token.AliasToken);
+  dart.addTypeCaches(token.AliasToken);
+  token.AliasToken[dart.implements] = () => [token.Token];
+  dart.setGetterSignature(token.AliasToken, () => ({
+    __proto__: dart.getGetters(token.AliasToken.__proto__),
+    type: token.TokenType
+  }));
+  dart.setLibraryUri(token.AliasToken, I[1]);
+  dart.setFieldSignature(token.AliasToken, () => ({
+    __proto__: dart.getFields(token.AliasToken.__proto__),
+    span: dart.finalFieldType(file.FileSpan),
+    name: dart.finalFieldType(core.String)
+  }));
+  dart.defineExtensionMethods(token.AliasToken, ['toString']);
+  var span$4 = dart.privateName(token, "TagToken.span");
+  var handle$0 = dart.privateName(token, "TagToken.handle");
+  var suffix$ = dart.privateName(token, "TagToken.suffix");
+  token.TagToken = class TagToken extends core.Object {
+    get span() {
+      return this[span$4];
+    }
+    set span(value) {
+      super.span = value;
+    }
+    get handle() {
+      return this[handle$0];
+    }
+    set handle(value) {
+      super.handle = value;
+    }
+    get suffix() {
+      return this[suffix$];
+    }
+    set suffix(value) {
+      super.suffix = value;
+    }
+    get type() {
+      return token.TokenType.tag;
+    }
+    toString() {
+      return "TAG " + dart.str(this.handle) + " " + dart.str(this.suffix);
+    }
+  };
+  (token.TagToken.new = function(span, handle, suffix) {
+    if (span == null) dart.nullFailed(I[0], 101, 17, "span");
+    if (suffix == null) dart.nullFailed(I[0], 101, 41, "suffix");
+    this[span$4] = span;
+    this[handle$0] = handle;
+    this[suffix$] = suffix;
+    ;
+  }).prototype = token.TagToken.prototype;
+  dart.addTypeTests(token.TagToken);
+  dart.addTypeCaches(token.TagToken);
+  token.TagToken[dart.implements] = () => [token.Token];
+  dart.setGetterSignature(token.TagToken, () => ({
+    __proto__: dart.getGetters(token.TagToken.__proto__),
+    type: token.TokenType
+  }));
+  dart.setLibraryUri(token.TagToken, I[1]);
+  dart.setFieldSignature(token.TagToken, () => ({
+    __proto__: dart.getFields(token.TagToken.__proto__),
+    span: dart.finalFieldType(file.FileSpan),
+    handle: dart.finalFieldType(dart.nullable(core.String)),
+    suffix: dart.finalFieldType(core.String)
+  }));
+  dart.defineExtensionMethods(token.TagToken, ['toString']);
+  var span$5 = dart.privateName(token, "ScalarToken.span");
+  var value$ = dart.privateName(token, "ScalarToken.value");
+  var style$ = dart.privateName(token, "ScalarToken.style");
+  token.ScalarToken = class ScalarToken extends core.Object {
+    get span() {
+      return this[span$5];
+    }
+    set span(value) {
+      super.span = value;
+    }
+    get value() {
+      return this[value$];
+    }
+    set value(value) {
+      super.value = value;
+    }
+    get style() {
+      return this[style$];
+    }
+    set style(value) {
+      super.style = value;
+    }
+    get type() {
+      return token.TokenType.scalar;
+    }
+    toString() {
+      return "SCALAR " + dart.str(this.style) + " \"" + dart.str(this.value) + "\"";
+    }
+  };
+  (token.ScalarToken.new = function(span, value, style) {
+    if (span == null) dart.nullFailed(I[0], 120, 20, "span");
+    if (value == null) dart.nullFailed(I[0], 120, 31, "value");
+    if (style == null) dart.nullFailed(I[0], 120, 43, "style");
+    this[span$5] = span;
+    this[value$] = value;
+    this[style$] = style;
+    ;
+  }).prototype = token.ScalarToken.prototype;
+  dart.addTypeTests(token.ScalarToken);
+  dart.addTypeCaches(token.ScalarToken);
+  token.ScalarToken[dart.implements] = () => [token.Token];
+  dart.setGetterSignature(token.ScalarToken, () => ({
+    __proto__: dart.getGetters(token.ScalarToken.__proto__),
+    type: token.TokenType
+  }));
+  dart.setLibraryUri(token.ScalarToken, I[1]);
+  dart.setFieldSignature(token.ScalarToken, () => ({
+    __proto__: dart.getFields(token.ScalarToken.__proto__),
+    span: dart.finalFieldType(file.FileSpan),
+    value: dart.finalFieldType(core.String),
+    style: dart.finalFieldType(style.ScalarStyle)
+  }));
+  dart.defineExtensionMethods(token.ScalarToken, ['toString']);
+  var _name$ = dart.privateName(token, "_name");
+  token.TokenType = class TokenType extends core.Object {
+    toString() {
+      return this[_name$];
+    }
+  };
+  (token.TokenType.new = function(index, _name) {
+    if (index == null) dart.nullFailed(I[0], 127, 6, "index");
+    if (_name == null) dart.nullFailed(I[0], 127, 6, "_name");
+    this.index = index;
+    this[_name$] = _name;
+    ;
+  }).prototype = token.TokenType.prototype;
+  dart.addTypeTests(token.TokenType);
+  dart.addTypeCaches(token.TokenType);
+  dart.setLibraryUri(token.TokenType, I[1]);
+  dart.setFieldSignature(token.TokenType, () => ({
+    __proto__: dart.getFields(token.TokenType.__proto__),
+    index: dart.finalFieldType(core.int),
+    [_name$]: dart.finalFieldType(core.String)
+  }));
+  dart.defineExtensionMethods(token.TokenType, ['toString']);
+  token.TokenType.streamStart = C[0] || CT.C0;
+  token.TokenType.streamEnd = C[1] || CT.C1;
+  token.TokenType.versionDirective = C[2] || CT.C2;
+  token.TokenType.tagDirective = C[3] || CT.C3;
+  token.TokenType.documentStart = C[4] || CT.C4;
+  token.TokenType.documentEnd = C[5] || CT.C5;
+  token.TokenType.blockSequenceStart = C[6] || CT.C6;
+  token.TokenType.blockMappingStart = C[7] || CT.C7;
+  token.TokenType.blockEnd = C[8] || CT.C8;
+  token.TokenType.flowSequenceStart = C[9] || CT.C9;
+  token.TokenType.flowSequenceEnd = C[10] || CT.C10;
+  token.TokenType.flowMappingStart = C[11] || CT.C11;
+  token.TokenType.flowMappingEnd = C[12] || CT.C12;
+  token.TokenType.blockEntry = C[13] || CT.C13;
+  token.TokenType.flowEntry = C[14] || CT.C14;
+  token.TokenType.key = C[15] || CT.C15;
+  token.TokenType.value = C[16] || CT.C16;
+  token.TokenType.alias = C[17] || CT.C17;
+  token.TokenType.anchor = C[18] || CT.C18;
+  token.TokenType.tag = C[19] || CT.C19;
+  token.TokenType.scalar = C[20] || CT.C20;
+  token.TokenType.values = C[21] || CT.C21;
+  dart.trackLibraries("packages/yaml/src/token.dart", {
+    "package:yaml/src/token.dart": token
+  }, {
+  }, '{"version":3,"sourceRoot":"","sources":["token.dart"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;IAUkB;;;;;;IACD;;;;;;;AAKM,YAAK,eAAL;IAAe;;8BAHzB,MAAW;QAAX;QAAW;IAAX;IAAW;;EAAK;;;;;;;;;;;;;;IAWZ;;;;;;IAGL;;;;;;IAGA;;;;;;;AARY,YAAU;IAAgB;;AAa3B,YAAA,AAAiC,iCAAb,cAAK,eAAE;IAAM;;8CAH3B,MAAW,OAAY;QAAvB;QAAW;QAAY;IAAvB;IAAW;IAAY;;EAAM;;;;;;;;;;;;;;;;;;;;IAWzC;;;;;;IAGF;;;;;;IAGA;;;;;;;AARS,YAAU;IAAY;;AAavB,YAAA,AAA+B,6BAAf,eAAM,eAAE;IAAO;;0CAH7B,MAAW,QAAa;QAAxB;QAAW;QAAa;IAAxB;IAAW;IAAa;;EAAO;;;;;;;;;;;;;;;;;;;IAWvC;;;;;;IAEF;;;;;;;AAJS,YAAU;IAAM;;AASjB,YAAA,AAAc,sBAAL;IAAK;;oCAHlB,MAAW;QAAX;QAAW;IAAX;IAAW;;EAAK;;;;;;;;;;;;;;;;;;IAWlB;;;;;;IAEF;;;;;;;AAJS,YAAU;IAAK;;AAShB,YAAA,AAAa,qBAAL;IAAK;;mCAHlB,MAAW;QAAX;QAAW;IAAX;IAAW;;EAAK;;;;;;;;;;;;;;;;;;;IAWjB;;;;;;IAGD;;;;;;IAGD;;;;;;;AARS,YAAU;IAAG;;AAad,YAAA,AAAqB,mBAAf,eAAM,eAAE;IAAO;;iCAH5B,MAAW,QAAa;QAAxB;QAAwB;IAAxB;IAAW;IAAa;;EAAO;;;;;;;;;;;;;;;;;;;;IAW9B;;;;;;IAGF;;;;;;IAGK;;;;;;;AARI,YAAU;IAAM;;AAajB,YAAA,AAAwB,sBAAf,cAAK,iBAAG,cAAK;IAAE;;oCAH5B,MAAW,OAAY;QAAvB;QAAW;QAAY;IAAvB;IAAW;IAAY;;EAAM;;;;;;;;;;;;;;;;;;;;IAkChD;;;QA3BK;;;;;EA2BL","file":"../../../../../../../../O:/packages/yaml/src/token.dart.lib.js"}');
+  // Exports:
+  return {
+    src__token: token
+  };
+}));
+
+//# sourceMappingURL=token.dart.lib.js.map

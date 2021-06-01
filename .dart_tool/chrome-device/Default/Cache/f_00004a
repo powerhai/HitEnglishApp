@@ -1,0 +1,700 @@
+define(['dart_sdk', 'packages/english_teacher_app/domain/enum_difination.dart'], (function load__packages__english_teacher_app__models__server_models_dart(dart_sdk, packages__english_teacher_app__domain__enum_difination$46dart) {
+  'use strict';
+  const core = dart_sdk.core;
+  const _interceptors = dart_sdk._interceptors;
+  const dart = dart_sdk.dart;
+  const dartx = dart_sdk.dartx;
+  const enum_difination = packages__english_teacher_app__domain__enum_difination$46dart.domain__enum_difination;
+  var server_models = Object.create(dart.library);
+  var $_get = dartx._get;
+  var $toString = dartx.toString;
+  var $map = dartx.map;
+  var $toList = dartx.toList;
+  var $add = dartx.add;
+  dart._checkModuleNullSafetyMode(false);
+  var T = {
+    StringL: () => (T.StringL = dart.constFn(dart.legacy(core.String)))(),
+    intL: () => (T.intL = dart.constFn(dart.legacy(core.int)))(),
+    ListL: () => (T.ListL = dart.constFn(dart.legacy(core.List)))(),
+    WordPracticeSerModelL: () => (T.WordPracticeSerModelL = dart.constFn(dart.legacy(server_models.WordPracticeSerModel)))(),
+    MapOfStringL$dynamic: () => (T.MapOfStringL$dynamic = dart.constFn(core.Map$(T.StringL(), dart.dynamic)))(),
+    MapLOfStringL$dynamic: () => (T.MapLOfStringL$dynamic = dart.constFn(dart.legacy(T.MapOfStringL$dynamic())))(),
+    dynamicToWordPracticeSerModelL: () => (T.dynamicToWordPracticeSerModelL = dart.constFn(dart.fnType(T.WordPracticeSerModelL(), [dart.dynamic])))(),
+    JSArrayOfStringL: () => (T.JSArrayOfStringL = dart.constFn(_interceptors.JSArray$(T.StringL())))(),
+    doubleL: () => (T.doubleL = dart.constFn(dart.legacy(core.double)))(),
+    SentenceSerModelL: () => (T.SentenceSerModelL = dart.constFn(dart.legacy(server_models.SentenceSerModel)))(),
+    dynamicToSentenceSerModelL: () => (T.dynamicToSentenceSerModelL = dart.constFn(dart.fnType(T.SentenceSerModelL(), [dart.dynamic])))(),
+    WordSerPartL: () => (T.WordSerPartL = dart.constFn(dart.legacy(server_models.WordSerPart)))(),
+    dynamicToWordSerPartL: () => (T.dynamicToWordSerPartL = dart.constFn(dart.fnType(T.WordSerPartL(), [dart.dynamic])))()
+  };
+  const CT = Object.create({
+    _: () => (C, CT)
+  });
+  var I = ["package:english_teacher_app/models/server_models.dart"];
+  var id$ = dart.privateName(server_models, "UserSerModel.id");
+  var userName$ = dart.privateName(server_models, "UserSerModel.userName");
+  var name$ = dart.privateName(server_models, "UserSerModel.name");
+  var sex$ = dart.privateName(server_models, "UserSerModel.sex");
+  var school$ = dart.privateName(server_models, "UserSerModel.school");
+  var birthday$ = dart.privateName(server_models, "UserSerModel.birthday");
+  var grade$ = dart.privateName(server_models, "UserSerModel.grade");
+  var publisherId$ = dart.privateName(server_models, "UserSerModel.publisherId");
+  server_models.UserSerModel = class UserSerModel extends core.Object {
+    get id() {
+      return this[id$];
+    }
+    set id(value) {
+      this[id$] = value;
+    }
+    get userName() {
+      return this[userName$];
+    }
+    set userName(value) {
+      this[userName$] = value;
+    }
+    get name() {
+      return this[name$];
+    }
+    set name(value) {
+      this[name$] = value;
+    }
+    get sex() {
+      return this[sex$];
+    }
+    set sex(value) {
+      this[sex$] = value;
+    }
+    get school() {
+      return this[school$];
+    }
+    set school(value) {
+      this[school$] = value;
+    }
+    get birthday() {
+      return this[birthday$];
+    }
+    set birthday(value) {
+      this[birthday$] = value;
+    }
+    get grade() {
+      return this[grade$];
+    }
+    set grade(value) {
+      this[grade$] = value;
+    }
+    get publisherId() {
+      return this[publisherId$];
+    }
+    set publisherId(value) {
+      this[publisherId$] = value;
+    }
+    static fromJson(json) {
+      return new server_models.UserSerModel.new({id: T.StringL().as(json[$_get]("id")), name: T.StringL().as(json[$_get]("name")), userName: T.StringL().as(json[$_get]("userName")), school: T.StringL().as(json[$_get]("school")), publisherId: T.StringL().as(json[$_get]("publisherId")), birthday: core.DateTime.parse(core.String.as(json[$_get]("birthday")))});
+    }
+  };
+  (server_models.UserSerModel.new = function(opts) {
+    let id = opts && 'id' in opts ? opts.id : null;
+    let userName = opts && 'userName' in opts ? opts.userName : null;
+    let name = opts && 'name' in opts ? opts.name : null;
+    let sex = opts && 'sex' in opts ? opts.sex : null;
+    let school = opts && 'school' in opts ? opts.school : null;
+    let birthday = opts && 'birthday' in opts ? opts.birthday : null;
+    let grade = opts && 'grade' in opts ? opts.grade : null;
+    let publisherId = opts && 'publisherId' in opts ? opts.publisherId : null;
+    this[id$] = id;
+    this[userName$] = userName;
+    this[name$] = name;
+    this[sex$] = sex;
+    this[school$] = school;
+    this[birthday$] = birthday;
+    this[grade$] = grade;
+    this[publisherId$] = publisherId;
+    ;
+  }).prototype = server_models.UserSerModel.prototype;
+  dart.addTypeTests(server_models.UserSerModel);
+  dart.addTypeCaches(server_models.UserSerModel);
+  dart.setLibraryUri(server_models.UserSerModel, I[0]);
+  dart.setFieldSignature(server_models.UserSerModel, () => ({
+    __proto__: dart.getFields(server_models.UserSerModel.__proto__),
+    id: dart.fieldType(dart.legacy(core.String)),
+    userName: dart.fieldType(dart.legacy(core.String)),
+    name: dart.fieldType(dart.legacy(core.String)),
+    sex: dart.fieldType(dart.legacy(enum_difination.Sex)),
+    school: dart.fieldType(dart.legacy(core.String)),
+    birthday: dart.fieldType(dart.legacy(core.DateTime)),
+    grade: dart.fieldType(dart.legacy(enum_difination.Grade)),
+    publisherId: dart.fieldType(dart.legacy(core.String))
+  }));
+  var id$0 = dart.privateName(server_models, "GradeSerModel.id");
+  var name$0 = dart.privateName(server_models, "GradeSerModel.name");
+  server_models.GradeSerModel = class GradeSerModel extends core.Object {
+    get id() {
+      return this[id$0];
+    }
+    set id(value) {
+      this[id$0] = value;
+    }
+    get name() {
+      return this[name$0];
+    }
+    set name(value) {
+      this[name$0] = value;
+    }
+    static fromJson(json) {
+      let model = new server_models.GradeSerModel.new({id: T.intL().as(json[$_get]("id")), name: T.StringL().as(json[$_get]("name"))});
+      return model;
+    }
+  };
+  (server_models.GradeSerModel.new = function(opts) {
+    let id = opts && 'id' in opts ? opts.id : null;
+    let name = opts && 'name' in opts ? opts.name : null;
+    this[id$0] = id;
+    this[name$0] = name;
+  }).prototype = server_models.GradeSerModel.prototype;
+  dart.addTypeTests(server_models.GradeSerModel);
+  dart.addTypeCaches(server_models.GradeSerModel);
+  dart.setLibraryUri(server_models.GradeSerModel, I[0]);
+  dart.setFieldSignature(server_models.GradeSerModel, () => ({
+    __proto__: dart.getFields(server_models.GradeSerModel.__proto__),
+    id: dart.fieldType(dart.legacy(core.int)),
+    name: dart.fieldType(dart.legacy(core.String))
+  }));
+  var id$1 = dart.privateName(server_models, "SexSerModel.id");
+  var name$1 = dart.privateName(server_models, "SexSerModel.name");
+  server_models.SexSerModel = class SexSerModel extends core.Object {
+    get id() {
+      return this[id$1];
+    }
+    set id(value) {
+      this[id$1] = value;
+    }
+    get name() {
+      return this[name$1];
+    }
+    set name(value) {
+      this[name$1] = value;
+    }
+    static fromJson(json) {
+      let model = new server_models.SexSerModel.new({id: T.intL().as(json[$_get]("id")), name: T.StringL().as(json[$_get]("name"))});
+      return model;
+    }
+  };
+  (server_models.SexSerModel.new = function(opts) {
+    let id = opts && 'id' in opts ? opts.id : null;
+    let name = opts && 'name' in opts ? opts.name : null;
+    this[id$1] = id;
+    this[name$1] = name;
+  }).prototype = server_models.SexSerModel.prototype;
+  dart.addTypeTests(server_models.SexSerModel);
+  dart.addTypeCaches(server_models.SexSerModel);
+  dart.setLibraryUri(server_models.SexSerModel, I[0]);
+  dart.setFieldSignature(server_models.SexSerModel, () => ({
+    __proto__: dart.getFields(server_models.SexSerModel.__proto__),
+    id: dart.fieldType(dart.legacy(core.int)),
+    name: dart.fieldType(dart.legacy(core.String))
+  }));
+  var id$2 = dart.privateName(server_models, "PublisherSerModel.id");
+  var name$2 = dart.privateName(server_models, "PublisherSerModel.name");
+  server_models.PublisherSerModel = class PublisherSerModel extends core.Object {
+    get id() {
+      return this[id$2];
+    }
+    set id(value) {
+      this[id$2] = value;
+    }
+    get name() {
+      return this[name$2];
+    }
+    set name(value) {
+      this[name$2] = value;
+    }
+    static fromJson(json) {
+      let model = new server_models.PublisherSerModel.new({id: T.StringL().as(json[$_get]("id")), name: T.StringL().as(json[$_get]("title"))});
+      return model;
+    }
+  };
+  (server_models.PublisherSerModel.new = function(opts) {
+    let id = opts && 'id' in opts ? opts.id : null;
+    let name = opts && 'name' in opts ? opts.name : null;
+    this[id$2] = id;
+    this[name$2] = name;
+  }).prototype = server_models.PublisherSerModel.prototype;
+  dart.addTypeTests(server_models.PublisherSerModel);
+  dart.addTypeCaches(server_models.PublisherSerModel);
+  dart.setLibraryUri(server_models.PublisherSerModel, I[0]);
+  dart.setFieldSignature(server_models.PublisherSerModel, () => ({
+    __proto__: dart.getFields(server_models.PublisherSerModel.__proto__),
+    id: dart.fieldType(dart.legacy(core.String)),
+    name: dart.fieldType(dart.legacy(core.String))
+  }));
+  var id$3 = dart.privateName(server_models, "PracticeLightSerModel.id");
+  var time$ = dart.privateName(server_models, "PracticeLightSerModel.time");
+  var correctRate$ = dart.privateName(server_models, "PracticeLightSerModel.correctRate");
+  var mins$ = dart.privateName(server_models, "PracticeLightSerModel.mins");
+  var wordCount$ = dart.privateName(server_models, "PracticeLightSerModel.wordCount");
+  server_models.PracticeLightSerModel = class PracticeLightSerModel extends core.Object {
+    get id() {
+      return this[id$3];
+    }
+    set id(value) {
+      this[id$3] = value;
+    }
+    get time() {
+      return this[time$];
+    }
+    set time(value) {
+      this[time$] = value;
+    }
+    get correctRate() {
+      return this[correctRate$];
+    }
+    set correctRate(value) {
+      this[correctRate$] = value;
+    }
+    get mins() {
+      return this[mins$];
+    }
+    set mins(value) {
+      this[mins$] = value;
+    }
+    get wordCount() {
+      return this[wordCount$];
+    }
+    set wordCount(value) {
+      this[wordCount$] = value;
+    }
+    static fromJson(json) {
+      let model = new server_models.PracticeLightSerModel.new({id: T.StringL().as(json[$_get]("id")), correctRate: core.double.parse(dart.toString(json[$_get]("correctRate"))), wordCount: T.intL().as(json[$_get]("wordCount")), mins: T.intL().as(json[$_get]("mins")), time: core.DateTime.parse(core.String.as(json[$_get]("time")))});
+      return model;
+    }
+  };
+  (server_models.PracticeLightSerModel.new = function(opts) {
+    let id = opts && 'id' in opts ? opts.id : null;
+    let time = opts && 'time' in opts ? opts.time : null;
+    let wordCount = opts && 'wordCount' in opts ? opts.wordCount : null;
+    let correctRate = opts && 'correctRate' in opts ? opts.correctRate : null;
+    let mins = opts && 'mins' in opts ? opts.mins : null;
+    this[id$3] = id;
+    this[time$] = time;
+    this[wordCount$] = wordCount;
+    this[correctRate$] = correctRate;
+    this[mins$] = mins;
+    ;
+  }).prototype = server_models.PracticeLightSerModel.prototype;
+  dart.addTypeTests(server_models.PracticeLightSerModel);
+  dart.addTypeCaches(server_models.PracticeLightSerModel);
+  dart.setLibraryUri(server_models.PracticeLightSerModel, I[0]);
+  dart.setFieldSignature(server_models.PracticeLightSerModel, () => ({
+    __proto__: dart.getFields(server_models.PracticeLightSerModel.__proto__),
+    id: dart.fieldType(dart.legacy(core.String)),
+    time: dart.fieldType(dart.legacy(core.DateTime)),
+    correctRate: dart.fieldType(dart.legacy(core.double)),
+    mins: dart.fieldType(dart.legacy(core.int)),
+    wordCount: dart.fieldType(dart.legacy(core.int))
+  }));
+  var english$ = dart.privateName(server_models, "WordPracticeSerModel.english");
+  var chinese$ = dart.privateName(server_models, "WordPracticeSerModel.chinese");
+  var errorCount$ = dart.privateName(server_models, "WordPracticeSerModel.errorCount");
+  server_models.WordPracticeSerModel = class WordPracticeSerModel extends core.Object {
+    get english() {
+      return this[english$];
+    }
+    set english(value) {
+      this[english$] = value;
+    }
+    get chinese() {
+      return this[chinese$];
+    }
+    set chinese(value) {
+      this[chinese$] = value;
+    }
+    get errorCount() {
+      return this[errorCount$];
+    }
+    set errorCount(value) {
+      this[errorCount$] = value;
+    }
+    static fromJson(json) {
+      let model = new server_models.WordPracticeSerModel.new({english: T.StringL().as(json[$_get]("word")), chinese: T.StringL().as(json[$_get]("chinese")), errorCount: T.intL().as(json[$_get]("errorCount"))});
+      return model;
+    }
+  };
+  (server_models.WordPracticeSerModel.new = function(opts) {
+    let english = opts && 'english' in opts ? opts.english : null;
+    let chinese = opts && 'chinese' in opts ? opts.chinese : null;
+    let errorCount = opts && 'errorCount' in opts ? opts.errorCount : null;
+    this[english$] = english;
+    this[chinese$] = chinese;
+    this[errorCount$] = errorCount;
+    ;
+  }).prototype = server_models.WordPracticeSerModel.prototype;
+  dart.addTypeTests(server_models.WordPracticeSerModel);
+  dart.addTypeCaches(server_models.WordPracticeSerModel);
+  dart.setLibraryUri(server_models.WordPracticeSerModel, I[0]);
+  dart.setFieldSignature(server_models.WordPracticeSerModel, () => ({
+    __proto__: dart.getFields(server_models.WordPracticeSerModel.__proto__),
+    english: dart.fieldType(dart.legacy(core.String)),
+    chinese: dart.fieldType(dart.legacy(core.String)),
+    errorCount: dart.fieldType(dart.legacy(core.int))
+  }));
+  var words$ = dart.privateName(server_models, "PracticeRichSerModel.words");
+  server_models.PracticeRichSerModel = class PracticeRichSerModel extends server_models.PracticeLightSerModel {
+    get words() {
+      return this[words$];
+    }
+    set words(value) {
+      this[words$] = value;
+    }
+    static fromJson(json) {
+      let model = new server_models.PracticeRichSerModel.new({id: T.StringL().as(json[$_get]("id")), correctRate: core.double.parse(dart.toString(json[$_get]("correctRate"))), wordCount: T.intL().as(json[$_get]("wordCount")), mins: T.intL().as(json[$_get]("mins")), time: core.DateTime.parse(core.String.as(json[$_get]("time")))});
+      if (json[$_get]("words") != null) {
+        let ws = T.ListL().as(json[$_get]("words"));
+        model.words = ws[$map](T.WordPracticeSerModelL(), dart.fn(e => server_models.WordPracticeSerModel.fromJson(T.MapLOfStringL$dynamic().as(e)), T.dynamicToWordPracticeSerModelL()))[$toList]();
+      }
+      return model;
+    }
+  };
+  (server_models.PracticeRichSerModel.new = function(opts) {
+    let id = opts && 'id' in opts ? opts.id : null;
+    let time = opts && 'time' in opts ? opts.time : null;
+    let wordCount = opts && 'wordCount' in opts ? opts.wordCount : null;
+    let correctRate = opts && 'correctRate' in opts ? opts.correctRate : null;
+    let mins = opts && 'mins' in opts ? opts.mins : null;
+    let words = opts && 'words' in opts ? opts.words : null;
+    this[words$] = words;
+    server_models.PracticeRichSerModel.__proto__.new.call(this, {id: id, time: time, wordCount: wordCount, correctRate: correctRate, mins: mins});
+    ;
+  }).prototype = server_models.PracticeRichSerModel.prototype;
+  dart.addTypeTests(server_models.PracticeRichSerModel);
+  dart.addTypeCaches(server_models.PracticeRichSerModel);
+  dart.setLibraryUri(server_models.PracticeRichSerModel, I[0]);
+  dart.setFieldSignature(server_models.PracticeRichSerModel, () => ({
+    __proto__: dart.getFields(server_models.PracticeRichSerModel.__proto__),
+    words: dart.fieldType(dart.legacy(core.List$(dart.legacy(server_models.WordPracticeSerModel))))
+  }));
+  var id$4 = dart.privateName(server_models, "PracticeArticleSerMoel.id");
+  var words$0 = dart.privateName(server_models, "PracticeArticleSerMoel.words");
+  server_models.PracticeArticleSerMoel = class PracticeArticleSerMoel extends core.Object {
+    get id() {
+      return this[id$4];
+    }
+    set id(value) {
+      this[id$4] = value;
+    }
+    get words() {
+      return this[words$0];
+    }
+    set words(value) {
+      this[words$0] = value;
+    }
+    static fromJson(json) {
+      let model = new server_models.PracticeArticleSerMoel.new({id: T.StringL().as(json[$_get]("id"))});
+      if (json[$_get]("words") != null) {
+        let ws = T.ListL().as(json[$_get]("words"));
+        model.words = T.JSArrayOfStringL().of([]);
+        for (let w of ws) {
+          model.words[$add](T.StringL().as(w));
+        }
+      }
+      return model;
+    }
+  };
+  (server_models.PracticeArticleSerMoel.new = function(opts) {
+    let id = opts && 'id' in opts ? opts.id : null;
+    let words = opts && 'words' in opts ? opts.words : null;
+    this[words$0] = T.JSArrayOfStringL().of([]);
+    this[id$4] = id;
+    this[words$0] = words;
+    ;
+  }).prototype = server_models.PracticeArticleSerMoel.prototype;
+  dart.addTypeTests(server_models.PracticeArticleSerMoel);
+  dart.addTypeCaches(server_models.PracticeArticleSerMoel);
+  dart.setLibraryUri(server_models.PracticeArticleSerMoel, I[0]);
+  dart.setFieldSignature(server_models.PracticeArticleSerMoel, () => ({
+    __proto__: dart.getFields(server_models.PracticeArticleSerMoel.__proto__),
+    id: dart.fieldType(dart.legacy(core.String)),
+    words: dart.fieldType(dart.legacy(core.List$(dart.legacy(core.String))))
+  }));
+  var minutes$ = dart.privateName(server_models, "PracticeSumSerModel.minutes");
+  var wordCount$0 = dart.privateName(server_models, "PracticeSumSerModel.wordCount");
+  var practiceCount$ = dart.privateName(server_models, "PracticeSumSerModel.practiceCount");
+  var lastPracticeCorrectRate$ = dart.privateName(server_models, "PracticeSumSerModel.lastPracticeCorrectRate");
+  server_models.PracticeSumSerModel = class PracticeSumSerModel extends core.Object {
+    get minutes() {
+      return this[minutes$];
+    }
+    set minutes(value) {
+      this[minutes$] = value;
+    }
+    get wordCount() {
+      return this[wordCount$0];
+    }
+    set wordCount(value) {
+      this[wordCount$0] = value;
+    }
+    get practiceCount() {
+      return this[practiceCount$];
+    }
+    set practiceCount(value) {
+      this[practiceCount$] = value;
+    }
+    get lastPracticeCorrectRate() {
+      return this[lastPracticeCorrectRate$];
+    }
+    set lastPracticeCorrectRate(value) {
+      this[lastPracticeCorrectRate$] = value;
+    }
+    static fromJson(json) {
+      let model = new server_models.PracticeSumSerModel.new({minutes: T.intL().as(json[$_get]("minutes")), wordCount: T.intL().as(json[$_get]("wordCount")), practiceCount: T.intL().as(json[$_get]("practiceCount")), lastPracticeCorrectRate: T.doubleL().as(json[$_get]("lastPracticeCorrectRate"))});
+      return model;
+    }
+  };
+  (server_models.PracticeSumSerModel.new = function(opts) {
+    let minutes = opts && 'minutes' in opts ? opts.minutes : null;
+    let wordCount = opts && 'wordCount' in opts ? opts.wordCount : null;
+    let practiceCount = opts && 'practiceCount' in opts ? opts.practiceCount : null;
+    let lastPracticeCorrectRate = opts && 'lastPracticeCorrectRate' in opts ? opts.lastPracticeCorrectRate : null;
+    this[minutes$] = 0;
+    this[wordCount$0] = 0;
+    this[practiceCount$] = 0;
+    this[lastPracticeCorrectRate$] = 0.0;
+    this[minutes$] = minutes;
+    this[wordCount$0] = wordCount;
+    this[practiceCount$] = practiceCount;
+    this[lastPracticeCorrectRate$] = lastPracticeCorrectRate;
+    ;
+  }).prototype = server_models.PracticeSumSerModel.prototype;
+  dart.addTypeTests(server_models.PracticeSumSerModel);
+  dart.addTypeCaches(server_models.PracticeSumSerModel);
+  dart.setLibraryUri(server_models.PracticeSumSerModel, I[0]);
+  dart.setFieldSignature(server_models.PracticeSumSerModel, () => ({
+    __proto__: dart.getFields(server_models.PracticeSumSerModel.__proto__),
+    minutes: dart.fieldType(dart.legacy(core.int)),
+    wordCount: dart.fieldType(dart.legacy(core.int)),
+    practiceCount: dart.fieldType(dart.legacy(core.int)),
+    lastPracticeCorrectRate: dart.fieldType(dart.legacy(core.double))
+  }));
+  var title$ = dart.privateName(server_models, "TextSerModel.title");
+  var body$ = dart.privateName(server_models, "TextSerModel.body");
+  server_models.TextSerModel = class TextSerModel extends core.Object {
+    get title() {
+      return this[title$];
+    }
+    set title(value) {
+      this[title$] = value;
+    }
+    get body() {
+      return this[body$];
+    }
+    set body(value) {
+      this[body$] = value;
+    }
+    static fromJson(json) {
+      let model = new server_models.TextSerModel.new({title: T.StringL().as(json[$_get]("title"))});
+      if (json[$_get]("body") != null) {
+        let ws = T.ListL().as(json[$_get]("body"));
+        model.body = ws[$map](T.SentenceSerModelL(), dart.fn(e => server_models.SentenceSerModel.fromJson(T.MapLOfStringL$dynamic().as(e)), T.dynamicToSentenceSerModelL()))[$toList]();
+      }
+      return model;
+    }
+  };
+  (server_models.TextSerModel.new = function(opts) {
+    let title = opts && 'title' in opts ? opts.title : null;
+    let body = opts && 'body' in opts ? opts.body : null;
+    this[title$] = title;
+    this[body$] = body;
+    ;
+  }).prototype = server_models.TextSerModel.prototype;
+  dart.addTypeTests(server_models.TextSerModel);
+  dart.addTypeCaches(server_models.TextSerModel);
+  dart.setLibraryUri(server_models.TextSerModel, I[0]);
+  dart.setFieldSignature(server_models.TextSerModel, () => ({
+    __proto__: dart.getFields(server_models.TextSerModel.__proto__),
+    title: dart.fieldType(dart.legacy(core.String)),
+    body: dart.fieldType(dart.legacy(core.List$(dart.legacy(server_models.SentenceSerModel))))
+  }));
+  var chinese$0 = dart.privateName(server_models, "SentenceSerModel.chinese");
+  var english$0 = dart.privateName(server_models, "SentenceSerModel.english");
+  var sentenceType$ = dart.privateName(server_models, "SentenceSerModel.sentenceType");
+  server_models.SentenceSerModel = class SentenceSerModel extends core.Object {
+    get chinese() {
+      return this[chinese$0];
+    }
+    set chinese(value) {
+      this[chinese$0] = value;
+    }
+    get english() {
+      return this[english$0];
+    }
+    set english(value) {
+      this[english$0] = value;
+    }
+    get sentenceType() {
+      return this[sentenceType$];
+    }
+    set sentenceType(value) {
+      this[sentenceType$] = value;
+    }
+    static fromJson(json) {
+      let model = new server_models.SentenceSerModel.new({chinese: T.StringL().as(json[$_get]("chinese")), english: T.StringL().as(json[$_get]("english")), sentenceType: dart.equals(json[$_get]("sentenceType"), 0) ? enum_difination.SentenceType.PracticeSentence : enum_difination.SentenceType.UnPracticeSentence});
+      return model;
+    }
+  };
+  (server_models.SentenceSerModel.new = function(opts) {
+    let chinese = opts && 'chinese' in opts ? opts.chinese : null;
+    let english = opts && 'english' in opts ? opts.english : null;
+    let sentenceType = opts && 'sentenceType' in opts ? opts.sentenceType : null;
+    this[chinese$0] = chinese;
+    this[english$0] = english;
+    this[sentenceType$] = sentenceType;
+    ;
+  }).prototype = server_models.SentenceSerModel.prototype;
+  dart.addTypeTests(server_models.SentenceSerModel);
+  dart.addTypeCaches(server_models.SentenceSerModel);
+  dart.setLibraryUri(server_models.SentenceSerModel, I[0]);
+  dart.setFieldSignature(server_models.SentenceSerModel, () => ({
+    __proto__: dart.getFields(server_models.SentenceSerModel.__proto__),
+    chinese: dart.fieldType(dart.legacy(core.String)),
+    english: dart.fieldType(dart.legacy(core.String)),
+    sentenceType: dart.fieldType(dart.legacy(enum_difination.SentenceType))
+  }));
+  var english$1 = dart.privateName(server_models, "WordSerModel.english");
+  var chinese$1 = dart.privateName(server_models, "WordSerModel.chinese");
+  var symbol$ = dart.privateName(server_models, "WordSerModel.symbol");
+  var parts$ = dart.privateName(server_models, "WordSerModel.parts");
+  server_models.WordSerModel = class WordSerModel extends core.Object {
+    get english() {
+      return this[english$1];
+    }
+    set english(value) {
+      this[english$1] = value;
+    }
+    get chinese() {
+      return this[chinese$1];
+    }
+    set chinese(value) {
+      this[chinese$1] = value;
+    }
+    get symbol() {
+      return this[symbol$];
+    }
+    set symbol(value) {
+      this[symbol$] = value;
+    }
+    get parts() {
+      return this[parts$];
+    }
+    set parts(value) {
+      this[parts$] = value;
+    }
+    static fromJson(json) {
+      let model = new server_models.WordSerModel.new({chinese: T.StringL().as(json[$_get]("chinese")), english: T.StringL().as(json[$_get]("english"))});
+      if (json[$_get]("parts") != null) {
+        let ws = T.ListL().as(json[$_get]("parts"));
+        model.parts = ws[$map](T.WordSerPartL(), dart.fn(e => server_models.WordSerPart.fromJson(T.MapLOfStringL$dynamic().as(e)), T.dynamicToWordSerPartL()))[$toList]();
+      }
+      return model;
+    }
+  };
+  (server_models.WordSerModel.new = function(opts) {
+    let english = opts && 'english' in opts ? opts.english : null;
+    let chinese = opts && 'chinese' in opts ? opts.chinese : null;
+    let symbol = opts && 'symbol' in opts ? opts.symbol : null;
+    let parts = opts && 'parts' in opts ? opts.parts : null;
+    this[english$1] = english;
+    this[chinese$1] = chinese;
+    this[symbol$] = symbol;
+    this[parts$] = parts;
+    ;
+  }).prototype = server_models.WordSerModel.prototype;
+  dart.addTypeTests(server_models.WordSerModel);
+  dart.addTypeCaches(server_models.WordSerModel);
+  dart.setLibraryUri(server_models.WordSerModel, I[0]);
+  dart.setFieldSignature(server_models.WordSerModel, () => ({
+    __proto__: dart.getFields(server_models.WordSerModel.__proto__),
+    english: dart.fieldType(dart.legacy(core.String)),
+    chinese: dart.fieldType(dart.legacy(core.String)),
+    symbol: dart.fieldType(dart.legacy(core.String)),
+    parts: dart.fieldType(dart.legacy(core.List$(dart.legacy(server_models.WordSerPart))))
+  }));
+  var chinese$2 = dart.privateName(server_models, "WordSerPart.chinese");
+  var english$2 = dart.privateName(server_models, "WordSerPart.english");
+  server_models.WordSerPart = class WordSerPart extends core.Object {
+    get chinese() {
+      return this[chinese$2];
+    }
+    set chinese(value) {
+      this[chinese$2] = value;
+    }
+    get english() {
+      return this[english$2];
+    }
+    set english(value) {
+      this[english$2] = value;
+    }
+    static fromJson(json) {
+      let model = new server_models.WordSerPart.new({chinese: T.StringL().as(json[$_get]("chinese")), english: T.StringL().as(json[$_get]("english"))});
+      return model;
+    }
+  };
+  (server_models.WordSerPart.new = function(opts) {
+    let chinese = opts && 'chinese' in opts ? opts.chinese : null;
+    let english = opts && 'english' in opts ? opts.english : null;
+    this[chinese$2] = chinese;
+    this[english$2] = english;
+    ;
+  }).prototype = server_models.WordSerPart.prototype;
+  dart.addTypeTests(server_models.WordSerPart);
+  dart.addTypeCaches(server_models.WordSerPart);
+  dart.setLibraryUri(server_models.WordSerPart, I[0]);
+  dart.setFieldSignature(server_models.WordSerPart, () => ({
+    __proto__: dart.getFields(server_models.WordSerPart.__proto__),
+    chinese: dart.fieldType(dart.legacy(core.String)),
+    english: dart.fieldType(dart.legacy(core.String))
+  }));
+  var appId$ = dart.privateName(server_models, "WechatSettings.appId");
+  var universalLink$ = dart.privateName(server_models, "WechatSettings.universalLink");
+  server_models.WechatSettings = class WechatSettings extends core.Object {
+    get appId() {
+      return this[appId$];
+    }
+    set appId(value) {
+      this[appId$] = value;
+    }
+    get universalLink() {
+      return this[universalLink$];
+    }
+    set universalLink(value) {
+      this[universalLink$] = value;
+    }
+    static fromJson(json) {
+      let model = new server_models.WechatSettings.new({appId: T.StringL().as(json[$_get]("appId")), universalLink: T.StringL().as(json[$_get]("universalLink"))});
+      return model;
+    }
+  };
+  (server_models.WechatSettings.new = function(opts) {
+    let appId = opts && 'appId' in opts ? opts.appId : null;
+    let universalLink = opts && 'universalLink' in opts ? opts.universalLink : null;
+    this[appId$] = appId;
+    this[universalLink$] = universalLink;
+    ;
+  }).prototype = server_models.WechatSettings.prototype;
+  dart.addTypeTests(server_models.WechatSettings);
+  dart.addTypeCaches(server_models.WechatSettings);
+  dart.setLibraryUri(server_models.WechatSettings, I[0]);
+  dart.setFieldSignature(server_models.WechatSettings, () => ({
+    __proto__: dart.getFields(server_models.WechatSettings.__proto__),
+    appId: dart.fieldType(dart.legacy(core.String)),
+    universalLink: dart.fieldType(dart.legacy(core.String))
+  }));
+  dart.trackLibraries("packages/english_teacher_app/models/server_models.dart", {
+    "package:english_teacher_app/models/server_models.dart": server_models
+  }, {
+  }, '{"version":3,"sourceRoot":"","sources":["server_models.dart"],"names":[],"mappings":"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","file":"../../../../packages/english_teacher_app/models/server_models.dart.lib.js"}');
+  // Exports:
+  return {
+    models__server_models: server_models
+  };
+}));
+
+//# sourceMappingURL=server_models.dart.lib.js.map

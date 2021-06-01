@@ -1,0 +1,411 @@
+define(['dart_sdk', 'packages/flutter/src/widgets/widget_span.dart', 'packages/flutter/src/animation/animation_controller.dart', 'packages/flutter/src/animation/listener_helpers.dart', 'packages/flutter/src/animation/curves.dart', 'packages/vector_math/vector_math_64.dart', 'packages/flutter/src/painting/fractional_offset.dart', 'packages/flutter/src/painting/box_decoration.dart'], (function load__packages__flutter_spinkit__src__rotating_plain_dart(dart_sdk, packages__flutter__src__widgets__widget_span$46dart, packages__flutter__src__animation__animation_controller$46dart, packages__flutter__src__animation__listener_helpers$46dart, packages__flutter__src__animation__curves$46dart, packages__vector_math__vector_math_64$46dart, packages__flutter__src__painting__fractional_offset$46dart, packages__flutter__src__painting__box_decoration$46dart) {
+  'use strict';
+  const core = dart_sdk.core;
+  const ui = dart_sdk.ui;
+  const _internal = dart_sdk._internal;
+  const dart = dart_sdk.dart;
+  const dartx = dart_sdk.dartx;
+  const framework = packages__flutter__src__widgets__widget_span$46dart.src__widgets__framework;
+  const basic = packages__flutter__src__widgets__widget_span$46dart.src__widgets__basic;
+  const widget_inspector = packages__flutter__src__widgets__widget_span$46dart.src__widgets__widget_inspector;
+  const container = packages__flutter__src__widgets__widget_span$46dart.src__widgets__container;
+  const ticker_provider = packages__flutter__src__widgets__widget_span$46dart.src__widgets__ticker_provider;
+  const animation_controller = packages__flutter__src__animation__animation_controller$46dart.src__animation__animation_controller;
+  const tween = packages__flutter__src__animation__listener_helpers$46dart.src__animation__tween;
+  const animations = packages__flutter__src__animation__listener_helpers$46dart.src__animation__animations;
+  const animation = packages__flutter__src__animation__listener_helpers$46dart.src__animation__animation;
+  const curves = packages__flutter__src__animation__curves$46dart.src__animation__curves;
+  const vector_math_64 = packages__vector_math__vector_math_64$46dart.vector_math_64;
+  const fractional_offset = packages__flutter__src__painting__fractional_offset$46dart.src__painting__fractional_offset;
+  const box_decoration = packages__flutter__src__painting__box_decoration$46dart.src__painting__box_decoration;
+  var rotating_plain = Object.create(dart.library);
+  dart._checkModuleNullSafetyMode(false);
+  var T = {
+    BuildContextAndintToWidget: () => (T.BuildContextAndintToWidget = dart.constFn(dart.fnType(framework.Widget, [framework.BuildContext, core.int])))(),
+    VoidTovoid: () => (T.VoidTovoid = dart.constFn(dart.fnType(dart.void, [])))(),
+    TweenOfdouble: () => (T.TweenOfdouble = dart.constFn(tween.Tween$(core.double)))(),
+    _LocationL: () => (T._LocationL = dart.constFn(dart.legacy(widget_inspector._Location)))()
+  };
+  const CT = Object.create({
+    _: () => (C, CT)
+  });
+  dart.defineLazy(CT, {
+    get C0() {
+      return C[0] = dart.const({
+        __proto__: core.Duration.prototype,
+        [Duration__duration]: 1200000
+      });
+    },
+    get C2() {
+      return C[2] = dart.const({
+        __proto__: curves.Cubic.prototype,
+        [Cubic_d]: 1,
+        [Cubic_c]: 1,
+        [Cubic_b]: 0,
+        [Cubic_a]: 0.42
+      });
+    },
+    get C1() {
+      return C[1] = dart.const({
+        __proto__: curves.Interval.prototype,
+        [Interval_curve]: C[2] || CT.C2,
+        [Interval_end]: 0.5,
+        [Interval_begin]: 0
+      });
+    },
+    get C4() {
+      return C[4] = dart.const({
+        __proto__: curves.Cubic.prototype,
+        [Cubic_d]: 1,
+        [Cubic_c]: 0.58,
+        [Cubic_b]: 0,
+        [Cubic_a]: 0
+      });
+    },
+    get C3() {
+      return C[3] = dart.const({
+        __proto__: curves.Interval.prototype,
+        [Interval_curve]: C[4] || CT.C4,
+        [Interval_end]: 1,
+        [Interval_begin]: 0.5
+      });
+    },
+    get C7() {
+      return C[7] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "size",
+        [_Location_column]: 11,
+        [_Location_line]: 58,
+        [_Location_file]: null
+      });
+    },
+    get C8() {
+      return C[8] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 11,
+        [_Location_line]: 59,
+        [_Location_file]: null
+      });
+    },
+    get C6() {
+      return C[6] = dart.constList([C[7] || CT.C7, C[8] || CT.C8], T._LocationL());
+    },
+    get C5() {
+      return C[5] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[6] || CT.C6,
+        [_Location_name]: null,
+        [_Location_column]: 25,
+        [_Location_line]: 57,
+        [_Location_file]: "file:///d:/flutter/.pub-cache/hosted/pub.flutter-io.cn/flutter_spinkit-5.0.0/lib/src/rotating_plain.dart"
+      });
+    },
+    get C11() {
+      return C[11] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "transform",
+        [_Location_column]: 9,
+        [_Location_line]: 53,
+        [_Location_file]: null
+      });
+    },
+    get C12() {
+      return C[12] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "alignment",
+        [_Location_column]: 9,
+        [_Location_line]: 56,
+        [_Location_file]: null
+      });
+    },
+    get C13() {
+      return C[13] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 9,
+        [_Location_line]: 57,
+        [_Location_file]: null
+      });
+    },
+    get C10() {
+      return C[10] = dart.constList([C[11] || CT.C11, C[12] || CT.C12, C[13] || CT.C13], T._LocationL());
+    },
+    get C9() {
+      return C[9] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[10] || CT.C10,
+        [_Location_name]: null,
+        [_Location_column]: 14,
+        [_Location_line]: 52,
+        [_Location_file]: "file:///d:/flutter/.pub-cache/hosted/pub.flutter-io.cn/flutter_spinkit-5.0.0/lib/src/rotating_plain.dart"
+      });
+    },
+    get C16() {
+      return C[16] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 7,
+        [_Location_line]: 52,
+        [_Location_file]: null
+      });
+    },
+    get C15() {
+      return C[15] = dart.constList([C[16] || CT.C16], T._LocationL());
+    },
+    get C14() {
+      return C[14] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[15] || CT.C15,
+        [_Location_name]: null,
+        [_Location_column]: 12,
+        [_Location_line]: 51,
+        [_Location_file]: "file:///d:/flutter/.pub-cache/hosted/pub.flutter-io.cn/flutter_spinkit-5.0.0/lib/src/rotating_plain.dart"
+      });
+    },
+    get C19() {
+      return C[19] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "decoration",
+        [_Location_column]: 22,
+        [_Location_line]: 67,
+        [_Location_file]: null
+      });
+    },
+    get C18() {
+      return C[18] = dart.constList([C[19] || CT.C19], T._LocationL());
+    },
+    get C17() {
+      return C[17] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[18] || CT.C18,
+        [_Location_name]: null,
+        [_Location_column]: 9,
+        [_Location_line]: 67,
+        [_Location_file]: "file:///d:/flutter/.pub-cache/hosted/pub.flutter-io.cn/flutter_spinkit-5.0.0/lib/src/rotating_plain.dart"
+      });
+    }
+  }, false);
+  var C = Array(20).fill(void 0);
+  var I = [
+    "file:///d:/flutter/.pub-cache/hosted/pub.flutter-io.cn/flutter_spinkit-5.0.0/lib/src/rotating_plain.dart",
+    "package:flutter_spinkit/src/rotating_plain.dart"
+  ];
+  var color$ = dart.privateName(rotating_plain, "SpinKitRotatingPlain.color");
+  var size$ = dart.privateName(rotating_plain, "SpinKitRotatingPlain.size");
+  var itemBuilder$ = dart.privateName(rotating_plain, "SpinKitRotatingPlain.itemBuilder");
+  var duration$ = dart.privateName(rotating_plain, "SpinKitRotatingPlain.duration");
+  var controller$ = dart.privateName(rotating_plain, "SpinKitRotatingPlain.controller");
+  var Duration__duration = dart.privateName(core, "Duration._duration");
+  rotating_plain.SpinKitRotatingPlain = class SpinKitRotatingPlain extends framework.StatefulWidget {
+    get color() {
+      return this[color$];
+    }
+    set color(value) {
+      super.color = value;
+    }
+    get size() {
+      return this[size$];
+    }
+    set size(value) {
+      super.size = value;
+    }
+    get itemBuilder() {
+      return this[itemBuilder$];
+    }
+    set itemBuilder(value) {
+      super.itemBuilder = value;
+    }
+    get duration() {
+      return this[duration$];
+    }
+    set duration(value) {
+      super.duration = value;
+    }
+    get controller() {
+      return this[controller$];
+    }
+    set controller(value) {
+      super.controller = value;
+    }
+    createState() {
+      return new rotating_plain._SpinKitRotatingPlainState.new();
+    }
+  };
+  (rotating_plain.SpinKitRotatingPlain.new = function(opts) {
+    let key = opts && 'key' in opts ? opts.key : null;
+    let color = opts && 'color' in opts ? opts.color : null;
+    let size = opts && 'size' in opts ? opts.size : 50;
+    if (size == null) dart.nullFailed(I[0], 7, 10, "size");
+    let itemBuilder = opts && 'itemBuilder' in opts ? opts.itemBuilder : null;
+    let duration = opts && 'duration' in opts ? opts.duration : C[0] || CT.C0;
+    if (duration == null) dart.nullFailed(I[0], 9, 10, "duration");
+    let controller = opts && 'controller' in opts ? opts.controller : null;
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    this[color$] = color;
+    this[size$] = size;
+    this[itemBuilder$] = itemBuilder;
+    this[duration$] = duration;
+    this[controller$] = controller;
+    if (!(!(T.BuildContextAndintToWidget().is(itemBuilder) && ui.Color.is(color)) && !(itemBuilder == null && color == null))) dart.assertFailed("You should specify either a itemBuilder or a color", I[0], 11, 16, "!(itemBuilder is IndexedWidgetBuilder && color is Color) && !(itemBuilder == null && color == null)");
+    rotating_plain.SpinKitRotatingPlain.__proto__.new.call(this, {key: key, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+    ;
+  }).prototype = rotating_plain.SpinKitRotatingPlain.prototype;
+  dart.addTypeTests(rotating_plain.SpinKitRotatingPlain);
+  dart.addTypeCaches(rotating_plain.SpinKitRotatingPlain);
+  dart.setMethodSignature(rotating_plain.SpinKitRotatingPlain, () => ({
+    __proto__: dart.getMethods(rotating_plain.SpinKitRotatingPlain.__proto__),
+    createState: dart.fnType(rotating_plain._SpinKitRotatingPlainState, [])
+  }));
+  dart.setLibraryUri(rotating_plain.SpinKitRotatingPlain, I[1]);
+  dart.setFieldSignature(rotating_plain.SpinKitRotatingPlain, () => ({
+    __proto__: dart.getFields(rotating_plain.SpinKitRotatingPlain.__proto__),
+    color: dart.finalFieldType(dart.nullable(ui.Color)),
+    size: dart.finalFieldType(core.double),
+    itemBuilder: dart.finalFieldType(dart.nullable(dart.fnType(framework.Widget, [framework.BuildContext, core.int]))),
+    duration: dart.finalFieldType(core.Duration),
+    controller: dart.finalFieldType(dart.nullable(animation_controller.AnimationController))
+  }));
+  var ___SpinKitRotatingPlainState__controller = dart.privateName(rotating_plain, "_#_SpinKitRotatingPlainState#_controller");
+  var ___SpinKitRotatingPlainState__controller_isSet = dart.privateName(rotating_plain, "_#_SpinKitRotatingPlainState#_controller#isSet");
+  var ___SpinKitRotatingPlainState__animation1 = dart.privateName(rotating_plain, "_#_SpinKitRotatingPlainState#_animation1");
+  var ___SpinKitRotatingPlainState__animation1_isSet = dart.privateName(rotating_plain, "_#_SpinKitRotatingPlainState#_animation1#isSet");
+  var ___SpinKitRotatingPlainState__animation2 = dart.privateName(rotating_plain, "_#_SpinKitRotatingPlainState#_animation2");
+  var ___SpinKitRotatingPlainState__animation2_isSet = dart.privateName(rotating_plain, "_#_SpinKitRotatingPlainState#_animation2#isSet");
+  var _controller = dart.privateName(rotating_plain, "_controller");
+  var _animation1 = dart.privateName(rotating_plain, "_animation1");
+  var _animation2 = dart.privateName(rotating_plain, "_animation2");
+  var Cubic_d = dart.privateName(curves, "Cubic.d");
+  var Cubic_c = dart.privateName(curves, "Cubic.c");
+  var Cubic_b = dart.privateName(curves, "Cubic.b");
+  var Cubic_a = dart.privateName(curves, "Cubic.a");
+  var Interval_curve = dart.privateName(curves, "Interval.curve");
+  var Interval_end = dart.privateName(curves, "Interval.end");
+  var Interval_begin = dart.privateName(curves, "Interval.begin");
+  var _itemBuilder = dart.privateName(rotating_plain, "_itemBuilder");
+  var _Location_parameterLocations = dart.privateName(widget_inspector, "_Location.parameterLocations");
+  var _Location_name = dart.privateName(widget_inspector, "_Location.name");
+  var _Location_column = dart.privateName(widget_inspector, "_Location.column");
+  var _Location_line = dart.privateName(widget_inspector, "_Location.line");
+  var _Location_file = dart.privateName(widget_inspector, "_Location.file");
+  const State_SingleTickerProviderStateMixin$36 = class State_SingleTickerProviderStateMixin extends framework.State$(rotating_plain.SpinKitRotatingPlain) {};
+  (State_SingleTickerProviderStateMixin$36.new = function() {
+    ticker_provider.SingleTickerProviderStateMixin$(rotating_plain.SpinKitRotatingPlain)[dart.mixinNew].call(this);
+    State_SingleTickerProviderStateMixin$36.__proto__.new.call(this);
+  }).prototype = State_SingleTickerProviderStateMixin$36.prototype;
+  dart.applyMixin(State_SingleTickerProviderStateMixin$36, ticker_provider.SingleTickerProviderStateMixin$(rotating_plain.SpinKitRotatingPlain));
+  rotating_plain._SpinKitRotatingPlainState = class _SpinKitRotatingPlainState extends State_SingleTickerProviderStateMixin$36 {
+    get [_controller]() {
+      let t0;
+      return dart.test(this[___SpinKitRotatingPlainState__controller_isSet]) ? (t0 = this[___SpinKitRotatingPlainState__controller], t0) : dart.throw(new _internal.LateError.fieldNI("_controller"));
+    }
+    set [_controller](t0) {
+      if (t0 == null) dart.nullFailed(I[0], 26, 28, "null");
+      this[___SpinKitRotatingPlainState__controller_isSet] = true;
+      this[___SpinKitRotatingPlainState__controller] = t0;
+    }
+    get [_animation1]() {
+      let t1;
+      return dart.test(this[___SpinKitRotatingPlainState__animation1_isSet]) ? (t1 = this[___SpinKitRotatingPlainState__animation1], t1) : dart.throw(new _internal.LateError.fieldNI("_animation1"));
+    }
+    set [_animation1](t1) {
+      if (t1 == null) dart.nullFailed(I[0], 27, 26, "null");
+      this[___SpinKitRotatingPlainState__animation1_isSet] = true;
+      this[___SpinKitRotatingPlainState__animation1] = t1;
+    }
+    get [_animation2]() {
+      let t2;
+      return dart.test(this[___SpinKitRotatingPlainState__animation2_isSet]) ? (t2 = this[___SpinKitRotatingPlainState__animation2], t2) : dart.throw(new _internal.LateError.fieldNI("_animation2"));
+    }
+    set [_animation2](t2) {
+      if (t2 == null) dart.nullFailed(I[0], 28, 26, "null");
+      this[___SpinKitRotatingPlainState__animation2_isSet] = true;
+      this[___SpinKitRotatingPlainState__animation2] = t2;
+    }
+    initState() {
+      let t3, t3$;
+      super.initState();
+      this[_controller] = (t3$ = (t3 = this.widget.controller, t3 == null ? new animation_controller.AnimationController.new({vsync: this, duration: this.widget.duration}) : t3), (() => {
+        t3$.addListener(dart.fn(() => this.setState(dart.fn(() => {
+        }, T.VoidTovoid())), T.VoidTovoid()));
+        t3$.repeat();
+        return t3$;
+      })());
+      this[_animation1] = new (T.TweenOfdouble()).new({begin: 0.0, end: 180.0}).animate(new animations.CurvedAnimation.new({parent: this[_controller], curve: C[1] || CT.C1}));
+      this[_animation2] = new (T.TweenOfdouble()).new({begin: 0.0, end: 180.0}).animate(new animations.CurvedAnimation.new({parent: this[_controller], curve: C[3] || CT.C3}));
+    }
+    dispose() {
+      this[_controller].dispose();
+      super.dispose();
+    }
+    build(context) {
+      let t3;
+      if (context == null) dart.nullFailed(I[0], 50, 29, "context");
+      return new basic.Center.new({child: new basic.Transform.new({transform: (t3 = vector_math_64.Matrix4.identity(), (() => {
+            t3.rotateX((0 - dart.notNull(this[_animation1].value)) * 0.0174533);
+            t3.rotateY((0 - dart.notNull(this[_animation2].value)) * 0.0174533);
+            return t3;
+          })()), alignment: fractional_offset.FractionalOffset.center, child: new basic.SizedBox.fromSize({size: new ui.Size.square(this.widget.size), child: this[_itemBuilder](0), $creationLocationd_0dea112b090073317d4: C[5] || CT.C5}), $creationLocationd_0dea112b090073317d4: C[9] || CT.C9}), $creationLocationd_0dea112b090073317d4: C[14] || CT.C14});
+    }
+    [_itemBuilder](index) {
+      if (index == null) dart.nullFailed(I[0], 65, 27, "index");
+      return this.widget.itemBuilder != null ? dart.nullCheck(this.widget.itemBuilder)(this.context, index) : new container.DecoratedBox.new({decoration: new box_decoration.BoxDecoration.new({color: this.widget.color}), $creationLocationd_0dea112b090073317d4: C[17] || CT.C17});
+    }
+  };
+  (rotating_plain._SpinKitRotatingPlainState.new = function() {
+    this[___SpinKitRotatingPlainState__controller] = null;
+    this[___SpinKitRotatingPlainState__controller_isSet] = false;
+    this[___SpinKitRotatingPlainState__animation1] = null;
+    this[___SpinKitRotatingPlainState__animation1_isSet] = false;
+    this[___SpinKitRotatingPlainState__animation2] = null;
+    this[___SpinKitRotatingPlainState__animation2_isSet] = false;
+    rotating_plain._SpinKitRotatingPlainState.__proto__.new.call(this);
+    ;
+  }).prototype = rotating_plain._SpinKitRotatingPlainState.prototype;
+  dart.addTypeTests(rotating_plain._SpinKitRotatingPlainState);
+  dart.addTypeCaches(rotating_plain._SpinKitRotatingPlainState);
+  dart.setMethodSignature(rotating_plain._SpinKitRotatingPlainState, () => ({
+    __proto__: dart.getMethods(rotating_plain._SpinKitRotatingPlainState.__proto__),
+    build: dart.fnType(framework.Widget, [framework.BuildContext]),
+    [_itemBuilder]: dart.fnType(framework.Widget, [core.int])
+  }));
+  dart.setGetterSignature(rotating_plain._SpinKitRotatingPlainState, () => ({
+    __proto__: dart.getGetters(rotating_plain._SpinKitRotatingPlainState.__proto__),
+    [_controller]: animation_controller.AnimationController,
+    [_animation1]: animation.Animation$(core.double),
+    [_animation2]: animation.Animation$(core.double)
+  }));
+  dart.setSetterSignature(rotating_plain._SpinKitRotatingPlainState, () => ({
+    __proto__: dart.getSetters(rotating_plain._SpinKitRotatingPlainState.__proto__),
+    [_controller]: animation_controller.AnimationController,
+    [_animation1]: animation.Animation$(core.double),
+    [_animation2]: animation.Animation$(core.double)
+  }));
+  dart.setLibraryUri(rotating_plain._SpinKitRotatingPlainState, I[1]);
+  dart.setFieldSignature(rotating_plain._SpinKitRotatingPlainState, () => ({
+    __proto__: dart.getFields(rotating_plain._SpinKitRotatingPlainState.__proto__),
+    [___SpinKitRotatingPlainState__controller]: dart.fieldType(dart.nullable(animation_controller.AnimationController)),
+    [___SpinKitRotatingPlainState__controller_isSet]: dart.fieldType(core.bool),
+    [___SpinKitRotatingPlainState__animation1]: dart.fieldType(dart.nullable(animation.Animation$(core.double))),
+    [___SpinKitRotatingPlainState__animation1_isSet]: dart.fieldType(core.bool),
+    [___SpinKitRotatingPlainState__animation2]: dart.fieldType(dart.nullable(animation.Animation$(core.double))),
+    [___SpinKitRotatingPlainState__animation2_isSet]: dart.fieldType(core.bool)
+  }));
+  dart.trackLibraries("packages/flutter_spinkit/src/rotating_plain.dart", {
+    "package:flutter_spinkit/src/rotating_plain.dart": rotating_plain
+  }, {
+  }, '{"version":3,"sourceRoot":"","sources":["rotating_plain.dart"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;IAce;;;;;;IACA;;;;;;IACe;;;;;;IACb;;;;;;IACY;;;;;;;AAGiB;IAA4B;;;QAjBjE;QACA;QACA;;QACA;QACA;;QACA;;IAJA;IACA;IACA;IACA;IACA;UAC+D,EAA3C,kCAAZ,WAAW,KAAkC,YAAN,KAAK,QAAgB,AAAY,WAAD,YAAY,AAAM,KAAD,8BAC7F;AACJ,uEAAW,GAAG;;EAAC;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;AAaI;IAAW;;;AAAX;;IAAW;;;AACb;IAAW;;;AAAX;;IAAW;;;AACX;IAAW;;;AAAX;;IAAW;;;AAIf,MAAX;AAIM,MAFZ,4BAAiC,KAAlB,AAAO,wBAAA,aAAc,yDAA2B,gBAAgB,AAAO,8BAArD;AAC7B,wBAAY,cAAM,cAAS;;AAC3B;;;AAEqG,MADzG,oBAAc,AACT,oCADsB,UAAU,gBACxB,4CAAwB;AAEqE,MAD1G,oBAAc,AACT,oCADsB,UAAU,gBACxB,4CAAwB;IACvC;;AAIuB,MAArB,AAAY;AACG,MAAT;IACR;UAG0B;;;AACxB,YAAO,8BACE,6EACc;AACf,uBAAgC,CAAvB,AAAE,iBAAE,AAAY,4BAAS;AAClC,uBAAgC,CAAvB,AAAE,iBAAE,AAAY,4BAAS;;4BACV,kDACZ,mCACH,mBAAO,AAAO,0BAClB,mBAAa;IAI5B;;UAEwB;AAAU,YAAA,AAAO,AAAY,mCAC7B,AAAC,eAAnB,AAAO,yBAAa,cAAS,KAAK,IAClC,4CAAyB,6CAAqB,AAAO;IAAO;;;qDAzCzC;;qDACF;;qDACA;;;;EAwCzB","file":"../../../../../../../../O:/packages/flutter_spinkit/src/rotating_plain.dart.lib.js"}');
+  // Exports:
+  return {
+    src__rotating_plain: rotating_plain
+  };
+}));
+
+//# sourceMappingURL=rotating_plain.dart.lib.js.map

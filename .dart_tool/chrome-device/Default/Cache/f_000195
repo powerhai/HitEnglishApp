@@ -1,0 +1,811 @@
+define(['dart_sdk', 'packages/flutter/src/painting/box_border.dart', 'packages/flutter/src/widgets/widget_span.dart', 'packages/flutter/src/animation/animation_controller.dart', 'packages/flutter/src/rendering/flex.dart', 'packages/flutter_spinkit/src/tweens/delay_tween.dart', 'packages/flutter/src/painting/box_decoration.dart'], (function load__packages__flutter_spinkit__src__fading_grid_dart(dart_sdk, packages__flutter__src__painting__box_border$46dart, packages__flutter__src__widgets__widget_span$46dart, packages__flutter__src__animation__animation_controller$46dart, packages__flutter__src__rendering__flex$46dart, packages__flutter_spinkit__src__tweens__delay_tween$46dart, packages__flutter__src__painting__box_decoration$46dart) {
+  'use strict';
+  const core = dart_sdk.core;
+  const ui = dart_sdk.ui;
+  const _internal = dart_sdk._internal;
+  const _interceptors = dart_sdk._interceptors;
+  const dart = dart_sdk.dart;
+  const dartx = dart_sdk.dartx;
+  const box_border = packages__flutter__src__painting__box_border$46dart.src__painting__box_border;
+  const framework = packages__flutter__src__widgets__widget_span$46dart.src__widgets__framework;
+  const basic = packages__flutter__src__widgets__widget_span$46dart.src__widgets__basic;
+  const widget_inspector = packages__flutter__src__widgets__widget_span$46dart.src__widgets__widget_inspector;
+  const transitions = packages__flutter__src__widgets__widget_span$46dart.src__widgets__transitions;
+  const container = packages__flutter__src__widgets__widget_span$46dart.src__widgets__container;
+  const ticker_provider = packages__flutter__src__widgets__widget_span$46dart.src__widgets__ticker_provider;
+  const animation_controller = packages__flutter__src__animation__animation_controller$46dart.src__animation__animation_controller;
+  const flex = packages__flutter__src__rendering__flex$46dart.src__rendering__flex;
+  const delay_tween = packages__flutter_spinkit__src__tweens__delay_tween$46dart.src__tweens__delay_tween;
+  const box_decoration = packages__flutter__src__painting__box_decoration$46dart.src__painting__box_decoration;
+  var fading_grid = Object.create(dart.library);
+  dart._checkModuleNullSafetyMode(false);
+  var T = {
+    BuildContextAndintToWidget: () => (T.BuildContextAndintToWidget = dart.constFn(dart.fnType(framework.Widget, [framework.BuildContext, core.int])))(),
+    _LocationL: () => (T._LocationL = dart.constFn(dart.legacy(widget_inspector._Location)))(),
+    JSArrayOfWidget: () => (T.JSArrayOfWidget = dart.constFn(_interceptors.JSArray$(framework.Widget)))()
+  };
+  const CT = Object.create({
+    _: () => (C, CT)
+  });
+  dart.defineLazy(CT, {
+    get C0() {
+      return C[0] = dart.const({
+        __proto__: box_border.BoxShape.prototype,
+        [_name]: "BoxShape.circle",
+        index: 1
+      });
+    },
+    get C1() {
+      return C[1] = dart.const({
+        __proto__: core.Duration.prototype,
+        [Duration__duration]: 1200000
+      });
+    },
+    get C4() {
+      return C[4] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "width",
+        [_Location_column]: 24,
+        [_Location_line]: 57,
+        [_Location_file]: null
+      });
+    },
+    get C3() {
+      return C[3] = dart.constList([C[4] || CT.C4], T._LocationL());
+    },
+    get C2() {
+      return C[2] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[3] || CT.C3,
+        [_Location_name]: null,
+        [_Location_column]: 15,
+        [_Location_line]: 57,
+        [_Location_file]: "file:///d:/flutter/.pub-cache/hosted/pub.flutter-io.cn/flutter_spinkit-5.0.0/lib/src/fading_grid.dart"
+      });
+    },
+    get C7() {
+      return C[7] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "width",
+        [_Location_column]: 24,
+        [_Location_line]: 59,
+        [_Location_file]: null
+      });
+    },
+    get C6() {
+      return C[6] = dart.constList([C[7] || CT.C7], T._LocationL());
+    },
+    get C5() {
+      return C[5] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[6] || CT.C6,
+        [_Location_name]: null,
+        [_Location_column]: 15,
+        [_Location_line]: 59,
+        [_Location_file]: "file:///d:/flutter/.pub-cache/hosted/pub.flutter-io.cn/flutter_spinkit-5.0.0/lib/src/fading_grid.dart"
+      });
+    },
+    get C10() {
+      return C[10] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "mainAxisSize",
+        [_Location_column]: 13,
+        [_Location_line]: 53,
+        [_Location_file]: null
+      });
+    },
+    get C11() {
+      return C[11] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "mainAxisAlignment",
+        [_Location_column]: 13,
+        [_Location_line]: 54,
+        [_Location_file]: null
+      });
+    },
+    get C12() {
+      return C[12] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "children",
+        [_Location_column]: 13,
+        [_Location_line]: 55,
+        [_Location_file]: null
+      });
+    },
+    get C9() {
+      return C[9] = dart.constList([C[10] || CT.C10, C[11] || CT.C11, C[12] || CT.C12], T._LocationL());
+    },
+    get C8() {
+      return C[8] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[9] || CT.C9,
+        [_Location_name]: null,
+        [_Location_column]: 11,
+        [_Location_line]: 52,
+        [_Location_file]: "file:///d:/flutter/.pub-cache/hosted/pub.flutter-io.cn/flutter_spinkit-5.0.0/lib/src/fading_grid.dart"
+      });
+    },
+    get C15() {
+      return C[15] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "height",
+        [_Location_column]: 24,
+        [_Location_line]: 67,
+        [_Location_file]: null
+      });
+    },
+    get C16() {
+      return C[16] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "width",
+        [_Location_column]: 49,
+        [_Location_line]: 67,
+        [_Location_file]: null
+      });
+    },
+    get C14() {
+      return C[14] = dart.constList([C[15] || CT.C15, C[16] || CT.C16], T._LocationL());
+    },
+    get C13() {
+      return C[13] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[14] || CT.C14,
+        [_Location_name]: null,
+        [_Location_column]: 15,
+        [_Location_line]: 67,
+        [_Location_file]: "file:///d:/flutter/.pub-cache/hosted/pub.flutter-io.cn/flutter_spinkit-5.0.0/lib/src/fading_grid.dart"
+      });
+    },
+    get C19() {
+      return C[19] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "mainAxisSize",
+        [_Location_column]: 13,
+        [_Location_line]: 64,
+        [_Location_file]: null
+      });
+    },
+    get C20() {
+      return C[20] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "mainAxisAlignment",
+        [_Location_column]: 13,
+        [_Location_line]: 65,
+        [_Location_file]: null
+      });
+    },
+    get C21() {
+      return C[21] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "children",
+        [_Location_column]: 13,
+        [_Location_line]: 66,
+        [_Location_file]: null
+      });
+    },
+    get C18() {
+      return C[18] = dart.constList([C[19] || CT.C19, C[20] || CT.C20, C[21] || CT.C21], T._LocationL());
+    },
+    get C17() {
+      return C[17] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[18] || CT.C18,
+        [_Location_name]: null,
+        [_Location_column]: 11,
+        [_Location_line]: 63,
+        [_Location_file]: "file:///d:/flutter/.pub-cache/hosted/pub.flutter-io.cn/flutter_spinkit-5.0.0/lib/src/fading_grid.dart"
+      });
+    },
+    get C24() {
+      return C[24] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "width",
+        [_Location_column]: 24,
+        [_Location_line]: 75,
+        [_Location_file]: null
+      });
+    },
+    get C23() {
+      return C[23] = dart.constList([C[24] || CT.C24], T._LocationL());
+    },
+    get C22() {
+      return C[22] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[23] || CT.C23,
+        [_Location_name]: null,
+        [_Location_column]: 15,
+        [_Location_line]: 75,
+        [_Location_file]: "file:///d:/flutter/.pub-cache/hosted/pub.flutter-io.cn/flutter_spinkit-5.0.0/lib/src/fading_grid.dart"
+      });
+    },
+    get C27() {
+      return C[27] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "width",
+        [_Location_column]: 24,
+        [_Location_line]: 77,
+        [_Location_file]: null
+      });
+    },
+    get C26() {
+      return C[26] = dart.constList([C[27] || CT.C27], T._LocationL());
+    },
+    get C25() {
+      return C[25] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[26] || CT.C26,
+        [_Location_name]: null,
+        [_Location_column]: 15,
+        [_Location_line]: 77,
+        [_Location_file]: "file:///d:/flutter/.pub-cache/hosted/pub.flutter-io.cn/flutter_spinkit-5.0.0/lib/src/fading_grid.dart"
+      });
+    },
+    get C30() {
+      return C[30] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "mainAxisSize",
+        [_Location_column]: 13,
+        [_Location_line]: 71,
+        [_Location_file]: null
+      });
+    },
+    get C31() {
+      return C[31] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "mainAxisAlignment",
+        [_Location_column]: 13,
+        [_Location_line]: 72,
+        [_Location_file]: null
+      });
+    },
+    get C32() {
+      return C[32] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "children",
+        [_Location_column]: 13,
+        [_Location_line]: 73,
+        [_Location_file]: null
+      });
+    },
+    get C29() {
+      return C[29] = dart.constList([C[30] || CT.C30, C[31] || CT.C31, C[32] || CT.C32], T._LocationL());
+    },
+    get C28() {
+      return C[28] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[29] || CT.C29,
+        [_Location_name]: null,
+        [_Location_column]: 11,
+        [_Location_line]: 70,
+        [_Location_file]: "file:///d:/flutter/.pub-cache/hosted/pub.flutter-io.cn/flutter_spinkit-5.0.0/lib/src/fading_grid.dart"
+      });
+    },
+    get C35() {
+      return C[35] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "height",
+        [_Location_column]: 24,
+        [_Location_line]: 85,
+        [_Location_file]: null
+      });
+    },
+    get C36() {
+      return C[36] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "width",
+        [_Location_column]: 49,
+        [_Location_line]: 85,
+        [_Location_file]: null
+      });
+    },
+    get C34() {
+      return C[34] = dart.constList([C[35] || CT.C35, C[36] || CT.C36], T._LocationL());
+    },
+    get C33() {
+      return C[33] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[34] || CT.C34,
+        [_Location_name]: null,
+        [_Location_column]: 15,
+        [_Location_line]: 85,
+        [_Location_file]: "file:///d:/flutter/.pub-cache/hosted/pub.flutter-io.cn/flutter_spinkit-5.0.0/lib/src/fading_grid.dart"
+      });
+    },
+    get C39() {
+      return C[39] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "mainAxisSize",
+        [_Location_column]: 13,
+        [_Location_line]: 82,
+        [_Location_file]: null
+      });
+    },
+    get C40() {
+      return C[40] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "mainAxisAlignment",
+        [_Location_column]: 13,
+        [_Location_line]: 83,
+        [_Location_file]: null
+      });
+    },
+    get C41() {
+      return C[41] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "children",
+        [_Location_column]: 13,
+        [_Location_line]: 84,
+        [_Location_file]: null
+      });
+    },
+    get C38() {
+      return C[38] = dart.constList([C[39] || CT.C39, C[40] || CT.C40, C[41] || CT.C41], T._LocationL());
+    },
+    get C37() {
+      return C[37] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[38] || CT.C38,
+        [_Location_name]: null,
+        [_Location_column]: 11,
+        [_Location_line]: 81,
+        [_Location_file]: "file:///d:/flutter/.pub-cache/hosted/pub.flutter-io.cn/flutter_spinkit-5.0.0/lib/src/fading_grid.dart"
+      });
+    },
+    get C44() {
+      return C[44] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "width",
+        [_Location_column]: 24,
+        [_Location_line]: 93,
+        [_Location_file]: null
+      });
+    },
+    get C43() {
+      return C[43] = dart.constList([C[44] || CT.C44], T._LocationL());
+    },
+    get C42() {
+      return C[42] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[43] || CT.C43,
+        [_Location_name]: null,
+        [_Location_column]: 15,
+        [_Location_line]: 93,
+        [_Location_file]: "file:///d:/flutter/.pub-cache/hosted/pub.flutter-io.cn/flutter_spinkit-5.0.0/lib/src/fading_grid.dart"
+      });
+    },
+    get C47() {
+      return C[47] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "width",
+        [_Location_column]: 24,
+        [_Location_line]: 95,
+        [_Location_file]: null
+      });
+    },
+    get C46() {
+      return C[46] = dart.constList([C[47] || CT.C47], T._LocationL());
+    },
+    get C45() {
+      return C[45] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[46] || CT.C46,
+        [_Location_name]: null,
+        [_Location_column]: 15,
+        [_Location_line]: 95,
+        [_Location_file]: "file:///d:/flutter/.pub-cache/hosted/pub.flutter-io.cn/flutter_spinkit-5.0.0/lib/src/fading_grid.dart"
+      });
+    },
+    get C50() {
+      return C[50] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "mainAxisSize",
+        [_Location_column]: 13,
+        [_Location_line]: 89,
+        [_Location_file]: null
+      });
+    },
+    get C51() {
+      return C[51] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "mainAxisAlignment",
+        [_Location_column]: 13,
+        [_Location_line]: 90,
+        [_Location_file]: null
+      });
+    },
+    get C52() {
+      return C[52] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "children",
+        [_Location_column]: 13,
+        [_Location_line]: 91,
+        [_Location_file]: null
+      });
+    },
+    get C49() {
+      return C[49] = dart.constList([C[50] || CT.C50, C[51] || CT.C51, C[52] || CT.C52], T._LocationL());
+    },
+    get C48() {
+      return C[48] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[49] || CT.C49,
+        [_Location_name]: null,
+        [_Location_column]: 11,
+        [_Location_line]: 88,
+        [_Location_file]: "file:///d:/flutter/.pub-cache/hosted/pub.flutter-io.cn/flutter_spinkit-5.0.0/lib/src/fading_grid.dart"
+      });
+    },
+    get C55() {
+      return C[55] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "mainAxisAlignment",
+        [_Location_column]: 9,
+        [_Location_line]: 49,
+        [_Location_file]: null
+      });
+    },
+    get C56() {
+      return C[56] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "mainAxisSize",
+        [_Location_column]: 9,
+        [_Location_line]: 50,
+        [_Location_file]: null
+      });
+    },
+    get C57() {
+      return C[57] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "children",
+        [_Location_column]: 9,
+        [_Location_line]: 51,
+        [_Location_file]: null
+      });
+    },
+    get C54() {
+      return C[54] = dart.constList([C[55] || CT.C55, C[56] || CT.C56, C[57] || CT.C57], T._LocationL());
+    },
+    get C53() {
+      return C[53] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[54] || CT.C54,
+        [_Location_name]: null,
+        [_Location_column]: 14,
+        [_Location_line]: 48,
+        [_Location_file]: "file:///d:/flutter/.pub-cache/hosted/pub.flutter-io.cn/flutter_spinkit-5.0.0/lib/src/fading_grid.dart"
+      });
+    },
+    get C60() {
+      return C[60] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "size",
+        [_Location_column]: 7,
+        [_Location_line]: 47,
+        [_Location_file]: null
+      });
+    },
+    get C61() {
+      return C[61] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 7,
+        [_Location_line]: 48,
+        [_Location_file]: null
+      });
+    },
+    get C59() {
+      return C[59] = dart.constList([C[60] || CT.C60, C[61] || CT.C61], T._LocationL());
+    },
+    get C58() {
+      return C[58] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[59] || CT.C59,
+        [_Location_name]: null,
+        [_Location_column]: 21,
+        [_Location_line]: 46,
+        [_Location_file]: "file:///d:/flutter/.pub-cache/hosted/pub.flutter-io.cn/flutter_spinkit-5.0.0/lib/src/fading_grid.dart"
+      });
+    },
+    get C64() {
+      return C[64] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "size",
+        [_Location_column]: 9,
+        [_Location_line]: 108,
+        [_Location_file]: null
+      });
+    },
+    get C65() {
+      return C[65] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 9,
+        [_Location_line]: 109,
+        [_Location_file]: null
+      });
+    },
+    get C63() {
+      return C[63] = dart.constList([C[64] || CT.C64, C[65] || CT.C65], T._LocationL());
+    },
+    get C62() {
+      return C[62] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[63] || CT.C63,
+        [_Location_name]: null,
+        [_Location_column]: 23,
+        [_Location_line]: 107,
+        [_Location_file]: "file:///d:/flutter/.pub-cache/hosted/pub.flutter-io.cn/flutter_spinkit-5.0.0/lib/src/fading_grid.dart"
+      });
+    },
+    get C68() {
+      return C[68] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "opacity",
+        [_Location_column]: 7,
+        [_Location_line]: 106,
+        [_Location_file]: null
+      });
+    },
+    get C69() {
+      return C[69] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 7,
+        [_Location_line]: 107,
+        [_Location_file]: null
+      });
+    },
+    get C67() {
+      return C[67] = dart.constList([C[68] || CT.C68, C[69] || CT.C69], T._LocationL());
+    },
+    get C66() {
+      return C[66] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[67] || CT.C67,
+        [_Location_name]: null,
+        [_Location_column]: 12,
+        [_Location_line]: 105,
+        [_Location_file]: "file:///d:/flutter/.pub-cache/hosted/pub.flutter-io.cn/flutter_spinkit-5.0.0/lib/src/fading_grid.dart"
+      });
+    },
+    get C72() {
+      return C[72] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "decoration",
+        [_Location_column]: 22,
+        [_Location_line]: 116,
+        [_Location_file]: null
+      });
+    },
+    get C71() {
+      return C[71] = dart.constList([C[72] || CT.C72], T._LocationL());
+    },
+    get C70() {
+      return C[70] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[71] || CT.C71,
+        [_Location_name]: null,
+        [_Location_column]: 9,
+        [_Location_line]: 116,
+        [_Location_file]: "file:///d:/flutter/.pub-cache/hosted/pub.flutter-io.cn/flutter_spinkit-5.0.0/lib/src/fading_grid.dart"
+      });
+    }
+  }, false);
+  var C = Array(73).fill(void 0);
+  var I = [
+    "file:///d:/flutter/.pub-cache/hosted/pub.flutter-io.cn/flutter_spinkit-5.0.0/lib/src/fading_grid.dart",
+    "package:flutter_spinkit/src/fading_grid.dart"
+  ];
+  var color$ = dart.privateName(fading_grid, "SpinKitFadingGrid.color");
+  var shape$ = dart.privateName(fading_grid, "SpinKitFadingGrid.shape");
+  var size$ = dart.privateName(fading_grid, "SpinKitFadingGrid.size");
+  var itemBuilder$ = dart.privateName(fading_grid, "SpinKitFadingGrid.itemBuilder");
+  var duration$ = dart.privateName(fading_grid, "SpinKitFadingGrid.duration");
+  var controller$ = dart.privateName(fading_grid, "SpinKitFadingGrid.controller");
+  var _name = dart.privateName(box_border, "_name");
+  var Duration__duration = dart.privateName(core, "Duration._duration");
+  fading_grid.SpinKitFadingGrid = class SpinKitFadingGrid extends framework.StatefulWidget {
+    get color() {
+      return this[color$];
+    }
+    set color(value) {
+      super.color = value;
+    }
+    get shape() {
+      return this[shape$];
+    }
+    set shape(value) {
+      super.shape = value;
+    }
+    get size() {
+      return this[size$];
+    }
+    set size(value) {
+      super.size = value;
+    }
+    get itemBuilder() {
+      return this[itemBuilder$];
+    }
+    set itemBuilder(value) {
+      super.itemBuilder = value;
+    }
+    get duration() {
+      return this[duration$];
+    }
+    set duration(value) {
+      super.duration = value;
+    }
+    get controller() {
+      return this[controller$];
+    }
+    set controller(value) {
+      super.controller = value;
+    }
+    createState() {
+      return new fading_grid._SpinKitFadingGridState.new();
+    }
+  };
+  (fading_grid.SpinKitFadingGrid.new = function(opts) {
+    let key = opts && 'key' in opts ? opts.key : null;
+    let color = opts && 'color' in opts ? opts.color : null;
+    let shape = opts && 'shape' in opts ? opts.shape : C[0] || CT.C0;
+    if (shape == null) dart.nullFailed(I[0], 8, 10, "shape");
+    let size = opts && 'size' in opts ? opts.size : 50;
+    if (size == null) dart.nullFailed(I[0], 9, 10, "size");
+    let itemBuilder = opts && 'itemBuilder' in opts ? opts.itemBuilder : null;
+    let duration = opts && 'duration' in opts ? opts.duration : C[1] || CT.C1;
+    if (duration == null) dart.nullFailed(I[0], 11, 10, "duration");
+    let controller = opts && 'controller' in opts ? opts.controller : null;
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    this[color$] = color;
+    this[shape$] = shape;
+    this[size$] = size;
+    this[itemBuilder$] = itemBuilder;
+    this[duration$] = duration;
+    this[controller$] = controller;
+    if (!(!(T.BuildContextAndintToWidget().is(itemBuilder) && ui.Color.is(color)) && !(itemBuilder == null && color == null))) dart.assertFailed("You should specify either a itemBuilder or a color", I[0], 13, 16, "!(itemBuilder is IndexedWidgetBuilder && color is Color) && !(itemBuilder == null && color == null)");
+    fading_grid.SpinKitFadingGrid.__proto__.new.call(this, {key: key, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+    ;
+  }).prototype = fading_grid.SpinKitFadingGrid.prototype;
+  dart.addTypeTests(fading_grid.SpinKitFadingGrid);
+  dart.addTypeCaches(fading_grid.SpinKitFadingGrid);
+  dart.setMethodSignature(fading_grid.SpinKitFadingGrid, () => ({
+    __proto__: dart.getMethods(fading_grid.SpinKitFadingGrid.__proto__),
+    createState: dart.fnType(fading_grid._SpinKitFadingGridState, [])
+  }));
+  dart.setLibraryUri(fading_grid.SpinKitFadingGrid, I[1]);
+  dart.setFieldSignature(fading_grid.SpinKitFadingGrid, () => ({
+    __proto__: dart.getFields(fading_grid.SpinKitFadingGrid.__proto__),
+    color: dart.finalFieldType(dart.nullable(ui.Color)),
+    shape: dart.finalFieldType(box_border.BoxShape),
+    size: dart.finalFieldType(core.double),
+    itemBuilder: dart.finalFieldType(dart.nullable(dart.fnType(framework.Widget, [framework.BuildContext, core.int]))),
+    duration: dart.finalFieldType(core.Duration),
+    controller: dart.finalFieldType(dart.nullable(animation_controller.AnimationController))
+  }));
+  var ___SpinKitFadingGridState__controller = dart.privateName(fading_grid, "_#_SpinKitFadingGridState#_controller");
+  var ___SpinKitFadingGridState__controller_isSet = dart.privateName(fading_grid, "_#_SpinKitFadingGridState#_controller#isSet");
+  var _controller = dart.privateName(fading_grid, "_controller");
+  var _circle = dart.privateName(fading_grid, "_circle");
+  var _Location_parameterLocations = dart.privateName(widget_inspector, "_Location.parameterLocations");
+  var _Location_name = dart.privateName(widget_inspector, "_Location.name");
+  var _Location_column = dart.privateName(widget_inspector, "_Location.column");
+  var _Location_line = dart.privateName(widget_inspector, "_Location.line");
+  var _Location_file = dart.privateName(widget_inspector, "_Location.file");
+  var _itemBuilder = dart.privateName(fading_grid, "_itemBuilder");
+  const State_SingleTickerProviderStateMixin$36 = class State_SingleTickerProviderStateMixin extends framework.State$(fading_grid.SpinKitFadingGrid) {};
+  (State_SingleTickerProviderStateMixin$36.new = function() {
+    ticker_provider.SingleTickerProviderStateMixin$(fading_grid.SpinKitFadingGrid)[dart.mixinNew].call(this);
+    State_SingleTickerProviderStateMixin$36.__proto__.new.call(this);
+  }).prototype = State_SingleTickerProviderStateMixin$36.prototype;
+  dart.applyMixin(State_SingleTickerProviderStateMixin$36, ticker_provider.SingleTickerProviderStateMixin$(fading_grid.SpinKitFadingGrid));
+  fading_grid._SpinKitFadingGridState = class _SpinKitFadingGridState extends State_SingleTickerProviderStateMixin$36 {
+    get [_controller]() {
+      let t0;
+      return dart.test(this[___SpinKitFadingGridState__controller_isSet]) ? (t0 = this[___SpinKitFadingGridState__controller], t0) : dart.throw(new _internal.LateError.fieldNI("_controller"));
+    }
+    set [_controller](t0) {
+      if (t0 == null) dart.nullFailed(I[0], 29, 28, "null");
+      this[___SpinKitFadingGridState__controller_isSet] = true;
+      this[___SpinKitFadingGridState__controller] = t0;
+    }
+    initState() {
+      let t1, t1$;
+      super.initState();
+      this[_controller] = (t1$ = (t1 = this.widget.controller, t1 == null ? new animation_controller.AnimationController.new({vsync: this, duration: this.widget.duration}) : t1), (() => {
+        t1$.repeat();
+        return t1$;
+      })());
+    }
+    dispose() {
+      this[_controller].dispose();
+      super.dispose();
+    }
+    build(context) {
+      if (context == null) dart.nullFailed(I[0], 45, 29, "context");
+      return new basic.SizedBox.fromSize({size: new ui.Size.square(this.widget.size), child: new basic.Column.new({mainAxisAlignment: flex.MainAxisAlignment.center, mainAxisSize: flex.MainAxisSize.max, children: T.JSArrayOfWidget().of([new basic.Row.new({mainAxisSize: flex.MainAxisSize.max, mainAxisAlignment: flex.MainAxisAlignment.center, children: T.JSArrayOfWidget().of([this[_circle](0, 1), new basic.SizedBox.new({width: dart.notNull(this.widget.size) / 8, $creationLocationd_0dea112b090073317d4: C[2] || CT.C2}), this[_circle](1, 1), new basic.SizedBox.new({width: dart.notNull(this.widget.size) / 8, $creationLocationd_0dea112b090073317d4: C[5] || CT.C5}), this[_circle](2, 2)]), $creationLocationd_0dea112b090073317d4: C[8] || CT.C8}), new basic.Row.new({mainAxisSize: flex.MainAxisSize.max, mainAxisAlignment: flex.MainAxisAlignment.center, children: T.JSArrayOfWidget().of([new basic.SizedBox.new({height: dart.notNull(this.widget.size) / 8, width: this.widget.size, $creationLocationd_0dea112b090073317d4: C[13] || CT.C13})]), $creationLocationd_0dea112b090073317d4: C[17] || CT.C17}), new basic.Row.new({mainAxisSize: flex.MainAxisSize.max, mainAxisAlignment: flex.MainAxisAlignment.center, children: T.JSArrayOfWidget().of([this[_circle](3, 4), new basic.SizedBox.new({width: dart.notNull(this.widget.size) / 8, $creationLocationd_0dea112b090073317d4: C[22] || CT.C22}), this[_circle](4, 1), new basic.SizedBox.new({width: dart.notNull(this.widget.size) / 8, $creationLocationd_0dea112b090073317d4: C[25] || CT.C25}), this[_circle](5, 2)]), $creationLocationd_0dea112b090073317d4: C[28] || CT.C28}), new basic.Row.new({mainAxisSize: flex.MainAxisSize.max, mainAxisAlignment: flex.MainAxisAlignment.center, children: T.JSArrayOfWidget().of([new basic.SizedBox.new({height: dart.notNull(this.widget.size) / 8, width: this.widget.size, $creationLocationd_0dea112b090073317d4: C[33] || CT.C33})]), $creationLocationd_0dea112b090073317d4: C[37] || CT.C37}), new basic.Row.new({mainAxisSize: flex.MainAxisSize.max, mainAxisAlignment: flex.MainAxisAlignment.center, children: T.JSArrayOfWidget().of([this[_circle](6, 4), new basic.SizedBox.new({width: dart.notNull(this.widget.size) / 8, $creationLocationd_0dea112b090073317d4: C[42] || CT.C42}), this[_circle](7, 3), new basic.SizedBox.new({width: dart.notNull(this.widget.size) / 8, $creationLocationd_0dea112b090073317d4: C[45] || CT.C45}), this[_circle](8, 3)]), $creationLocationd_0dea112b090073317d4: C[48] || CT.C48})]), $creationLocationd_0dea112b090073317d4: C[53] || CT.C53}), $creationLocationd_0dea112b090073317d4: C[58] || CT.C58});
+    }
+    [_circle](index, i) {
+      if (index == null) dart.nullFailed(I[0], 104, 22, "index");
+      if (i == null) dart.nullFailed(I[0], 104, 33, "i");
+      return new transitions.FadeTransition.new({opacity: new delay_tween.DelayTween.new({begin: 0.4, end: 0.9, delay: 0.3 * (dart.notNull(i) - 1)}).animate(this[_controller]), child: new basic.SizedBox.fromSize({size: new ui.Size.square(dart.notNull(this.widget.size) / 4), child: this[_itemBuilder](index), $creationLocationd_0dea112b090073317d4: C[62] || CT.C62}), $creationLocationd_0dea112b090073317d4: C[66] || CT.C66});
+    }
+    [_itemBuilder](index) {
+      if (index == null) dart.nullFailed(I[0], 114, 27, "index");
+      return this.widget.itemBuilder != null ? dart.nullCheck(this.widget.itemBuilder)(this.context, index) : new container.DecoratedBox.new({decoration: new box_decoration.BoxDecoration.new({color: this.widget.color, shape: this.widget.shape}), $creationLocationd_0dea112b090073317d4: C[70] || CT.C70});
+    }
+  };
+  (fading_grid._SpinKitFadingGridState.new = function() {
+    this[___SpinKitFadingGridState__controller] = null;
+    this[___SpinKitFadingGridState__controller_isSet] = false;
+    fading_grid._SpinKitFadingGridState.__proto__.new.call(this);
+    ;
+  }).prototype = fading_grid._SpinKitFadingGridState.prototype;
+  dart.addTypeTests(fading_grid._SpinKitFadingGridState);
+  dart.addTypeCaches(fading_grid._SpinKitFadingGridState);
+  dart.setMethodSignature(fading_grid._SpinKitFadingGridState, () => ({
+    __proto__: dart.getMethods(fading_grid._SpinKitFadingGridState.__proto__),
+    build: dart.fnType(framework.Widget, [framework.BuildContext]),
+    [_circle]: dart.fnType(framework.Widget, [core.int, core.int]),
+    [_itemBuilder]: dart.fnType(framework.Widget, [core.int])
+  }));
+  dart.setGetterSignature(fading_grid._SpinKitFadingGridState, () => ({
+    __proto__: dart.getGetters(fading_grid._SpinKitFadingGridState.__proto__),
+    [_controller]: animation_controller.AnimationController
+  }));
+  dart.setSetterSignature(fading_grid._SpinKitFadingGridState, () => ({
+    __proto__: dart.getSetters(fading_grid._SpinKitFadingGridState.__proto__),
+    [_controller]: animation_controller.AnimationController
+  }));
+  dart.setLibraryUri(fading_grid._SpinKitFadingGridState, I[1]);
+  dart.setFieldSignature(fading_grid._SpinKitFadingGridState, () => ({
+    __proto__: dart.getFields(fading_grid._SpinKitFadingGridState.__proto__),
+    [___SpinKitFadingGridState__controller]: dart.fieldType(dart.nullable(animation_controller.AnimationController)),
+    [___SpinKitFadingGridState__controller_isSet]: dart.fieldType(core.bool)
+  }));
+  dart.trackLibraries("packages/flutter_spinkit/src/fading_grid.dart", {
+    "package:flutter_spinkit/src/fading_grid.dart": fading_grid
+  }, {
+  }, '{"version":3,"sourceRoot":"","sources":["fading_grid.dart"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;IAgBe;;;;;;IACE;;;;;;IACF;;;;;;IACe;;;;;;IACb;;;;;;IACY;;;;;;;AAGc;IAAyB;;;QAnB3D;QACA;QACA;;QACA;;QACA;QACA;;QACA;;IALA;IACA;IACA;IACA;IACA;IACA;UAC+D,EAA3C,kCAAZ,WAAW,KAAkC,YAAN,KAAK,QAAgB,AAAY,WAAD,YAAY,AAAM,KAAD,8BAC7F;AACJ,iEAAW,GAAG;;EAAC;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;AAcI;IAAW;;;AAAX;;IAAW;;;AAIjB,MAAX;AAEoG,MAA1G,4BAAiC,KAAlB,AAAO,wBAAA,aAAc,yDAA2B,gBAAgB,AAAO,8BAArD;AAAiE;;;IACpG;;AAIuB,MAArB,AAAY;AACG,MAAT;IACR;;UAG0B;AACxB,YAAgB,oCACH,mBAAO,AAAO,0BAClB,yCACgC,6CACV,iCACT,wBAChB,iCAC6B,0CACU,yCACnB,wBAChB,cAAQ,GAAG,IACX,+BAA4B,aAAZ,AAAO,oBAAO,4DAC9B,cAAQ,GAAG,IACX,+BAA4B,aAAZ,AAAO,oBAAO,4DAC9B,cAAQ,GAAG,+DAGf,iCAC6B,0CACU,yCACnB,wBAChB,gCAA6B,aAAZ,AAAO,oBAAO,UAAU,AAAO,0IAGpD,iCAC6B,0CACU,yCACnB,wBAChB,cAAQ,GAAG,IACX,+BAA4B,aAAZ,AAAO,oBAAO,8DAC9B,cAAQ,GAAG,IACX,+BAA4B,aAAZ,AAAO,oBAAO,8DAC9B,cAAQ,GAAG,iEAGf,iCAC6B,0CACU,yCACnB,wBAChB,gCAA6B,aAAZ,AAAO,oBAAO,UAAU,AAAO,0IAGpD,iCAC6B,0CACU,yCACnB,wBAChB,cAAQ,GAAG,IACX,+BAA4B,aAAZ,AAAO,oBAAO,8DAC9B,cAAQ,GAAG,IACX,+BAA4B,aAAZ,AAAO,oBAAO,8DAC9B,cAAQ,GAAG;IAMvB;cAEmB,OAAW;UAAX;UAAW;AAC5B,YAAO,8CACI,AAAuD,uCAArC,UAAU,YAAY,AAAI,OAAK,aAAF,CAAC,IAAG,aAAY,2BACxD,mCACH,mBAAmB,aAAZ,AAAO,oBAAO,WACzB,mBAAa,KAAK;IAG/B;;UAEwB;AAAU,YAAA,AAAO,AAAY,mCAC7B,AAAC,eAAnB,AAAO,yBAAa,cAAS,KAAK,IAClC,4CAAyB,6CAAqB,AAAO,0BAAc,AAAO;IAAO;;;kDAvF9D;;;;EAwF3B","file":"../../../../../../../../O:/packages/flutter_spinkit/src/fading_grid.dart.lib.js"}');
+  // Exports:
+  return {
+    src__fading_grid: fading_grid
+  };
+}));
+
+//# sourceMappingURL=fading_grid.dart.lib.js.map

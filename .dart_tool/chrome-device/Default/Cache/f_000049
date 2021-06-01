@@ -1,0 +1,583 @@
+define(['dart_sdk'], (function load__packages__fluwx__src__response__wechat_response_dart(dart_sdk) {
+  'use strict';
+  const core = dart_sdk.core;
+  const typed_data = dart_sdk.typed_data;
+  const _js_helper = dart_sdk._js_helper;
+  const dart = dart_sdk.dart;
+  const dartx = dart_sdk.dartx;
+  var wechat_response = Object.create(dart.library);
+  var $_get = dartx._get;
+  var $hashCode = dartx.hashCode;
+  dart._checkModuleNullSafetyMode(false);
+  var T = {
+    StringN: () => (T.StringN = dart.constFn(dart.nullable(core.String)))(),
+    intN: () => (T.intN = dart.constFn(dart.nullable(core.int)))(),
+    Uint8ListN: () => (T.Uint8ListN = dart.constFn(dart.nullable(typed_data.Uint8List)))(),
+    AuthByQRCodeErrorCodeL: () => (T.AuthByQRCodeErrorCodeL = dart.constFn(dart.legacy(wechat_response.AuthByQRCodeErrorCode)))(),
+    MapToWeChatShareResponse: () => (T.MapToWeChatShareResponse = dart.constFn(dart.fnType(wechat_response.WeChatShareResponse, [core.Map])))(),
+    MapToWeChatAuthResponse: () => (T.MapToWeChatAuthResponse = dart.constFn(dart.fnType(wechat_response.WeChatAuthResponse, [core.Map])))(),
+    MapToWeChatLaunchMiniProgramResponse: () => (T.MapToWeChatLaunchMiniProgramResponse = dart.constFn(dart.fnType(wechat_response.WeChatLaunchMiniProgramResponse, [core.Map])))(),
+    MapToWeChatPaymentResponse: () => (T.MapToWeChatPaymentResponse = dart.constFn(dart.fnType(wechat_response.WeChatPaymentResponse, [core.Map])))(),
+    MapToWeChatSubscribeMsgResponse: () => (T.MapToWeChatSubscribeMsgResponse = dart.constFn(dart.fnType(wechat_response.WeChatSubscribeMsgResponse, [core.Map])))(),
+    MapToWeChatOpenBusinessWebviewResponse: () => (T.MapToWeChatOpenBusinessWebviewResponse = dart.constFn(dart.fnType(wechat_response.WeChatOpenBusinessWebviewResponse, [core.Map])))(),
+    MapToWeChatAuthByQRCodeFinishedResponse: () => (T.MapToWeChatAuthByQRCodeFinishedResponse = dart.constFn(dart.fnType(wechat_response.WeChatAuthByQRCodeFinishedResponse, [core.Map])))(),
+    MapToWeChatAuthGotQRCodeResponse: () => (T.MapToWeChatAuthGotQRCodeResponse = dart.constFn(dart.fnType(wechat_response.WeChatAuthGotQRCodeResponse, [core.Map])))(),
+    MapToWeChatQRCodeScannedResponse: () => (T.MapToWeChatQRCodeScannedResponse = dart.constFn(dart.fnType(wechat_response.WeChatQRCodeScannedResponse, [core.Map])))(),
+    MapToWeChatShowMessageFromWXRequest: () => (T.MapToWeChatShowMessageFromWXRequest = dart.constFn(dart.fnType(wechat_response.WeChatShowMessageFromWXRequest, [core.Map])))(),
+    MapToBaseWeChatResponse: () => (T.MapToBaseWeChatResponse = dart.constFn(dart.fnType(wechat_response.BaseWeChatResponse, [core.Map])))(),
+    IdentityMapOfString$MapToBaseWeChatResponse: () => (T.IdentityMapOfString$MapToBaseWeChatResponse = dart.constFn(_js_helper.IdentityMap$(core.String, T.MapToBaseWeChatResponse())))(),
+    intL: () => (T.intL = dart.constFn(dart.legacy(core.int)))()
+  };
+  const CT = Object.create({
+    _: () => (C, CT)
+  });
+  dart.defineLazy(CT, {
+    get C0() {
+      return C[0] = dart.const({
+        __proto__: wechat_response.AuthByQRCodeErrorCode.prototype,
+        [_name$]: "AuthByQRCodeErrorCode.OK",
+        index: 0
+      });
+    },
+    get C1() {
+      return C[1] = dart.const({
+        __proto__: wechat_response.AuthByQRCodeErrorCode.prototype,
+        [_name$]: "AuthByQRCodeErrorCode.NORMAL_ERR",
+        index: 1
+      });
+    },
+    get C2() {
+      return C[2] = dart.const({
+        __proto__: wechat_response.AuthByQRCodeErrorCode.prototype,
+        [_name$]: "AuthByQRCodeErrorCode.NETWORK_ERR",
+        index: 2
+      });
+    },
+    get C3() {
+      return C[3] = dart.const({
+        __proto__: wechat_response.AuthByQRCodeErrorCode.prototype,
+        [_name$]: "AuthByQRCodeErrorCode.JSON_DECODE_ERR",
+        index: 3
+      });
+    },
+    get C4() {
+      return C[4] = dart.const({
+        __proto__: wechat_response.AuthByQRCodeErrorCode.prototype,
+        [_name$]: "AuthByQRCodeErrorCode.CANCEL",
+        index: 4
+      });
+    },
+    get C5() {
+      return C[5] = dart.const({
+        __proto__: wechat_response.AuthByQRCodeErrorCode.prototype,
+        [_name$]: "AuthByQRCodeErrorCode.TIMEOUT",
+        index: 5
+      });
+    },
+    get C6() {
+      return C[6] = dart.const({
+        __proto__: wechat_response.AuthByQRCodeErrorCode.prototype,
+        [_name$]: "AuthByQRCodeErrorCode.AUTH_STOPPED",
+        index: 6
+      });
+    },
+    get C7() {
+      return C[7] = dart.const({
+        __proto__: wechat_response.AuthByQRCodeErrorCode.prototype,
+        [_name$]: "AuthByQRCodeErrorCode.UNKNOWN",
+        index: 7
+      });
+    },
+    get C8() {
+      return C[8] = dart.constList([C[0] || CT.C0, C[1] || CT.C1, C[2] || CT.C2, C[3] || CT.C3, C[4] || CT.C4, C[5] || CT.C5, C[6] || CT.C6, C[7] || CT.C7], T.AuthByQRCodeErrorCodeL());
+    },
+    get C9() {
+      return C[9] = dart.constMap(T.intL(), T.AuthByQRCodeErrorCodeL(), [0, C[0] || CT.C0, -1, C[1] || CT.C1, -2, C[2] || CT.C2, -3, C[3] || CT.C3, -4, C[4] || CT.C4, -5, C[6] || CT.C6]);
+    }
+  }, false);
+  var C = Array(10).fill(void 0);
+  var I = [
+    "file:///d:/flutter/.pub-cache/hosted/pub.flutter-io.cn/fluwx-3.4.2/lib/src/response/wechat_response.dart",
+    "package:fluwx/src/response/wechat_response.dart"
+  ];
+  var errCode$ = dart.privateName(wechat_response, "BaseWeChatResponse.errCode");
+  var errStr$ = dart.privateName(wechat_response, "BaseWeChatResponse.errStr");
+  wechat_response.BaseWeChatResponse = class BaseWeChatResponse extends core.Object {
+    get errCode() {
+      return this[errCode$];
+    }
+    set errCode(value) {
+      super.errCode = value;
+    }
+    get errStr() {
+      return this[errStr$];
+    }
+    set errStr(value) {
+      super.errStr = value;
+    }
+    get isSuccessful() {
+      return this.errCode === 0;
+    }
+    static create(name, argument) {
+      if (name == null) dart.nullFailed(I[0], 56, 44, "name");
+      if (argument == null) dart.nullFailed(I[0], 56, 54, "argument");
+      let result = wechat_response._nameAndResponseMapper[$_get](name);
+      if (result == null) {
+        dart.throw(new core.ArgumentError.new("Can't found instance of " + dart.str(name)));
+      }
+      return result(argument);
+    }
+  };
+  (wechat_response.BaseWeChatResponse.__ = function(errCode, errStr) {
+    if (errCode == null) dart.nullFailed(I[0], 53, 29, "errCode");
+    this[errCode$] = errCode;
+    this[errStr$] = errStr;
+    ;
+  }).prototype = wechat_response.BaseWeChatResponse.prototype;
+  dart.addTypeTests(wechat_response.BaseWeChatResponse);
+  dart.addTypeCaches(wechat_response.BaseWeChatResponse);
+  dart.setGetterSignature(wechat_response.BaseWeChatResponse, () => ({
+    __proto__: dart.getGetters(wechat_response.BaseWeChatResponse.__proto__),
+    isSuccessful: core.bool
+  }));
+  dart.setLibraryUri(wechat_response.BaseWeChatResponse, I[1]);
+  dart.setFieldSignature(wechat_response.BaseWeChatResponse, () => ({
+    __proto__: dart.getFields(wechat_response.BaseWeChatResponse.__proto__),
+    errCode: dart.finalFieldType(core.int),
+    errStr: dart.finalFieldType(dart.nullable(core.String))
+  }));
+  var type = dart.privateName(wechat_response, "WeChatShareResponse.type");
+  wechat_response.WeChatShareResponse = class WeChatShareResponse extends wechat_response.BaseWeChatResponse {
+    get type() {
+      return this[type];
+    }
+    set type(value) {
+      super.type = value;
+    }
+  };
+  (wechat_response.WeChatShareResponse.fromMap = function(map) {
+    if (map == null) dart.nullFailed(I[0], 68, 35, "map");
+    this[type] = core.int.as(map[$_get]("type"));
+    wechat_response.WeChatShareResponse.__proto__.__.call(this, core.int.as(map[$_get]("errCode")), T.StringN().as(map[$_get]("errStr")));
+    ;
+  }).prototype = wechat_response.WeChatShareResponse.prototype;
+  dart.addTypeTests(wechat_response.WeChatShareResponse);
+  dart.addTypeCaches(wechat_response.WeChatShareResponse);
+  dart.setLibraryUri(wechat_response.WeChatShareResponse, I[1]);
+  dart.setFieldSignature(wechat_response.WeChatShareResponse, () => ({
+    __proto__: dart.getFields(wechat_response.WeChatShareResponse.__proto__),
+    type: dart.finalFieldType(core.int)
+  }));
+  var type$ = dart.privateName(wechat_response, "WeChatAuthResponse.type");
+  var country = dart.privateName(wechat_response, "WeChatAuthResponse.country");
+  var lang = dart.privateName(wechat_response, "WeChatAuthResponse.lang");
+  var code = dart.privateName(wechat_response, "WeChatAuthResponse.code");
+  var state = dart.privateName(wechat_response, "WeChatAuthResponse.state");
+  wechat_response.WeChatAuthResponse = class WeChatAuthResponse extends wechat_response.BaseWeChatResponse {
+    get type() {
+      return this[type$];
+    }
+    set type(value) {
+      super.type = value;
+    }
+    get country() {
+      return this[country];
+    }
+    set country(value) {
+      super.country = value;
+    }
+    get lang() {
+      return this[lang];
+    }
+    set lang(value) {
+      super.lang = value;
+    }
+    get code() {
+      return this[code];
+    }
+    set code(value) {
+      super.code = value;
+    }
+    get state() {
+      return this[state];
+    }
+    set state(value) {
+      super.state = value;
+    }
+    _equals(other) {
+      if (other == null) return false;
+      if (wechat_response.WeChatAuthResponse.is(other)) {
+        return this.code == other.code && this.country == other.country && this.lang == other.lang && this.state == other.state;
+      } else {
+        return false;
+      }
+    }
+    get hashCode() {
+      let t0;
+      return dart.notNull(super[$hashCode]) + dart.hashCode(this.errCode) & 1345 + dart.notNull(dart.hashCode(this.errStr)) & 15 + dart.hashCode((t0 = this.code, t0 == null ? "" : t0)) & 1432;
+    }
+  };
+  (wechat_response.WeChatAuthResponse.fromMap = function(map) {
+    if (map == null) dart.nullFailed(I[0], 80, 34, "map");
+    this[type$] = core.int.as(map[$_get]("type"));
+    this[country] = T.StringN().as(map[$_get]("country"));
+    this[lang] = T.StringN().as(map[$_get]("lang"));
+    this[code] = T.StringN().as(map[$_get]("code"));
+    this[state] = T.StringN().as(map[$_get]("state"));
+    wechat_response.WeChatAuthResponse.__proto__.__.call(this, core.int.as(map[$_get]("errCode")), T.StringN().as(map[$_get]("errStr")));
+    ;
+  }).prototype = wechat_response.WeChatAuthResponse.prototype;
+  dart.addTypeTests(wechat_response.WeChatAuthResponse);
+  dart.addTypeCaches(wechat_response.WeChatAuthResponse);
+  dart.setLibraryUri(wechat_response.WeChatAuthResponse, I[1]);
+  dart.setFieldSignature(wechat_response.WeChatAuthResponse, () => ({
+    __proto__: dart.getFields(wechat_response.WeChatAuthResponse.__proto__),
+    type: dart.finalFieldType(core.int),
+    country: dart.finalFieldType(dart.nullable(core.String)),
+    lang: dart.finalFieldType(dart.nullable(core.String)),
+    code: dart.finalFieldType(dart.nullable(core.String)),
+    state: dart.finalFieldType(dart.nullable(core.String))
+  }));
+  dart.defineExtensionMethods(wechat_response.WeChatAuthResponse, ['_equals']);
+  dart.defineExtensionAccessors(wechat_response.WeChatAuthResponse, ['hashCode']);
+  var type$0 = dart.privateName(wechat_response, "WeChatLaunchMiniProgramResponse.type");
+  var extMsg = dart.privateName(wechat_response, "WeChatLaunchMiniProgramResponse.extMsg");
+  wechat_response.WeChatLaunchMiniProgramResponse = class WeChatLaunchMiniProgramResponse extends wechat_response.BaseWeChatResponse {
+    get type() {
+      return this[type$0];
+    }
+    set type(value) {
+      super.type = value;
+    }
+    get extMsg() {
+      return this[extMsg];
+    }
+    set extMsg(value) {
+      super.extMsg = value;
+    }
+  };
+  (wechat_response.WeChatLaunchMiniProgramResponse.fromMap = function(map) {
+    if (map == null) dart.nullFailed(I[0], 112, 47, "map");
+    this[type$0] = T.intN().as(map[$_get]("type"));
+    this[extMsg] = T.StringN().as(map[$_get]("extMsg"));
+    wechat_response.WeChatLaunchMiniProgramResponse.__proto__.__.call(this, core.int.as(map[$_get]("errCode")), T.StringN().as(map[$_get]("errStr")));
+    ;
+  }).prototype = wechat_response.WeChatLaunchMiniProgramResponse.prototype;
+  dart.addTypeTests(wechat_response.WeChatLaunchMiniProgramResponse);
+  dart.addTypeCaches(wechat_response.WeChatLaunchMiniProgramResponse);
+  dart.setLibraryUri(wechat_response.WeChatLaunchMiniProgramResponse, I[1]);
+  dart.setFieldSignature(wechat_response.WeChatLaunchMiniProgramResponse, () => ({
+    __proto__: dart.getFields(wechat_response.WeChatLaunchMiniProgramResponse.__proto__),
+    type: dart.finalFieldType(dart.nullable(core.int)),
+    extMsg: dart.finalFieldType(dart.nullable(core.String))
+  }));
+  var type$1 = dart.privateName(wechat_response, "WeChatPaymentResponse.type");
+  var extData = dart.privateName(wechat_response, "WeChatPaymentResponse.extData");
+  wechat_response.WeChatPaymentResponse = class WeChatPaymentResponse extends wechat_response.BaseWeChatResponse {
+    get type() {
+      return this[type$1];
+    }
+    set type(value) {
+      super.type = value;
+    }
+    get extData() {
+      return this[extData];
+    }
+    set extData(value) {
+      super.extData = value;
+    }
+  };
+  (wechat_response.WeChatPaymentResponse.fromMap = function(map) {
+    if (map == null) dart.nullFailed(I[0], 122, 37, "map");
+    this[type$1] = core.int.as(map[$_get]("type"));
+    this[extData] = T.StringN().as(map[$_get]("extData"));
+    wechat_response.WeChatPaymentResponse.__proto__.__.call(this, core.int.as(map[$_get]("errCode")), T.StringN().as(map[$_get]("errStr")));
+    ;
+  }).prototype = wechat_response.WeChatPaymentResponse.prototype;
+  dart.addTypeTests(wechat_response.WeChatPaymentResponse);
+  dart.addTypeCaches(wechat_response.WeChatPaymentResponse);
+  dart.setLibraryUri(wechat_response.WeChatPaymentResponse, I[1]);
+  dart.setFieldSignature(wechat_response.WeChatPaymentResponse, () => ({
+    __proto__: dart.getFields(wechat_response.WeChatPaymentResponse.__proto__),
+    type: dart.finalFieldType(core.int),
+    extData: dart.finalFieldType(dart.nullable(core.String))
+  }));
+  var openid = dart.privateName(wechat_response, "WeChatSubscribeMsgResponse.openid");
+  var templateId = dart.privateName(wechat_response, "WeChatSubscribeMsgResponse.templateId");
+  var action = dart.privateName(wechat_response, "WeChatSubscribeMsgResponse.action");
+  var reserved = dart.privateName(wechat_response, "WeChatSubscribeMsgResponse.reserved");
+  var scene = dart.privateName(wechat_response, "WeChatSubscribeMsgResponse.scene");
+  wechat_response.WeChatSubscribeMsgResponse = class WeChatSubscribeMsgResponse extends wechat_response.BaseWeChatResponse {
+    get openid() {
+      return this[openid];
+    }
+    set openid(value) {
+      super.openid = value;
+    }
+    get templateId() {
+      return this[templateId];
+    }
+    set templateId(value) {
+      super.templateId = value;
+    }
+    get action() {
+      return this[action];
+    }
+    set action(value) {
+      super.action = value;
+    }
+    get reserved() {
+      return this[reserved];
+    }
+    set reserved(value) {
+      super.reserved = value;
+    }
+    get scene() {
+      return this[scene];
+    }
+    set scene(value) {
+      super.scene = value;
+    }
+  };
+  (wechat_response.WeChatSubscribeMsgResponse.fromMap = function(map) {
+    if (map == null) dart.nullFailed(I[0], 135, 42, "map");
+    this[openid] = T.StringN().as(map[$_get]("openid"));
+    this[templateId] = T.StringN().as(map[$_get]("templateId"));
+    this[action] = T.StringN().as(map[$_get]("action"));
+    this[reserved] = T.StringN().as(map[$_get]("reserved"));
+    this[scene] = core.int.as(map[$_get]("scene"));
+    wechat_response.WeChatSubscribeMsgResponse.__proto__.__.call(this, core.int.as(map[$_get]("errCode")), T.StringN().as(map[$_get]("errStr")));
+    ;
+  }).prototype = wechat_response.WeChatSubscribeMsgResponse.prototype;
+  dart.addTypeTests(wechat_response.WeChatSubscribeMsgResponse);
+  dart.addTypeCaches(wechat_response.WeChatSubscribeMsgResponse);
+  dart.setLibraryUri(wechat_response.WeChatSubscribeMsgResponse, I[1]);
+  dart.setFieldSignature(wechat_response.WeChatSubscribeMsgResponse, () => ({
+    __proto__: dart.getFields(wechat_response.WeChatSubscribeMsgResponse.__proto__),
+    openid: dart.finalFieldType(dart.nullable(core.String)),
+    templateId: dart.finalFieldType(dart.nullable(core.String)),
+    action: dart.finalFieldType(dart.nullable(core.String)),
+    reserved: dart.finalFieldType(dart.nullable(core.String)),
+    scene: dart.finalFieldType(core.int)
+  }));
+  var type$2 = dart.privateName(wechat_response, "WeChatOpenBusinessWebviewResponse.type");
+  var errCode = dart.privateName(wechat_response, "WeChatOpenBusinessWebviewResponse.errCode");
+  var businessType = dart.privateName(wechat_response, "WeChatOpenBusinessWebviewResponse.businessType");
+  var resultInfo = dart.privateName(wechat_response, "WeChatOpenBusinessWebviewResponse.resultInfo");
+  wechat_response.WeChatOpenBusinessWebviewResponse = class WeChatOpenBusinessWebviewResponse extends wechat_response.BaseWeChatResponse {
+    get type() {
+      return this[type$2];
+    }
+    set type(value) {
+      super.type = value;
+    }
+    get errCode() {
+      return this[errCode];
+    }
+    set errCode(value) {
+      super.errCode = value;
+    }
+    get businessType() {
+      return this[businessType];
+    }
+    set businessType(value) {
+      super.businessType = value;
+    }
+    get resultInfo() {
+      return this[resultInfo];
+    }
+    set resultInfo(value) {
+      super.resultInfo = value;
+    }
+  };
+  (wechat_response.WeChatOpenBusinessWebviewResponse.fromMap = function(map) {
+    if (map == null) dart.nullFailed(I[0], 150, 49, "map");
+    this[type$2] = T.intN().as(map[$_get]("type"));
+    this[errCode] = core.int.as(map[$_get]("errCode"));
+    this[businessType] = T.intN().as(map[$_get]("businessType"));
+    this[resultInfo] = core.String.as(map[$_get]("resultInfo"));
+    wechat_response.WeChatOpenBusinessWebviewResponse.__proto__.__.call(this, core.int.as(map[$_get]("errCode")), T.StringN().as(map[$_get]("errStr")));
+    ;
+  }).prototype = wechat_response.WeChatOpenBusinessWebviewResponse.prototype;
+  dart.addTypeTests(wechat_response.WeChatOpenBusinessWebviewResponse);
+  dart.addTypeCaches(wechat_response.WeChatOpenBusinessWebviewResponse);
+  dart.setLibraryUri(wechat_response.WeChatOpenBusinessWebviewResponse, I[1]);
+  dart.setFieldSignature(wechat_response.WeChatOpenBusinessWebviewResponse, () => ({
+    __proto__: dart.getFields(wechat_response.WeChatOpenBusinessWebviewResponse.__proto__),
+    type: dart.finalFieldType(dart.nullable(core.int)),
+    errCode: dart.finalFieldType(core.int),
+    businessType: dart.finalFieldType(dart.nullable(core.int)),
+    resultInfo: dart.finalFieldType(core.String)
+  }));
+  var authCode = dart.privateName(wechat_response, "WeChatAuthByQRCodeFinishedResponse.authCode");
+  var qrCodeErrorCode = dart.privateName(wechat_response, "WeChatAuthByQRCodeFinishedResponse.qrCodeErrorCode");
+  wechat_response.WeChatAuthByQRCodeFinishedResponse = class WeChatAuthByQRCodeFinishedResponse extends wechat_response.BaseWeChatResponse {
+    get authCode() {
+      return this[authCode];
+    }
+    set authCode(value) {
+      super.authCode = value;
+    }
+    get qrCodeErrorCode() {
+      return this[qrCodeErrorCode];
+    }
+    set qrCodeErrorCode(value) {
+      super.qrCodeErrorCode = value;
+    }
+  };
+  (wechat_response.WeChatAuthByQRCodeFinishedResponse.fromMap = function(map) {
+    let t0;
+    if (map == null) dart.nullFailed(I[0], 162, 50, "map");
+    this[authCode] = T.StringN().as(map[$_get]("authCode"));
+    this[qrCodeErrorCode] = (t0 = wechat_response._authByQRCodeErrorCodes[$_get]("errCode"), t0 == null ? wechat_response.AuthByQRCodeErrorCode.UNKNOWN : t0);
+    wechat_response.WeChatAuthByQRCodeFinishedResponse.__proto__.__.call(this, core.int.as(map[$_get]("errCode")), T.StringN().as(map[$_get]("errStr")));
+    ;
+  }).prototype = wechat_response.WeChatAuthByQRCodeFinishedResponse.prototype;
+  dart.addTypeTests(wechat_response.WeChatAuthByQRCodeFinishedResponse);
+  dart.addTypeCaches(wechat_response.WeChatAuthByQRCodeFinishedResponse);
+  dart.setLibraryUri(wechat_response.WeChatAuthByQRCodeFinishedResponse, I[1]);
+  dart.setFieldSignature(wechat_response.WeChatAuthByQRCodeFinishedResponse, () => ({
+    __proto__: dart.getFields(wechat_response.WeChatAuthByQRCodeFinishedResponse.__proto__),
+    authCode: dart.finalFieldType(dart.nullable(core.String)),
+    qrCodeErrorCode: dart.finalFieldType(dart.nullable(wechat_response.AuthByQRCodeErrorCode))
+  }));
+  var qrCode = dart.privateName(wechat_response, "WeChatAuthGotQRCodeResponse.qrCode");
+  wechat_response.WeChatAuthGotQRCodeResponse = class WeChatAuthGotQRCodeResponse extends wechat_response.BaseWeChatResponse {
+    get qrCode() {
+      return this[qrCode];
+    }
+    set qrCode(value) {
+      super.qrCode = value;
+    }
+  };
+  (wechat_response.WeChatAuthGotQRCodeResponse.fromMap = function(map) {
+    if (map == null) dart.nullFailed(I[0], 173, 43, "map");
+    this[qrCode] = T.Uint8ListN().as(map[$_get]("qrCode"));
+    wechat_response.WeChatAuthGotQRCodeResponse.__proto__.__.call(this, core.int.as(map[$_get]("errCode")), T.StringN().as(map[$_get]("errStr")));
+    ;
+  }).prototype = wechat_response.WeChatAuthGotQRCodeResponse.prototype;
+  dart.addTypeTests(wechat_response.WeChatAuthGotQRCodeResponse);
+  dart.addTypeCaches(wechat_response.WeChatAuthGotQRCodeResponse);
+  dart.setLibraryUri(wechat_response.WeChatAuthGotQRCodeResponse, I[1]);
+  dart.setFieldSignature(wechat_response.WeChatAuthGotQRCodeResponse, () => ({
+    __proto__: dart.getFields(wechat_response.WeChatAuthGotQRCodeResponse.__proto__),
+    qrCode: dart.finalFieldType(dart.nullable(typed_data.Uint8List))
+  }));
+  wechat_response.WeChatQRCodeScannedResponse = class WeChatQRCodeScannedResponse extends wechat_response.BaseWeChatResponse {};
+  (wechat_response.WeChatQRCodeScannedResponse.fromMap = function(map) {
+    if (map == null) dart.nullFailed(I[0], 179, 43, "map");
+    wechat_response.WeChatQRCodeScannedResponse.__proto__.__.call(this, core.int.as(map[$_get]("errCode")), T.StringN().as(map[$_get]("errStr")));
+    ;
+  }).prototype = wechat_response.WeChatQRCodeScannedResponse.prototype;
+  dart.addTypeTests(wechat_response.WeChatQRCodeScannedResponse);
+  dart.addTypeCaches(wechat_response.WeChatQRCodeScannedResponse);
+  dart.setLibraryUri(wechat_response.WeChatQRCodeScannedResponse, I[1]);
+  var extMsg$ = dart.privateName(wechat_response, "WeChatShowMessageFromWXRequest.extMsg");
+  wechat_response.WeChatShowMessageFromWXRequest = class WeChatShowMessageFromWXRequest extends wechat_response.BaseWeChatResponse {
+    get extMsg() {
+      return this[extMsg$];
+    }
+    set extMsg(value) {
+      super.extMsg = value;
+    }
+  };
+  (wechat_response.WeChatShowMessageFromWXRequest.fromMap = function(map) {
+    if (map == null) dart.nullFailed(I[0], 187, 46, "map");
+    this[extMsg$] = T.StringN().as(map[$_get]("extMsg"));
+    wechat_response.WeChatShowMessageFromWXRequest.__proto__.__.call(this, 0, "");
+    ;
+  }).prototype = wechat_response.WeChatShowMessageFromWXRequest.prototype;
+  dart.addTypeTests(wechat_response.WeChatShowMessageFromWXRequest);
+  dart.addTypeCaches(wechat_response.WeChatShowMessageFromWXRequest);
+  dart.setLibraryUri(wechat_response.WeChatShowMessageFromWXRequest, I[1]);
+  dart.setFieldSignature(wechat_response.WeChatShowMessageFromWXRequest, () => ({
+    __proto__: dart.getFields(wechat_response.WeChatShowMessageFromWXRequest.__proto__),
+    extMsg: dart.finalFieldType(dart.nullable(core.String))
+  }));
+  var _name$ = dart.privateName(wechat_response, "_name");
+  wechat_response.AuthByQRCodeErrorCode = class AuthByQRCodeErrorCode extends core.Object {
+    toString() {
+      return this[_name$];
+    }
+  };
+  (wechat_response.AuthByQRCodeErrorCode.new = function(index, _name) {
+    if (index == null) dart.nullFailed(I[0], 201, 6, "index");
+    if (_name == null) dart.nullFailed(I[0], 201, 6, "_name");
+    this.index = index;
+    this[_name$] = _name;
+    ;
+  }).prototype = wechat_response.AuthByQRCodeErrorCode.prototype;
+  dart.addTypeTests(wechat_response.AuthByQRCodeErrorCode);
+  dart.addTypeCaches(wechat_response.AuthByQRCodeErrorCode);
+  dart.setLibraryUri(wechat_response.AuthByQRCodeErrorCode, I[1]);
+  dart.setFieldSignature(wechat_response.AuthByQRCodeErrorCode, () => ({
+    __proto__: dart.getFields(wechat_response.AuthByQRCodeErrorCode.__proto__),
+    index: dart.finalFieldType(core.int),
+    [_name$]: dart.finalFieldType(core.String)
+  }));
+  dart.defineExtensionMethods(wechat_response.AuthByQRCodeErrorCode, ['toString']);
+  wechat_response.AuthByQRCodeErrorCode.OK = C[0] || CT.C0;
+  wechat_response.AuthByQRCodeErrorCode.NORMAL_ERR = C[1] || CT.C1;
+  wechat_response.AuthByQRCodeErrorCode.NETWORK_ERR = C[2] || CT.C2;
+  wechat_response.AuthByQRCodeErrorCode.JSON_DECODE_ERR = C[3] || CT.C3;
+  wechat_response.AuthByQRCodeErrorCode.CANCEL = C[4] || CT.C4;
+  wechat_response.AuthByQRCodeErrorCode.TIMEOUT = C[5] || CT.C5;
+  wechat_response.AuthByQRCodeErrorCode.AUTH_STOPPED = C[6] || CT.C6;
+  wechat_response.AuthByQRCodeErrorCode.UNKNOWN = C[7] || CT.C7;
+  wechat_response.AuthByQRCodeErrorCode.values = C[8] || CT.C8;
+  dart.defineLazy(wechat_response, {
+    /*wechat_response._errCode*/get _errCode() {
+      return "errCode";
+    },
+    /*wechat_response._errStr*/get _errStr() {
+      return "errStr";
+    },
+    /*wechat_response._nameAndResponseMapper*/get _nameAndResponseMapper() {
+      return new (T.IdentityMapOfString$MapToBaseWeChatResponse()).from(["onShareResponse", dart.fn(argument => {
+          if (argument == null) dart.nullFailed(I[0], 28, 27, "argument");
+          return new wechat_response.WeChatShareResponse.fromMap(argument);
+        }, T.MapToWeChatShareResponse()), "onAuthResponse", dart.fn(argument => {
+          if (argument == null) dart.nullFailed(I[0], 29, 26, "argument");
+          return new wechat_response.WeChatAuthResponse.fromMap(argument);
+        }, T.MapToWeChatAuthResponse()), "onLaunchMiniProgramResponse", dart.fn(argument => {
+          if (argument == null) dart.nullFailed(I[0], 30, 39, "argument");
+          return new wechat_response.WeChatLaunchMiniProgramResponse.fromMap(argument);
+        }, T.MapToWeChatLaunchMiniProgramResponse()), "onPayResponse", dart.fn(argument => {
+          if (argument == null) dart.nullFailed(I[0], 32, 25, "argument");
+          return new wechat_response.WeChatPaymentResponse.fromMap(argument);
+        }, T.MapToWeChatPaymentResponse()), "onSubscribeMsgResp", dart.fn(argument => {
+          if (argument == null) dart.nullFailed(I[0], 33, 30, "argument");
+          return new wechat_response.WeChatSubscribeMsgResponse.fromMap(argument);
+        }, T.MapToWeChatSubscribeMsgResponse()), "onWXOpenBusinessWebviewResponse", dart.fn(argument => {
+          if (argument == null) dart.nullFailed(I[0], 35, 43, "argument");
+          return new wechat_response.WeChatOpenBusinessWebviewResponse.fromMap(argument);
+        }, T.MapToWeChatOpenBusinessWebviewResponse()), "onAuthByQRCodeFinished", dart.fn(argument => {
+          if (argument == null) dart.nullFailed(I[0], 37, 34, "argument");
+          return new wechat_response.WeChatAuthByQRCodeFinishedResponse.fromMap(argument);
+        }, T.MapToWeChatAuthByQRCodeFinishedResponse()), "onAuthGotQRCode", dart.fn(argument => {
+          if (argument == null) dart.nullFailed(I[0], 39, 27, "argument");
+          return new wechat_response.WeChatAuthGotQRCodeResponse.fromMap(argument);
+        }, T.MapToWeChatAuthGotQRCodeResponse()), "onQRCodeScanned", dart.fn(argument => {
+          if (argument == null) dart.nullFailed(I[0], 41, 27, "argument");
+          return new wechat_response.WeChatQRCodeScannedResponse.fromMap(argument);
+        }, T.MapToWeChatQRCodeScannedResponse()), "onWXShowMessageFromWX", dart.fn(argument => {
+          if (argument == null) dart.nullFailed(I[0], 43, 33, "argument");
+          return new wechat_response.WeChatShowMessageFromWXRequest.fromMap(argument);
+        }, T.MapToWeChatShowMessageFromWXRequest())]);
+    },
+    set _nameAndResponseMapper(_) {},
+    /*wechat_response._authByQRCodeErrorCodes*/get _authByQRCodeErrorCodes() {
+      return C[9] || CT.C9;
+    }
+  }, false);
+  dart.trackLibraries("packages/fluwx/src/response/wechat_response.dart", {
+    "package:fluwx/src/response/wechat_response.dart": wechat_response
+  }, {
+  }, '{"version":3,"sourceRoot":"","sources":["wechat_response.dart"],"names":[],"mappings":"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","file":"../../../../../../../../../O:/packages/fluwx/src/response/wechat_response.dart.lib.js"}');
+  // Exports:
+  return {
+    src__response__wechat_response: wechat_response
+  };
+}));
+
+//# sourceMappingURL=wechat_response.dart.lib.js.map

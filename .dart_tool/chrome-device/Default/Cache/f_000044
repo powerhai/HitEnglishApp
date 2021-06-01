@@ -1,0 +1,365 @@
+define(['dart_sdk', 'packages/dio_http_cache/src/core/manager.dart', 'packages/dio/src/interceptor.dart', 'packages/dio/src/headers.dart', 'packages/dio/src/cancel_token.dart', 'packages/dio_http_cache/src/core/obj.dart'], (function load__packages__dio_http_cache__src__manager_dio_dart(dart_sdk, packages__dio_http_cache__src__core__manager$46dart, packages__dio__src__interceptor$46dart, packages__dio__src__headers$46dart, packages__dio__src__cancel_token$46dart, packages__dio_http_cache__src__core__obj$46dart) {
+  'use strict';
+  const core = dart_sdk.core;
+  const async = dart_sdk.async;
+  const collection = dart_sdk.collection;
+  const convert = dart_sdk.convert;
+  const _http = dart_sdk._http;
+  const dart = dart_sdk.dart;
+  const dartx = dart_sdk.dartx;
+  const manager = packages__dio_http_cache__src__core__manager$46dart.src__core__manager;
+  const interceptor = packages__dio__src__interceptor$46dart.src__interceptor;
+  const headers$ = packages__dio__src__headers$46dart.src__headers;
+  const options$ = packages__dio__src__cancel_token$46dart.src__options;
+  const response = packages__dio__src__cancel_token$46dart.src__response;
+  const dio_error = packages__dio__src__cancel_token$46dart.src__dio_error;
+  const obj$ = packages__dio_http_cache__src__core__obj$46dart.src__core__obj;
+  var manager_dio = Object.create(dart.library);
+  var $_get = dartx._get;
+  var $map = dartx.map;
+  var $forEach = dartx.forEach;
+  var $remove = dartx.remove;
+  var $containsKey = dartx.containsKey;
+  var $toUpperCase = dartx.toUpperCase;
+  var $toString = dartx.toString;
+  var $startsWith = dartx.startsWith;
+  dart._checkModuleNullSafetyMode(false);
+  var T = {
+    StringL: () => (T.StringL = dart.constFn(dart.legacy(core.String)))(),
+    ListL: () => (T.ListL = dart.constFn(dart.legacy(core.List)))(),
+    LinkedHashMapOfStringL$ListL: () => (T.LinkedHashMapOfStringL$ListL = dart.constFn(collection.LinkedHashMap$(T.StringL(), T.ListL())))(),
+    ListOfStringL: () => (T.ListOfStringL = dart.constFn(core.List$(T.StringL())))(),
+    ListLOfStringL: () => (T.ListLOfStringL = dart.constFn(dart.legacy(T.ListOfStringL())))(),
+    MapEntryOfStringL$ListLOfStringL: () => (T.MapEntryOfStringL$ListLOfStringL = dart.constFn(core.MapEntry$(T.StringL(), T.ListLOfStringL())))(),
+    MapEntryLOfStringL$ListLOfStringL: () => (T.MapEntryLOfStringL$ListLOfStringL = dart.constFn(dart.legacy(T.MapEntryOfStringL$ListLOfStringL())))(),
+    StringLAndListLToMapEntryLOfStringL$ListLOfStringL: () => (T.StringLAndListLToMapEntryLOfStringL$ListLOfStringL = dart.constFn(dart.fnType(T.MapEntryLOfStringL$ListLOfStringL(), [T.StringL(), T.ListL()])))(),
+    StringLAnddynamicTovoid: () => (T.StringLAnddynamicTovoid = dart.constFn(dart.fnType(dart.void, [T.StringL(), dart.dynamic])))(),
+    intL: () => (T.intL = dart.constFn(dart.legacy(core.int)))(),
+    ListOfintL: () => (T.ListOfintL = dart.constFn(core.List$(T.intL())))(),
+    ListLOfintL: () => (T.ListLOfintL = dart.constFn(dart.legacy(T.ListOfintL())))(),
+    DurationL: () => (T.DurationL = dart.constFn(dart.legacy(core.Duration)))(),
+    DurationLAndDurationLToNull: () => (T.DurationLAndDurationLToNull = dart.constFn(dart.fnType(core.Null, [T.DurationL(), T.DurationL()])))(),
+    MapOfStringL$StringL: () => (T.MapOfStringL$StringL = dart.constFn(core.Map$(T.StringL(), T.StringL())))(),
+    MapLOfStringL$StringL: () => (T.MapLOfStringL$StringL = dart.constFn(dart.legacy(T.MapOfStringL$StringL())))()
+  };
+  const CT = Object.create({
+    _: () => (C, CT)
+  });
+  var I = [
+    "file:///d:/flutter/.pub-cache/hosted/pub.flutter-io.cn/dio_http_cache-0.2.11/lib/src/manager_dio.dart",
+    "package:dio_http_cache/src/manager_dio.dart"
+  ];
+  var _manager = dart.privateName(manager_dio, "_manager");
+  var _interceptor = dart.privateName(manager_dio, "_interceptor");
+  var _baseUrl = dart.privateName(manager_dio, "_baseUrl");
+  var _defaultRequestMethod = dart.privateName(manager_dio, "_defaultRequestMethod");
+  var _onRequest = dart.privateName(manager_dio, "_onRequest");
+  var _onResponse = dart.privateName(manager_dio, "_onResponse");
+  var _onError = dart.privateName(manager_dio, "_onError");
+  var _pullFromCacheBeforeMaxAge = dart.privateName(manager_dio, "_pullFromCacheBeforeMaxAge");
+  var _buildResponse = dart.privateName(manager_dio, "_buildResponse");
+  var _pushToCache = dart.privateName(manager_dio, "_pushToCache");
+  var _pullFromCacheBeforeMaxStale = dart.privateName(manager_dio, "_pullFromCacheBeforeMaxStale");
+  var _getPrimaryKeyFromOptions = dart.privateName(manager_dio, "_getPrimaryKeyFromOptions");
+  var _getSubKeyFromOptions = dart.privateName(manager_dio, "_getSubKeyFromOptions");
+  var _tryParseHead = dart.privateName(manager_dio, "_tryParseHead");
+  var _tryGetDurationFromMap = dart.privateName(manager_dio, "_tryGetDurationFromMap");
+  var _getPrimaryKeyFromUri = dart.privateName(manager_dio, "_getPrimaryKeyFromUri");
+  var _getRequestMethod = dart.privateName(manager_dio, "_getRequestMethod");
+  var _getSubKeyFromUri = dart.privateName(manager_dio, "_getSubKeyFromUri");
+  var _getUriByPath = dart.privateName(manager_dio, "_getUriByPath");
+  manager_dio.DioCacheManager = class DioCacheManager extends core.Object {
+    get interceptor() {
+      if (this[_interceptor] == null) {
+        this[_interceptor] = new interceptor.InterceptorsWrapper.new({onRequest: dart.bind(this, _onRequest), onResponse: dart.bind(this, _onResponse), onError: dart.bind(this, _onError)});
+      }
+      return this[_interceptor];
+    }
+    [_onRequest](options) {
+      return async.async(dart.dynamic, (function* _onRequest() {
+        let t0, t0$;
+        if (!dart.equals((t0 = options.extra[$_get]("dio_cache_try_cache"), t0 == null ? false : t0), true)) {
+          return options;
+        }
+        if (true === options.extra[$_get]("dio_cache_force_refresh")) {
+          return options;
+        }
+        let responseDataFromCache = (yield this[_pullFromCacheBeforeMaxAge](options));
+        if (responseDataFromCache != null) {
+          return this[_buildResponse](responseDataFromCache, (t0$ = responseDataFromCache, t0$ == null ? null : t0$.statusCode), options);
+        }
+        return options;
+      }).bind(this));
+    }
+    [_onResponse](response) {
+      return async.async(dart.dynamic, (function* _onResponse() {
+        let t0;
+        if (dart.equals((t0 = response.request.extra[$_get]("dio_cache_try_cache"), t0 == null ? false : t0), true) && dart.notNull(response.statusCode) >= 200 && dart.notNull(response.statusCode) < 300) {
+          yield this[_pushToCache](response);
+        }
+        return response;
+      }).bind(this));
+    }
+    [_onError](e) {
+      return async.async(dart.dynamic, (function* _onError() {
+        let t0, t0$;
+        if (dart.equals((t0 = e.request.extra[$_get]("dio_cache_try_cache"), t0 == null ? false : t0), true)) {
+          let responseDataFromCache = (yield this[_pullFromCacheBeforeMaxStale](e.request));
+          if (responseDataFromCache != null) return this[_buildResponse](responseDataFromCache, (t0$ = responseDataFromCache, t0$ == null ? null : t0$.statusCode), e.request);
+        }
+        return e;
+      }).bind(this));
+    }
+    [_buildResponse](obj, statusCode, options) {
+      let t0, t0$;
+      let headers = null;
+      if (obj.headers != null) {
+        headers = new headers$.Headers.fromMap(T.LinkedHashMapOfStringL$ListL().from(core.Map.as(convert.jsonDecode(convert.utf8.decode(obj.headers))))[$map](T.StringL(), T.ListLOfStringL(), dart.fn((k, v) => new (T.MapEntryOfStringL$ListLOfStringL()).__(k, T.ListOfStringL().from(v)), T.StringLAndListLToMapEntryLOfStringL$ListLOfStringL())));
+      }
+      if (headers == null) {
+        headers = new headers$.Headers.new();
+        options.headers[$forEach](dart.fn((k, v) => {
+          let t0;
+          return headers.add(k, T.StringL().as((t0 = v, t0 == null ? "" : t0)));
+        }, T.StringLAnddynamicTovoid()));
+      }
+      headers.add(manager_dio.DIO_CACHE_HEADER_KEY_DATA_SOURCE, "from_cache");
+      let data = obj.content;
+      if (options.responseType != options$.ResponseType.bytes) {
+        data = convert.jsonDecode(convert.utf8.decode(T.ListLOfintL().as(data)));
+      }
+      return new response.Response.new({data: data, headers: headers, extra: (t0 = options.extra, (() => {
+          t0[$remove]("dio_cache_try_cache");
+          return t0;
+        })()), statusCode: (t0$ = statusCode, t0$ == null ? 200 : t0$)});
+    }
+    [_pullFromCacheBeforeMaxAge](options) {
+      let t0;
+      t0 = this[_manager];
+      return t0 == null ? null : t0.pullFromCacheBeforeMaxAge(this[_getPrimaryKeyFromOptions](options), {subKey: this[_getSubKeyFromOptions](options)});
+    }
+    [_pullFromCacheBeforeMaxStale](options) {
+      let t0;
+      t0 = this[_manager];
+      return t0 == null ? null : t0.pullFromCacheBeforeMaxStale(this[_getPrimaryKeyFromOptions](options), {subKey: this[_getSubKeyFromOptions](options)});
+    }
+    [_pushToCache](response) {
+      let t0;
+      let options = response.request;
+      let maxAge = T.DurationL().as(options.extra[$_get]("dio_cache_max_age"));
+      let maxStale = T.DurationL().as(options.extra[$_get]("dio_cache_max_stale"));
+      if (maxAge == null) {
+        this[_tryParseHead](response, maxStale, dart.fn((_maxAge, _maxStale) => {
+          maxAge = _maxAge;
+          maxStale = _maxStale;
+        }, T.DurationLAndDurationLToNull()));
+      }
+      let data = null;
+      if (options.responseType == options$.ResponseType.bytes) {
+        data = T.ListLOfintL().as(response.data);
+      } else {
+        data = convert.utf8.encode(convert.jsonEncode(response.data));
+      }
+      let obj = obj$.CacheObj.new(this[_getPrimaryKeyFromOptions](options), data, {subKey: this[_getSubKeyFromOptions](options), maxAge: maxAge, maxStale: maxStale, statusCode: response.statusCode, headers: convert.utf8.encode(convert.jsonEncode(response.headers.map))});
+      t0 = this[_manager];
+      return t0 == null ? null : t0.pushToCache(obj);
+    }
+    [_tryParseHead](response, maxStale, callback) {
+      let _maxAge = null;
+      let cacheControl = response.headers.value("cache-control");
+      if (cacheControl != null) {
+        let parameters = null;
+        try {
+          parameters = _http.HeaderValue.parse("cache-control" + ": " + dart.str(cacheControl), {parameterSeparator: ",", valueSeparator: "="}).parameters;
+        } catch (e$) {
+          let e = dart.getThrown(e$);
+          core.print(e);
+        }
+        _maxAge = this[_tryGetDurationFromMap](T.MapLOfStringL$StringL().as(parameters), "s-maxage");
+        if (_maxAge == null) {
+          _maxAge = this[_tryGetDurationFromMap](T.MapLOfStringL$StringL().as(parameters), "max-age");
+        }
+        if (maxStale == null) {
+          maxStale = this[_tryGetDurationFromMap](T.MapLOfStringL$StringL().as(parameters), "max-stale");
+        }
+      } else {
+        let expires = response.headers.value("expires");
+        if (expires != null && expires.length > 4) {
+          let endTime = null;
+          try {
+            endTime = _http.HttpDate.parse(expires).toLocal();
+          } catch (e$0) {
+            let e = dart.getThrown(e$0);
+            core.print(e);
+          }
+          if (endTime != null && dart.notNull(endTime.compareTo(new core.DateTime.now())) >= 0) {
+            _maxAge = endTime.difference(new core.DateTime.now());
+          }
+        }
+      }
+      callback(_maxAge, maxStale);
+    }
+    [_tryGetDurationFromMap](parameters, key) {
+      if (parameters != null && dart.test(parameters[$containsKey](key))) {
+        let value = core.int.tryParse(parameters[$_get](key));
+        if (value != null && dart.notNull(value) >= 0) {
+          return new core.Duration.new({seconds: value});
+        }
+      }
+      return null;
+    }
+    [_getPrimaryKeyFromOptions](options) {
+      let primaryKey = dart.test(options.extra[$containsKey]("dio_cache_primary_key")) ? options.extra[$_get]("dio_cache_primary_key") : this[_getPrimaryKeyFromUri](options.uri);
+      return dart.str(this[_getRequestMethod](options.method)) + "-" + dart.str(primaryKey);
+    }
+    [_getRequestMethod](requestMethod) {
+      if (requestMethod != null && requestMethod.length > 0) {
+        return requestMethod[$toUpperCase]();
+      }
+      if (this[_defaultRequestMethod] != null && this[_defaultRequestMethod].length > 0) {
+        return this[_defaultRequestMethod][$toUpperCase]();
+      }
+      return "DEFAULT_METHOD";
+    }
+    [_getSubKeyFromOptions](options) {
+      return T.StringL().as(dart.test(options.extra[$containsKey]("dio_cache_sub_key")) ? options.extra[$_get]("dio_cache_sub_key") : this[_getSubKeyFromUri](options.uri, {data: options.data}));
+    }
+    [_getPrimaryKeyFromUri](uri) {
+      let t2, t2$;
+      return dart.str((t2 = uri, t2 == null ? null : t2.host)) + dart.str((t2$ = uri, t2$ == null ? null : t2$.path));
+    }
+    [_getSubKeyFromUri](uri, opts) {
+      let t2, t2$;
+      let data = opts && 'data' in opts ? opts.data : null;
+      return dart.str((t2 = data, t2 == null ? null : dart.toString(t2))) + "_" + dart.str((t2$ = uri, t2$ == null ? null : t2$.query));
+    }
+    delete(primaryKey, opts) {
+      let t2;
+      let requestMethod = opts && 'requestMethod' in opts ? opts.requestMethod : null;
+      let subKey = opts && 'subKey' in opts ? opts.subKey : null;
+      t2 = this[_manager];
+      return t2 == null ? null : t2.delete(dart.str(this[_getRequestMethod](requestMethod)) + "-" + dart.str(primaryKey), {subKey: subKey});
+    }
+    deleteByPrimaryKeyWithUri(uri, opts) {
+      let requestMethod = opts && 'requestMethod' in opts ? opts.requestMethod : null;
+      return this.delete(this[_getPrimaryKeyFromUri](uri), {requestMethod: requestMethod});
+    }
+    deleteByPrimaryKey(path, opts) {
+      let requestMethod = opts && 'requestMethod' in opts ? opts.requestMethod : null;
+      return this.deleteByPrimaryKeyWithUri(this[_getUriByPath](this[_baseUrl], path), {requestMethod: requestMethod});
+    }
+    deleteByPrimaryKeyAndSubKeyWithUri(uri, opts) {
+      let t2;
+      let requestMethod = opts && 'requestMethod' in opts ? opts.requestMethod : null;
+      let subKey = opts && 'subKey' in opts ? opts.subKey : null;
+      let data = opts && 'data' in opts ? opts.data : null;
+      return this.delete(this[_getPrimaryKeyFromUri](uri), {requestMethod: requestMethod, subKey: (t2 = subKey, t2 == null ? this[_getSubKeyFromUri](uri, {data: data}) : t2)});
+    }
+    deleteByPrimaryKeyAndSubKey(path, opts) {
+      let requestMethod = opts && 'requestMethod' in opts ? opts.requestMethod : null;
+      let queryParameters = opts && 'queryParameters' in opts ? opts.queryParameters : null;
+      let subKey = opts && 'subKey' in opts ? opts.subKey : null;
+      let data = opts && 'data' in opts ? opts.data : null;
+      return this.deleteByPrimaryKeyAndSubKeyWithUri(this[_getUriByPath](this[_baseUrl], path, {data: data, queryParameters: queryParameters}), {requestMethod: requestMethod, subKey: subKey, data: data});
+    }
+    clearExpired() {
+      let t2;
+      t2 = this[_manager];
+      return t2 == null ? null : t2.clearExpired();
+    }
+    clearAll() {
+      let t2;
+      t2 = this[_manager];
+      return t2 == null ? null : t2.clearAll();
+    }
+    [_getUriByPath](baseUrl, path, opts) {
+      let data = opts && 'data' in opts ? opts.data : null;
+      let queryParameters = opts && 'queryParameters' in opts ? opts.queryParameters : null;
+      if (!path[$startsWith](core.RegExp.new("https?:"))) {
+        if (!(baseUrl != null && baseUrl.length > 0)) dart.assertFailed(null, I[0], 261, 14, "null != baseUrl && baseUrl.length > 0");
+      }
+      return new options$.RequestOptions.new({baseUrl: baseUrl, path: path, data: data, queryParameters: queryParameters}).uri;
+    }
+  };
+  (manager_dio.DioCacheManager.new = function(config) {
+    this[_manager] = null;
+    this[_interceptor] = null;
+    this[_baseUrl] = null;
+    this[_defaultRequestMethod] = null;
+    this[_manager] = new manager.CacheManager.new(config);
+    this[_baseUrl] = config.baseUrl;
+    this[_defaultRequestMethod] = config.defaultRequestMethod;
+  }).prototype = manager_dio.DioCacheManager.prototype;
+  dart.addTypeTests(manager_dio.DioCacheManager);
+  dart.addTypeCaches(manager_dio.DioCacheManager);
+  dart.setMethodSignature(manager_dio.DioCacheManager, () => ({
+    __proto__: dart.getMethods(manager_dio.DioCacheManager.__proto__),
+    [_onRequest]: dart.fnType(dart.dynamic, [dart.legacy(options$.RequestOptions)]),
+    [_onResponse]: dart.fnType(dart.dynamic, [dart.legacy(response.Response)]),
+    [_onError]: dart.fnType(dart.dynamic, [dart.legacy(dio_error.DioError)]),
+    [_buildResponse]: dart.fnType(dart.legacy(response.Response), [dart.legacy(obj$.CacheObj), dart.legacy(core.int), dart.legacy(options$.RequestOptions)]),
+    [_pullFromCacheBeforeMaxAge]: dart.fnType(dart.legacy(async.Future$(dart.legacy(obj$.CacheObj))), [dart.legacy(options$.RequestOptions)]),
+    [_pullFromCacheBeforeMaxStale]: dart.fnType(dart.legacy(async.Future$(dart.legacy(obj$.CacheObj))), [dart.legacy(options$.RequestOptions)]),
+    [_pushToCache]: dart.fnType(dart.legacy(async.Future$(dart.legacy(core.bool))), [dart.legacy(response.Response)]),
+    [_tryParseHead]: dart.fnType(dart.void, [dart.legacy(response.Response), dart.legacy(core.Duration), dart.legacy(dart.fnType(dart.void, [dart.legacy(core.Duration), dart.legacy(core.Duration)]))]),
+    [_tryGetDurationFromMap]: dart.fnType(dart.legacy(core.Duration), [dart.legacy(core.Map$(dart.legacy(core.String), dart.legacy(core.String))), dart.legacy(core.String)]),
+    [_getPrimaryKeyFromOptions]: dart.fnType(dart.legacy(core.String), [dart.legacy(options$.RequestOptions)]),
+    [_getRequestMethod]: dart.fnType(dart.legacy(core.String), [dart.legacy(core.String)]),
+    [_getSubKeyFromOptions]: dart.fnType(dart.legacy(core.String), [dart.legacy(options$.RequestOptions)]),
+    [_getPrimaryKeyFromUri]: dart.fnType(dart.legacy(core.String), [dart.legacy(core.Uri)]),
+    [_getSubKeyFromUri]: dart.fnType(dart.legacy(core.String), [dart.legacy(core.Uri)], {data: dart.dynamic}, {}),
+    delete: dart.fnType(dart.legacy(async.Future$(dart.legacy(core.bool))), [dart.legacy(core.String)], {requestMethod: dart.legacy(core.String), subKey: dart.legacy(core.String)}, {}),
+    deleteByPrimaryKeyWithUri: dart.fnType(dart.legacy(async.Future$(dart.legacy(core.bool))), [dart.legacy(core.Uri)], {requestMethod: dart.legacy(core.String)}, {}),
+    deleteByPrimaryKey: dart.fnType(dart.legacy(async.Future$(dart.legacy(core.bool))), [dart.legacy(core.String)], {requestMethod: dart.legacy(core.String)}, {}),
+    deleteByPrimaryKeyAndSubKeyWithUri: dart.fnType(dart.legacy(async.Future$(dart.legacy(core.bool))), [dart.legacy(core.Uri)], {data: dart.dynamic, requestMethod: dart.legacy(core.String), subKey: dart.legacy(core.String)}, {}),
+    deleteByPrimaryKeyAndSubKey: dart.fnType(dart.legacy(async.Future$(dart.legacy(core.bool))), [dart.legacy(core.String)], {data: dart.dynamic, queryParameters: dart.legacy(core.Map$(dart.legacy(core.String), dart.dynamic)), requestMethod: dart.legacy(core.String), subKey: dart.legacy(core.String)}, {}),
+    clearExpired: dart.fnType(dart.legacy(async.Future$(dart.legacy(core.bool))), []),
+    clearAll: dart.fnType(dart.legacy(async.Future$(dart.legacy(core.bool))), []),
+    [_getUriByPath]: dart.fnType(dart.legacy(core.Uri), [dart.legacy(core.String), dart.legacy(core.String)], {data: dart.dynamic, queryParameters: dart.legacy(core.Map$(dart.legacy(core.String), dart.dynamic))}, {})
+  }));
+  dart.setGetterSignature(manager_dio.DioCacheManager, () => ({
+    __proto__: dart.getGetters(manager_dio.DioCacheManager.__proto__),
+    interceptor: dart.dynamic
+  }));
+  dart.setLibraryUri(manager_dio.DioCacheManager, I[1]);
+  dart.setFieldSignature(manager_dio.DioCacheManager, () => ({
+    __proto__: dart.getFields(manager_dio.DioCacheManager.__proto__),
+    [_manager]: dart.fieldType(dart.legacy(manager.CacheManager)),
+    [_interceptor]: dart.fieldType(dart.legacy(interceptor.InterceptorsWrapper)),
+    [_baseUrl]: dart.fieldType(dart.legacy(core.String)),
+    [_defaultRequestMethod]: dart.fieldType(dart.legacy(core.String))
+  }));
+  dart.defineLazy(manager_dio, {
+    /*manager_dio.DIO_CACHE_KEY_TRY_CACHE*/get DIO_CACHE_KEY_TRY_CACHE() {
+      return "dio_cache_try_cache";
+    },
+    /*manager_dio.DIO_CACHE_KEY_MAX_AGE*/get DIO_CACHE_KEY_MAX_AGE() {
+      return "dio_cache_max_age";
+    },
+    /*manager_dio.DIO_CACHE_KEY_MAX_STALE*/get DIO_CACHE_KEY_MAX_STALE() {
+      return "dio_cache_max_stale";
+    },
+    /*manager_dio.DIO_CACHE_KEY_PRIMARY_KEY*/get DIO_CACHE_KEY_PRIMARY_KEY() {
+      return "dio_cache_primary_key";
+    },
+    /*manager_dio.DIO_CACHE_KEY_SUB_KEY*/get DIO_CACHE_KEY_SUB_KEY() {
+      return "dio_cache_sub_key";
+    },
+    /*manager_dio.DIO_CACHE_KEY_FORCE_REFRESH*/get DIO_CACHE_KEY_FORCE_REFRESH() {
+      return "dio_cache_force_refresh";
+    },
+    /*manager_dio.DIO_CACHE_HEADER_KEY_DATA_SOURCE*/get DIO_CACHE_HEADER_KEY_DATA_SOURCE() {
+      return "dio_cache_header_key_data_source";
+    }
+  }, true);
+  dart.trackLibraries("packages/dio_http_cache/src/manager_dio.dart", {
+    "package:dio_http_cache/src/manager_dio.dart": manager_dio
+  }, {
+  }, '{"version":3,"sourceRoot":"","sources":["manager_dio.dart"],"names":[],"mappings":"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","file":"../../../../../../../../O:/packages/dio_http_cache/src/manager_dio.dart.lib.js"}');
+  // Exports:
+  return {
+    src__manager_dio: manager_dio
+  };
+}));
+
+//# sourceMappingURL=manager_dio.dart.lib.js.map

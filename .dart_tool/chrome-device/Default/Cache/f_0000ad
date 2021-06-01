@@ -1,0 +1,394 @@
+define(['dart_sdk', 'packages/flutter/src/painting/box_border.dart', 'packages/flutter/src/widgets/widget_span.dart', 'packages/flutter/src/animation/animation_controller.dart', 'packages/flutter/src/animation/listener_helpers.dart', 'packages/flutter/src/animation/curves.dart', 'packages/vector_math/vector_math_64.dart', 'packages/flutter/src/painting/fractional_offset.dart', 'packages/flutter/src/painting/box_decoration.dart'], (function load__packages__flutter_spinkit__src__spinning_circle_dart(dart_sdk, packages__flutter__src__painting__box_border$46dart, packages__flutter__src__widgets__widget_span$46dart, packages__flutter__src__animation__animation_controller$46dart, packages__flutter__src__animation__listener_helpers$46dart, packages__flutter__src__animation__curves$46dart, packages__vector_math__vector_math_64$46dart, packages__flutter__src__painting__fractional_offset$46dart, packages__flutter__src__painting__box_decoration$46dart) {
+  'use strict';
+  const core = dart_sdk.core;
+  const ui = dart_sdk.ui;
+  const _internal = dart_sdk._internal;
+  const dart = dart_sdk.dart;
+  const dartx = dart_sdk.dartx;
+  const box_border = packages__flutter__src__painting__box_border$46dart.src__painting__box_border;
+  const framework = packages__flutter__src__widgets__widget_span$46dart.src__widgets__framework;
+  const basic = packages__flutter__src__widgets__widget_span$46dart.src__widgets__basic;
+  const widget_inspector = packages__flutter__src__widgets__widget_span$46dart.src__widgets__widget_inspector;
+  const container = packages__flutter__src__widgets__widget_span$46dart.src__widgets__container;
+  const ticker_provider = packages__flutter__src__widgets__widget_span$46dart.src__widgets__ticker_provider;
+  const animation_controller = packages__flutter__src__animation__animation_controller$46dart.src__animation__animation_controller;
+  const tween = packages__flutter__src__animation__listener_helpers$46dart.src__animation__tween;
+  const animations = packages__flutter__src__animation__listener_helpers$46dart.src__animation__animations;
+  const animation = packages__flutter__src__animation__listener_helpers$46dart.src__animation__animation;
+  const curves = packages__flutter__src__animation__curves$46dart.src__animation__curves;
+  const vector_math_64 = packages__vector_math__vector_math_64$46dart.vector_math_64;
+  const fractional_offset = packages__flutter__src__painting__fractional_offset$46dart.src__painting__fractional_offset;
+  const box_decoration = packages__flutter__src__painting__box_decoration$46dart.src__painting__box_decoration;
+  var spinning_circle = Object.create(dart.library);
+  dart._checkModuleNullSafetyMode(false);
+  var T = {
+    BuildContextAndintToWidget: () => (T.BuildContextAndintToWidget = dart.constFn(dart.fnType(framework.Widget, [framework.BuildContext, core.int])))(),
+    VoidTovoid: () => (T.VoidTovoid = dart.constFn(dart.fnType(dart.void, [])))(),
+    TweenOfdouble: () => (T.TweenOfdouble = dart.constFn(tween.Tween$(core.double)))(),
+    _LocationL: () => (T._LocationL = dart.constFn(dart.legacy(widget_inspector._Location)))()
+  };
+  const CT = Object.create({
+    _: () => (C, CT)
+  });
+  dart.defineLazy(CT, {
+    get C0() {
+      return C[0] = dart.const({
+        __proto__: box_border.BoxShape.prototype,
+        [_name]: "BoxShape.circle",
+        index: 1
+      });
+    },
+    get C1() {
+      return C[1] = dart.const({
+        __proto__: core.Duration.prototype,
+        [Duration__duration]: 1200000
+      });
+    },
+    get C3() {
+      return C[3] = dart.const({
+        __proto__: curves.Cubic.prototype,
+        [Cubic_d]: 1,
+        [Cubic_c]: 0.58,
+        [Cubic_b]: 0,
+        [Cubic_a]: 0
+      });
+    },
+    get C2() {
+      return C[2] = dart.const({
+        __proto__: curves.Interval.prototype,
+        [Interval_curve]: C[3] || CT.C3,
+        [Interval_end]: 1,
+        [Interval_begin]: 0
+      });
+    },
+    get C6() {
+      return C[6] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "size",
+        [_Location_column]: 11,
+        [_Location_line]: 57,
+        [_Location_file]: null
+      });
+    },
+    get C7() {
+      return C[7] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 11,
+        [_Location_line]: 58,
+        [_Location_file]: null
+      });
+    },
+    get C5() {
+      return C[5] = dart.constList([C[6] || CT.C6, C[7] || CT.C7], T._LocationL());
+    },
+    get C4() {
+      return C[4] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[5] || CT.C5,
+        [_Location_name]: null,
+        [_Location_column]: 25,
+        [_Location_line]: 56,
+        [_Location_file]: "file:///d:/flutter/.pub-cache/hosted/pub.flutter-io.cn/flutter_spinkit-5.0.0/lib/src/spinning_circle.dart"
+      });
+    },
+    get C10() {
+      return C[10] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "transform",
+        [_Location_column]: 9,
+        [_Location_line]: 54,
+        [_Location_file]: null
+      });
+    },
+    get C11() {
+      return C[11] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "alignment",
+        [_Location_column]: 9,
+        [_Location_line]: 55,
+        [_Location_file]: null
+      });
+    },
+    get C12() {
+      return C[12] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 9,
+        [_Location_line]: 56,
+        [_Location_file]: null
+      });
+    },
+    get C9() {
+      return C[9] = dart.constList([C[10] || CT.C10, C[11] || CT.C11, C[12] || CT.C12], T._LocationL());
+    },
+    get C8() {
+      return C[8] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[9] || CT.C9,
+        [_Location_name]: null,
+        [_Location_column]: 14,
+        [_Location_line]: 53,
+        [_Location_file]: "file:///d:/flutter/.pub-cache/hosted/pub.flutter-io.cn/flutter_spinkit-5.0.0/lib/src/spinning_circle.dart"
+      });
+    },
+    get C15() {
+      return C[15] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 7,
+        [_Location_line]: 53,
+        [_Location_file]: null
+      });
+    },
+    get C14() {
+      return C[14] = dart.constList([C[15] || CT.C15], T._LocationL());
+    },
+    get C13() {
+      return C[13] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[14] || CT.C14,
+        [_Location_name]: null,
+        [_Location_column]: 12,
+        [_Location_line]: 52,
+        [_Location_file]: "file:///d:/flutter/.pub-cache/hosted/pub.flutter-io.cn/flutter_spinkit-5.0.0/lib/src/spinning_circle.dart"
+      });
+    },
+    get C18() {
+      return C[18] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "decoration",
+        [_Location_column]: 22,
+        [_Location_line]: 66,
+        [_Location_file]: null
+      });
+    },
+    get C17() {
+      return C[17] = dart.constList([C[18] || CT.C18], T._LocationL());
+    },
+    get C16() {
+      return C[16] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[17] || CT.C17,
+        [_Location_name]: null,
+        [_Location_column]: 9,
+        [_Location_line]: 66,
+        [_Location_file]: "file:///d:/flutter/.pub-cache/hosted/pub.flutter-io.cn/flutter_spinkit-5.0.0/lib/src/spinning_circle.dart"
+      });
+    }
+  }, false);
+  var C = Array(19).fill(void 0);
+  var I = [
+    "file:///d:/flutter/.pub-cache/hosted/pub.flutter-io.cn/flutter_spinkit-5.0.0/lib/src/spinning_circle.dart",
+    "package:flutter_spinkit/src/spinning_circle.dart"
+  ];
+  var color$ = dart.privateName(spinning_circle, "SpinKitSpinningCircle.color");
+  var shape$ = dart.privateName(spinning_circle, "SpinKitSpinningCircle.shape");
+  var size$ = dart.privateName(spinning_circle, "SpinKitSpinningCircle.size");
+  var itemBuilder$ = dart.privateName(spinning_circle, "SpinKitSpinningCircle.itemBuilder");
+  var duration$ = dart.privateName(spinning_circle, "SpinKitSpinningCircle.duration");
+  var controller$ = dart.privateName(spinning_circle, "SpinKitSpinningCircle.controller");
+  var _name = dart.privateName(box_border, "_name");
+  var Duration__duration = dart.privateName(core, "Duration._duration");
+  spinning_circle.SpinKitSpinningCircle = class SpinKitSpinningCircle extends framework.StatefulWidget {
+    get color() {
+      return this[color$];
+    }
+    set color(value) {
+      super.color = value;
+    }
+    get shape() {
+      return this[shape$];
+    }
+    set shape(value) {
+      super.shape = value;
+    }
+    get size() {
+      return this[size$];
+    }
+    set size(value) {
+      super.size = value;
+    }
+    get itemBuilder() {
+      return this[itemBuilder$];
+    }
+    set itemBuilder(value) {
+      super.itemBuilder = value;
+    }
+    get duration() {
+      return this[duration$];
+    }
+    set duration(value) {
+      super.duration = value;
+    }
+    get controller() {
+      return this[controller$];
+    }
+    set controller(value) {
+      super.controller = value;
+    }
+    createState() {
+      return new spinning_circle._SpinKitSpinningCircleState.new();
+    }
+  };
+  (spinning_circle.SpinKitSpinningCircle.new = function(opts) {
+    let key = opts && 'key' in opts ? opts.key : null;
+    let color = opts && 'color' in opts ? opts.color : null;
+    let shape = opts && 'shape' in opts ? opts.shape : C[0] || CT.C0;
+    if (shape == null) dart.nullFailed(I[0], 9, 10, "shape");
+    let size = opts && 'size' in opts ? opts.size : 50;
+    if (size == null) dart.nullFailed(I[0], 10, 10, "size");
+    let itemBuilder = opts && 'itemBuilder' in opts ? opts.itemBuilder : null;
+    let duration = opts && 'duration' in opts ? opts.duration : C[1] || CT.C1;
+    if (duration == null) dart.nullFailed(I[0], 12, 10, "duration");
+    let controller = opts && 'controller' in opts ? opts.controller : null;
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    this[color$] = color;
+    this[shape$] = shape;
+    this[size$] = size;
+    this[itemBuilder$] = itemBuilder;
+    this[duration$] = duration;
+    this[controller$] = controller;
+    if (!(!(T.BuildContextAndintToWidget().is(itemBuilder) && ui.Color.is(color)) && !(itemBuilder == null && color == null))) dart.assertFailed("You should specify either a itemBuilder or a color", I[0], 14, 16, "!(itemBuilder is IndexedWidgetBuilder && color is Color) && !(itemBuilder == null && color == null)");
+    spinning_circle.SpinKitSpinningCircle.__proto__.new.call(this, {key: key, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+    ;
+  }).prototype = spinning_circle.SpinKitSpinningCircle.prototype;
+  dart.addTypeTests(spinning_circle.SpinKitSpinningCircle);
+  dart.addTypeCaches(spinning_circle.SpinKitSpinningCircle);
+  dart.setMethodSignature(spinning_circle.SpinKitSpinningCircle, () => ({
+    __proto__: dart.getMethods(spinning_circle.SpinKitSpinningCircle.__proto__),
+    createState: dart.fnType(spinning_circle._SpinKitSpinningCircleState, [])
+  }));
+  dart.setLibraryUri(spinning_circle.SpinKitSpinningCircle, I[1]);
+  dart.setFieldSignature(spinning_circle.SpinKitSpinningCircle, () => ({
+    __proto__: dart.getFields(spinning_circle.SpinKitSpinningCircle.__proto__),
+    color: dart.finalFieldType(dart.nullable(ui.Color)),
+    shape: dart.finalFieldType(box_border.BoxShape),
+    size: dart.finalFieldType(core.double),
+    itemBuilder: dart.finalFieldType(dart.nullable(dart.fnType(framework.Widget, [framework.BuildContext, core.int]))),
+    duration: dart.finalFieldType(core.Duration),
+    controller: dart.finalFieldType(dart.nullable(animation_controller.AnimationController))
+  }));
+  var ___SpinKitSpinningCircleState__controller = dart.privateName(spinning_circle, "_#_SpinKitSpinningCircleState#_controller");
+  var ___SpinKitSpinningCircleState__controller_isSet = dart.privateName(spinning_circle, "_#_SpinKitSpinningCircleState#_controller#isSet");
+  var ___SpinKitSpinningCircleState__animation = dart.privateName(spinning_circle, "_#_SpinKitSpinningCircleState#_animation");
+  var ___SpinKitSpinningCircleState__animation_isSet = dart.privateName(spinning_circle, "_#_SpinKitSpinningCircleState#_animation#isSet");
+  var _controller = dart.privateName(spinning_circle, "_controller");
+  var _animation = dart.privateName(spinning_circle, "_animation");
+  var Cubic_d = dart.privateName(curves, "Cubic.d");
+  var Cubic_c = dart.privateName(curves, "Cubic.c");
+  var Cubic_b = dart.privateName(curves, "Cubic.b");
+  var Cubic_a = dart.privateName(curves, "Cubic.a");
+  var Interval_curve = dart.privateName(curves, "Interval.curve");
+  var Interval_end = dart.privateName(curves, "Interval.end");
+  var Interval_begin = dart.privateName(curves, "Interval.begin");
+  var _itemBuilder = dart.privateName(spinning_circle, "_itemBuilder");
+  var _Location_parameterLocations = dart.privateName(widget_inspector, "_Location.parameterLocations");
+  var _Location_name = dart.privateName(widget_inspector, "_Location.name");
+  var _Location_column = dart.privateName(widget_inspector, "_Location.column");
+  var _Location_line = dart.privateName(widget_inspector, "_Location.line");
+  var _Location_file = dart.privateName(widget_inspector, "_Location.file");
+  const State_SingleTickerProviderStateMixin$36 = class State_SingleTickerProviderStateMixin extends framework.State$(spinning_circle.SpinKitSpinningCircle) {};
+  (State_SingleTickerProviderStateMixin$36.new = function() {
+    ticker_provider.SingleTickerProviderStateMixin$(spinning_circle.SpinKitSpinningCircle)[dart.mixinNew].call(this);
+    State_SingleTickerProviderStateMixin$36.__proto__.new.call(this);
+  }).prototype = State_SingleTickerProviderStateMixin$36.prototype;
+  dart.applyMixin(State_SingleTickerProviderStateMixin$36, ticker_provider.SingleTickerProviderStateMixin$(spinning_circle.SpinKitSpinningCircle));
+  spinning_circle._SpinKitSpinningCircleState = class _SpinKitSpinningCircleState extends State_SingleTickerProviderStateMixin$36 {
+    get [_controller]() {
+      let t0;
+      return dart.test(this[___SpinKitSpinningCircleState__controller_isSet]) ? (t0 = this[___SpinKitSpinningCircleState__controller], t0) : dart.throw(new _internal.LateError.fieldNI("_controller"));
+    }
+    set [_controller](t0) {
+      if (t0 == null) dart.nullFailed(I[0], 30, 28, "null");
+      this[___SpinKitSpinningCircleState__controller_isSet] = true;
+      this[___SpinKitSpinningCircleState__controller] = t0;
+    }
+    get [_animation]() {
+      let t1;
+      return dart.test(this[___SpinKitSpinningCircleState__animation_isSet]) ? (t1 = this[___SpinKitSpinningCircleState__animation], t1) : dart.throw(new _internal.LateError.fieldNI("_animation"));
+    }
+    set [_animation](t1) {
+      if (t1 == null) dart.nullFailed(I[0], 31, 26, "null");
+      this[___SpinKitSpinningCircleState__animation_isSet] = true;
+      this[___SpinKitSpinningCircleState__animation] = t1;
+    }
+    initState() {
+      let t2, t2$;
+      super.initState();
+      this[_controller] = (t2$ = (t2 = this.widget.controller, t2 == null ? new animation_controller.AnimationController.new({vsync: this, duration: this.widget.duration}) : t2), (() => {
+        t2$.addListener(dart.fn(() => this.setState(dart.fn(() => {
+        }, T.VoidTovoid())), T.VoidTovoid()));
+        t2$.repeat();
+        return t2$;
+      })());
+      this[_animation] = new (T.TweenOfdouble()).new({begin: 0.0, end: 7.0}).animate(new animations.CurvedAnimation.new({parent: this[_controller], curve: C[2] || CT.C2}));
+    }
+    dispose() {
+      this[_controller].dispose();
+      super.dispose();
+    }
+    build(context) {
+      let t2;
+      if (context == null) dart.nullFailed(I[0], 51, 29, "context");
+      return new basic.Center.new({child: new basic.Transform.new({transform: (t2 = vector_math_64.Matrix4.identity(), (() => {
+            t2.rotateY((0 - dart.notNull(this[_animation].value)) * 3.141592653589793);
+            return t2;
+          })()), alignment: fractional_offset.FractionalOffset.center, child: new basic.SizedBox.fromSize({size: new ui.Size.square(this.widget.size), child: this[_itemBuilder](0), $creationLocationd_0dea112b090073317d4: C[4] || CT.C4}), $creationLocationd_0dea112b090073317d4: C[8] || CT.C8}), $creationLocationd_0dea112b090073317d4: C[13] || CT.C13});
+    }
+    [_itemBuilder](index) {
+      if (index == null) dart.nullFailed(I[0], 64, 27, "index");
+      return this.widget.itemBuilder != null ? dart.nullCheck(this.widget.itemBuilder)(this.context, index) : new container.DecoratedBox.new({decoration: new box_decoration.BoxDecoration.new({color: this.widget.color, shape: this.widget.shape}), $creationLocationd_0dea112b090073317d4: C[16] || CT.C16});
+    }
+  };
+  (spinning_circle._SpinKitSpinningCircleState.new = function() {
+    this[___SpinKitSpinningCircleState__controller] = null;
+    this[___SpinKitSpinningCircleState__controller_isSet] = false;
+    this[___SpinKitSpinningCircleState__animation] = null;
+    this[___SpinKitSpinningCircleState__animation_isSet] = false;
+    spinning_circle._SpinKitSpinningCircleState.__proto__.new.call(this);
+    ;
+  }).prototype = spinning_circle._SpinKitSpinningCircleState.prototype;
+  dart.addTypeTests(spinning_circle._SpinKitSpinningCircleState);
+  dart.addTypeCaches(spinning_circle._SpinKitSpinningCircleState);
+  dart.setMethodSignature(spinning_circle._SpinKitSpinningCircleState, () => ({
+    __proto__: dart.getMethods(spinning_circle._SpinKitSpinningCircleState.__proto__),
+    build: dart.fnType(framework.Widget, [framework.BuildContext]),
+    [_itemBuilder]: dart.fnType(framework.Widget, [core.int])
+  }));
+  dart.setGetterSignature(spinning_circle._SpinKitSpinningCircleState, () => ({
+    __proto__: dart.getGetters(spinning_circle._SpinKitSpinningCircleState.__proto__),
+    [_controller]: animation_controller.AnimationController,
+    [_animation]: animation.Animation$(core.double)
+  }));
+  dart.setSetterSignature(spinning_circle._SpinKitSpinningCircleState, () => ({
+    __proto__: dart.getSetters(spinning_circle._SpinKitSpinningCircleState.__proto__),
+    [_controller]: animation_controller.AnimationController,
+    [_animation]: animation.Animation$(core.double)
+  }));
+  dart.setLibraryUri(spinning_circle._SpinKitSpinningCircleState, I[1]);
+  dart.setFieldSignature(spinning_circle._SpinKitSpinningCircleState, () => ({
+    __proto__: dart.getFields(spinning_circle._SpinKitSpinningCircleState.__proto__),
+    [___SpinKitSpinningCircleState__controller]: dart.fieldType(dart.nullable(animation_controller.AnimationController)),
+    [___SpinKitSpinningCircleState__controller_isSet]: dart.fieldType(core.bool),
+    [___SpinKitSpinningCircleState__animation]: dart.fieldType(dart.nullable(animation.Animation$(core.double))),
+    [___SpinKitSpinningCircleState__animation_isSet]: dart.fieldType(core.bool)
+  }));
+  dart.trackLibraries("packages/flutter_spinkit/src/spinning_circle.dart", {
+    "package:flutter_spinkit/src/spinning_circle.dart": spinning_circle
+  }, {
+  }, '{"version":3,"sourceRoot":"","sources":["spinning_circle.dart"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;IAiBe;;;;;;IACE;;;;;;IACF;;;;;;IACe;;;;;;IACb;;;;;;IACY;;;;;;;AAGkB;IAA6B;;;QAnBnE;QACA;QACA;;QACA;;QACA;QACA;;QACA;;IALA;IACA;IACA;IACA;IACA;IACA;UAC+D,EAA3C,kCAAZ,WAAW,KAAkC,YAAN,KAAK,QAAgB,AAAY,WAAD,YAAY,AAAM,KAAD,8BAC7F;AACJ,yEAAW,GAAG;;EAAC;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;AAcI;IAAW;;;AAAX;;IAAW;;;AACb;IAAU;;;AAAV;;IAAU;;;AAId,MAAX;AAIM,MAFZ,4BAAiC,KAAlB,AAAO,wBAAA,aAAc,yDAA2B,gBAAgB,AAAO,8BAArD;AAC7B,wBAAY,cAAM,cAAS;;AAC3B;;;AAEsG,MAD1G,mBAAa,AACR,oCADqB,UAAU,cACvB,4CAAwB;IACvC;;AAIuB,MAArB,AAAY;AACG,MAAT;IACR;UAG0B;;;AACxB,YAAO,8BACE,6EACc;AAAY,uBAA+B,CAAtB,AAAE,iBAAE,AAAW;;4BAC3B,kDACZ,mCACH,mBAAO,AAAO,0BAClB,mBAAa;IAI5B;;UAEwB;AAAU,YAAA,AAAO,AAAY,mCAC7B,AAAC,eAAnB,AAAO,yBAAa,cAAS,KAAK,IAClC,4CAAyB,6CAAqB,AAAO,0BAAc,AAAO;IAAO;;;sDApC9D;;qDACF;;;;EAoCzB","file":"../../../../../../../../O:/packages/flutter_spinkit/src/spinning_circle.dart.lib.js"}');
+  // Exports:
+  return {
+    src__spinning_circle: spinning_circle
+  };
+}));
+
+//# sourceMappingURL=spinning_circle.dart.lib.js.map

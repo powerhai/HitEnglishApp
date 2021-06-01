@@ -1,0 +1,4068 @@
+define(['dart_sdk', 'packages/flutter/src/widgets/widget_span.dart', 'packages/flutter_easyloading/src/widgets/overlay_entry.dart', 'packages/flutter/src/material/icon_button.dart', 'packages/flutter_spinkit/src/fading_circle.dart', 'packages/flutter_spinkit/src/circle.dart', 'packages/flutter_spinkit/src/three_bounce.dart', 'packages/flutter_spinkit/src/chasing_dots.dart', 'packages/flutter_spinkit/src/wave.dart', 'packages/flutter_spinkit/src/wandering_cubes.dart', 'packages/flutter_spinkit/src/rotating_circle.dart', 'packages/flutter_spinkit/src/rotating_plain.dart', 'packages/flutter_spinkit/src/double_bounce.dart', 'packages/flutter_spinkit/src/fading_four.dart', 'packages/flutter_spinkit/src/fading_cube.dart', 'packages/flutter_spinkit/src/pulse.dart', 'packages/flutter_spinkit/src/cube_grid.dart', 'packages/flutter_spinkit/src/folding_cube.dart', 'packages/flutter_spinkit/src/pumping_heart.dart', 'packages/flutter_spinkit/src/dual_ring.dart', 'packages/flutter_spinkit/src/hour_glass.dart', 'packages/flutter_spinkit/src/pouring_hour_glass.dart', 'packages/flutter_spinkit/src/fading_grid.dart', 'packages/flutter_spinkit/src/ring.dart', 'packages/flutter_spinkit/src/ripple.dart', 'packages/flutter_spinkit/src/spinning_circle.dart', 'packages/flutter_spinkit/src/square_circle.dart', 'packages/flutter/src/rendering/layer.dart', 'packages/flutter/src/material/progress_indicator.dart', 'packages/flutter/src/rendering/custom_paint.dart', 'packages/flutter/src/material/colors.dart', 'packages/flutter_easyloading/src/animations/offset_animation.dart', 'packages/flutter_easyloading/src/animations/scale_animation.dart', 'packages/flutter_easyloading/src/animations/opacity_animation.dart', 'packages/flutter/src/painting/alignment.dart', 'packages/flutter/src/scheduler/binding.dart', 'packages/flutter/src/animation/animation_controller.dart', 'packages/flutter/src/animation/listener_helpers.dart', 'packages/flutter/src/rendering/proxy_box.dart', 'packages/flutter/src/painting/edge_insets.dart', 'packages/flutter/src/painting/box_decoration.dart', 'packages/flutter/src/painting/border_radius.dart', 'packages/flutter/src/rendering/flex.dart', 'packages/flutter/src/painting/strut_style.dart', 'packages/flutter/src/widgets/icon.dart', 'packages/flutter/src/material/icons.dart', 'packages/flutter_easyloading/src/animations/animation.dart'], (function load__packages__flutter_easyloading__src__widgets__loading_dart(dart_sdk, packages__flutter__src__widgets__widget_span$46dart, packages__flutter_easyloading__src__widgets__overlay_entry$46dart, packages__flutter__src__material__icon_button$46dart, packages__flutter_spinkit__src__fading_circle$46dart, packages__flutter_spinkit__src__circle$46dart, packages__flutter_spinkit__src__three_bounce$46dart, packages__flutter_spinkit__src__chasing_dots$46dart, packages__flutter_spinkit__src__wave$46dart, packages__flutter_spinkit__src__wandering_cubes$46dart, packages__flutter_spinkit__src__rotating_circle$46dart, packages__flutter_spinkit__src__rotating_plain$46dart, packages__flutter_spinkit__src__double_bounce$46dart, packages__flutter_spinkit__src__fading_four$46dart, packages__flutter_spinkit__src__fading_cube$46dart, packages__flutter_spinkit__src__pulse$46dart, packages__flutter_spinkit__src__cube_grid$46dart, packages__flutter_spinkit__src__folding_cube$46dart, packages__flutter_spinkit__src__pumping_heart$46dart, packages__flutter_spinkit__src__dual_ring$46dart, packages__flutter_spinkit__src__hour_glass$46dart, packages__flutter_spinkit__src__pouring_hour_glass$46dart, packages__flutter_spinkit__src__fading_grid$46dart, packages__flutter_spinkit__src__ring$46dart, packages__flutter_spinkit__src__ripple$46dart, packages__flutter_spinkit__src__spinning_circle$46dart, packages__flutter_spinkit__src__square_circle$46dart, packages__flutter__src__rendering__layer$46dart, packages__flutter__src__material__progress_indicator$46dart, packages__flutter__src__rendering__custom_paint$46dart, packages__flutter__src__material__colors$46dart, packages__flutter_easyloading__src__animations__offset_animation$46dart, packages__flutter_easyloading__src__animations__scale_animation$46dart, packages__flutter_easyloading__src__animations__opacity_animation$46dart, packages__flutter__src__painting__alignment$46dart, packages__flutter__src__scheduler__binding$46dart, packages__flutter__src__animation__animation_controller$46dart, packages__flutter__src__animation__listener_helpers$46dart, packages__flutter__src__rendering__proxy_box$46dart, packages__flutter__src__painting__edge_insets$46dart, packages__flutter__src__painting__box_decoration$46dart, packages__flutter__src__painting__border_radius$46dart, packages__flutter__src__rendering__flex$46dart, packages__flutter__src__painting__strut_style$46dart, packages__flutter__src__widgets__icon$46dart, packages__flutter__src__material__icons$46dart, packages__flutter_easyloading__src__animations__animation$46dart) {
+  'use strict';
+  const core = dart_sdk.core;
+  const _internal = dart_sdk._internal;
+  const _interceptors = dart_sdk._interceptors;
+  const ui = dart_sdk.ui;
+  const async = dart_sdk.async;
+  const math = dart_sdk.math;
+  const dart = dart_sdk.dart;
+  const dartx = dart_sdk.dartx;
+  const framework = packages__flutter__src__widgets__widget_span$46dart.src__widgets__framework;
+  const container = packages__flutter__src__widgets__widget_span$46dart.src__widgets__container;
+  const widget_inspector = packages__flutter__src__widgets__widget_span$46dart.src__widgets__widget_inspector;
+  const overlay = packages__flutter__src__widgets__widget_span$46dart.src__widgets__overlay;
+  const basic = packages__flutter__src__widgets__widget_span$46dart.src__widgets__basic;
+  const transitions = packages__flutter__src__widgets__widget_span$46dart.src__widgets__transitions;
+  const gesture_detector = packages__flutter__src__widgets__widget_span$46dart.src__widgets__gesture_detector;
+  const ticker_provider = packages__flutter__src__widgets__widget_span$46dart.src__widgets__ticker_provider;
+  const text = packages__flutter__src__widgets__widget_span$46dart.src__widgets__text;
+  const overlay_entry = packages__flutter_easyloading__src__widgets__overlay_entry$46dart.src__widgets__overlay_entry;
+  const material = packages__flutter__src__material__icon_button$46dart.src__material__material;
+  const fading_circle = packages__flutter_spinkit__src__fading_circle$46dart.src__fading_circle;
+  const circle = packages__flutter_spinkit__src__circle$46dart.src__circle;
+  const three_bounce = packages__flutter_spinkit__src__three_bounce$46dart.src__three_bounce;
+  const chasing_dots = packages__flutter_spinkit__src__chasing_dots$46dart.src__chasing_dots;
+  const wave = packages__flutter_spinkit__src__wave$46dart.src__wave;
+  const wandering_cubes = packages__flutter_spinkit__src__wandering_cubes$46dart.src__wandering_cubes;
+  const rotating_circle = packages__flutter_spinkit__src__rotating_circle$46dart.src__rotating_circle;
+  const rotating_plain = packages__flutter_spinkit__src__rotating_plain$46dart.src__rotating_plain;
+  const double_bounce = packages__flutter_spinkit__src__double_bounce$46dart.src__double_bounce;
+  const fading_four = packages__flutter_spinkit__src__fading_four$46dart.src__fading_four;
+  const fading_cube = packages__flutter_spinkit__src__fading_cube$46dart.src__fading_cube;
+  const pulse = packages__flutter_spinkit__src__pulse$46dart.src__pulse;
+  const cube_grid = packages__flutter_spinkit__src__cube_grid$46dart.src__cube_grid;
+  const folding_cube = packages__flutter_spinkit__src__folding_cube$46dart.src__folding_cube;
+  const pumping_heart = packages__flutter_spinkit__src__pumping_heart$46dart.src__pumping_heart;
+  const dual_ring = packages__flutter_spinkit__src__dual_ring$46dart.src__dual_ring;
+  const hour_glass = packages__flutter_spinkit__src__hour_glass$46dart.src__hour_glass;
+  const pouring_hour_glass = packages__flutter_spinkit__src__pouring_hour_glass$46dart.src__pouring_hour_glass;
+  const fading_grid = packages__flutter_spinkit__src__fading_grid$46dart.src__fading_grid;
+  const ring = packages__flutter_spinkit__src__ring$46dart.src__ring;
+  const ripple = packages__flutter_spinkit__src__ripple$46dart.src__ripple;
+  const spinning_circle = packages__flutter_spinkit__src__spinning_circle$46dart.src__spinning_circle;
+  const square_circle = packages__flutter_spinkit__src__square_circle$46dart.src__square_circle;
+  const box = packages__flutter__src__rendering__layer$46dart.src__rendering__box;
+  const progress_indicator = packages__flutter__src__material__progress_indicator$46dart.src__material__progress_indicator;
+  const custom_paint = packages__flutter__src__rendering__custom_paint$46dart.src__rendering__custom_paint;
+  const colors = packages__flutter__src__material__colors$46dart.src__material__colors;
+  const offset_animation = packages__flutter_easyloading__src__animations__offset_animation$46dart.src__animations__offset_animation;
+  const scale_animation = packages__flutter_easyloading__src__animations__scale_animation$46dart.src__animations__scale_animation;
+  const opacity_animation = packages__flutter_easyloading__src__animations__opacity_animation$46dart.src__animations__opacity_animation;
+  const alignment = packages__flutter__src__painting__alignment$46dart.src__painting__alignment;
+  const binding = packages__flutter__src__scheduler__binding$46dart.src__scheduler__binding;
+  const animation_controller = packages__flutter__src__animation__animation_controller$46dart.src__animation__animation_controller;
+  const animation = packages__flutter__src__animation__listener_helpers$46dart.src__animation__animation;
+  const proxy_box = packages__flutter__src__rendering__proxy_box$46dart.src__rendering__proxy_box;
+  const edge_insets = packages__flutter__src__painting__edge_insets$46dart.src__painting__edge_insets;
+  const box_decoration = packages__flutter__src__painting__box_decoration$46dart.src__painting__box_decoration;
+  const border_radius = packages__flutter__src__painting__border_radius$46dart.src__painting__border_radius;
+  const flex = packages__flutter__src__rendering__flex$46dart.src__rendering__flex;
+  const text_style = packages__flutter__src__painting__strut_style$46dart.src__painting__text_style;
+  const icon = packages__flutter__src__widgets__icon$46dart.src__widgets__icon;
+  const icons = packages__flutter__src__material__icons$46dart.src__material__icons;
+  const animation$ = packages__flutter_easyloading__src__animations__animation$46dart.src__animations__animation;
+  var loading = Object.create(dart.library);
+  var indicator$ = Object.create(dart.library);
+  var progress = Object.create(dart.library);
+  var theme = Object.create(dart.library);
+  var container$ = Object.create(dart.library);
+  var easy_loading = Object.create(dart.library);
+  var $isNotEmpty = dartx.isNotEmpty;
+  var $add = dartx.add;
+  var $contains = dartx.contains;
+  var $remove = dartx.remove;
+  var $clear = dartx.clear;
+  dart._checkModuleNullSafetyMode(false);
+  var T = {
+    _LocationL: () => (T._LocationL = dart.constFn(dart.legacy(widget_inspector._Location)))(),
+    BuildContextToWidget: () => (T.BuildContextToWidget = dart.constFn(dart.fnType(framework.Widget, [framework.BuildContext])))(),
+    JSArrayOfOverlayEntry: () => (T.JSArrayOfOverlayEntry = dart.constFn(_interceptors.JSArray$(overlay.OverlayEntry)))(),
+    VoidTovoid: () => (T.VoidTovoid = dart.constFn(dart.fnType(dart.void, [])))(),
+    AnimationStatusTovoid: () => (T.AnimationStatusTovoid = dart.constFn(dart.fnType(dart.void, [animation.AnimationStatus])))(),
+    CompleterOfvoid: () => (T.CompleterOfvoid = dart.constFn(async.Completer$(dart.void)))(),
+    DurationTovoid: () => (T.DurationTovoid = dart.constFn(dart.fnType(dart.void, [core.Duration])))(),
+    WidgetN: () => (T.WidgetN = dart.constFn(dart.nullable(framework.Widget)))(),
+    BuildContextAndWidgetNToOpacity: () => (T.BuildContextAndWidgetNToOpacity = dart.constFn(dart.fnType(basic.Opacity, [framework.BuildContext, T.WidgetN()])))(),
+    BuildContextAndWidgetNToWidget: () => (T.BuildContextAndWidgetNToWidget = dart.constFn(dart.fnType(framework.Widget, [framework.BuildContext, T.WidgetN()])))(),
+    JSArrayOfWidget: () => (T.JSArrayOfWidget = dart.constFn(_interceptors.JSArray$(framework.Widget)))(),
+    EasyLoadingStyleL: () => (T.EasyLoadingStyleL = dart.constFn(dart.legacy(easy_loading.EasyLoadingStyle)))(),
+    EasyLoadingToastPositionL: () => (T.EasyLoadingToastPositionL = dart.constFn(dart.legacy(easy_loading.EasyLoadingToastPosition)))(),
+    EasyLoadingAnimationStyleL: () => (T.EasyLoadingAnimationStyleL = dart.constFn(dart.legacy(easy_loading.EasyLoadingAnimationStyle)))(),
+    EasyLoadingMaskTypeL: () => (T.EasyLoadingMaskTypeL = dart.constFn(dart.legacy(easy_loading.EasyLoadingMaskType)))(),
+    EasyLoadingIndicatorTypeL: () => (T.EasyLoadingIndicatorTypeL = dart.constFn(dart.legacy(easy_loading.EasyLoadingIndicatorType)))(),
+    EasyLoadingStatusL: () => (T.EasyLoadingStatusL = dart.constFn(dart.legacy(easy_loading.EasyLoadingStatus)))(),
+    EasyLoadingStatusTovoid: () => (T.EasyLoadingStatusTovoid = dart.constFn(dart.fnType(dart.void, [easy_loading.EasyLoadingStatus])))(),
+    JSArrayOfEasyLoadingStatusTovoid: () => (T.JSArrayOfEasyLoadingStatusTovoid = dart.constFn(_interceptors.JSArray$(T.EasyLoadingStatusTovoid())))(),
+    GlobalKeyOfEasyLoadingProgressState: () => (T.GlobalKeyOfEasyLoadingProgressState = dart.constFn(framework.GlobalKey$(progress.EasyLoadingProgressState)))(),
+    GlobalKeyOfEasyLoadingContainerState: () => (T.GlobalKeyOfEasyLoadingContainerState = dart.constFn(framework.GlobalKey$(container$.EasyLoadingContainerState)))(),
+    FutureOfvoid: () => (T.FutureOfvoid = dart.constFn(async.Future$(dart.void)))(),
+    VoidToFutureOfvoid: () => (T.VoidToFutureOfvoid = dart.constFn(dart.fnType(T.FutureOfvoid(), [])))(),
+    VoidToNull: () => (T.VoidToNull = dart.constFn(dart.fnType(core.Null, [])))()
+  };
+  const CT = Object.create({
+    _: () => (C, CT)
+  });
+  dart.defineLazy(CT, {
+    get C1() {
+      return C[1] = dart.constList([], T._LocationL());
+    },
+    get C0() {
+      return C[0] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[1] || CT.C1,
+        [_Location_name]: null,
+        [_Location_column]: 68,
+        [_Location_line]: 48,
+        [_Location_file]: "file:///d:/flutter/.pub-cache/hosted/pub.flutter-io.cn/flutter_easyloading-3.0.0/lib/src/widgets/loading.dart"
+      });
+    },
+    get C2() {
+      return C[2] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[1] || CT.C1,
+        [_Location_name]: null,
+        [_Location_column]: 24,
+        [_Location_line]: 63,
+        [_Location_file]: "file:///d:/flutter/.pub-cache/hosted/pub.flutter-io.cn/flutter_easyloading-3.0.0/lib/src/widgets/loading.dart"
+      });
+    },
+    get C5() {
+      return C[5] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "initialEntries",
+        [_Location_column]: 9,
+        [_Location_line]: 57,
+        [_Location_file]: null
+      });
+    },
+    get C4() {
+      return C[4] = dart.constList([C[5] || CT.C5], T._LocationL());
+    },
+    get C3() {
+      return C[3] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[4] || CT.C4,
+        [_Location_name]: null,
+        [_Location_column]: 14,
+        [_Location_line]: 56,
+        [_Location_file]: "file:///d:/flutter/.pub-cache/hosted/pub.flutter-io.cn/flutter_easyloading-3.0.0/lib/src/widgets/loading.dart"
+      });
+    },
+    get C8() {
+      return C[8] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 7,
+        [_Location_line]: 56,
+        [_Location_file]: null
+      });
+    },
+    get C7() {
+      return C[7] = dart.constList([C[8] || CT.C8], T._LocationL());
+    },
+    get C6() {
+      return C[6] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[7] || CT.C7,
+        [_Location_name]: null,
+        [_Location_column]: 12,
+        [_Location_line]: 55,
+        [_Location_file]: "file:///d:/flutter/.pub-cache/hosted/pub.flutter-io.cn/flutter_easyloading-3.0.0/lib/src/widgets/loading.dart"
+      });
+    },
+    get C11() {
+      return C[11] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "color",
+        [_Location_column]: 11,
+        [_Location_line]: 61,
+        [_Location_file]: null
+      });
+    },
+    get C12() {
+      return C[12] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "size",
+        [_Location_column]: 11,
+        [_Location_line]: 62,
+        [_Location_file]: null
+      });
+    },
+    get C10() {
+      return C[10] = dart.constList([C[11] || CT.C11, C[12] || CT.C12], T._LocationL());
+    },
+    get C9() {
+      return C[9] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[10] || CT.C10,
+        [_Location_name]: null,
+        [_Location_column]: 22,
+        [_Location_line]: 60,
+        [_Location_file]: "file:///d:/flutter/.pub-cache/hosted/pub.flutter-io.cn/flutter_easyloading-3.0.0/lib/src/widgets/indicator.dart"
+      });
+    },
+    get C13() {
+      return C[13] = dart.const({
+        __proto__: easy_loading.EasyLoadingIndicatorType.prototype,
+        [_name$]: "EasyLoadingIndicatorType.fadingCircle",
+        index: 0
+      });
+    },
+    get C16() {
+      return C[16] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "color",
+        [_Location_column]: 11,
+        [_Location_line]: 67,
+        [_Location_file]: null
+      });
+    },
+    get C17() {
+      return C[17] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "size",
+        [_Location_column]: 11,
+        [_Location_line]: 68,
+        [_Location_file]: null
+      });
+    },
+    get C15() {
+      return C[15] = dart.constList([C[16] || CT.C16, C[17] || CT.C17], T._LocationL());
+    },
+    get C14() {
+      return C[14] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[15] || CT.C15,
+        [_Location_name]: null,
+        [_Location_column]: 22,
+        [_Location_line]: 66,
+        [_Location_file]: "file:///d:/flutter/.pub-cache/hosted/pub.flutter-io.cn/flutter_easyloading-3.0.0/lib/src/widgets/indicator.dart"
+      });
+    },
+    get C18() {
+      return C[18] = dart.const({
+        __proto__: easy_loading.EasyLoadingIndicatorType.prototype,
+        [_name$]: "EasyLoadingIndicatorType.circle",
+        index: 1
+      });
+    },
+    get C21() {
+      return C[21] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "color",
+        [_Location_column]: 11,
+        [_Location_line]: 73,
+        [_Location_file]: null
+      });
+    },
+    get C22() {
+      return C[22] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "size",
+        [_Location_column]: 11,
+        [_Location_line]: 74,
+        [_Location_file]: null
+      });
+    },
+    get C20() {
+      return C[20] = dart.constList([C[21] || CT.C21, C[22] || CT.C22], T._LocationL());
+    },
+    get C19() {
+      return C[19] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[20] || CT.C20,
+        [_Location_name]: null,
+        [_Location_column]: 22,
+        [_Location_line]: 72,
+        [_Location_file]: "file:///d:/flutter/.pub-cache/hosted/pub.flutter-io.cn/flutter_easyloading-3.0.0/lib/src/widgets/indicator.dart"
+      });
+    },
+    get C23() {
+      return C[23] = dart.const({
+        __proto__: easy_loading.EasyLoadingIndicatorType.prototype,
+        [_name$]: "EasyLoadingIndicatorType.threeBounce",
+        index: 2
+      });
+    },
+    get C26() {
+      return C[26] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "color",
+        [_Location_column]: 11,
+        [_Location_line]: 80,
+        [_Location_file]: null
+      });
+    },
+    get C27() {
+      return C[27] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "size",
+        [_Location_column]: 11,
+        [_Location_line]: 81,
+        [_Location_file]: null
+      });
+    },
+    get C25() {
+      return C[25] = dart.constList([C[26] || CT.C26, C[27] || CT.C27], T._LocationL());
+    },
+    get C24() {
+      return C[24] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[25] || CT.C25,
+        [_Location_name]: null,
+        [_Location_column]: 22,
+        [_Location_line]: 79,
+        [_Location_file]: "file:///d:/flutter/.pub-cache/hosted/pub.flutter-io.cn/flutter_easyloading-3.0.0/lib/src/widgets/indicator.dart"
+      });
+    },
+    get C28() {
+      return C[28] = dart.const({
+        __proto__: easy_loading.EasyLoadingIndicatorType.prototype,
+        [_name$]: "EasyLoadingIndicatorType.chasingDots",
+        index: 3
+      });
+    },
+    get C31() {
+      return C[31] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "color",
+        [_Location_column]: 11,
+        [_Location_line]: 86,
+        [_Location_file]: null
+      });
+    },
+    get C32() {
+      return C[32] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "size",
+        [_Location_column]: 11,
+        [_Location_line]: 87,
+        [_Location_file]: null
+      });
+    },
+    get C33() {
+      return C[33] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "itemCount",
+        [_Location_column]: 11,
+        [_Location_line]: 88,
+        [_Location_file]: null
+      });
+    },
+    get C30() {
+      return C[30] = dart.constList([C[31] || CT.C31, C[32] || CT.C32, C[33] || CT.C33], T._LocationL());
+    },
+    get C29() {
+      return C[29] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[30] || CT.C30,
+        [_Location_name]: null,
+        [_Location_column]: 22,
+        [_Location_line]: 85,
+        [_Location_file]: "file:///d:/flutter/.pub-cache/hosted/pub.flutter-io.cn/flutter_easyloading-3.0.0/lib/src/widgets/indicator.dart"
+      });
+    },
+    get C34() {
+      return C[34] = dart.const({
+        __proto__: easy_loading.EasyLoadingIndicatorType.prototype,
+        [_name$]: "EasyLoadingIndicatorType.wave",
+        index: 4
+      });
+    },
+    get C37() {
+      return C[37] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "color",
+        [_Location_column]: 11,
+        [_Location_line]: 94,
+        [_Location_file]: null
+      });
+    },
+    get C38() {
+      return C[38] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "size",
+        [_Location_column]: 11,
+        [_Location_line]: 95,
+        [_Location_file]: null
+      });
+    },
+    get C36() {
+      return C[36] = dart.constList([C[37] || CT.C37, C[38] || CT.C38], T._LocationL());
+    },
+    get C35() {
+      return C[35] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[36] || CT.C36,
+        [_Location_name]: null,
+        [_Location_column]: 22,
+        [_Location_line]: 93,
+        [_Location_file]: "file:///d:/flutter/.pub-cache/hosted/pub.flutter-io.cn/flutter_easyloading-3.0.0/lib/src/widgets/indicator.dart"
+      });
+    },
+    get C39() {
+      return C[39] = dart.const({
+        __proto__: easy_loading.EasyLoadingIndicatorType.prototype,
+        [_name$]: "EasyLoadingIndicatorType.wanderingCubes",
+        index: 5
+      });
+    },
+    get C42() {
+      return C[42] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "color",
+        [_Location_column]: 11,
+        [_Location_line]: 100,
+        [_Location_file]: null
+      });
+    },
+    get C43() {
+      return C[43] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "size",
+        [_Location_column]: 11,
+        [_Location_line]: 101,
+        [_Location_file]: null
+      });
+    },
+    get C41() {
+      return C[41] = dart.constList([C[42] || CT.C42, C[43] || CT.C43], T._LocationL());
+    },
+    get C40() {
+      return C[40] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[41] || CT.C41,
+        [_Location_name]: null,
+        [_Location_column]: 22,
+        [_Location_line]: 99,
+        [_Location_file]: "file:///d:/flutter/.pub-cache/hosted/pub.flutter-io.cn/flutter_easyloading-3.0.0/lib/src/widgets/indicator.dart"
+      });
+    },
+    get C44() {
+      return C[44] = dart.const({
+        __proto__: easy_loading.EasyLoadingIndicatorType.prototype,
+        [_name$]: "EasyLoadingIndicatorType.rotatingCircle",
+        index: 12
+      });
+    },
+    get C47() {
+      return C[47] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "color",
+        [_Location_column]: 11,
+        [_Location_line]: 106,
+        [_Location_file]: null
+      });
+    },
+    get C48() {
+      return C[48] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "size",
+        [_Location_column]: 11,
+        [_Location_line]: 107,
+        [_Location_file]: null
+      });
+    },
+    get C46() {
+      return C[46] = dart.constList([C[47] || CT.C47, C[48] || CT.C48], T._LocationL());
+    },
+    get C45() {
+      return C[45] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[46] || CT.C46,
+        [_Location_name]: null,
+        [_Location_column]: 22,
+        [_Location_line]: 105,
+        [_Location_file]: "file:///d:/flutter/.pub-cache/hosted/pub.flutter-io.cn/flutter_easyloading-3.0.0/lib/src/widgets/indicator.dart"
+      });
+    },
+    get C49() {
+      return C[49] = dart.const({
+        __proto__: easy_loading.EasyLoadingIndicatorType.prototype,
+        [_name$]: "EasyLoadingIndicatorType.rotatingPlain",
+        index: 6
+      });
+    },
+    get C52() {
+      return C[52] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "color",
+        [_Location_column]: 11,
+        [_Location_line]: 112,
+        [_Location_file]: null
+      });
+    },
+    get C53() {
+      return C[53] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "size",
+        [_Location_column]: 11,
+        [_Location_line]: 113,
+        [_Location_file]: null
+      });
+    },
+    get C51() {
+      return C[51] = dart.constList([C[52] || CT.C52, C[53] || CT.C53], T._LocationL());
+    },
+    get C50() {
+      return C[50] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[51] || CT.C51,
+        [_Location_name]: null,
+        [_Location_column]: 22,
+        [_Location_line]: 111,
+        [_Location_file]: "file:///d:/flutter/.pub-cache/hosted/pub.flutter-io.cn/flutter_easyloading-3.0.0/lib/src/widgets/indicator.dart"
+      });
+    },
+    get C54() {
+      return C[54] = dart.const({
+        __proto__: easy_loading.EasyLoadingIndicatorType.prototype,
+        [_name$]: "EasyLoadingIndicatorType.doubleBounce",
+        index: 7
+      });
+    },
+    get C57() {
+      return C[57] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "color",
+        [_Location_column]: 11,
+        [_Location_line]: 118,
+        [_Location_file]: null
+      });
+    },
+    get C58() {
+      return C[58] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "size",
+        [_Location_column]: 11,
+        [_Location_line]: 119,
+        [_Location_file]: null
+      });
+    },
+    get C56() {
+      return C[56] = dart.constList([C[57] || CT.C57, C[58] || CT.C58], T._LocationL());
+    },
+    get C55() {
+      return C[55] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[56] || CT.C56,
+        [_Location_name]: null,
+        [_Location_column]: 22,
+        [_Location_line]: 117,
+        [_Location_file]: "file:///d:/flutter/.pub-cache/hosted/pub.flutter-io.cn/flutter_easyloading-3.0.0/lib/src/widgets/indicator.dart"
+      });
+    },
+    get C59() {
+      return C[59] = dart.const({
+        __proto__: easy_loading.EasyLoadingIndicatorType.prototype,
+        [_name$]: "EasyLoadingIndicatorType.fadingFour",
+        index: 8
+      });
+    },
+    get C62() {
+      return C[62] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "color",
+        [_Location_column]: 11,
+        [_Location_line]: 124,
+        [_Location_file]: null
+      });
+    },
+    get C63() {
+      return C[63] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "size",
+        [_Location_column]: 11,
+        [_Location_line]: 125,
+        [_Location_file]: null
+      });
+    },
+    get C61() {
+      return C[61] = dart.constList([C[62] || CT.C62, C[63] || CT.C63], T._LocationL());
+    },
+    get C60() {
+      return C[60] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[61] || CT.C61,
+        [_Location_name]: null,
+        [_Location_column]: 22,
+        [_Location_line]: 123,
+        [_Location_file]: "file:///d:/flutter/.pub-cache/hosted/pub.flutter-io.cn/flutter_easyloading-3.0.0/lib/src/widgets/indicator.dart"
+      });
+    },
+    get C64() {
+      return C[64] = dart.const({
+        __proto__: easy_loading.EasyLoadingIndicatorType.prototype,
+        [_name$]: "EasyLoadingIndicatorType.fadingCube",
+        index: 9
+      });
+    },
+    get C67() {
+      return C[67] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "color",
+        [_Location_column]: 11,
+        [_Location_line]: 130,
+        [_Location_file]: null
+      });
+    },
+    get C68() {
+      return C[68] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "size",
+        [_Location_column]: 11,
+        [_Location_line]: 131,
+        [_Location_file]: null
+      });
+    },
+    get C66() {
+      return C[66] = dart.constList([C[67] || CT.C67, C[68] || CT.C68], T._LocationL());
+    },
+    get C65() {
+      return C[65] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[66] || CT.C66,
+        [_Location_name]: null,
+        [_Location_column]: 22,
+        [_Location_line]: 129,
+        [_Location_file]: "file:///d:/flutter/.pub-cache/hosted/pub.flutter-io.cn/flutter_easyloading-3.0.0/lib/src/widgets/indicator.dart"
+      });
+    },
+    get C69() {
+      return C[69] = dart.const({
+        __proto__: easy_loading.EasyLoadingIndicatorType.prototype,
+        [_name$]: "EasyLoadingIndicatorType.pulse",
+        index: 10
+      });
+    },
+    get C72() {
+      return C[72] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "color",
+        [_Location_column]: 11,
+        [_Location_line]: 136,
+        [_Location_file]: null
+      });
+    },
+    get C73() {
+      return C[73] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "size",
+        [_Location_column]: 11,
+        [_Location_line]: 137,
+        [_Location_file]: null
+      });
+    },
+    get C71() {
+      return C[71] = dart.constList([C[72] || CT.C72, C[73] || CT.C73], T._LocationL());
+    },
+    get C70() {
+      return C[70] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[71] || CT.C71,
+        [_Location_name]: null,
+        [_Location_column]: 22,
+        [_Location_line]: 135,
+        [_Location_file]: "file:///d:/flutter/.pub-cache/hosted/pub.flutter-io.cn/flutter_easyloading-3.0.0/lib/src/widgets/indicator.dart"
+      });
+    },
+    get C74() {
+      return C[74] = dart.const({
+        __proto__: easy_loading.EasyLoadingIndicatorType.prototype,
+        [_name$]: "EasyLoadingIndicatorType.cubeGrid",
+        index: 11
+      });
+    },
+    get C77() {
+      return C[77] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "color",
+        [_Location_column]: 11,
+        [_Location_line]: 142,
+        [_Location_file]: null
+      });
+    },
+    get C78() {
+      return C[78] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "size",
+        [_Location_column]: 11,
+        [_Location_line]: 143,
+        [_Location_file]: null
+      });
+    },
+    get C76() {
+      return C[76] = dart.constList([C[77] || CT.C77, C[78] || CT.C78], T._LocationL());
+    },
+    get C75() {
+      return C[75] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[76] || CT.C76,
+        [_Location_name]: null,
+        [_Location_column]: 22,
+        [_Location_line]: 141,
+        [_Location_file]: "file:///d:/flutter/.pub-cache/hosted/pub.flutter-io.cn/flutter_easyloading-3.0.0/lib/src/widgets/indicator.dart"
+      });
+    },
+    get C79() {
+      return C[79] = dart.const({
+        __proto__: easy_loading.EasyLoadingIndicatorType.prototype,
+        [_name$]: "EasyLoadingIndicatorType.foldingCube",
+        index: 13
+      });
+    },
+    get C82() {
+      return C[82] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "color",
+        [_Location_column]: 11,
+        [_Location_line]: 148,
+        [_Location_file]: null
+      });
+    },
+    get C83() {
+      return C[83] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "size",
+        [_Location_column]: 11,
+        [_Location_line]: 149,
+        [_Location_file]: null
+      });
+    },
+    get C81() {
+      return C[81] = dart.constList([C[82] || CT.C82, C[83] || CT.C83], T._LocationL());
+    },
+    get C80() {
+      return C[80] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[81] || CT.C81,
+        [_Location_name]: null,
+        [_Location_column]: 22,
+        [_Location_line]: 147,
+        [_Location_file]: "file:///d:/flutter/.pub-cache/hosted/pub.flutter-io.cn/flutter_easyloading-3.0.0/lib/src/widgets/indicator.dart"
+      });
+    },
+    get C84() {
+      return C[84] = dart.const({
+        __proto__: easy_loading.EasyLoadingIndicatorType.prototype,
+        [_name$]: "EasyLoadingIndicatorType.pumpingHeart",
+        index: 14
+      });
+    },
+    get C87() {
+      return C[87] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "color",
+        [_Location_column]: 11,
+        [_Location_line]: 154,
+        [_Location_file]: null
+      });
+    },
+    get C88() {
+      return C[88] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "size",
+        [_Location_column]: 11,
+        [_Location_line]: 155,
+        [_Location_file]: null
+      });
+    },
+    get C89() {
+      return C[89] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "lineWidth",
+        [_Location_column]: 11,
+        [_Location_line]: 156,
+        [_Location_file]: null
+      });
+    },
+    get C86() {
+      return C[86] = dart.constList([C[87] || CT.C87, C[88] || CT.C88, C[89] || CT.C89], T._LocationL());
+    },
+    get C85() {
+      return C[85] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[86] || CT.C86,
+        [_Location_name]: null,
+        [_Location_column]: 22,
+        [_Location_line]: 153,
+        [_Location_file]: "file:///d:/flutter/.pub-cache/hosted/pub.flutter-io.cn/flutter_easyloading-3.0.0/lib/src/widgets/indicator.dart"
+      });
+    },
+    get C90() {
+      return C[90] = dart.const({
+        __proto__: easy_loading.EasyLoadingIndicatorType.prototype,
+        [_name$]: "EasyLoadingIndicatorType.dualRing",
+        index: 15
+      });
+    },
+    get C93() {
+      return C[93] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "color",
+        [_Location_column]: 11,
+        [_Location_line]: 161,
+        [_Location_file]: null
+      });
+    },
+    get C94() {
+      return C[94] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "size",
+        [_Location_column]: 11,
+        [_Location_line]: 162,
+        [_Location_file]: null
+      });
+    },
+    get C92() {
+      return C[92] = dart.constList([C[93] || CT.C93, C[94] || CT.C94], T._LocationL());
+    },
+    get C91() {
+      return C[91] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[92] || CT.C92,
+        [_Location_name]: null,
+        [_Location_column]: 22,
+        [_Location_line]: 160,
+        [_Location_file]: "file:///d:/flutter/.pub-cache/hosted/pub.flutter-io.cn/flutter_easyloading-3.0.0/lib/src/widgets/indicator.dart"
+      });
+    },
+    get C95() {
+      return C[95] = dart.const({
+        __proto__: easy_loading.EasyLoadingIndicatorType.prototype,
+        [_name$]: "EasyLoadingIndicatorType.hourGlass",
+        index: 16
+      });
+    },
+    get C98() {
+      return C[98] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "color",
+        [_Location_column]: 11,
+        [_Location_line]: 167,
+        [_Location_file]: null
+      });
+    },
+    get C99() {
+      return C[99] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "size",
+        [_Location_column]: 11,
+        [_Location_line]: 168,
+        [_Location_file]: null
+      });
+    },
+    get C97() {
+      return C[97] = dart.constList([C[98] || CT.C98, C[99] || CT.C99], T._LocationL());
+    },
+    get C96() {
+      return C[96] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[97] || CT.C97,
+        [_Location_name]: null,
+        [_Location_column]: 22,
+        [_Location_line]: 166,
+        [_Location_file]: "file:///d:/flutter/.pub-cache/hosted/pub.flutter-io.cn/flutter_easyloading-3.0.0/lib/src/widgets/indicator.dart"
+      });
+    },
+    get C100() {
+      return C[100] = dart.const({
+        __proto__: easy_loading.EasyLoadingIndicatorType.prototype,
+        [_name$]: "EasyLoadingIndicatorType.pouringHourGlass",
+        index: 17
+      });
+    },
+    get C103() {
+      return C[103] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "color",
+        [_Location_column]: 11,
+        [_Location_line]: 173,
+        [_Location_file]: null
+      });
+    },
+    get C104() {
+      return C[104] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "size",
+        [_Location_column]: 11,
+        [_Location_line]: 174,
+        [_Location_file]: null
+      });
+    },
+    get C102() {
+      return C[102] = dart.constList([C[103] || CT.C103, C[104] || CT.C104], T._LocationL());
+    },
+    get C101() {
+      return C[101] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[102] || CT.C102,
+        [_Location_name]: null,
+        [_Location_column]: 22,
+        [_Location_line]: 172,
+        [_Location_file]: "file:///d:/flutter/.pub-cache/hosted/pub.flutter-io.cn/flutter_easyloading-3.0.0/lib/src/widgets/indicator.dart"
+      });
+    },
+    get C105() {
+      return C[105] = dart.const({
+        __proto__: easy_loading.EasyLoadingIndicatorType.prototype,
+        [_name$]: "EasyLoadingIndicatorType.fadingGrid",
+        index: 18
+      });
+    },
+    get C108() {
+      return C[108] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "color",
+        [_Location_column]: 11,
+        [_Location_line]: 179,
+        [_Location_file]: null
+      });
+    },
+    get C109() {
+      return C[109] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "size",
+        [_Location_column]: 11,
+        [_Location_line]: 180,
+        [_Location_file]: null
+      });
+    },
+    get C110() {
+      return C[110] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "lineWidth",
+        [_Location_column]: 11,
+        [_Location_line]: 181,
+        [_Location_file]: null
+      });
+    },
+    get C107() {
+      return C[107] = dart.constList([C[108] || CT.C108, C[109] || CT.C109, C[110] || CT.C110], T._LocationL());
+    },
+    get C106() {
+      return C[106] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[107] || CT.C107,
+        [_Location_name]: null,
+        [_Location_column]: 22,
+        [_Location_line]: 178,
+        [_Location_file]: "file:///d:/flutter/.pub-cache/hosted/pub.flutter-io.cn/flutter_easyloading-3.0.0/lib/src/widgets/indicator.dart"
+      });
+    },
+    get C111() {
+      return C[111] = dart.const({
+        __proto__: easy_loading.EasyLoadingIndicatorType.prototype,
+        [_name$]: "EasyLoadingIndicatorType.ring",
+        index: 19
+      });
+    },
+    get C114() {
+      return C[114] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "color",
+        [_Location_column]: 11,
+        [_Location_line]: 186,
+        [_Location_file]: null
+      });
+    },
+    get C115() {
+      return C[115] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "size",
+        [_Location_column]: 11,
+        [_Location_line]: 187,
+        [_Location_file]: null
+      });
+    },
+    get C113() {
+      return C[113] = dart.constList([C[114] || CT.C114, C[115] || CT.C115], T._LocationL());
+    },
+    get C112() {
+      return C[112] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[113] || CT.C113,
+        [_Location_name]: null,
+        [_Location_column]: 22,
+        [_Location_line]: 185,
+        [_Location_file]: "file:///d:/flutter/.pub-cache/hosted/pub.flutter-io.cn/flutter_easyloading-3.0.0/lib/src/widgets/indicator.dart"
+      });
+    },
+    get C116() {
+      return C[116] = dart.const({
+        __proto__: easy_loading.EasyLoadingIndicatorType.prototype,
+        [_name$]: "EasyLoadingIndicatorType.ripple",
+        index: 20
+      });
+    },
+    get C119() {
+      return C[119] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "color",
+        [_Location_column]: 11,
+        [_Location_line]: 192,
+        [_Location_file]: null
+      });
+    },
+    get C120() {
+      return C[120] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "size",
+        [_Location_column]: 11,
+        [_Location_line]: 193,
+        [_Location_file]: null
+      });
+    },
+    get C118() {
+      return C[118] = dart.constList([C[119] || CT.C119, C[120] || CT.C120], T._LocationL());
+    },
+    get C117() {
+      return C[117] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[118] || CT.C118,
+        [_Location_name]: null,
+        [_Location_column]: 22,
+        [_Location_line]: 191,
+        [_Location_file]: "file:///d:/flutter/.pub-cache/hosted/pub.flutter-io.cn/flutter_easyloading-3.0.0/lib/src/widgets/indicator.dart"
+      });
+    },
+    get C121() {
+      return C[121] = dart.const({
+        __proto__: easy_loading.EasyLoadingIndicatorType.prototype,
+        [_name$]: "EasyLoadingIndicatorType.spinningCircle",
+        index: 21
+      });
+    },
+    get C124() {
+      return C[124] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "color",
+        [_Location_column]: 11,
+        [_Location_line]: 198,
+        [_Location_file]: null
+      });
+    },
+    get C125() {
+      return C[125] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "size",
+        [_Location_column]: 11,
+        [_Location_line]: 199,
+        [_Location_file]: null
+      });
+    },
+    get C123() {
+      return C[123] = dart.constList([C[124] || CT.C124, C[125] || CT.C125], T._LocationL());
+    },
+    get C122() {
+      return C[122] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[123] || CT.C123,
+        [_Location_name]: null,
+        [_Location_column]: 22,
+        [_Location_line]: 197,
+        [_Location_file]: "file:///d:/flutter/.pub-cache/hosted/pub.flutter-io.cn/flutter_easyloading-3.0.0/lib/src/widgets/indicator.dart"
+      });
+    },
+    get C126() {
+      return C[126] = dart.const({
+        __proto__: easy_loading.EasyLoadingIndicatorType.prototype,
+        [_name$]: "EasyLoadingIndicatorType.squareCircle",
+        index: 22
+      });
+    },
+    get C129() {
+      return C[129] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "color",
+        [_Location_column]: 11,
+        [_Location_line]: 204,
+        [_Location_file]: null
+      });
+    },
+    get C130() {
+      return C[130] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "size",
+        [_Location_column]: 11,
+        [_Location_line]: 205,
+        [_Location_file]: null
+      });
+    },
+    get C128() {
+      return C[128] = dart.constList([C[129] || CT.C129, C[130] || CT.C130], T._LocationL());
+    },
+    get C127() {
+      return C[127] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[128] || CT.C128,
+        [_Location_name]: null,
+        [_Location_column]: 22,
+        [_Location_line]: 203,
+        [_Location_file]: "file:///d:/flutter/.pub-cache/hosted/pub.flutter-io.cn/flutter_easyloading-3.0.0/lib/src/widgets/indicator.dart"
+      });
+    },
+    get C133() {
+      return C[133] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "constraints",
+        [_Location_column]: 7,
+        [_Location_line]: 211,
+        [_Location_file]: null
+      });
+    },
+    get C134() {
+      return C[134] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 7,
+        [_Location_line]: 214,
+        [_Location_file]: null
+      });
+    },
+    get C132() {
+      return C[132] = dart.constList([C[133] || CT.C133, C[134] || CT.C134], T._LocationL());
+    },
+    get C131() {
+      return C[131] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[132] || CT.C132,
+        [_Location_name]: null,
+        [_Location_column]: 12,
+        [_Location_line]: 210,
+        [_Location_file]: "file:///d:/flutter/.pub-cache/hosted/pub.flutter-io.cn/flutter_easyloading-3.0.0/lib/src/widgets/indicator.dart"
+      });
+    },
+    get C137() {
+      return C[137] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "value",
+        [_Location_column]: 9,
+        [_Location_line]: 67,
+        [_Location_file]: null
+      });
+    },
+    get C138() {
+      return C[138] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "color",
+        [_Location_column]: 9,
+        [_Location_line]: 68,
+        [_Location_file]: null
+      });
+    },
+    get C139() {
+      return C[139] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "width",
+        [_Location_column]: 9,
+        [_Location_line]: 69,
+        [_Location_file]: null
+      });
+    },
+    get C136() {
+      return C[136] = dart.constList([C[137] || CT.C137, C[138] || CT.C138, C[139] || CT.C139], T._LocationL());
+    },
+    get C135() {
+      return C[135] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[136] || CT.C136,
+        [_Location_name]: null,
+        [_Location_column]: 14,
+        [_Location_line]: 66,
+        [_Location_file]: "file:///d:/flutter/.pub-cache/hosted/pub.flutter-io.cn/flutter_easyloading-3.0.0/lib/src/widgets/progress.dart"
+      });
+    },
+    get C142() {
+      return C[142] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "width",
+        [_Location_column]: 7,
+        [_Location_line]: 64,
+        [_Location_file]: null
+      });
+    },
+    get C143() {
+      return C[143] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "height",
+        [_Location_column]: 7,
+        [_Location_line]: 65,
+        [_Location_file]: null
+      });
+    },
+    get C144() {
+      return C[144] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 7,
+        [_Location_line]: 66,
+        [_Location_file]: null
+      });
+    },
+    get C141() {
+      return C[141] = dart.constList([C[142] || CT.C142, C[143] || CT.C143, C[144] || CT.C144], T._LocationL());
+    },
+    get C140() {
+      return C[140] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[141] || CT.C141,
+        [_Location_name]: null,
+        [_Location_column]: 12,
+        [_Location_line]: 63,
+        [_Location_file]: "file:///d:/flutter/.pub-cache/hosted/pub.flutter-io.cn/flutter_easyloading-3.0.0/lib/src/widgets/progress.dart"
+      });
+    },
+    get C147() {
+      return C[147] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "painter",
+        [_Location_column]: 7,
+        [_Location_line]: 104,
+        [_Location_file]: null
+      });
+    },
+    get C146() {
+      return C[146] = dart.constList([C[147] || CT.C147], T._LocationL());
+    },
+    get C145() {
+      return C[145] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[146] || CT.C146,
+        [_Location_name]: null,
+        [_Location_column]: 12,
+        [_Location_line]: 103,
+        [_Location_file]: "file:///d:/flutter/.pub-cache/hosted/pub.flutter-io.cn/flutter_easyloading-3.0.0/lib/src/widgets/progress.dart"
+      });
+    },
+    get C148() {
+      return C[148] = dart.const({
+        __proto__: easy_loading.EasyLoadingAnimationStyle.prototype,
+        [_name$]: "EasyLoadingAnimationStyle.custom",
+        index: 3
+      });
+    },
+    get C149() {
+      return C[149] = dart.const({
+        __proto__: easy_loading.EasyLoadingAnimationStyle.prototype,
+        [_name$]: "EasyLoadingAnimationStyle.offset",
+        index: 1
+      });
+    },
+    get C150() {
+      return C[150] = dart.const({
+        __proto__: easy_loading.EasyLoadingAnimationStyle.prototype,
+        [_name$]: "EasyLoadingAnimationStyle.scale",
+        index: 2
+      });
+    },
+    get C153() {
+      return C[153] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "width",
+        [_Location_column]: 27,
+        [_Location_line]: 148,
+        [_Location_file]: null
+      });
+    },
+    get C154() {
+      return C[154] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "height",
+        [_Location_column]: 27,
+        [_Location_line]: 149,
+        [_Location_file]: null
+      });
+    },
+    get C155() {
+      return C[155] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "color",
+        [_Location_column]: 27,
+        [_Location_line]: 150,
+        [_Location_file]: null
+      });
+    },
+    get C152() {
+      return C[152] = dart.constList([C[153] || CT.C153, C[154] || CT.C154, C[155] || CT.C155], T._LocationL());
+    },
+    get C151() {
+      return C[151] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[152] || CT.C152,
+        [_Location_name]: null,
+        [_Location_column]: 32,
+        [_Location_line]: 147,
+        [_Location_file]: "file:///d:/flutter/.pub-cache/hosted/pub.flutter-io.cn/flutter_easyloading-3.0.0/lib/src/widgets/container.dart"
+      });
+    },
+    get C158() {
+      return C[158] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onTap",
+        [_Location_column]: 25,
+        [_Location_line]: 145,
+        [_Location_file]: null
+      });
+    },
+    get C159() {
+      return C[159] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "behavior",
+        [_Location_column]: 25,
+        [_Location_line]: 146,
+        [_Location_file]: null
+      });
+    },
+    get C160() {
+      return C[160] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 25,
+        [_Location_line]: 147,
+        [_Location_file]: null
+      });
+    },
+    get C157() {
+      return C[157] = dart.constList([C[158] || CT.C158, C[159] || CT.C159, C[160] || CT.C160], T._LocationL());
+    },
+    get C156() {
+      return C[156] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[157] || CT.C157,
+        [_Location_name]: null,
+        [_Location_column]: 23,
+        [_Location_line]: 144,
+        [_Location_file]: "file:///d:/flutter/.pub-cache/hosted/pub.flutter-io.cn/flutter_easyloading-3.0.0/lib/src/widgets/container.dart"
+      });
+    },
+    get C163() {
+      return C[163] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "width",
+        [_Location_column]: 25,
+        [_Location_line]: 154,
+        [_Location_file]: null
+      });
+    },
+    get C164() {
+      return C[164] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "height",
+        [_Location_column]: 25,
+        [_Location_line]: 155,
+        [_Location_file]: null
+      });
+    },
+    get C165() {
+      return C[165] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "color",
+        [_Location_column]: 25,
+        [_Location_line]: 156,
+        [_Location_file]: null
+      });
+    },
+    get C162() {
+      return C[162] = dart.constList([C[163] || CT.C163, C[164] || CT.C164, C[165] || CT.C165], T._LocationL());
+    },
+    get C161() {
+      return C[161] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[162] || CT.C162,
+        [_Location_name]: null,
+        [_Location_column]: 23,
+        [_Location_line]: 153,
+        [_Location_file]: "file:///d:/flutter/.pub-cache/hosted/pub.flutter-io.cn/flutter_easyloading-3.0.0/lib/src/widgets/container.dart"
+      });
+    },
+    get C168() {
+      return C[168] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "ignoring",
+        [_Location_column]: 17,
+        [_Location_line]: 142,
+        [_Location_file]: null
+      });
+    },
+    get C169() {
+      return C[169] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 17,
+        [_Location_line]: 143,
+        [_Location_file]: null
+      });
+    },
+    get C167() {
+      return C[167] = dart.constList([C[168] || CT.C168, C[169] || CT.C169], T._LocationL());
+    },
+    get C166() {
+      return C[166] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[167] || CT.C167,
+        [_Location_name]: null,
+        [_Location_column]: 22,
+        [_Location_line]: 141,
+        [_Location_file]: "file:///d:/flutter/.pub-cache/hosted/pub.flutter-io.cn/flutter_easyloading-3.0.0/lib/src/widgets/container.dart"
+      });
+    },
+    get C172() {
+      return C[172] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "opacity",
+        [_Location_column]: 15,
+        [_Location_line]: 140,
+        [_Location_file]: null
+      });
+    },
+    get C173() {
+      return C[173] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 15,
+        [_Location_line]: 141,
+        [_Location_file]: null
+      });
+    },
+    get C171() {
+      return C[171] = dart.constList([C[172] || CT.C172, C[173] || CT.C173], T._LocationL());
+    },
+    get C170() {
+      return C[170] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[171] || CT.C171,
+        [_Location_name]: null,
+        [_Location_column]: 20,
+        [_Location_line]: 139,
+        [_Location_file]: "file:///d:/flutter/.pub-cache/hosted/pub.flutter-io.cn/flutter_easyloading-3.0.0/lib/src/widgets/container.dart"
+      });
+    },
+    get C176() {
+      return C[176] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "animation",
+        [_Location_column]: 11,
+        [_Location_line]: 137,
+        [_Location_file]: null
+      });
+    },
+    get C177() {
+      return C[177] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "builder",
+        [_Location_column]: 11,
+        [_Location_line]: 138,
+        [_Location_file]: null
+      });
+    },
+    get C175() {
+      return C[175] = dart.constList([C[176] || CT.C176, C[177] || CT.C177], T._LocationL());
+    },
+    get C174() {
+      return C[174] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[175] || CT.C175,
+        [_Location_name]: null,
+        [_Location_column]: 9,
+        [_Location_line]: 136,
+        [_Location_file]: "file:///d:/flutter/.pub-cache/hosted/pub.flutter-io.cn/flutter_easyloading-3.0.0/lib/src/widgets/container.dart"
+      });
+    },
+    get C180() {
+      return C[180] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "status",
+        [_Location_column]: 17,
+        [_Location_line]: 167,
+        [_Location_file]: null
+      });
+    },
+    get C181() {
+      return C[181] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "indicator",
+        [_Location_column]: 17,
+        [_Location_line]: 168,
+        [_Location_file]: null
+      });
+    },
+    get C179() {
+      return C[179] = dart.constList([C[180] || CT.C180, C[181] || CT.C181], T._LocationL());
+    },
+    get C178() {
+      return C[178] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[179] || CT.C179,
+        [_Location_name]: null,
+        [_Location_column]: 15,
+        [_Location_line]: 166,
+        [_Location_file]: "file:///d:/flutter/.pub-cache/hosted/pub.flutter-io.cn/flutter_easyloading-3.0.0/lib/src/widgets/container.dart"
+      });
+    },
+    get C184() {
+      return C[184] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "animation",
+        [_Location_column]: 11,
+        [_Location_line]: 163,
+        [_Location_file]: null
+      });
+    },
+    get C185() {
+      return C[185] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "builder",
+        [_Location_column]: 11,
+        [_Location_line]: 164,
+        [_Location_file]: null
+      });
+    },
+    get C183() {
+      return C[183] = dart.constList([C[184] || CT.C184, C[185] || CT.C185], T._LocationL());
+    },
+    get C182() {
+      return C[182] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[183] || CT.C183,
+        [_Location_name]: null,
+        [_Location_column]: 9,
+        [_Location_line]: 162,
+        [_Location_file]: "file:///d:/flutter/.pub-cache/hosted/pub.flutter-io.cn/flutter_easyloading-3.0.0/lib/src/widgets/container.dart"
+      });
+    },
+    get C188() {
+      return C[188] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "alignment",
+        [_Location_column]: 7,
+        [_Location_line]: 134,
+        [_Location_file]: null
+      });
+    },
+    get C189() {
+      return C[189] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "children",
+        [_Location_column]: 7,
+        [_Location_line]: 135,
+        [_Location_file]: null
+      });
+    },
+    get C187() {
+      return C[187] = dart.constList([C[188] || CT.C188, C[189] || CT.C189], T._LocationL());
+    },
+    get C186() {
+      return C[186] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[187] || CT.C187,
+        [_Location_name]: null,
+        [_Location_column]: 12,
+        [_Location_line]: 133,
+        [_Location_file]: "file:///d:/flutter/.pub-cache/hosted/pub.flutter-io.cn/flutter_easyloading-3.0.0/lib/src/widgets/container.dart"
+      });
+    },
+    get C190() {
+      return C[190] = dart.const({
+        __proto__: edge_insets.EdgeInsets.prototype,
+        [EdgeInsets_bottom]: 50,
+        [EdgeInsets_right]: 50,
+        [EdgeInsets_top]: 50,
+        [EdgeInsets_left]: 50
+      });
+    },
+    get C193() {
+      return C[193] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "margin",
+        [_Location_column]: 15,
+        [_Location_line]: 207,
+        [_Location_file]: null
+      });
+    },
+    get C194() {
+      return C[194] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 15,
+        [_Location_line]: 210,
+        [_Location_file]: null
+      });
+    },
+    get C192() {
+      return C[192] = dart.constList([C[193] || CT.C193, C[194] || CT.C194], T._LocationL());
+    },
+    get C191() {
+      return C[191] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[192] || CT.C192,
+        [_Location_name]: null,
+        [_Location_column]: 13,
+        [_Location_line]: 206,
+        [_Location_file]: "file:///d:/flutter/.pub-cache/hosted/pub.flutter-io.cn/flutter_easyloading-3.0.0/lib/src/widgets/container.dart"
+      });
+    },
+    get C197() {
+      return C[197] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "data",
+        [_Location_column]: 21,
+        [_Location_line]: 214,
+        [_Location_file]: null
+      });
+    },
+    get C198() {
+      return C[198] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "style",
+        [_Location_column]: 15,
+        [_Location_line]: 215,
+        [_Location_file]: null
+      });
+    },
+    get C199() {
+      return C[199] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "textAlign",
+        [_Location_column]: 15,
+        [_Location_line]: 220,
+        [_Location_file]: null
+      });
+    },
+    get C196() {
+      return C[196] = dart.constList([C[197] || CT.C197, C[198] || CT.C198, C[199] || CT.C199], T._LocationL());
+    },
+    get C195() {
+      return C[195] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[196] || CT.C196,
+        [_Location_name]: null,
+        [_Location_column]: 13,
+        [_Location_line]: 213,
+        [_Location_file]: "file:///d:/flutter/.pub-cache/hosted/pub.flutter-io.cn/flutter_easyloading-3.0.0/lib/src/widgets/container.dart"
+      });
+    },
+    get C202() {
+      return C[202] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "mainAxisAlignment",
+        [_Location_column]: 9,
+        [_Location_line]: 201,
+        [_Location_file]: null
+      });
+    },
+    get C203() {
+      return C[203] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "crossAxisAlignment",
+        [_Location_column]: 9,
+        [_Location_line]: 202,
+        [_Location_file]: null
+      });
+    },
+    get C204() {
+      return C[204] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "mainAxisSize",
+        [_Location_column]: 9,
+        [_Location_line]: 203,
+        [_Location_file]: null
+      });
+    },
+    get C205() {
+      return C[205] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "children",
+        [_Location_column]: 9,
+        [_Location_line]: 204,
+        [_Location_file]: null
+      });
+    },
+    get C201() {
+      return C[201] = dart.constList([C[202] || CT.C202, C[203] || CT.C203, C[204] || CT.C204, C[205] || CT.C205], T._LocationL());
+    },
+    get C200() {
+      return C[200] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[201] || CT.C201,
+        [_Location_name]: null,
+        [_Location_column]: 14,
+        [_Location_line]: 200,
+        [_Location_file]: "file:///d:/flutter/.pub-cache/hosted/pub.flutter-io.cn/flutter_easyloading-3.0.0/lib/src/widgets/container.dart"
+      });
+    },
+    get C208() {
+      return C[208] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "margin",
+        [_Location_column]: 7,
+        [_Location_line]: 192,
+        [_Location_file]: null
+      });
+    },
+    get C209() {
+      return C[209] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "decoration",
+        [_Location_column]: 7,
+        [_Location_line]: 193,
+        [_Location_file]: null
+      });
+    },
+    get C210() {
+      return C[210] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "padding",
+        [_Location_column]: 7,
+        [_Location_line]: 199,
+        [_Location_file]: null
+      });
+    },
+    get C211() {
+      return C[211] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 7,
+        [_Location_line]: 200,
+        [_Location_file]: null
+      });
+    },
+    get C207() {
+      return C[207] = dart.constList([C[208] || CT.C208, C[209] || CT.C209, C[210] || CT.C210, C[211] || CT.C211], T._LocationL());
+    },
+    get C206() {
+      return C[206] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[207] || CT.C207,
+        [_Location_name]: null,
+        [_Location_column]: 12,
+        [_Location_line]: 191,
+        [_Location_file]: "file:///d:/flutter/.pub-cache/hosted/pub.flutter-io.cn/flutter_easyloading-3.0.0/lib/src/widgets/container.dart"
+      });
+    },
+    get C212() {
+      return C[212] = dart.const({
+        __proto__: easy_loading.EasyLoadingStyle.prototype,
+        [_name$]: "EasyLoadingStyle.light",
+        index: 0
+      });
+    },
+    get C213() {
+      return C[213] = dart.const({
+        __proto__: easy_loading.EasyLoadingStyle.prototype,
+        [_name$]: "EasyLoadingStyle.dark",
+        index: 1
+      });
+    },
+    get C214() {
+      return C[214] = dart.const({
+        __proto__: easy_loading.EasyLoadingStyle.prototype,
+        [_name$]: "EasyLoadingStyle.custom",
+        index: 2
+      });
+    },
+    get C215() {
+      return C[215] = dart.constList([C[212] || CT.C212, C[213] || CT.C213, C[214] || CT.C214], T.EasyLoadingStyleL());
+    },
+    get C216() {
+      return C[216] = dart.const({
+        __proto__: easy_loading.EasyLoadingToastPosition.prototype,
+        [_name$]: "EasyLoadingToastPosition.top",
+        index: 0
+      });
+    },
+    get C217() {
+      return C[217] = dart.const({
+        __proto__: easy_loading.EasyLoadingToastPosition.prototype,
+        [_name$]: "EasyLoadingToastPosition.center",
+        index: 1
+      });
+    },
+    get C218() {
+      return C[218] = dart.const({
+        __proto__: easy_loading.EasyLoadingToastPosition.prototype,
+        [_name$]: "EasyLoadingToastPosition.bottom",
+        index: 2
+      });
+    },
+    get C219() {
+      return C[219] = dart.constList([C[216] || CT.C216, C[217] || CT.C217, C[218] || CT.C218], T.EasyLoadingToastPositionL());
+    },
+    get C220() {
+      return C[220] = dart.const({
+        __proto__: easy_loading.EasyLoadingAnimationStyle.prototype,
+        [_name$]: "EasyLoadingAnimationStyle.opacity",
+        index: 0
+      });
+    },
+    get C221() {
+      return C[221] = dart.constList([C[220] || CT.C220, C[149] || CT.C149, C[150] || CT.C150, C[148] || CT.C148], T.EasyLoadingAnimationStyleL());
+    },
+    get C222() {
+      return C[222] = dart.const({
+        __proto__: easy_loading.EasyLoadingMaskType.prototype,
+        [_name$]: "EasyLoadingMaskType.none",
+        index: 0
+      });
+    },
+    get C223() {
+      return C[223] = dart.const({
+        __proto__: easy_loading.EasyLoadingMaskType.prototype,
+        [_name$]: "EasyLoadingMaskType.clear",
+        index: 1
+      });
+    },
+    get C224() {
+      return C[224] = dart.const({
+        __proto__: easy_loading.EasyLoadingMaskType.prototype,
+        [_name$]: "EasyLoadingMaskType.black",
+        index: 2
+      });
+    },
+    get C225() {
+      return C[225] = dart.const({
+        __proto__: easy_loading.EasyLoadingMaskType.prototype,
+        [_name$]: "EasyLoadingMaskType.custom",
+        index: 3
+      });
+    },
+    get C226() {
+      return C[226] = dart.constList([C[222] || CT.C222, C[223] || CT.C223, C[224] || CT.C224, C[225] || CT.C225], T.EasyLoadingMaskTypeL());
+    },
+    get C227() {
+      return C[227] = dart.constList([C[13] || CT.C13, C[18] || CT.C18, C[23] || CT.C23, C[28] || CT.C28, C[34] || CT.C34, C[39] || CT.C39, C[49] || CT.C49, C[54] || CT.C54, C[59] || CT.C59, C[64] || CT.C64, C[69] || CT.C69, C[74] || CT.C74, C[44] || CT.C44, C[79] || CT.C79, C[84] || CT.C84, C[90] || CT.C90, C[95] || CT.C95, C[100] || CT.C100, C[105] || CT.C105, C[111] || CT.C111, C[116] || CT.C116, C[121] || CT.C121, C[126] || CT.C126], T.EasyLoadingIndicatorTypeL());
+    },
+    get C228() {
+      return C[228] = dart.const({
+        __proto__: easy_loading.EasyLoadingStatus.prototype,
+        [_name$]: "EasyLoadingStatus.show",
+        index: 0
+      });
+    },
+    get C229() {
+      return C[229] = dart.const({
+        __proto__: easy_loading.EasyLoadingStatus.prototype,
+        [_name$]: "EasyLoadingStatus.dismiss",
+        index: 1
+      });
+    },
+    get C230() {
+      return C[230] = dart.constList([C[228] || CT.C228, C[229] || CT.C229], T.EasyLoadingStatusL());
+    },
+    get C231() {
+      return C[231] = dart.const({
+        __proto__: core.Duration.prototype,
+        [Duration__duration]: 2000000
+      });
+    },
+    get C232() {
+      return C[232] = dart.const({
+        __proto__: core.Duration.prototype,
+        [Duration__duration]: 200000
+      });
+    },
+    get C233() {
+      return C[233] = dart.const({
+        __proto__: edge_insets.EdgeInsets.prototype,
+        [EdgeInsets_bottom]: 10,
+        [EdgeInsets_right]: 0,
+        [EdgeInsets_top]: 0,
+        [EdgeInsets_left]: 0
+      });
+    },
+    get C234() {
+      return C[234] = dart.const({
+        __proto__: edge_insets.EdgeInsets.prototype,
+        [EdgeInsets_bottom]: 15,
+        [EdgeInsets_right]: 20,
+        [EdgeInsets_top]: 15,
+        [EdgeInsets_left]: 20
+      });
+    },
+    get C237() {
+      return C[237] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 52,
+        [_Location_line]: 238,
+        [_Location_file]: null
+      });
+    },
+    get C236() {
+      return C[236] = dart.constList([C[237] || CT.C237], T._LocationL());
+    },
+    get C235() {
+      return C[235] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[236] || CT.C236,
+        [_Location_name]: null,
+        [_Location_column]: 33,
+        [_Location_line]: 238,
+        [_Location_file]: "file:///d:/flutter/.pub-cache/hosted/pub.flutter-io.cn/flutter_easyloading-3.0.0/lib/src/easy_loading.dart"
+      });
+    },
+    get C240() {
+      return C[240] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 35,
+        [_Location_line]: 240,
+        [_Location_file]: null
+      });
+    },
+    get C239() {
+      return C[239] = dart.constList([C[240] || CT.C240], T._LocationL());
+    },
+    get C238() {
+      return C[238] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[239] || CT.C239,
+        [_Location_name]: null,
+        [_Location_column]: 16,
+        [_Location_line]: 240,
+        [_Location_file]: "file:///d:/flutter/.pub-cache/hosted/pub.flutter-io.cn/flutter_easyloading-3.0.0/lib/src/easy_loading.dart"
+      });
+    },
+    get C241() {
+      return C[241] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[1] || CT.C1,
+        [_Location_name]: null,
+        [_Location_column]: 59,
+        [_Location_line]: 252,
+        [_Location_file]: "file:///d:/flutter/.pub-cache/hosted/pub.flutter-io.cn/flutter_easyloading-3.0.0/lib/src/easy_loading.dart"
+      });
+    },
+    get C244() {
+      return C[244] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "key",
+        [_Location_column]: 9,
+        [_Location_line]: 284,
+        [_Location_file]: null
+      });
+    },
+    get C245() {
+      return C[245] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "value",
+        [_Location_column]: 9,
+        [_Location_line]: 285,
+        [_Location_file]: null
+      });
+    },
+    get C243() {
+      return C[243] = dart.constList([C[244] || CT.C244, C[245] || CT.C245], T._LocationL());
+    },
+    get C242() {
+      return C[242] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[243] || CT.C243,
+        [_Location_name]: null,
+        [_Location_column]: 18,
+        [_Location_line]: 283,
+        [_Location_file]: "file:///d:/flutter/.pub-cache/hosted/pub.flutter-io.cn/flutter_easyloading-3.0.0/lib/src/easy_loading.dart"
+      });
+    },
+    get C248() {
+      return C[248] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "icon",
+        [_Location_column]: 17,
+        [_Location_line]: 310,
+        [_Location_file]: null
+      });
+    },
+    get C249() {
+      return C[249] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "color",
+        [_Location_column]: 11,
+        [_Location_line]: 311,
+        [_Location_file]: null
+      });
+    },
+    get C250() {
+      return C[250] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "size",
+        [_Location_column]: 11,
+        [_Location_line]: 312,
+        [_Location_file]: null
+      });
+    },
+    get C247() {
+      return C[247] = dart.constList([C[248] || CT.C248, C[249] || CT.C249, C[250] || CT.C250], T._LocationL());
+    },
+    get C246() {
+      return C[246] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[247] || CT.C247,
+        [_Location_name]: null,
+        [_Location_column]: 9,
+        [_Location_line]: 309,
+        [_Location_file]: "file:///d:/flutter/.pub-cache/hosted/pub.flutter-io.cn/flutter_easyloading-3.0.0/lib/src/easy_loading.dart"
+      });
+    },
+    get C253() {
+      return C[253] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "icon",
+        [_Location_column]: 17,
+        [_Location_line]: 332,
+        [_Location_file]: null
+      });
+    },
+    get C254() {
+      return C[254] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "color",
+        [_Location_column]: 11,
+        [_Location_line]: 333,
+        [_Location_file]: null
+      });
+    },
+    get C255() {
+      return C[255] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "size",
+        [_Location_column]: 11,
+        [_Location_line]: 334,
+        [_Location_file]: null
+      });
+    },
+    get C252() {
+      return C[252] = dart.constList([C[253] || CT.C253, C[254] || CT.C254, C[255] || CT.C255], T._LocationL());
+    },
+    get C251() {
+      return C[251] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[252] || CT.C252,
+        [_Location_name]: null,
+        [_Location_column]: 9,
+        [_Location_line]: 331,
+        [_Location_file]: "file:///d:/flutter/.pub-cache/hosted/pub.flutter-io.cn/flutter_easyloading-3.0.0/lib/src/easy_loading.dart"
+      });
+    },
+    get C258() {
+      return C[258] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "icon",
+        [_Location_column]: 17,
+        [_Location_line]: 354,
+        [_Location_file]: null
+      });
+    },
+    get C259() {
+      return C[259] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "color",
+        [_Location_column]: 11,
+        [_Location_line]: 355,
+        [_Location_file]: null
+      });
+    },
+    get C260() {
+      return C[260] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "size",
+        [_Location_column]: 11,
+        [_Location_line]: 356,
+        [_Location_file]: null
+      });
+    },
+    get C257() {
+      return C[257] = dart.constList([C[258] || CT.C258, C[259] || CT.C259, C[260] || CT.C260], T._LocationL());
+    },
+    get C256() {
+      return C[256] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[257] || CT.C257,
+        [_Location_name]: null,
+        [_Location_column]: 9,
+        [_Location_line]: 353,
+        [_Location_file]: "file:///d:/flutter/.pub-cache/hosted/pub.flutter-io.cn/flutter_easyloading-3.0.0/lib/src/easy_loading.dart"
+      });
+    },
+    get C263() {
+      return C[263] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "key",
+        [_Location_column]: 7,
+        [_Location_line]: 464,
+        [_Location_file]: null
+      });
+    },
+    get C264() {
+      return C[264] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "status",
+        [_Location_column]: 7,
+        [_Location_line]: 465,
+        [_Location_file]: null
+      });
+    },
+    get C265() {
+      return C[265] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "indicator",
+        [_Location_column]: 7,
+        [_Location_line]: 466,
+        [_Location_file]: null
+      });
+    },
+    get C266() {
+      return C[266] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "animation",
+        [_Location_column]: 7,
+        [_Location_line]: 467,
+        [_Location_file]: null
+      });
+    },
+    get C267() {
+      return C[267] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "toastPosition",
+        [_Location_column]: 7,
+        [_Location_line]: 468,
+        [_Location_file]: null
+      });
+    },
+    get C268() {
+      return C[268] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "maskType",
+        [_Location_column]: 7,
+        [_Location_line]: 469,
+        [_Location_file]: null
+      });
+    },
+    get C269() {
+      return C[269] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "dismissOnTap",
+        [_Location_column]: 7,
+        [_Location_line]: 470,
+        [_Location_file]: null
+      });
+    },
+    get C270() {
+      return C[270] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "completer",
+        [_Location_column]: 7,
+        [_Location_line]: 471,
+        [_Location_file]: null
+      });
+    },
+    get C262() {
+      return C[262] = dart.constList([C[263] || CT.C263, C[264] || CT.C264, C[265] || CT.C265, C[266] || CT.C266, C[267] || CT.C267, C[268] || CT.C268, C[269] || CT.C269, C[270] || CT.C270], T._LocationL());
+    },
+    get C261() {
+      return C[261] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[262] || CT.C262,
+        [_Location_name]: null,
+        [_Location_column]: 10,
+        [_Location_line]: 463,
+        [_Location_file]: "file:///d:/flutter/.pub-cache/hosted/pub.flutter-io.cn/flutter_easyloading-3.0.0/lib/src/easy_loading.dart"
+      });
+    }
+  }, false);
+  var C = Array(271).fill(void 0);
+  var I = [
+    "file:///d:/flutter/.pub-cache/hosted/pub.flutter-io.cn/flutter_easyloading-3.0.0/lib/src/widgets/loading.dart",
+    "package:flutter_easyloading/src/widgets/loading.dart",
+    "package:flutter_easyloading/src/widgets/indicator.dart",
+    "file:///d:/flutter/.pub-cache/hosted/pub.flutter-io.cn/flutter_easyloading-3.0.0/lib/src/widgets/indicator.dart",
+    "file:///d:/flutter/.pub-cache/hosted/pub.flutter-io.cn/flutter_easyloading-3.0.0/lib/src/widgets/progress.dart",
+    "package:flutter_easyloading/src/widgets/progress.dart",
+    "package:flutter_easyloading/src/theme.dart",
+    "file:///d:/flutter/.pub-cache/hosted/pub.flutter-io.cn/flutter_easyloading-3.0.0/lib/src/widgets/container.dart",
+    "package:flutter_easyloading/src/widgets/container.dart",
+    "file:///d:/flutter/.pub-cache/hosted/pub.flutter-io.cn/flutter_easyloading-3.0.0/lib/src/easy_loading.dart",
+    "package:flutter_easyloading/src/easy_loading.dart"
+  ];
+  var child$ = dart.privateName(loading, "FlutterEasyLoading.child");
+  loading.FlutterEasyLoading = class FlutterEasyLoading extends framework.StatefulWidget {
+    get child() {
+      return this[child$];
+    }
+    set child(value) {
+      super.child = value;
+    }
+    createState() {
+      return new loading._FlutterEasyLoadingState.new();
+    }
+  };
+  (loading.FlutterEasyLoading.new = function(opts) {
+    let key = opts && 'key' in opts ? opts.key : null;
+    let child = opts && 'child' in opts ? opts.child : null;
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    this[child$] = child;
+    if (!(child != null)) dart.assertFailed(null, I[0], 34, 17, "child != null");
+    loading.FlutterEasyLoading.__proto__.new.call(this, {key: key, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+    ;
+  }).prototype = loading.FlutterEasyLoading.prototype;
+  dart.addTypeTests(loading.FlutterEasyLoading);
+  dart.addTypeCaches(loading.FlutterEasyLoading);
+  dart.setMethodSignature(loading.FlutterEasyLoading, () => ({
+    __proto__: dart.getMethods(loading.FlutterEasyLoading.__proto__),
+    createState: dart.fnType(loading._FlutterEasyLoadingState, [])
+  }));
+  dart.setLibraryUri(loading.FlutterEasyLoading, I[1]);
+  dart.setFieldSignature(loading.FlutterEasyLoading, () => ({
+    __proto__: dart.getFields(loading.FlutterEasyLoading.__proto__),
+    child: dart.finalFieldType(dart.nullable(framework.Widget))
+  }));
+  var ___FlutterEasyLoadingState__overlayEntry = dart.privateName(loading, "_#_FlutterEasyLoadingState#_overlayEntry");
+  var ___FlutterEasyLoadingState__overlayEntry_isSet = dart.privateName(loading, "_#_FlutterEasyLoadingState#_overlayEntry#isSet");
+  var _overlayEntry = dart.privateName(loading, "_overlayEntry");
+  var _Location_parameterLocations = dart.privateName(widget_inspector, "_Location.parameterLocations");
+  var _Location_name = dart.privateName(widget_inspector, "_Location.name");
+  var _Location_column = dart.privateName(widget_inspector, "_Location.column");
+  var _Location_line = dart.privateName(widget_inspector, "_Location.line");
+  var _Location_file = dart.privateName(widget_inspector, "_Location.file");
+  loading._FlutterEasyLoadingState = class _FlutterEasyLoadingState extends framework.State$(loading.FlutterEasyLoading) {
+    get [_overlayEntry]() {
+      let t0;
+      return dart.test(this[___FlutterEasyLoadingState__overlayEntry_isSet]) ? (t0 = this[___FlutterEasyLoadingState__overlayEntry], t0) : dart.throw(new _internal.LateError.fieldNI("_overlayEntry"));
+    }
+    set [_overlayEntry](t0) {
+      if (t0 == null) dart.nullFailed(I[0], 42, 32, "null");
+      this[___FlutterEasyLoadingState__overlayEntry_isSet] = true;
+      this[___FlutterEasyLoadingState__overlayEntry] = t0;
+    }
+    initState() {
+      super.initState();
+      this[_overlayEntry] = new overlay_entry.EasyLoadingOverlayEntry.new({builder: dart.fn(context => {
+          let t1;
+          if (context == null) dart.nullFailed(I[0], 48, 30, "context");
+          t1 = easy_loading.EasyLoading.instance.w;
+          return t1 == null ? new container.Container.new({$creationLocationd_0dea112b090073317d4: C[0] || CT.C0}) : t1;
+        }, T.BuildContextToWidget())});
+      easy_loading.EasyLoading.instance.overlayEntry = this[_overlayEntry];
+    }
+    build(context) {
+      if (context == null) dart.nullFailed(I[0], 54, 29, "context");
+      return new material.Material.new({child: new overlay.Overlay.new({initialEntries: T.JSArrayOfOverlayEntry().of([new overlay_entry.EasyLoadingOverlayEntry.new({builder: dart.fn(context => {
+                if (context == null) dart.nullFailed(I[0], 59, 36, "context");
+                if (this.widget.child != null) {
+                  return dart.nullCheck(this.widget.child);
+                } else {
+                  return new container.Container.new({$creationLocationd_0dea112b090073317d4: C[2] || CT.C2});
+                }
+              }, T.BuildContextToWidget())}), this[_overlayEntry]]), $creationLocationd_0dea112b090073317d4: C[3] || CT.C3}), $creationLocationd_0dea112b090073317d4: C[6] || CT.C6});
+    }
+  };
+  (loading._FlutterEasyLoadingState.new = function() {
+    this[___FlutterEasyLoadingState__overlayEntry] = null;
+    this[___FlutterEasyLoadingState__overlayEntry_isSet] = false;
+    loading._FlutterEasyLoadingState.__proto__.new.call(this);
+    ;
+  }).prototype = loading._FlutterEasyLoadingState.prototype;
+  dart.addTypeTests(loading._FlutterEasyLoadingState);
+  dart.addTypeCaches(loading._FlutterEasyLoadingState);
+  dart.setMethodSignature(loading._FlutterEasyLoadingState, () => ({
+    __proto__: dart.getMethods(loading._FlutterEasyLoadingState.__proto__),
+    build: dart.fnType(framework.Widget, [framework.BuildContext])
+  }));
+  dart.setGetterSignature(loading._FlutterEasyLoadingState, () => ({
+    __proto__: dart.getGetters(loading._FlutterEasyLoadingState.__proto__),
+    [_overlayEntry]: overlay_entry.EasyLoadingOverlayEntry
+  }));
+  dart.setSetterSignature(loading._FlutterEasyLoadingState, () => ({
+    __proto__: dart.getSetters(loading._FlutterEasyLoadingState.__proto__),
+    [_overlayEntry]: overlay_entry.EasyLoadingOverlayEntry
+  }));
+  dart.setLibraryUri(loading._FlutterEasyLoadingState, I[1]);
+  dart.setFieldSignature(loading._FlutterEasyLoadingState, () => ({
+    __proto__: dart.getFields(loading._FlutterEasyLoadingState.__proto__),
+    [___FlutterEasyLoadingState__overlayEntry]: dart.fieldType(dart.nullable(overlay_entry.EasyLoadingOverlayEntry)),
+    [___FlutterEasyLoadingState__overlayEntry_isSet]: dart.fieldType(core.bool)
+  }));
+  indicator$.LoadingIndicator = class LoadingIndicator extends framework.StatefulWidget {
+    createState() {
+      return new indicator$._LoadingIndicatorState.new();
+    }
+  };
+  (indicator$.LoadingIndicator.new = function(opts) {
+    let key = opts && 'key' in opts ? opts.key : null;
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    indicator$.LoadingIndicator.__proto__.new.call(this, {key: key, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+    ;
+  }).prototype = indicator$.LoadingIndicator.prototype;
+  dart.addTypeTests(indicator$.LoadingIndicator);
+  dart.addTypeCaches(indicator$.LoadingIndicator);
+  dart.setMethodSignature(indicator$.LoadingIndicator, () => ({
+    __proto__: dart.getMethods(indicator$.LoadingIndicator.__proto__),
+    createState: dart.fnType(indicator$._LoadingIndicatorState, [])
+  }));
+  dart.setLibraryUri(indicator$.LoadingIndicator, I[2]);
+  var _size = dart.privateName(indicator$, "_size");
+  var _indicatorColor = dart.privateName(indicator$, "_indicatorColor");
+  var ___LoadingIndicatorState__indicator = dart.privateName(indicator$, "_#_LoadingIndicatorState#_indicator");
+  var ___LoadingIndicatorState__indicator_isSet = dart.privateName(indicator$, "_#_LoadingIndicatorState#_indicator#isSet");
+  var _indicator = dart.privateName(indicator$, "_indicator");
+  var _name$ = dart.privateName(easy_loading, "_name");
+  indicator$._LoadingIndicatorState = class _LoadingIndicatorState extends framework.State$(indicator$.LoadingIndicator) {
+    get [_indicator]() {
+      let t1;
+      return dart.test(this[___LoadingIndicatorState__indicator_isSet]) ? (t1 = this[___LoadingIndicatorState__indicator], t1) : dart.throw(new _internal.LateError.fieldNI("_indicator"));
+    }
+    set [_indicator](t1) {
+      if (t1 == null) dart.nullFailed(I[3], 43, 15, "null");
+      this[___LoadingIndicatorState__indicator_isSet] = true;
+      this[___LoadingIndicatorState__indicator] = t1;
+    }
+    initState() {
+      super.initState();
+    }
+    dispose() {
+      super.dispose();
+    }
+    build(context) {
+      if (context == null) dart.nullFailed(I[3], 56, 29, "context");
+      let _width = this[_size];
+      switch (theme.EasyLoadingTheme.indicatorType) {
+        case C[13] || CT.C13:
+        {
+          this[_indicator] = new fading_circle.SpinKitFadingCircle.new({color: this[_indicatorColor], size: this[_size], $creationLocationd_0dea112b090073317d4: C[9] || CT.C9});
+          break;
+        }
+        case C[18] || CT.C18:
+        {
+          this[_indicator] = new circle.SpinKitCircle.new({color: this[_indicatorColor], size: this[_size], $creationLocationd_0dea112b090073317d4: C[14] || CT.C14});
+          break;
+        }
+        case C[23] || CT.C23:
+        {
+          this[_indicator] = new three_bounce.SpinKitThreeBounce.new({color: this[_indicatorColor], size: this[_size], $creationLocationd_0dea112b090073317d4: C[19] || CT.C19});
+          _width = dart.notNull(this[_size]) * 2;
+          break;
+        }
+        case C[28] || CT.C28:
+        {
+          this[_indicator] = new chasing_dots.SpinKitChasingDots.new({color: this[_indicatorColor], size: this[_size], $creationLocationd_0dea112b090073317d4: C[24] || CT.C24});
+          break;
+        }
+        case C[34] || CT.C34:
+        {
+          this[_indicator] = new wave.SpinKitWave.new({color: this[_indicatorColor], size: this[_size], itemCount: 6, $creationLocationd_0dea112b090073317d4: C[29] || CT.C29});
+          _width = dart.notNull(this[_size]) * 1.25;
+          break;
+        }
+        case C[39] || CT.C39:
+        {
+          this[_indicator] = new wandering_cubes.SpinKitWanderingCubes.new({color: this[_indicatorColor], size: this[_size], $creationLocationd_0dea112b090073317d4: C[35] || CT.C35});
+          break;
+        }
+        case C[44] || CT.C44:
+        {
+          this[_indicator] = new rotating_circle.SpinKitRotatingCircle.new({color: this[_indicatorColor], size: this[_size], $creationLocationd_0dea112b090073317d4: C[40] || CT.C40});
+          break;
+        }
+        case C[49] || CT.C49:
+        {
+          this[_indicator] = new rotating_plain.SpinKitRotatingPlain.new({color: this[_indicatorColor], size: this[_size], $creationLocationd_0dea112b090073317d4: C[45] || CT.C45});
+          break;
+        }
+        case C[54] || CT.C54:
+        {
+          this[_indicator] = new double_bounce.SpinKitDoubleBounce.new({color: this[_indicatorColor], size: this[_size], $creationLocationd_0dea112b090073317d4: C[50] || CT.C50});
+          break;
+        }
+        case C[59] || CT.C59:
+        {
+          this[_indicator] = new fading_four.SpinKitFadingFour.new({color: this[_indicatorColor], size: this[_size], $creationLocationd_0dea112b090073317d4: C[55] || CT.C55});
+          break;
+        }
+        case C[64] || CT.C64:
+        {
+          this[_indicator] = new fading_cube.SpinKitFadingCube.new({color: this[_indicatorColor], size: this[_size], $creationLocationd_0dea112b090073317d4: C[60] || CT.C60});
+          break;
+        }
+        case C[69] || CT.C69:
+        {
+          this[_indicator] = new pulse.SpinKitPulse.new({color: this[_indicatorColor], size: this[_size], $creationLocationd_0dea112b090073317d4: C[65] || CT.C65});
+          break;
+        }
+        case C[74] || CT.C74:
+        {
+          this[_indicator] = new cube_grid.SpinKitCubeGrid.new({color: this[_indicatorColor], size: this[_size], $creationLocationd_0dea112b090073317d4: C[70] || CT.C70});
+          break;
+        }
+        case C[79] || CT.C79:
+        {
+          this[_indicator] = new folding_cube.SpinKitFoldingCube.new({color: this[_indicatorColor], size: this[_size], $creationLocationd_0dea112b090073317d4: C[75] || CT.C75});
+          break;
+        }
+        case C[84] || CT.C84:
+        {
+          this[_indicator] = new pumping_heart.SpinKitPumpingHeart.new({color: this[_indicatorColor], size: this[_size], $creationLocationd_0dea112b090073317d4: C[80] || CT.C80});
+          break;
+        }
+        case C[90] || CT.C90:
+        {
+          this[_indicator] = new dual_ring.SpinKitDualRing.new({color: this[_indicatorColor], size: this[_size], lineWidth: theme.EasyLoadingTheme.lineWidth, $creationLocationd_0dea112b090073317d4: C[85] || CT.C85});
+          break;
+        }
+        case C[95] || CT.C95:
+        {
+          this[_indicator] = new hour_glass.SpinKitHourGlass.new({color: this[_indicatorColor], size: this[_size], $creationLocationd_0dea112b090073317d4: C[91] || CT.C91});
+          break;
+        }
+        case C[100] || CT.C100:
+        {
+          this[_indicator] = new pouring_hour_glass.SpinKitPouringHourglass.new({color: this[_indicatorColor], size: this[_size], $creationLocationd_0dea112b090073317d4: C[96] || CT.C96});
+          break;
+        }
+        case C[105] || CT.C105:
+        {
+          this[_indicator] = new fading_grid.SpinKitFadingGrid.new({color: this[_indicatorColor], size: this[_size], $creationLocationd_0dea112b090073317d4: C[101] || CT.C101});
+          break;
+        }
+        case C[111] || CT.C111:
+        {
+          this[_indicator] = new ring.SpinKitRing.new({color: this[_indicatorColor], size: this[_size], lineWidth: theme.EasyLoadingTheme.lineWidth, $creationLocationd_0dea112b090073317d4: C[106] || CT.C106});
+          break;
+        }
+        case C[116] || CT.C116:
+        {
+          this[_indicator] = new ripple.SpinKitRipple.new({color: this[_indicatorColor], size: this[_size], $creationLocationd_0dea112b090073317d4: C[112] || CT.C112});
+          break;
+        }
+        case C[121] || CT.C121:
+        {
+          this[_indicator] = new spinning_circle.SpinKitSpinningCircle.new({color: this[_indicatorColor], size: this[_size], $creationLocationd_0dea112b090073317d4: C[117] || CT.C117});
+          break;
+        }
+        case C[126] || CT.C126:
+        {
+          this[_indicator] = new square_circle.SpinKitSquareCircle.new({color: this[_indicatorColor], size: this[_size], $creationLocationd_0dea112b090073317d4: C[122] || CT.C122});
+          break;
+        }
+        default:
+        {
+          this[_indicator] = new fading_circle.SpinKitFadingCircle.new({color: this[_indicatorColor], size: this[_size], $creationLocationd_0dea112b090073317d4: C[127] || CT.C127});
+          break;
+        }
+      }
+      return new container.Container.new({constraints: new box.BoxConstraints.new({maxWidth: _width}), child: this[_indicator], $creationLocationd_0dea112b090073317d4: C[131] || CT.C131});
+    }
+  };
+  (indicator$._LoadingIndicatorState.new = function() {
+    this[_size] = theme.EasyLoadingTheme.indicatorSize;
+    this[_indicatorColor] = theme.EasyLoadingTheme.indicatorColor;
+    this[___LoadingIndicatorState__indicator] = null;
+    this[___LoadingIndicatorState__indicator_isSet] = false;
+    indicator$._LoadingIndicatorState.__proto__.new.call(this);
+    ;
+  }).prototype = indicator$._LoadingIndicatorState.prototype;
+  dart.addTypeTests(indicator$._LoadingIndicatorState);
+  dart.addTypeCaches(indicator$._LoadingIndicatorState);
+  dart.setMethodSignature(indicator$._LoadingIndicatorState, () => ({
+    __proto__: dart.getMethods(indicator$._LoadingIndicatorState.__proto__),
+    build: dart.fnType(framework.Widget, [framework.BuildContext])
+  }));
+  dart.setGetterSignature(indicator$._LoadingIndicatorState, () => ({
+    __proto__: dart.getGetters(indicator$._LoadingIndicatorState.__proto__),
+    [_indicator]: framework.Widget
+  }));
+  dart.setSetterSignature(indicator$._LoadingIndicatorState, () => ({
+    __proto__: dart.getSetters(indicator$._LoadingIndicatorState.__proto__),
+    [_indicator]: framework.Widget
+  }));
+  dart.setLibraryUri(indicator$._LoadingIndicatorState, I[2]);
+  dart.setFieldSignature(indicator$._LoadingIndicatorState, () => ({
+    __proto__: dart.getFields(indicator$._LoadingIndicatorState.__proto__),
+    [_size]: dart.finalFieldType(core.double),
+    [_indicatorColor]: dart.finalFieldType(ui.Color),
+    [___LoadingIndicatorState__indicator]: dart.fieldType(dart.nullable(framework.Widget)),
+    [___LoadingIndicatorState__indicator_isSet]: dart.fieldType(core.bool)
+  }));
+  var value$ = dart.privateName(progress, "EasyLoadingProgress.value");
+  progress.EasyLoadingProgress = class EasyLoadingProgress extends framework.StatefulWidget {
+    get value() {
+      return this[value$];
+    }
+    set value(value) {
+      super.value = value;
+    }
+    createState() {
+      return new progress.EasyLoadingProgressState.new();
+    }
+  };
+  (progress.EasyLoadingProgress.new = function(opts) {
+    let key = opts && 'key' in opts ? opts.key : null;
+    let value = opts && 'value' in opts ? opts.value : null;
+    if (value == null) dart.nullFailed(I[4], 34, 19, "value");
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    this[value$] = value;
+    progress.EasyLoadingProgress.__proto__.new.call(this, {key: key, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+    ;
+  }).prototype = progress.EasyLoadingProgress.prototype;
+  dart.addTypeTests(progress.EasyLoadingProgress);
+  dart.addTypeCaches(progress.EasyLoadingProgress);
+  dart.setMethodSignature(progress.EasyLoadingProgress, () => ({
+    __proto__: dart.getMethods(progress.EasyLoadingProgress.__proto__),
+    createState: dart.fnType(progress.EasyLoadingProgressState, [])
+  }));
+  dart.setLibraryUri(progress.EasyLoadingProgress, I[5]);
+  dart.setFieldSignature(progress.EasyLoadingProgress, () => ({
+    __proto__: dart.getFields(progress.EasyLoadingProgress.__proto__),
+    value: dart.finalFieldType(core.double)
+  }));
+  var _value = dart.privateName(progress, "_value");
+  progress.EasyLoadingProgressState = class EasyLoadingProgressState extends framework.State$(progress.EasyLoadingProgress) {
+    initState() {
+      super.initState();
+    }
+    dispose() {
+      super.dispose();
+    }
+    updateProgress(value) {
+      if (value == null) dart.nullFailed(I[4], 55, 30, "value");
+      this.setState(dart.fn(() => {
+        this[_value] = value;
+      }, T.VoidTovoid()));
+    }
+    build(context) {
+      if (context == null) dart.nullFailed(I[4], 62, 29, "context");
+      return new basic.SizedBox.new({width: theme.EasyLoadingTheme.indicatorSize, height: theme.EasyLoadingTheme.indicatorSize, child: new progress._CircleProgress.new({value: this[_value], color: theme.EasyLoadingTheme.progressColor, width: theme.EasyLoadingTheme.progressWidth, $creationLocationd_0dea112b090073317d4: C[135] || CT.C135}), $creationLocationd_0dea112b090073317d4: C[140] || CT.C140});
+    }
+  };
+  (progress.EasyLoadingProgressState.new = function() {
+    this[_value] = 0.0;
+    progress.EasyLoadingProgressState.__proto__.new.call(this);
+    ;
+  }).prototype = progress.EasyLoadingProgressState.prototype;
+  dart.addTypeTests(progress.EasyLoadingProgressState);
+  dart.addTypeCaches(progress.EasyLoadingProgressState);
+  dart.setMethodSignature(progress.EasyLoadingProgressState, () => ({
+    __proto__: dart.getMethods(progress.EasyLoadingProgressState.__proto__),
+    updateProgress: dart.fnType(dart.void, [core.double]),
+    build: dart.fnType(framework.Widget, [framework.BuildContext])
+  }));
+  dart.setLibraryUri(progress.EasyLoadingProgressState, I[5]);
+  dart.setFieldSignature(progress.EasyLoadingProgressState, () => ({
+    __proto__: dart.getFields(progress.EasyLoadingProgressState.__proto__),
+    [_value]: dart.fieldType(core.double)
+  }));
+  var value$0 = dart.privateName(progress, "_CircleProgress.value");
+  var color$ = dart.privateName(progress, "_CircleProgress.color");
+  progress._CircleProgress = class _CircleProgress extends progress_indicator.ProgressIndicator {
+    get value() {
+      return this[value$0];
+    }
+    set value(value) {
+      super.value = value;
+    }
+    get color() {
+      return this[color$];
+    }
+    set color(value) {
+      super.color = value;
+    }
+    createState() {
+      return new progress.__CircleProgressState.new();
+    }
+  };
+  (progress._CircleProgress.new = function(opts) {
+    let value = opts && 'value' in opts ? opts.value : null;
+    if (value == null) dart.nullFailed(I[4], 81, 19, "value");
+    let width = opts && 'width' in opts ? opts.width : null;
+    if (width == null) dart.nullFailed(I[4], 82, 19, "width");
+    let color = opts && 'color' in opts ? opts.color : null;
+    if (color == null) dart.nullFailed(I[4], 83, 19, "color");
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    this[value$0] = value;
+    this.width = width;
+    this[color$] = color;
+    progress._CircleProgress.__proto__.new.call(this, {$creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+    ;
+  }).prototype = progress._CircleProgress.prototype;
+  dart.addTypeTests(progress._CircleProgress);
+  dart.addTypeCaches(progress._CircleProgress);
+  dart.setMethodSignature(progress._CircleProgress, () => ({
+    __proto__: dart.getMethods(progress._CircleProgress.__proto__),
+    createState: dart.fnType(progress.__CircleProgressState, [])
+  }));
+  dart.setLibraryUri(progress._CircleProgress, I[5]);
+  dart.setFieldSignature(progress._CircleProgress, () => ({
+    __proto__: dart.getFields(progress._CircleProgress.__proto__),
+    value: dart.finalFieldType(core.double),
+    width: dart.finalFieldType(core.double),
+    color: dart.finalFieldType(ui.Color)
+  }));
+  progress.__CircleProgressState = class __CircleProgressState extends framework.State$(progress._CircleProgress) {
+    initState() {
+      super.initState();
+    }
+    dispose() {
+      super.dispose();
+    }
+    build(context) {
+      if (context == null) dart.nullFailed(I[4], 102, 29, "context");
+      return new basic.CustomPaint.new({painter: new progress._CirclePainter.new({color: this.widget.color, value: this.widget.value, width: this.widget.width}), $creationLocationd_0dea112b090073317d4: C[145] || CT.C145});
+    }
+  };
+  (progress.__CircleProgressState.new = function() {
+    progress.__CircleProgressState.__proto__.new.call(this);
+    ;
+  }).prototype = progress.__CircleProgressState.prototype;
+  dart.addTypeTests(progress.__CircleProgressState);
+  dart.addTypeCaches(progress.__CircleProgressState);
+  dart.setMethodSignature(progress.__CircleProgressState, () => ({
+    __proto__: dart.getMethods(progress.__CircleProgressState.__proto__),
+    build: dart.fnType(framework.Widget, [framework.BuildContext])
+  }));
+  dart.setLibraryUri(progress.__CircleProgressState, I[5]);
+  progress._CirclePainter = class _CirclePainter extends custom_paint.CustomPainter {
+    paint(canvas, size) {
+      let t2;
+      if (canvas == null) dart.nullFailed(I[4], 125, 21, "canvas");
+      if (size == null) dart.nullFailed(I[4], 125, 34, "size");
+      let paint = (t2 = ui.Paint.new(), (() => {
+        t2.color = this.color;
+        t2.strokeWidth = this.width;
+        t2.style = ui.PaintingStyle.stroke;
+        t2.strokeCap = ui.StrokeCap.round;
+        return t2;
+      })());
+      canvas.drawArc(ui.Offset.zero['&'](size), -3.141592653589793 / 2, 3.141592653589793 * 2 * dart.notNull(this.value), false, paint);
+    }
+    shouldRepaint(oldDelegate) {
+      progress._CirclePainter.as(oldDelegate);
+      if (oldDelegate == null) dart.nullFailed(I[4], 141, 37, "oldDelegate");
+      return this.value != oldDelegate.value;
+    }
+  };
+  (progress._CirclePainter.new = function(opts) {
+    let color = opts && 'color' in opts ? opts.color : null;
+    if (color == null) dart.nullFailed(I[4], 119, 19, "color");
+    let value = opts && 'value' in opts ? opts.value : null;
+    if (value == null) dart.nullFailed(I[4], 120, 19, "value");
+    let width = opts && 'width' in opts ? opts.width : null;
+    if (width == null) dart.nullFailed(I[4], 121, 19, "width");
+    this.color = color;
+    this.value = value;
+    this.width = width;
+    progress._CirclePainter.__proto__.new.call(this);
+    ;
+  }).prototype = progress._CirclePainter.prototype;
+  dart.addTypeTests(progress._CirclePainter);
+  dart.addTypeCaches(progress._CirclePainter);
+  dart.setMethodSignature(progress._CirclePainter, () => ({
+    __proto__: dart.getMethods(progress._CirclePainter.__proto__),
+    paint: dart.fnType(dart.void, [ui.Canvas, ui.Size]),
+    shouldRepaint: dart.fnType(core.bool, [dart.nullable(core.Object)])
+  }));
+  dart.setLibraryUri(progress._CirclePainter, I[5]);
+  dart.setFieldSignature(progress._CirclePainter, () => ({
+    __proto__: dart.getFields(progress._CirclePainter.__proto__),
+    color: dart.finalFieldType(ui.Color),
+    value: dart.finalFieldType(core.double),
+    width: dart.finalFieldType(core.double)
+  }));
+  theme.EasyLoadingTheme = class EasyLoadingTheme extends core.Object {
+    static get indicatorColor() {
+      return easy_loading.EasyLoading.instance.loadingStyle == easy_loading.EasyLoadingStyle.custom ? dart.nullCheck(easy_loading.EasyLoading.instance.indicatorColor) : easy_loading.EasyLoading.instance.loadingStyle == easy_loading.EasyLoadingStyle.dark ? colors.Colors.white : colors.Colors.black;
+    }
+    static get progressColor() {
+      return easy_loading.EasyLoading.instance.loadingStyle == easy_loading.EasyLoadingStyle.custom ? dart.nullCheck(easy_loading.EasyLoading.instance.progressColor) : easy_loading.EasyLoading.instance.loadingStyle == easy_loading.EasyLoadingStyle.dark ? colors.Colors.white : colors.Colors.black;
+    }
+    static get backgroundColor() {
+      return easy_loading.EasyLoading.instance.loadingStyle == easy_loading.EasyLoadingStyle.custom ? dart.nullCheck(easy_loading.EasyLoading.instance.backgroundColor) : easy_loading.EasyLoading.instance.loadingStyle == easy_loading.EasyLoadingStyle.dark ? colors.Colors.black.withOpacity(0.9) : colors.Colors.white;
+    }
+    static get textColor() {
+      return easy_loading.EasyLoading.instance.loadingStyle == easy_loading.EasyLoadingStyle.custom ? dart.nullCheck(easy_loading.EasyLoading.instance.textColor) : easy_loading.EasyLoading.instance.loadingStyle == easy_loading.EasyLoadingStyle.dark ? colors.Colors.white : colors.Colors.black;
+    }
+    static maskColor(maskType) {
+      maskType == null ? maskType = easy_loading.EasyLoading.instance.maskType : null;
+      return maskType == easy_loading.EasyLoadingMaskType.custom ? dart.nullCheck(easy_loading.EasyLoading.instance.maskColor) : maskType == easy_loading.EasyLoadingMaskType.black ? colors.Colors.black.withOpacity(0.5) : colors.Colors.transparent;
+    }
+    static get loadingAnimation() {
+      let _animation = null;
+      switch (easy_loading.EasyLoading.instance.animationStyle) {
+        case C[148] || CT.C148:
+        {
+          _animation = dart.nullCheck(easy_loading.EasyLoading.instance.customAnimation);
+          break;
+        }
+        case C[149] || CT.C149:
+        {
+          _animation = new offset_animation.OffsetAnimation.new();
+          break;
+        }
+        case C[150] || CT.C150:
+        {
+          _animation = new scale_animation.ScaleAnimation.new();
+          break;
+        }
+        default:
+        {
+          _animation = new opacity_animation.OpacityAnimation.new();
+          break;
+        }
+      }
+      return _animation;
+    }
+    static get fontSize() {
+      return easy_loading.EasyLoading.instance.fontSize;
+    }
+    static get indicatorSize() {
+      return easy_loading.EasyLoading.instance.indicatorSize;
+    }
+    static get progressWidth() {
+      return easy_loading.EasyLoading.instance.progressWidth;
+    }
+    static get lineWidth() {
+      return easy_loading.EasyLoading.instance.lineWidth;
+    }
+    static get indicatorType() {
+      return easy_loading.EasyLoading.instance.indicatorType;
+    }
+    static get toastPosition() {
+      return easy_loading.EasyLoading.instance.toastPosition;
+    }
+    static alignment(position) {
+      return position == easy_loading.EasyLoadingToastPosition.bottom ? alignment.AlignmentDirectional.bottomCenter : position == easy_loading.EasyLoadingToastPosition.top ? alignment.AlignmentDirectional.topCenter : alignment.AlignmentDirectional.center;
+    }
+    static get displayDuration() {
+      return easy_loading.EasyLoading.instance.displayDuration;
+    }
+    static get animationDuration() {
+      return easy_loading.EasyLoading.instance.animationDuration;
+    }
+    static get contentPadding() {
+      return easy_loading.EasyLoading.instance.contentPadding;
+    }
+    static get textPadding() {
+      return easy_loading.EasyLoading.instance.textPadding;
+    }
+    static get textAlign() {
+      return easy_loading.EasyLoading.instance.textAlign;
+    }
+    static get textStyle() {
+      return easy_loading.EasyLoading.instance.textStyle;
+    }
+    static get radius() {
+      return easy_loading.EasyLoading.instance.radius;
+    }
+    static get dismissOnTap() {
+      return easy_loading.EasyLoading.instance.dismissOnTap;
+    }
+    static ignoring(maskType) {
+      let t2;
+      maskType == null ? maskType = easy_loading.EasyLoading.instance.maskType : null;
+      t2 = easy_loading.EasyLoading.instance.userInteractions;
+      return t2 == null ? maskType == easy_loading.EasyLoadingMaskType.none ? true : false : t2;
+    }
+  };
+  (theme.EasyLoadingTheme.new = function() {
+    ;
+  }).prototype = theme.EasyLoadingTheme.prototype;
+  dart.addTypeTests(theme.EasyLoadingTheme);
+  dart.addTypeCaches(theme.EasyLoadingTheme);
+  dart.setLibraryUri(theme.EasyLoadingTheme, I[6]);
+  var indicator$0 = dart.privateName(container$, "EasyLoadingContainer.indicator");
+  var status$ = dart.privateName(container$, "EasyLoadingContainer.status");
+  var dismissOnTap$ = dart.privateName(container$, "EasyLoadingContainer.dismissOnTap");
+  var toastPosition$ = dart.privateName(container$, "EasyLoadingContainer.toastPosition");
+  var maskType$ = dart.privateName(container$, "EasyLoadingContainer.maskType");
+  var completer$ = dart.privateName(container$, "EasyLoadingContainer.completer");
+  var animation$0 = dart.privateName(container$, "EasyLoadingContainer.animation");
+  container$.EasyLoadingContainer = class EasyLoadingContainer extends framework.StatefulWidget {
+    get indicator() {
+      return this[indicator$0];
+    }
+    set indicator(value) {
+      super.indicator = value;
+    }
+    get status() {
+      return this[status$];
+    }
+    set status(value) {
+      super.status = value;
+    }
+    get dismissOnTap() {
+      return this[dismissOnTap$];
+    }
+    set dismissOnTap(value) {
+      super.dismissOnTap = value;
+    }
+    get toastPosition() {
+      return this[toastPosition$];
+    }
+    set toastPosition(value) {
+      super.toastPosition = value;
+    }
+    get maskType() {
+      return this[maskType$];
+    }
+    set maskType(value) {
+      super.maskType = value;
+    }
+    get completer() {
+      return this[completer$];
+    }
+    set completer(value) {
+      super.completer = value;
+    }
+    get animation() {
+      return this[animation$0];
+    }
+    set animation(value) {
+      super.animation = value;
+    }
+    createState() {
+      return new container$.EasyLoadingContainerState.new();
+    }
+  };
+  (container$.EasyLoadingContainer.new = function(opts) {
+    let key = opts && 'key' in opts ? opts.key : null;
+    let indicator = opts && 'indicator' in opts ? opts.indicator : null;
+    let status = opts && 'status' in opts ? opts.status : null;
+    let dismissOnTap = opts && 'dismissOnTap' in opts ? opts.dismissOnTap : null;
+    let toastPosition = opts && 'toastPosition' in opts ? opts.toastPosition : null;
+    let maskType = opts && 'maskType' in opts ? opts.maskType : null;
+    let completer = opts && 'completer' in opts ? opts.completer : null;
+    let animation = opts && 'animation' in opts ? opts.animation : true;
+    if (animation == null) dart.nullFailed(I[7], 48, 10, "animation");
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    this[indicator$0] = indicator;
+    this[status$] = status;
+    this[dismissOnTap$] = dismissOnTap;
+    this[toastPosition$] = toastPosition;
+    this[maskType$] = maskType;
+    this[completer$] = completer;
+    this[animation$0] = animation;
+    container$.EasyLoadingContainer.__proto__.new.call(this, {key: key, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+    ;
+  }).prototype = container$.EasyLoadingContainer.prototype;
+  dart.addTypeTests(container$.EasyLoadingContainer);
+  dart.addTypeCaches(container$.EasyLoadingContainer);
+  dart.setMethodSignature(container$.EasyLoadingContainer, () => ({
+    __proto__: dart.getMethods(container$.EasyLoadingContainer.__proto__),
+    createState: dart.fnType(container$.EasyLoadingContainerState, [])
+  }));
+  dart.setLibraryUri(container$.EasyLoadingContainer, I[8]);
+  dart.setFieldSignature(container$.EasyLoadingContainer, () => ({
+    __proto__: dart.getFields(container$.EasyLoadingContainer.__proto__),
+    indicator: dart.finalFieldType(dart.nullable(framework.Widget)),
+    status: dart.finalFieldType(dart.nullable(core.String)),
+    dismissOnTap: dart.finalFieldType(dart.nullable(core.bool)),
+    toastPosition: dart.finalFieldType(dart.nullable(easy_loading.EasyLoadingToastPosition)),
+    maskType: dart.finalFieldType(dart.nullable(easy_loading.EasyLoadingMaskType)),
+    completer: dart.finalFieldType(dart.nullable(async.Completer$(dart.void))),
+    animation: dart.finalFieldType(core.bool)
+  }));
+  var _status = dart.privateName(container$, "_status");
+  var _maskColor = dart.privateName(container$, "_maskColor");
+  var __EasyLoadingContainerState__animationController = dart.privateName(container$, "_#EasyLoadingContainerState#_animationController");
+  var __EasyLoadingContainerState__animationController_isSet = dart.privateName(container$, "_#EasyLoadingContainerState#_animationController#isSet");
+  var __EasyLoadingContainerState__alignment = dart.privateName(container$, "_#EasyLoadingContainerState#_alignment");
+  var __EasyLoadingContainerState__alignment_isSet = dart.privateName(container$, "_#EasyLoadingContainerState#_alignment#isSet");
+  var __EasyLoadingContainerState__dismissOnTap = dart.privateName(container$, "_#EasyLoadingContainerState#_dismissOnTap");
+  var __EasyLoadingContainerState__dismissOnTap_isSet = dart.privateName(container$, "_#EasyLoadingContainerState#_dismissOnTap#isSet");
+  var __EasyLoadingContainerState__ignoring = dart.privateName(container$, "_#EasyLoadingContainerState#_ignoring");
+  var __EasyLoadingContainerState__ignoring_isSet = dart.privateName(container$, "_#EasyLoadingContainerState#_ignoring#isSet");
+  var _animationController = dart.privateName(container$, "_animationController");
+  var _alignment = dart.privateName(container$, "_alignment");
+  var _dismissOnTap = dart.privateName(container$, "_dismissOnTap");
+  var _ignoring = dart.privateName(container$, "_ignoring");
+  var _onTap = dart.privateName(container$, "_onTap");
+  const State_SingleTickerProviderStateMixin$36 = class State_SingleTickerProviderStateMixin extends framework.State$(container$.EasyLoadingContainer) {};
+  (State_SingleTickerProviderStateMixin$36.new = function() {
+    ticker_provider.SingleTickerProviderStateMixin$(container$.EasyLoadingContainer)[dart.mixinNew].call(this);
+    State_SingleTickerProviderStateMixin$36.__proto__.new.call(this);
+  }).prototype = State_SingleTickerProviderStateMixin$36.prototype;
+  dart.applyMixin(State_SingleTickerProviderStateMixin$36, ticker_provider.SingleTickerProviderStateMixin$(container$.EasyLoadingContainer));
+  container$.EasyLoadingContainerState = class EasyLoadingContainerState extends State_SingleTickerProviderStateMixin$36 {
+    get [_animationController]() {
+      let t2;
+      return dart.test(this[__EasyLoadingContainerState__animationController_isSet]) ? (t2 = this[__EasyLoadingContainerState__animationController], t2) : dart.throw(new _internal.LateError.fieldNI("_animationController"));
+    }
+    set [_animationController](t2) {
+      if (t2 == null) dart.nullFailed(I[7], 59, 28, "null");
+      this[__EasyLoadingContainerState__animationController_isSet] = true;
+      this[__EasyLoadingContainerState__animationController] = t2;
+    }
+    get [_alignment]() {
+      let t3;
+      return dart.test(this[__EasyLoadingContainerState__alignment_isSet]) ? (t3 = this[__EasyLoadingContainerState__alignment], t3) : dart.throw(new _internal.LateError.fieldNI("_alignment"));
+    }
+    set [_alignment](t3) {
+      if (t3 == null) dart.nullFailed(I[7], 60, 26, "null");
+      this[__EasyLoadingContainerState__alignment_isSet] = true;
+      this[__EasyLoadingContainerState__alignment] = t3;
+    }
+    get [_dismissOnTap]() {
+      let t4;
+      return dart.test(this[__EasyLoadingContainerState__dismissOnTap_isSet]) ? (t4 = this[__EasyLoadingContainerState__dismissOnTap], t4) : dart.throw(new _internal.LateError.fieldNI("_dismissOnTap"));
+    }
+    set [_dismissOnTap](t4) {
+      if (t4 == null) dart.nullFailed(I[7], 61, 13, "null");
+      this[__EasyLoadingContainerState__dismissOnTap_isSet] = true;
+      this[__EasyLoadingContainerState__dismissOnTap] = t4;
+    }
+    get [_ignoring]() {
+      let t5;
+      return dart.test(this[__EasyLoadingContainerState__ignoring_isSet]) ? (t5 = this[__EasyLoadingContainerState__ignoring], t5) : dart.throw(new _internal.LateError.fieldNI("_ignoring"));
+    }
+    set [_ignoring](t5) {
+      if (t5 == null) dart.nullFailed(I[7], 61, 28, "null");
+      this[__EasyLoadingContainerState__ignoring_isSet] = true;
+      this[__EasyLoadingContainerState__ignoring] = t5;
+    }
+    get isPersistentCallbacks() {
+      let t6;
+      return (t6 = binding.SchedulerBinding.instance, t6 == null ? null : t6.schedulerPhase) == binding.SchedulerPhase.persistentCallbacks;
+    }
+    initState() {
+      let t6, t7, t6$, t6$0;
+      super.initState();
+      if (!dart.test(this.mounted)) return;
+      this[_status] = this.widget.status;
+      this[_alignment] = this.widget.indicator == null && (t6 = this.widget.status, t6 == null ? null : t6[$isNotEmpty]) === true ? theme.EasyLoadingTheme.alignment(this.widget.toastPosition) : alignment.AlignmentDirectional.center;
+      this[_dismissOnTap] = (t6$ = this.widget.dismissOnTap, t6$ == null ? (t7 = theme.EasyLoadingTheme.dismissOnTap, t7 == null ? false : t7) : t6$);
+      this[_ignoring] = dart.test(this[_dismissOnTap]) ? false : theme.EasyLoadingTheme.ignoring(this.widget.maskType);
+      this[_maskColor] = theme.EasyLoadingTheme.maskColor(this.widget.maskType);
+      this[_animationController] = (t6$0 = new animation_controller.AnimationController.new({vsync: this, duration: theme.EasyLoadingTheme.animationDuration}), (() => {
+        t6$0.addStatusListener(dart.fn(status => {
+          let t7, t7$, t7$0;
+          if (status == null) dart.nullFailed(I[7], 83, 27, "status");
+          let isCompleted = (t7$ = (t7 = this.widget.completer, t7 == null ? null : t7.isCompleted), t7$ == null ? false : t7$);
+          if (status == animation.AnimationStatus.completed && !dart.test(isCompleted)) {
+            t7$0 = this.widget.completer;
+            t7$0 == null ? null : t7$0.complete();
+          }
+        }, T.AnimationStatusTovoid()));
+        return t6$0;
+      })());
+      this.show(this.widget.animation);
+    }
+    dispose() {
+      this[_animationController].dispose();
+      super.dispose();
+    }
+    show(animation) {
+      let t6;
+      if (animation == null) dart.nullFailed(I[7], 98, 26, "animation");
+      if (dart.test(this.isPersistentCallbacks)) {
+        let completer = T.CompleterOfvoid().new();
+        t6 = binding.SchedulerBinding.instance;
+        t6 == null ? null : t6.addPostFrameCallback(dart.fn(_ => {
+          if (_ == null) dart.nullFailed(I[7], 101, 56, "_");
+          return completer.complete(this[_animationController].forward({from: dart.test(animation) ? 0.0 : 1.0}));
+        }, T.DurationTovoid()));
+        return completer.future;
+      } else {
+        return this[_animationController].forward({from: dart.test(animation) ? 0.0 : 1.0});
+      }
+    }
+    dismiss(animation) {
+      let t6;
+      if (animation == null) dart.nullFailed(I[7], 109, 29, "animation");
+      if (dart.test(this.isPersistentCallbacks)) {
+        let completer = T.CompleterOfvoid().new();
+        t6 = binding.SchedulerBinding.instance;
+        t6 == null ? null : t6.addPostFrameCallback(dart.fn(_ => {
+          if (_ == null) dart.nullFailed(I[7], 112, 56, "_");
+          return completer.complete(this[_animationController].reverse({from: dart.test(animation) ? 1.0 : 0.0}));
+        }, T.DurationTovoid()));
+        return completer.future;
+      } else {
+        return this[_animationController].reverse({from: dart.test(animation) ? 1.0 : 0.0});
+      }
+    }
+    updateStatus(status) {
+      if (status == null) dart.nullFailed(I[7], 120, 28, "status");
+      if (this[_status] == status) return;
+      this.setState(dart.fn(() => {
+        this[_status] = status;
+      }, T.VoidTovoid()));
+    }
+    [_onTap]() {
+      return async.async(dart.void, (function* _onTap() {
+        if (dart.test(this[_dismissOnTap])) yield easy_loading.EasyLoading.dismiss();
+      }).bind(this));
+    }
+    build(context) {
+      if (context == null) dart.nullFailed(I[7], 132, 29, "context");
+      return new basic.Stack.new({alignment: this[_alignment], children: T.JSArrayOfWidget().of([new transitions.AnimatedBuilder.new({animation: this[_animationController], builder: dart.fn((context, child) => {
+              if (context == null) dart.nullFailed(I[7], 138, 34, "context");
+              return new basic.Opacity.new({opacity: this[_animationController].value, child: new basic.IgnorePointer.new({ignoring: this[_ignoring], child: dart.test(this[_dismissOnTap]) ? new gesture_detector.GestureDetector.new({onTap: dart.bind(this, _onTap), behavior: proxy_box.HitTestBehavior.translucent, child: new container.Container.new({width: 1 / 0, height: 1 / 0, color: this[_maskColor], $creationLocationd_0dea112b090073317d4: C[151] || CT.C151}), $creationLocationd_0dea112b090073317d4: C[156] || CT.C156}) : new container.Container.new({width: 1 / 0, height: 1 / 0, color: this[_maskColor], $creationLocationd_0dea112b090073317d4: C[161] || CT.C161}), $creationLocationd_0dea112b090073317d4: C[166] || CT.C166}), $creationLocationd_0dea112b090073317d4: C[170] || CT.C170});
+            }, T.BuildContextAndWidgetNToOpacity()), $creationLocationd_0dea112b090073317d4: C[174] || CT.C174}), new transitions.AnimatedBuilder.new({animation: this[_animationController], builder: dart.fn((context, child) => {
+              if (context == null) dart.nullFailed(I[7], 164, 34, "context");
+              return theme.EasyLoadingTheme.loadingAnimation.buildWidget(new container$._Indicator.new({status: this[_status], indicator: this.widget.indicator, $creationLocationd_0dea112b090073317d4: C[178] || CT.C178}), this[_animationController], this[_alignment]);
+            }, T.BuildContextAndWidgetNToWidget()), $creationLocationd_0dea112b090073317d4: C[182] || CT.C182})]), $creationLocationd_0dea112b090073317d4: C[186] || CT.C186});
+    }
+  };
+  (container$.EasyLoadingContainerState.new = function() {
+    this[_status] = null;
+    this[_maskColor] = null;
+    this[__EasyLoadingContainerState__animationController] = null;
+    this[__EasyLoadingContainerState__animationController_isSet] = false;
+    this[__EasyLoadingContainerState__alignment] = null;
+    this[__EasyLoadingContainerState__alignment_isSet] = false;
+    this[__EasyLoadingContainerState__dismissOnTap] = null;
+    this[__EasyLoadingContainerState__dismissOnTap_isSet] = false;
+    this[__EasyLoadingContainerState__ignoring] = null;
+    this[__EasyLoadingContainerState__ignoring_isSet] = false;
+    container$.EasyLoadingContainerState.__proto__.new.call(this);
+    ;
+  }).prototype = container$.EasyLoadingContainerState.prototype;
+  dart.addTypeTests(container$.EasyLoadingContainerState);
+  dart.addTypeCaches(container$.EasyLoadingContainerState);
+  dart.setMethodSignature(container$.EasyLoadingContainerState, () => ({
+    __proto__: dart.getMethods(container$.EasyLoadingContainerState.__proto__),
+    show: dart.fnType(async.Future$(dart.void), [core.bool]),
+    dismiss: dart.fnType(async.Future$(dart.void), [core.bool]),
+    updateStatus: dart.fnType(dart.void, [core.String]),
+    [_onTap]: dart.fnType(dart.void, []),
+    build: dart.fnType(framework.Widget, [framework.BuildContext])
+  }));
+  dart.setGetterSignature(container$.EasyLoadingContainerState, () => ({
+    __proto__: dart.getGetters(container$.EasyLoadingContainerState.__proto__),
+    [_animationController]: animation_controller.AnimationController,
+    [_alignment]: alignment.AlignmentGeometry,
+    [_dismissOnTap]: core.bool,
+    [_ignoring]: core.bool,
+    isPersistentCallbacks: core.bool
+  }));
+  dart.setSetterSignature(container$.EasyLoadingContainerState, () => ({
+    __proto__: dart.getSetters(container$.EasyLoadingContainerState.__proto__),
+    [_animationController]: animation_controller.AnimationController,
+    [_alignment]: alignment.AlignmentGeometry,
+    [_dismissOnTap]: core.bool,
+    [_ignoring]: core.bool
+  }));
+  dart.setLibraryUri(container$.EasyLoadingContainerState, I[8]);
+  dart.setFieldSignature(container$.EasyLoadingContainerState, () => ({
+    __proto__: dart.getFields(container$.EasyLoadingContainerState.__proto__),
+    [_status]: dart.fieldType(dart.nullable(core.String)),
+    [_maskColor]: dart.fieldType(dart.nullable(ui.Color)),
+    [__EasyLoadingContainerState__animationController]: dart.fieldType(dart.nullable(animation_controller.AnimationController)),
+    [__EasyLoadingContainerState__animationController_isSet]: dart.fieldType(core.bool),
+    [__EasyLoadingContainerState__alignment]: dart.fieldType(dart.nullable(alignment.AlignmentGeometry)),
+    [__EasyLoadingContainerState__alignment_isSet]: dart.fieldType(core.bool),
+    [__EasyLoadingContainerState__dismissOnTap]: dart.fieldType(dart.nullable(core.bool)),
+    [__EasyLoadingContainerState__dismissOnTap_isSet]: dart.fieldType(core.bool),
+    [__EasyLoadingContainerState__ignoring]: dart.fieldType(dart.nullable(core.bool)),
+    [__EasyLoadingContainerState__ignoring_isSet]: dart.fieldType(core.bool)
+  }));
+  var indicator$1 = dart.privateName(container$, "_Indicator.indicator");
+  var status$0 = dart.privateName(container$, "_Indicator.status");
+  var EdgeInsets_bottom = dart.privateName(edge_insets, "EdgeInsets.bottom");
+  var EdgeInsets_right = dart.privateName(edge_insets, "EdgeInsets.right");
+  var EdgeInsets_top = dart.privateName(edge_insets, "EdgeInsets.top");
+  var EdgeInsets_left = dart.privateName(edge_insets, "EdgeInsets.left");
+  container$._Indicator = class _Indicator extends framework.StatelessWidget {
+    get indicator() {
+      return this[indicator$1];
+    }
+    set indicator(value) {
+      super.indicator = value;
+    }
+    get status() {
+      return this[status$0];
+    }
+    set status(value) {
+      super.status = value;
+    }
+    build(context) {
+      let t7, t7$;
+      if (context == null) dart.nullFailed(I[7], 190, 29, "context");
+      return new container.Container.new({margin: C[190] || CT.C190, decoration: new box_decoration.BoxDecoration.new({color: theme.EasyLoadingTheme.backgroundColor, borderRadius: new border_radius.BorderRadius.circular(theme.EasyLoadingTheme.radius)}), padding: theme.EasyLoadingTheme.contentPadding, child: new basic.Column.new({mainAxisAlignment: flex.MainAxisAlignment.center, crossAxisAlignment: flex.CrossAxisAlignment.center, mainAxisSize: flex.MainAxisSize.min, children: (() => {
+            let t6 = T.JSArrayOfWidget().of([]);
+            if (this.indicator != null) t6[$add](new container.Container.new({margin: (t7 = this.status, t7 == null ? null : t7[$isNotEmpty]) === true ? theme.EasyLoadingTheme.textPadding : edge_insets.EdgeInsets.zero, child: this.indicator, $creationLocationd_0dea112b090073317d4: C[191] || CT.C191}));
+            if (this.status != null) t6[$add](new text.Text.new(dart.nullCheck(this.status), {style: (t7$ = theme.EasyLoadingTheme.textStyle, t7$ == null ? new text_style.TextStyle.new({color: theme.EasyLoadingTheme.textColor, fontSize: theme.EasyLoadingTheme.fontSize}) : t7$), textAlign: theme.EasyLoadingTheme.textAlign, $creationLocationd_0dea112b090073317d4: C[195] || CT.C195}));
+            return t6;
+          })(), $creationLocationd_0dea112b090073317d4: C[200] || CT.C200}), $creationLocationd_0dea112b090073317d4: C[206] || CT.C206});
+    }
+  };
+  (container$._Indicator.new = function(opts) {
+    let indicator = opts && 'indicator' in opts ? opts.indicator : null;
+    let status = opts && 'status' in opts ? opts.status : null;
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    this[indicator$1] = indicator;
+    this[status$0] = status;
+    container$._Indicator.__proto__.new.call(this, {$creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+    ;
+  }).prototype = container$._Indicator.prototype;
+  dart.addTypeTests(container$._Indicator);
+  dart.addTypeCaches(container$._Indicator);
+  dart.setMethodSignature(container$._Indicator, () => ({
+    __proto__: dart.getMethods(container$._Indicator.__proto__),
+    build: dart.fnType(framework.Widget, [framework.BuildContext])
+  }));
+  dart.setLibraryUri(container$._Indicator, I[8]);
+  dart.setFieldSignature(container$._Indicator, () => ({
+    __proto__: dart.getFields(container$._Indicator.__proto__),
+    indicator: dart.finalFieldType(dart.nullable(framework.Widget)),
+    status: dart.finalFieldType(dart.nullable(core.String))
+  }));
+  easy_loading.EasyLoadingStyle = class EasyLoadingStyle extends core.Object {
+    toString() {
+      return this[_name$];
+    }
+  };
+  (easy_loading.EasyLoadingStyle.new = function(index, _name) {
+    if (index == null) dart.nullFailed(I[9], 37, 6, "index");
+    if (_name == null) dart.nullFailed(I[9], 37, 6, "_name");
+    this.index = index;
+    this[_name$] = _name;
+    ;
+  }).prototype = easy_loading.EasyLoadingStyle.prototype;
+  dart.addTypeTests(easy_loading.EasyLoadingStyle);
+  dart.addTypeCaches(easy_loading.EasyLoadingStyle);
+  dart.setLibraryUri(easy_loading.EasyLoadingStyle, I[10]);
+  dart.setFieldSignature(easy_loading.EasyLoadingStyle, () => ({
+    __proto__: dart.getFields(easy_loading.EasyLoadingStyle.__proto__),
+    index: dart.finalFieldType(core.int),
+    [_name$]: dart.finalFieldType(core.String)
+  }));
+  dart.defineExtensionMethods(easy_loading.EasyLoadingStyle, ['toString']);
+  easy_loading.EasyLoadingStyle.light = C[212] || CT.C212;
+  easy_loading.EasyLoadingStyle.dark = C[213] || CT.C213;
+  easy_loading.EasyLoadingStyle.custom = C[214] || CT.C214;
+  easy_loading.EasyLoadingStyle.values = C[215] || CT.C215;
+  easy_loading.EasyLoadingToastPosition = class EasyLoadingToastPosition extends core.Object {
+    toString() {
+      return this[_name$];
+    }
+  };
+  (easy_loading.EasyLoadingToastPosition.new = function(index, _name) {
+    if (index == null) dart.nullFailed(I[9], 44, 6, "index");
+    if (_name == null) dart.nullFailed(I[9], 44, 6, "_name");
+    this.index = index;
+    this[_name$] = _name;
+    ;
+  }).prototype = easy_loading.EasyLoadingToastPosition.prototype;
+  dart.addTypeTests(easy_loading.EasyLoadingToastPosition);
+  dart.addTypeCaches(easy_loading.EasyLoadingToastPosition);
+  dart.setLibraryUri(easy_loading.EasyLoadingToastPosition, I[10]);
+  dart.setFieldSignature(easy_loading.EasyLoadingToastPosition, () => ({
+    __proto__: dart.getFields(easy_loading.EasyLoadingToastPosition.__proto__),
+    index: dart.finalFieldType(core.int),
+    [_name$]: dart.finalFieldType(core.String)
+  }));
+  dart.defineExtensionMethods(easy_loading.EasyLoadingToastPosition, ['toString']);
+  easy_loading.EasyLoadingToastPosition.top = C[216] || CT.C216;
+  easy_loading.EasyLoadingToastPosition.center = C[217] || CT.C217;
+  easy_loading.EasyLoadingToastPosition.bottom = C[218] || CT.C218;
+  easy_loading.EasyLoadingToastPosition.values = C[219] || CT.C219;
+  easy_loading.EasyLoadingAnimationStyle = class EasyLoadingAnimationStyle extends core.Object {
+    toString() {
+      return this[_name$];
+    }
+  };
+  (easy_loading.EasyLoadingAnimationStyle.new = function(index, _name) {
+    if (index == null) dart.nullFailed(I[9], 51, 6, "index");
+    if (_name == null) dart.nullFailed(I[9], 51, 6, "_name");
+    this.index = index;
+    this[_name$] = _name;
+    ;
+  }).prototype = easy_loading.EasyLoadingAnimationStyle.prototype;
+  dart.addTypeTests(easy_loading.EasyLoadingAnimationStyle);
+  dart.addTypeCaches(easy_loading.EasyLoadingAnimationStyle);
+  dart.setLibraryUri(easy_loading.EasyLoadingAnimationStyle, I[10]);
+  dart.setFieldSignature(easy_loading.EasyLoadingAnimationStyle, () => ({
+    __proto__: dart.getFields(easy_loading.EasyLoadingAnimationStyle.__proto__),
+    index: dart.finalFieldType(core.int),
+    [_name$]: dart.finalFieldType(core.String)
+  }));
+  dart.defineExtensionMethods(easy_loading.EasyLoadingAnimationStyle, ['toString']);
+  easy_loading.EasyLoadingAnimationStyle.opacity = C[220] || CT.C220;
+  easy_loading.EasyLoadingAnimationStyle.offset = C[149] || CT.C149;
+  easy_loading.EasyLoadingAnimationStyle.scale = C[150] || CT.C150;
+  easy_loading.EasyLoadingAnimationStyle.custom = C[148] || CT.C148;
+  easy_loading.EasyLoadingAnimationStyle.values = C[221] || CT.C221;
+  easy_loading.EasyLoadingMaskType = class EasyLoadingMaskType extends core.Object {
+    toString() {
+      return this[_name$];
+    }
+  };
+  (easy_loading.EasyLoadingMaskType.new = function(index, _name) {
+    if (index == null) dart.nullFailed(I[9], 63, 6, "index");
+    if (_name == null) dart.nullFailed(I[9], 63, 6, "_name");
+    this.index = index;
+    this[_name$] = _name;
+    ;
+  }).prototype = easy_loading.EasyLoadingMaskType.prototype;
+  dart.addTypeTests(easy_loading.EasyLoadingMaskType);
+  dart.addTypeCaches(easy_loading.EasyLoadingMaskType);
+  dart.setLibraryUri(easy_loading.EasyLoadingMaskType, I[10]);
+  dart.setFieldSignature(easy_loading.EasyLoadingMaskType, () => ({
+    __proto__: dart.getFields(easy_loading.EasyLoadingMaskType.__proto__),
+    index: dart.finalFieldType(core.int),
+    [_name$]: dart.finalFieldType(core.String)
+  }));
+  dart.defineExtensionMethods(easy_loading.EasyLoadingMaskType, ['toString']);
+  easy_loading.EasyLoadingMaskType.none = C[222] || CT.C222;
+  easy_loading.EasyLoadingMaskType.clear = C[223] || CT.C223;
+  easy_loading.EasyLoadingMaskType.black = C[224] || CT.C224;
+  easy_loading.EasyLoadingMaskType.custom = C[225] || CT.C225;
+  easy_loading.EasyLoadingMaskType.values = C[226] || CT.C226;
+  easy_loading.EasyLoadingIndicatorType = class EasyLoadingIndicatorType extends core.Object {
+    toString() {
+      return this[_name$];
+    }
+  };
+  (easy_loading.EasyLoadingIndicatorType.new = function(index, _name) {
+    if (index == null) dart.nullFailed(I[9], 71, 6, "index");
+    if (_name == null) dart.nullFailed(I[9], 71, 6, "_name");
+    this.index = index;
+    this[_name$] = _name;
+    ;
+  }).prototype = easy_loading.EasyLoadingIndicatorType.prototype;
+  dart.addTypeTests(easy_loading.EasyLoadingIndicatorType);
+  dart.addTypeCaches(easy_loading.EasyLoadingIndicatorType);
+  dart.setLibraryUri(easy_loading.EasyLoadingIndicatorType, I[10]);
+  dart.setFieldSignature(easy_loading.EasyLoadingIndicatorType, () => ({
+    __proto__: dart.getFields(easy_loading.EasyLoadingIndicatorType.__proto__),
+    index: dart.finalFieldType(core.int),
+    [_name$]: dart.finalFieldType(core.String)
+  }));
+  dart.defineExtensionMethods(easy_loading.EasyLoadingIndicatorType, ['toString']);
+  easy_loading.EasyLoadingIndicatorType.fadingCircle = C[13] || CT.C13;
+  easy_loading.EasyLoadingIndicatorType.circle = C[18] || CT.C18;
+  easy_loading.EasyLoadingIndicatorType.threeBounce = C[23] || CT.C23;
+  easy_loading.EasyLoadingIndicatorType.chasingDots = C[28] || CT.C28;
+  easy_loading.EasyLoadingIndicatorType.wave = C[34] || CT.C34;
+  easy_loading.EasyLoadingIndicatorType.wanderingCubes = C[39] || CT.C39;
+  easy_loading.EasyLoadingIndicatorType.rotatingPlain = C[49] || CT.C49;
+  easy_loading.EasyLoadingIndicatorType.doubleBounce = C[54] || CT.C54;
+  easy_loading.EasyLoadingIndicatorType.fadingFour = C[59] || CT.C59;
+  easy_loading.EasyLoadingIndicatorType.fadingCube = C[64] || CT.C64;
+  easy_loading.EasyLoadingIndicatorType.pulse = C[69] || CT.C69;
+  easy_loading.EasyLoadingIndicatorType.cubeGrid = C[74] || CT.C74;
+  easy_loading.EasyLoadingIndicatorType.rotatingCircle = C[44] || CT.C44;
+  easy_loading.EasyLoadingIndicatorType.foldingCube = C[79] || CT.C79;
+  easy_loading.EasyLoadingIndicatorType.pumpingHeart = C[84] || CT.C84;
+  easy_loading.EasyLoadingIndicatorType.dualRing = C[90] || CT.C90;
+  easy_loading.EasyLoadingIndicatorType.hourGlass = C[95] || CT.C95;
+  easy_loading.EasyLoadingIndicatorType.pouringHourGlass = C[100] || CT.C100;
+  easy_loading.EasyLoadingIndicatorType.fadingGrid = C[105] || CT.C105;
+  easy_loading.EasyLoadingIndicatorType.ring = C[111] || CT.C111;
+  easy_loading.EasyLoadingIndicatorType.ripple = C[116] || CT.C116;
+  easy_loading.EasyLoadingIndicatorType.spinningCircle = C[121] || CT.C121;
+  easy_loading.EasyLoadingIndicatorType.squareCircle = C[126] || CT.C126;
+  easy_loading.EasyLoadingIndicatorType.values = C[227] || CT.C227;
+  easy_loading.EasyLoadingStatus = class EasyLoadingStatus extends core.Object {
+    toString() {
+      return this[_name$];
+    }
+  };
+  (easy_loading.EasyLoadingStatus.new = function(index, _name) {
+    if (index == null) dart.nullFailed(I[9], 98, 6, "index");
+    if (_name == null) dart.nullFailed(I[9], 98, 6, "_name");
+    this.index = index;
+    this[_name$] = _name;
+    ;
+  }).prototype = easy_loading.EasyLoadingStatus.prototype;
+  dart.addTypeTests(easy_loading.EasyLoadingStatus);
+  dart.addTypeCaches(easy_loading.EasyLoadingStatus);
+  dart.setLibraryUri(easy_loading.EasyLoadingStatus, I[10]);
+  dart.setFieldSignature(easy_loading.EasyLoadingStatus, () => ({
+    __proto__: dart.getFields(easy_loading.EasyLoadingStatus.__proto__),
+    index: dart.finalFieldType(core.int),
+    [_name$]: dart.finalFieldType(core.String)
+  }));
+  dart.defineExtensionMethods(easy_loading.EasyLoadingStatus, ['toString']);
+  easy_loading.EasyLoadingStatus.show = C[228] || CT.C228;
+  easy_loading.EasyLoadingStatus.dismiss = C[229] || CT.C229;
+  easy_loading.EasyLoadingStatus.values = C[230] || CT.C230;
+  var customAnimation = dart.privateName(easy_loading, "EasyLoading.customAnimation");
+  var textStyle = dart.privateName(easy_loading, "EasyLoading.textStyle");
+  var textColor = dart.privateName(easy_loading, "EasyLoading.textColor");
+  var indicatorColor = dart.privateName(easy_loading, "EasyLoading.indicatorColor");
+  var progressColor = dart.privateName(easy_loading, "EasyLoading.progressColor");
+  var backgroundColor = dart.privateName(easy_loading, "EasyLoading.backgroundColor");
+  var maskColor = dart.privateName(easy_loading, "EasyLoading.maskColor");
+  var userInteractions = dart.privateName(easy_loading, "EasyLoading.userInteractions");
+  var dismissOnTap = dart.privateName(easy_loading, "EasyLoading.dismissOnTap");
+  var indicatorWidget = dart.privateName(easy_loading, "EasyLoading.indicatorWidget");
+  var successWidget = dart.privateName(easy_loading, "EasyLoading.successWidget");
+  var errorWidget = dart.privateName(easy_loading, "EasyLoading.errorWidget");
+  var infoWidget = dart.privateName(easy_loading, "EasyLoading.infoWidget");
+  var overlayEntry = dart.privateName(easy_loading, "EasyLoading.overlayEntry");
+  var __EasyLoading_loadingStyle = dart.privateName(easy_loading, "_#EasyLoading#loadingStyle");
+  var __EasyLoading_loadingStyle_isSet = dart.privateName(easy_loading, "_#EasyLoading#loadingStyle#isSet");
+  var __EasyLoading_indicatorType = dart.privateName(easy_loading, "_#EasyLoading#indicatorType");
+  var __EasyLoading_indicatorType_isSet = dart.privateName(easy_loading, "_#EasyLoading#indicatorType#isSet");
+  var __EasyLoading_maskType = dart.privateName(easy_loading, "_#EasyLoading#maskType");
+  var __EasyLoading_maskType_isSet = dart.privateName(easy_loading, "_#EasyLoading#maskType#isSet");
+  var __EasyLoading_toastPosition = dart.privateName(easy_loading, "_#EasyLoading#toastPosition");
+  var __EasyLoading_toastPosition_isSet = dart.privateName(easy_loading, "_#EasyLoading#toastPosition#isSet");
+  var __EasyLoading_animationStyle = dart.privateName(easy_loading, "_#EasyLoading#animationStyle");
+  var __EasyLoading_animationStyle_isSet = dart.privateName(easy_loading, "_#EasyLoading#animationStyle#isSet");
+  var __EasyLoading_textAlign = dart.privateName(easy_loading, "_#EasyLoading#textAlign");
+  var __EasyLoading_textAlign_isSet = dart.privateName(easy_loading, "_#EasyLoading#textAlign#isSet");
+  var __EasyLoading_contentPadding = dart.privateName(easy_loading, "_#EasyLoading#contentPadding");
+  var __EasyLoading_contentPadding_isSet = dart.privateName(easy_loading, "_#EasyLoading#contentPadding#isSet");
+  var __EasyLoading_textPadding = dart.privateName(easy_loading, "_#EasyLoading#textPadding");
+  var __EasyLoading_textPadding_isSet = dart.privateName(easy_loading, "_#EasyLoading#textPadding#isSet");
+  var __EasyLoading_indicatorSize = dart.privateName(easy_loading, "_#EasyLoading#indicatorSize");
+  var __EasyLoading_indicatorSize_isSet = dart.privateName(easy_loading, "_#EasyLoading#indicatorSize#isSet");
+  var __EasyLoading_radius = dart.privateName(easy_loading, "_#EasyLoading#radius");
+  var __EasyLoading_radius_isSet = dart.privateName(easy_loading, "_#EasyLoading#radius#isSet");
+  var __EasyLoading_fontSize = dart.privateName(easy_loading, "_#EasyLoading#fontSize");
+  var __EasyLoading_fontSize_isSet = dart.privateName(easy_loading, "_#EasyLoading#fontSize#isSet");
+  var __EasyLoading_progressWidth = dart.privateName(easy_loading, "_#EasyLoading#progressWidth");
+  var __EasyLoading_progressWidth_isSet = dart.privateName(easy_loading, "_#EasyLoading#progressWidth#isSet");
+  var __EasyLoading_lineWidth = dart.privateName(easy_loading, "_#EasyLoading#lineWidth");
+  var __EasyLoading_lineWidth_isSet = dart.privateName(easy_loading, "_#EasyLoading#lineWidth#isSet");
+  var __EasyLoading_displayDuration = dart.privateName(easy_loading, "_#EasyLoading#displayDuration");
+  var __EasyLoading_displayDuration_isSet = dart.privateName(easy_loading, "_#EasyLoading#displayDuration#isSet");
+  var __EasyLoading_animationDuration = dart.privateName(easy_loading, "_#EasyLoading#animationDuration");
+  var __EasyLoading_animationDuration_isSet = dart.privateName(easy_loading, "_#EasyLoading#animationDuration#isSet");
+  var _w = dart.privateName(easy_loading, "_w");
+  var _key = dart.privateName(easy_loading, "_key");
+  var _progressKey$ = dart.privateName(easy_loading, "_progressKey");
+  var _timer = dart.privateName(easy_loading, "_timer");
+  var _statusCallbacks = dart.privateName(easy_loading, "_statusCallbacks");
+  var Duration__duration = dart.privateName(core, "Duration._duration");
+  var _show = dart.privateName(easy_loading, "_show");
+  var _cancelTimer = dart.privateName(easy_loading, "_cancelTimer");
+  var _dismiss = dart.privateName(easy_loading, "_dismiss");
+  var _callback = dart.privateName(easy_loading, "_callback");
+  var _markNeedsBuild = dart.privateName(easy_loading, "_markNeedsBuild");
+  var _reset = dart.privateName(easy_loading, "_reset");
+  easy_loading.EasyLoading = class EasyLoading extends core.Object {
+    get customAnimation() {
+      return this[customAnimation];
+    }
+    set customAnimation(value) {
+      this[customAnimation] = value;
+    }
+    get textStyle() {
+      return this[textStyle];
+    }
+    set textStyle(value) {
+      this[textStyle] = value;
+    }
+    get textColor() {
+      return this[textColor];
+    }
+    set textColor(value) {
+      this[textColor] = value;
+    }
+    get indicatorColor() {
+      return this[indicatorColor];
+    }
+    set indicatorColor(value) {
+      this[indicatorColor] = value;
+    }
+    get progressColor() {
+      return this[progressColor];
+    }
+    set progressColor(value) {
+      this[progressColor] = value;
+    }
+    get backgroundColor() {
+      return this[backgroundColor];
+    }
+    set backgroundColor(value) {
+      this[backgroundColor] = value;
+    }
+    get maskColor() {
+      return this[maskColor];
+    }
+    set maskColor(value) {
+      this[maskColor] = value;
+    }
+    get userInteractions() {
+      return this[userInteractions];
+    }
+    set userInteractions(value) {
+      this[userInteractions] = value;
+    }
+    get dismissOnTap() {
+      return this[dismissOnTap];
+    }
+    set dismissOnTap(value) {
+      this[dismissOnTap] = value;
+    }
+    get indicatorWidget() {
+      return this[indicatorWidget];
+    }
+    set indicatorWidget(value) {
+      this[indicatorWidget] = value;
+    }
+    get successWidget() {
+      return this[successWidget];
+    }
+    set successWidget(value) {
+      this[successWidget] = value;
+    }
+    get errorWidget() {
+      return this[errorWidget];
+    }
+    set errorWidget(value) {
+      this[errorWidget] = value;
+    }
+    get infoWidget() {
+      return this[infoWidget];
+    }
+    set infoWidget(value) {
+      this[infoWidget] = value;
+    }
+    get overlayEntry() {
+      return this[overlayEntry];
+    }
+    set overlayEntry(value) {
+      this[overlayEntry] = value;
+    }
+    get loadingStyle() {
+      let t7;
+      return dart.test(this[__EasyLoading_loadingStyle_isSet]) ? (t7 = this[__EasyLoading_loadingStyle], t7) : dart.throw(new _internal.LateError.fieldNI("loadingStyle"));
+    }
+    set loadingStyle(t7) {
+      if (t7 == null) dart.nullFailed(I[9], 107, 25, "null");
+      this[__EasyLoading_loadingStyle_isSet] = true;
+      this[__EasyLoading_loadingStyle] = t7;
+    }
+    get indicatorType() {
+      let t8;
+      return dart.test(this[__EasyLoading_indicatorType_isSet]) ? (t8 = this[__EasyLoading_indicatorType], t8) : dart.throw(new _internal.LateError.fieldNI("indicatorType"));
+    }
+    set indicatorType(t8) {
+      if (t8 == null) dart.nullFailed(I[9], 110, 33, "null");
+      this[__EasyLoading_indicatorType_isSet] = true;
+      this[__EasyLoading_indicatorType] = t8;
+    }
+    get maskType() {
+      let t9;
+      return dart.test(this[__EasyLoading_maskType_isSet]) ? (t9 = this[__EasyLoading_maskType], t9) : dart.throw(new _internal.LateError.fieldNI("maskType"));
+    }
+    set maskType(t9) {
+      if (t9 == null) dart.nullFailed(I[9], 113, 28, "null");
+      this[__EasyLoading_maskType_isSet] = true;
+      this[__EasyLoading_maskType] = t9;
+    }
+    get toastPosition() {
+      let t10;
+      return dart.test(this[__EasyLoading_toastPosition_isSet]) ? (t10 = this[__EasyLoading_toastPosition], t10) : dart.throw(new _internal.LateError.fieldNI("toastPosition"));
+    }
+    set toastPosition(t10) {
+      if (t10 == null) dart.nullFailed(I[9], 116, 33, "null");
+      this[__EasyLoading_toastPosition_isSet] = true;
+      this[__EasyLoading_toastPosition] = t10;
+    }
+    get animationStyle() {
+      let t11;
+      return dart.test(this[__EasyLoading_animationStyle_isSet]) ? (t11 = this[__EasyLoading_animationStyle], t11) : dart.throw(new _internal.LateError.fieldNI("animationStyle"));
+    }
+    set animationStyle(t11) {
+      if (t11 == null) dart.nullFailed(I[9], 119, 34, "null");
+      this[__EasyLoading_animationStyle_isSet] = true;
+      this[__EasyLoading_animationStyle] = t11;
+    }
+    get textAlign() {
+      let t12;
+      return dart.test(this[__EasyLoading_textAlign_isSet]) ? (t12 = this[__EasyLoading_textAlign], t12) : dart.throw(new _internal.LateError.fieldNI("textAlign"));
+    }
+    set textAlign(t12) {
+      if (t12 == null) dart.nullFailed(I[9], 122, 18, "null");
+      this[__EasyLoading_textAlign_isSet] = true;
+      this[__EasyLoading_textAlign] = t12;
+    }
+    get contentPadding() {
+      let t13;
+      return dart.test(this[__EasyLoading_contentPadding_isSet]) ? (t13 = this[__EasyLoading_contentPadding], t13) : dart.throw(new _internal.LateError.fieldNI("contentPadding"));
+    }
+    set contentPadding(t13) {
+      if (t13 == null) dart.nullFailed(I[9], 125, 19, "null");
+      this[__EasyLoading_contentPadding_isSet] = true;
+      this[__EasyLoading_contentPadding] = t13;
+    }
+    get textPadding() {
+      let t14;
+      return dart.test(this[__EasyLoading_textPadding_isSet]) ? (t14 = this[__EasyLoading_textPadding], t14) : dart.throw(new _internal.LateError.fieldNI("textPadding"));
+    }
+    set textPadding(t14) {
+      if (t14 == null) dart.nullFailed(I[9], 128, 19, "null");
+      this[__EasyLoading_textPadding_isSet] = true;
+      this[__EasyLoading_textPadding] = t14;
+    }
+    get indicatorSize() {
+      let t15;
+      return dart.test(this[__EasyLoading_indicatorSize_isSet]) ? (t15 = this[__EasyLoading_indicatorSize], t15) : dart.throw(new _internal.LateError.fieldNI("indicatorSize"));
+    }
+    set indicatorSize(t15) {
+      if (t15 == null) dart.nullFailed(I[9], 131, 15, "null");
+      this[__EasyLoading_indicatorSize_isSet] = true;
+      this[__EasyLoading_indicatorSize] = t15;
+    }
+    get radius() {
+      let t16;
+      return dart.test(this[__EasyLoading_radius_isSet]) ? (t16 = this[__EasyLoading_radius], t16) : dart.throw(new _internal.LateError.fieldNI("radius"));
+    }
+    set radius(t16) {
+      if (t16 == null) dart.nullFailed(I[9], 134, 15, "null");
+      this[__EasyLoading_radius_isSet] = true;
+      this[__EasyLoading_radius] = t16;
+    }
+    get fontSize() {
+      let t17;
+      return dart.test(this[__EasyLoading_fontSize_isSet]) ? (t17 = this[__EasyLoading_fontSize], t17) : dart.throw(new _internal.LateError.fieldNI("fontSize"));
+    }
+    set fontSize(t17) {
+      if (t17 == null) dart.nullFailed(I[9], 137, 15, "null");
+      this[__EasyLoading_fontSize_isSet] = true;
+      this[__EasyLoading_fontSize] = t17;
+    }
+    get progressWidth() {
+      let t18;
+      return dart.test(this[__EasyLoading_progressWidth_isSet]) ? (t18 = this[__EasyLoading_progressWidth], t18) : dart.throw(new _internal.LateError.fieldNI("progressWidth"));
+    }
+    set progressWidth(t18) {
+      if (t18 == null) dart.nullFailed(I[9], 140, 15, "null");
+      this[__EasyLoading_progressWidth_isSet] = true;
+      this[__EasyLoading_progressWidth] = t18;
+    }
+    get lineWidth() {
+      let t19;
+      return dart.test(this[__EasyLoading_lineWidth_isSet]) ? (t19 = this[__EasyLoading_lineWidth], t19) : dart.throw(new _internal.LateError.fieldNI("lineWidth"));
+    }
+    set lineWidth(t19) {
+      if (t19 == null) dart.nullFailed(I[9], 143, 15, "null");
+      this[__EasyLoading_lineWidth_isSet] = true;
+      this[__EasyLoading_lineWidth] = t19;
+    }
+    get displayDuration() {
+      let t20;
+      return dart.test(this[__EasyLoading_displayDuration_isSet]) ? (t20 = this[__EasyLoading_displayDuration], t20) : dart.throw(new _internal.LateError.fieldNI("displayDuration"));
+    }
+    set displayDuration(t20) {
+      if (t20 == null) dart.nullFailed(I[9], 146, 17, "null");
+      this[__EasyLoading_displayDuration_isSet] = true;
+      this[__EasyLoading_displayDuration] = t20;
+    }
+    get animationDuration() {
+      let t21;
+      return dart.test(this[__EasyLoading_animationDuration_isSet]) ? (t21 = this[__EasyLoading_animationDuration], t21) : dart.throw(new _internal.LateError.fieldNI("animationDuration"));
+    }
+    set animationDuration(t21) {
+      if (t21 == null) dart.nullFailed(I[9], 149, 17, "null");
+      this[__EasyLoading_animationDuration_isSet] = true;
+      this[__EasyLoading_animationDuration] = t21;
+    }
+    get w() {
+      return this[_w];
+    }
+    get key() {
+      return this[_key];
+    }
+    get progressKey() {
+      return this[_progressKey$];
+    }
+    static new() {
+      return easy_loading.EasyLoading._instance;
+    }
+    static get instance() {
+      return easy_loading.EasyLoading._instance;
+    }
+    static get isShow() {
+      return easy_loading.EasyLoading._instance.w != null;
+    }
+    static init(opts) {
+      let builder = opts && 'builder' in opts ? opts.builder : null;
+      return dart.fn((context, child) => {
+        if (context == null) dart.nullFailed(I[9], 236, 26, "context");
+        if (builder != null) {
+          return builder(context, new loading.FlutterEasyLoading.new({child: child, $creationLocationd_0dea112b090073317d4: C[235] || CT.C235}));
+        } else {
+          return new loading.FlutterEasyLoading.new({child: child, $creationLocationd_0dea112b090073317d4: C[238] || CT.C238});
+        }
+      }, T.BuildContextAndWidgetNToWidget());
+    }
+    static show(opts) {
+      let t23, t22;
+      let status = opts && 'status' in opts ? opts.status : null;
+      let indicator = opts && 'indicator' in opts ? opts.indicator : null;
+      let maskType = opts && 'maskType' in opts ? opts.maskType : null;
+      let dismissOnTap = opts && 'dismissOnTap' in opts ? opts.dismissOnTap : null;
+      let w = (t22 = indicator, t22 == null ? (t23 = easy_loading.EasyLoading._instance.indicatorWidget, t23 == null ? new indicator$.LoadingIndicator.new({$creationLocationd_0dea112b090073317d4: C[241] || CT.C241}) : t23) : t22);
+      return easy_loading.EasyLoading._instance[_show]({status: status, maskType: maskType, dismissOnTap: dismissOnTap, w: w});
+    }
+    static showProgress(value, opts) {
+      if (value == null) dart.nullFailed(I[9], 263, 12, "value");
+      let status = opts && 'status' in opts ? opts.status : null;
+      let maskType = opts && 'maskType' in opts ? opts.maskType : null;
+      return async.async(dart.void, function* showProgress() {
+        let t23, t22, t23$, t22$;
+        if (!(dart.notNull(value) >= 0.0 && dart.notNull(value) <= 1.0)) dart.assertFailed("progress value should be 0.0 ~ 1.0", I[9], 268, 7, "value >= 0.0 && value <= 1.0");
+        if (easy_loading.EasyLoading._instance.loadingStyle == easy_loading.EasyLoadingStyle.custom) {
+          if (!(easy_loading.EasyLoading._instance.progressColor != null)) dart.assertFailed("while loading style is custom, progressColor should not be null", I[9], 274, 9, "_instance.progressColor != null");
+        }
+        if (easy_loading.EasyLoading._instance.w == null || easy_loading.EasyLoading._instance.progressKey == null) {
+          if (easy_loading.EasyLoading._instance.key != null) yield easy_loading.EasyLoading.dismiss({animation: false});
+          let _progressKey = T.GlobalKeyOfEasyLoadingProgressState().new();
+          let w = new progress.EasyLoadingProgress.new({key: _progressKey, value: value, $creationLocationd_0dea112b090073317d4: C[242] || CT.C242});
+          easy_loading.EasyLoading._instance[_show]({status: status, maskType: maskType, dismissOnTap: false, w: w});
+          easy_loading.EasyLoading._instance[_progressKey$] = _progressKey;
+        }
+        t22 = easy_loading.EasyLoading._instance.progressKey;
+        t22 == null ? null : (t23 = t22.currentState, t23 == null ? null : t23.updateProgress(math.min(core.double, 1.0, value)));
+        if (status != null) {
+          t22$ = easy_loading.EasyLoading._instance.key;
+          t22$ == null ? null : (t23$ = t22$.currentState, t23$ == null ? null : t23$.updateStatus(status));
+        }
+      });
+    }
+    static showSuccess(status, opts) {
+      let t22, t22$;
+      if (status == null) dart.nullFailed(I[9], 303, 12, "status");
+      let duration = opts && 'duration' in opts ? opts.duration : null;
+      let maskType = opts && 'maskType' in opts ? opts.maskType : null;
+      let dismissOnTap = opts && 'dismissOnTap' in opts ? opts.dismissOnTap : null;
+      let w = (t22 = easy_loading.EasyLoading._instance.successWidget, t22 == null ? new icon.Icon.new(icons.Icons.done, {color: theme.EasyLoadingTheme.indicatorColor, size: theme.EasyLoadingTheme.indicatorSize, $creationLocationd_0dea112b090073317d4: C[246] || CT.C246}) : t22);
+      return easy_loading.EasyLoading._instance[_show]({status: status, duration: (t22$ = duration, t22$ == null ? theme.EasyLoadingTheme.displayDuration : t22$), maskType: maskType, dismissOnTap: dismissOnTap, w: w});
+    }
+    static showError(status, opts) {
+      let t22, t22$;
+      if (status == null) dart.nullFailed(I[9], 325, 12, "status");
+      let duration = opts && 'duration' in opts ? opts.duration : null;
+      let maskType = opts && 'maskType' in opts ? opts.maskType : null;
+      let dismissOnTap = opts && 'dismissOnTap' in opts ? opts.dismissOnTap : null;
+      let w = (t22 = easy_loading.EasyLoading._instance.errorWidget, t22 == null ? new icon.Icon.new(icons.Icons.clear, {color: theme.EasyLoadingTheme.indicatorColor, size: theme.EasyLoadingTheme.indicatorSize, $creationLocationd_0dea112b090073317d4: C[251] || CT.C251}) : t22);
+      return easy_loading.EasyLoading._instance[_show]({status: status, duration: (t22$ = duration, t22$ == null ? theme.EasyLoadingTheme.displayDuration : t22$), maskType: maskType, dismissOnTap: dismissOnTap, w: w});
+    }
+    static showInfo(status, opts) {
+      let t22, t22$;
+      if (status == null) dart.nullFailed(I[9], 347, 12, "status");
+      let duration = opts && 'duration' in opts ? opts.duration : null;
+      let maskType = opts && 'maskType' in opts ? opts.maskType : null;
+      let dismissOnTap = opts && 'dismissOnTap' in opts ? opts.dismissOnTap : null;
+      let w = (t22 = easy_loading.EasyLoading._instance.infoWidget, t22 == null ? new icon.Icon.new(icons.Icons.info_outline, {color: theme.EasyLoadingTheme.indicatorColor, size: theme.EasyLoadingTheme.indicatorSize, $creationLocationd_0dea112b090073317d4: C[256] || CT.C256}) : t22);
+      return easy_loading.EasyLoading._instance[_show]({status: status, duration: (t22$ = duration, t22$ == null ? theme.EasyLoadingTheme.displayDuration : t22$), maskType: maskType, dismissOnTap: dismissOnTap, w: w});
+    }
+    static showToast(status, opts) {
+      let t22, t22$;
+      if (status == null) dart.nullFailed(I[9], 369, 12, "status");
+      let duration = opts && 'duration' in opts ? opts.duration : null;
+      let toastPosition = opts && 'toastPosition' in opts ? opts.toastPosition : null;
+      let maskType = opts && 'maskType' in opts ? opts.maskType : null;
+      let dismissOnTap = opts && 'dismissOnTap' in opts ? opts.dismissOnTap : null;
+      return easy_loading.EasyLoading._instance[_show]({status: status, duration: (t22 = duration, t22 == null ? theme.EasyLoadingTheme.displayDuration : t22), toastPosition: (t22$ = toastPosition, t22$ == null ? theme.EasyLoadingTheme.toastPosition : t22$), maskType: maskType, dismissOnTap: dismissOnTap});
+    }
+    static dismiss(opts) {
+      let animation = opts && 'animation' in opts ? opts.animation : true;
+      if (animation == null) dart.nullFailed(I[9], 386, 10, "animation");
+      easy_loading.EasyLoading._instance[_cancelTimer]();
+      return easy_loading.EasyLoading._instance[_dismiss](animation);
+    }
+    static addStatusCallback(callback) {
+      if (callback == null) dart.nullFailed(I[9], 394, 59, "callback");
+      if (!dart.test(easy_loading.EasyLoading._instance[_statusCallbacks][$contains](callback))) {
+        easy_loading.EasyLoading._instance[_statusCallbacks][$add](callback);
+      }
+    }
+    static removeCallback(callback) {
+      if (callback == null) dart.nullFailed(I[9], 401, 56, "callback");
+      if (dart.test(easy_loading.EasyLoading._instance[_statusCallbacks][$contains](callback))) {
+        easy_loading.EasyLoading._instance[_statusCallbacks][$remove](callback);
+      }
+    }
+    static removeAllCallbacks() {
+      easy_loading.EasyLoading._instance[_statusCallbacks][$clear]();
+    }
+    [_show](opts) {
+      let w = opts && 'w' in opts ? opts.w : null;
+      let status = opts && 'status' in opts ? opts.status : null;
+      let duration = opts && 'duration' in opts ? opts.duration : null;
+      let maskType = opts && 'maskType' in opts ? opts.maskType : null;
+      let dismissOnTap = opts && 'dismissOnTap' in opts ? opts.dismissOnTap : null;
+      let toastPosition = opts && 'toastPosition' in opts ? opts.toastPosition : null;
+      return async.async(dart.void, (function* _show() {
+        if (!(this.overlayEntry != null)) dart.assertFailed("You should call EasyLoading.init() in your MaterialApp", I[9], 422, 7, "overlayEntry != null");
+        if (this.loadingStyle == easy_loading.EasyLoadingStyle.custom) {
+          if (!(this.backgroundColor != null)) dart.assertFailed("while loading style is custom, backgroundColor should not be null", I[9], 428, 9, "backgroundColor != null");
+          if (!(this.indicatorColor != null)) dart.assertFailed("while loading style is custom, indicatorColor should not be null", I[9], 432, 9, "indicatorColor != null");
+          if (!(this.textColor != null)) dart.assertFailed("while loading style is custom, textColor should not be null", I[9], 436, 9, "textColor != null");
+        }
+        maskType == null ? maskType = easy_loading.EasyLoading._instance.maskType : null;
+        if (maskType == easy_loading.EasyLoadingMaskType.custom) {
+          if (!(this.maskColor != null)) dart.assertFailed("while mask type is custom, maskColor should not be null", I[9], 444, 9, "maskColor != null");
+        }
+        if (this.animationStyle == easy_loading.EasyLoadingAnimationStyle.custom) {
+          if (!(this.customAnimation != null)) dart.assertFailed("while animationStyle is custom, customAnimation should not be null", I[9], 451, 9, "customAnimation != null");
+        }
+        toastPosition == null ? toastPosition = easy_loading.EasyLoadingToastPosition.center : null;
+        let animation = this[_w] == null;
+        this[_progressKey$] = null;
+        if (this[_key] != null) yield easy_loading.EasyLoading.dismiss({animation: false});
+        let completer = T.CompleterOfvoid().new();
+        this[_key] = T.GlobalKeyOfEasyLoadingContainerState().new();
+        this[_w] = new container$.EasyLoadingContainer.new({key: this[_key], status: status, indicator: w, animation: animation, toastPosition: toastPosition, maskType: maskType, dismissOnTap: dismissOnTap, completer: completer, $creationLocationd_0dea112b090073317d4: C[261] || CT.C261});
+        completer.future.whenComplete(dart.fn(() => {
+          this[_callback](easy_loading.EasyLoadingStatus.show);
+          if (duration != null) {
+            this[_cancelTimer]();
+            this[_timer] = async.Timer.new(duration, dart.fn(() => async.async(dart.void, function*() {
+              yield easy_loading.EasyLoading.dismiss();
+            }), T.VoidToFutureOfvoid()));
+          }
+        }, T.VoidToNull()));
+        this[_markNeedsBuild]();
+        return completer.future;
+      }).bind(this));
+    }
+    [_dismiss](animation) {
+      if (animation == null) dart.nullFailed(I[9], 486, 30, "animation");
+      return async.async(dart.void, (function* _dismiss() {
+        let t22, t23, t22$;
+        if (this.key != null && (t22 = this.key, t22 == null ? null : t22.currentState) == null) {
+          this[_reset]();
+          return;
+        }
+        t22$ = this.key;
+        return t22$ == null ? null : (t23 = t22$.currentState, t23 == null ? null : t23.dismiss(animation).whenComplete(dart.fn(() => {
+          this[_reset]();
+        }, T.VoidToNull())));
+      }).bind(this));
+    }
+    [_reset]() {
+      this[_w] = null;
+      this[_key] = null;
+      this[_progressKey$] = null;
+      this[_cancelTimer]();
+      this[_markNeedsBuild]();
+      this[_callback](easy_loading.EasyLoadingStatus.dismiss);
+    }
+    [_callback](status) {
+      if (status == null) dart.nullFailed(I[9], 506, 36, "status");
+      for (let callback of this[_statusCallbacks]) {
+        callback(status);
+      }
+    }
+    [_markNeedsBuild]() {
+      let t22;
+      t22 = this.overlayEntry;
+      t22 == null ? null : t22.markNeedsBuild();
+    }
+    [_cancelTimer]() {
+      let t22;
+      t22 = this[_timer];
+      t22 == null ? null : t22.cancel();
+      this[_timer] = null;
+    }
+  };
+  (easy_loading.EasyLoading._internal = function() {
+    this[__EasyLoading_loadingStyle] = null;
+    this[__EasyLoading_loadingStyle_isSet] = false;
+    this[__EasyLoading_indicatorType] = null;
+    this[__EasyLoading_indicatorType_isSet] = false;
+    this[__EasyLoading_maskType] = null;
+    this[__EasyLoading_maskType_isSet] = false;
+    this[__EasyLoading_toastPosition] = null;
+    this[__EasyLoading_toastPosition_isSet] = false;
+    this[__EasyLoading_animationStyle] = null;
+    this[__EasyLoading_animationStyle_isSet] = false;
+    this[__EasyLoading_textAlign] = null;
+    this[__EasyLoading_textAlign_isSet] = false;
+    this[__EasyLoading_contentPadding] = null;
+    this[__EasyLoading_contentPadding_isSet] = false;
+    this[__EasyLoading_textPadding] = null;
+    this[__EasyLoading_textPadding_isSet] = false;
+    this[__EasyLoading_indicatorSize] = null;
+    this[__EasyLoading_indicatorSize_isSet] = false;
+    this[__EasyLoading_radius] = null;
+    this[__EasyLoading_radius_isSet] = false;
+    this[__EasyLoading_fontSize] = null;
+    this[__EasyLoading_fontSize_isSet] = false;
+    this[__EasyLoading_progressWidth] = null;
+    this[__EasyLoading_progressWidth_isSet] = false;
+    this[__EasyLoading_lineWidth] = null;
+    this[__EasyLoading_lineWidth_isSet] = false;
+    this[__EasyLoading_displayDuration] = null;
+    this[__EasyLoading_displayDuration_isSet] = false;
+    this[__EasyLoading_animationDuration] = null;
+    this[__EasyLoading_animationDuration_isSet] = false;
+    this[customAnimation] = null;
+    this[textStyle] = null;
+    this[textColor] = null;
+    this[indicatorColor] = null;
+    this[progressColor] = null;
+    this[backgroundColor] = null;
+    this[maskColor] = null;
+    this[userInteractions] = null;
+    this[dismissOnTap] = null;
+    this[indicatorWidget] = null;
+    this[successWidget] = null;
+    this[errorWidget] = null;
+    this[infoWidget] = null;
+    this[_w] = null;
+    this[overlayEntry] = null;
+    this[_key] = null;
+    this[_progressKey$] = null;
+    this[_timer] = null;
+    this[_statusCallbacks] = T.JSArrayOfEasyLoadingStatusTovoid().of([]);
+    this.loadingStyle = easy_loading.EasyLoadingStyle.dark;
+    this.indicatorType = easy_loading.EasyLoadingIndicatorType.fadingCircle;
+    this.maskType = easy_loading.EasyLoadingMaskType.none;
+    this.toastPosition = easy_loading.EasyLoadingToastPosition.center;
+    this.animationStyle = easy_loading.EasyLoadingAnimationStyle.opacity;
+    this.textAlign = ui.TextAlign.center;
+    this.indicatorSize = 40.0;
+    this.radius = 5.0;
+    this.fontSize = 15.0;
+    this.progressWidth = 2.0;
+    this.lineWidth = 4.0;
+    this.displayDuration = C[231] || CT.C231;
+    this.animationDuration = C[232] || CT.C232;
+    this.textPadding = C[233] || CT.C233;
+    this.contentPadding = C[234] || CT.C234;
+  }).prototype = easy_loading.EasyLoading.prototype;
+  dart.addTypeTests(easy_loading.EasyLoading);
+  dart.addTypeCaches(easy_loading.EasyLoading);
+  dart.setMethodSignature(easy_loading.EasyLoading, () => ({
+    __proto__: dart.getMethods(easy_loading.EasyLoading.__proto__),
+    [_show]: dart.fnType(async.Future$(dart.void), [], {dismissOnTap: dart.nullable(core.bool), duration: dart.nullable(core.Duration), maskType: dart.nullable(easy_loading.EasyLoadingMaskType), status: dart.nullable(core.String), toastPosition: dart.nullable(easy_loading.EasyLoadingToastPosition), w: dart.nullable(framework.Widget)}, {}),
+    [_dismiss]: dart.fnType(async.Future$(dart.void), [core.bool]),
+    [_reset]: dart.fnType(dart.void, []),
+    [_callback]: dart.fnType(dart.void, [easy_loading.EasyLoadingStatus]),
+    [_markNeedsBuild]: dart.fnType(dart.void, []),
+    [_cancelTimer]: dart.fnType(dart.void, [])
+  }));
+  dart.setGetterSignature(easy_loading.EasyLoading, () => ({
+    __proto__: dart.getGetters(easy_loading.EasyLoading.__proto__),
+    loadingStyle: easy_loading.EasyLoadingStyle,
+    indicatorType: easy_loading.EasyLoadingIndicatorType,
+    maskType: easy_loading.EasyLoadingMaskType,
+    toastPosition: easy_loading.EasyLoadingToastPosition,
+    animationStyle: easy_loading.EasyLoadingAnimationStyle,
+    textAlign: ui.TextAlign,
+    contentPadding: edge_insets.EdgeInsets,
+    textPadding: edge_insets.EdgeInsets,
+    indicatorSize: core.double,
+    radius: core.double,
+    fontSize: core.double,
+    progressWidth: core.double,
+    lineWidth: core.double,
+    displayDuration: core.Duration,
+    animationDuration: core.Duration,
+    w: dart.nullable(framework.Widget),
+    key: dart.nullable(framework.GlobalKey$(container$.EasyLoadingContainerState)),
+    progressKey: dart.nullable(framework.GlobalKey$(progress.EasyLoadingProgressState))
+  }));
+  dart.setSetterSignature(easy_loading.EasyLoading, () => ({
+    __proto__: dart.getSetters(easy_loading.EasyLoading.__proto__),
+    loadingStyle: easy_loading.EasyLoadingStyle,
+    indicatorType: easy_loading.EasyLoadingIndicatorType,
+    maskType: easy_loading.EasyLoadingMaskType,
+    toastPosition: easy_loading.EasyLoadingToastPosition,
+    animationStyle: easy_loading.EasyLoadingAnimationStyle,
+    textAlign: ui.TextAlign,
+    contentPadding: edge_insets.EdgeInsets,
+    textPadding: edge_insets.EdgeInsets,
+    indicatorSize: core.double,
+    radius: core.double,
+    fontSize: core.double,
+    progressWidth: core.double,
+    lineWidth: core.double,
+    displayDuration: core.Duration,
+    animationDuration: core.Duration
+  }));
+  dart.setLibraryUri(easy_loading.EasyLoading, I[10]);
+  dart.setFieldSignature(easy_loading.EasyLoading, () => ({
+    __proto__: dart.getFields(easy_loading.EasyLoading.__proto__),
+    [__EasyLoading_loadingStyle]: dart.fieldType(dart.nullable(easy_loading.EasyLoadingStyle)),
+    [__EasyLoading_loadingStyle_isSet]: dart.fieldType(core.bool),
+    [__EasyLoading_indicatorType]: dart.fieldType(dart.nullable(easy_loading.EasyLoadingIndicatorType)),
+    [__EasyLoading_indicatorType_isSet]: dart.fieldType(core.bool),
+    [__EasyLoading_maskType]: dart.fieldType(dart.nullable(easy_loading.EasyLoadingMaskType)),
+    [__EasyLoading_maskType_isSet]: dart.fieldType(core.bool),
+    [__EasyLoading_toastPosition]: dart.fieldType(dart.nullable(easy_loading.EasyLoadingToastPosition)),
+    [__EasyLoading_toastPosition_isSet]: dart.fieldType(core.bool),
+    [__EasyLoading_animationStyle]: dart.fieldType(dart.nullable(easy_loading.EasyLoadingAnimationStyle)),
+    [__EasyLoading_animationStyle_isSet]: dart.fieldType(core.bool),
+    [__EasyLoading_textAlign]: dart.fieldType(dart.nullable(ui.TextAlign)),
+    [__EasyLoading_textAlign_isSet]: dart.fieldType(core.bool),
+    [__EasyLoading_contentPadding]: dart.fieldType(dart.nullable(edge_insets.EdgeInsets)),
+    [__EasyLoading_contentPadding_isSet]: dart.fieldType(core.bool),
+    [__EasyLoading_textPadding]: dart.fieldType(dart.nullable(edge_insets.EdgeInsets)),
+    [__EasyLoading_textPadding_isSet]: dart.fieldType(core.bool),
+    [__EasyLoading_indicatorSize]: dart.fieldType(dart.nullable(core.double)),
+    [__EasyLoading_indicatorSize_isSet]: dart.fieldType(core.bool),
+    [__EasyLoading_radius]: dart.fieldType(dart.nullable(core.double)),
+    [__EasyLoading_radius_isSet]: dart.fieldType(core.bool),
+    [__EasyLoading_fontSize]: dart.fieldType(dart.nullable(core.double)),
+    [__EasyLoading_fontSize_isSet]: dart.fieldType(core.bool),
+    [__EasyLoading_progressWidth]: dart.fieldType(dart.nullable(core.double)),
+    [__EasyLoading_progressWidth_isSet]: dart.fieldType(core.bool),
+    [__EasyLoading_lineWidth]: dart.fieldType(dart.nullable(core.double)),
+    [__EasyLoading_lineWidth_isSet]: dart.fieldType(core.bool),
+    [__EasyLoading_displayDuration]: dart.fieldType(dart.nullable(core.Duration)),
+    [__EasyLoading_displayDuration_isSet]: dart.fieldType(core.bool),
+    [__EasyLoading_animationDuration]: dart.fieldType(dart.nullable(core.Duration)),
+    [__EasyLoading_animationDuration_isSet]: dart.fieldType(core.bool),
+    customAnimation: dart.fieldType(dart.nullable(animation$.EasyLoadingAnimation)),
+    textStyle: dart.fieldType(dart.nullable(text_style.TextStyle)),
+    textColor: dart.fieldType(dart.nullable(ui.Color)),
+    indicatorColor: dart.fieldType(dart.nullable(ui.Color)),
+    progressColor: dart.fieldType(dart.nullable(ui.Color)),
+    backgroundColor: dart.fieldType(dart.nullable(ui.Color)),
+    maskColor: dart.fieldType(dart.nullable(ui.Color)),
+    userInteractions: dart.fieldType(dart.nullable(core.bool)),
+    dismissOnTap: dart.fieldType(dart.nullable(core.bool)),
+    indicatorWidget: dart.fieldType(dart.nullable(framework.Widget)),
+    successWidget: dart.fieldType(dart.nullable(framework.Widget)),
+    errorWidget: dart.fieldType(dart.nullable(framework.Widget)),
+    infoWidget: dart.fieldType(dart.nullable(framework.Widget)),
+    [_w]: dart.fieldType(dart.nullable(framework.Widget)),
+    overlayEntry: dart.fieldType(dart.nullable(overlay_entry.EasyLoadingOverlayEntry)),
+    [_key]: dart.fieldType(dart.nullable(framework.GlobalKey$(container$.EasyLoadingContainerState))),
+    [_progressKey$]: dart.fieldType(dart.nullable(framework.GlobalKey$(progress.EasyLoadingProgressState))),
+    [_timer]: dart.fieldType(dart.nullable(async.Timer)),
+    [_statusCallbacks]: dart.finalFieldType(core.List$(dart.fnType(dart.void, [easy_loading.EasyLoadingStatus])))
+  }));
+  dart.defineLazy(easy_loading.EasyLoading, {
+    /*easy_loading.EasyLoading._instance*/get _instance() {
+      return new easy_loading.EasyLoading._internal();
+    }
+  }, false);
+  dart.trackLibraries("packages/flutter_easyloading/src/widgets/loading.dart", {
+    "package:flutter_easyloading/src/widgets/loading.dart": loading,
+    "package:flutter_easyloading/src/widgets/indicator.dart": indicator$,
+    "package:flutter_easyloading/src/widgets/progress.dart": progress,
+    "package:flutter_easyloading/src/theme.dart": theme,
+    "package:flutter_easyloading/src/widgets/container.dart": container$,
+    "package:flutter_easyloading/src/easy_loading.dart": easy_loading
+  }, {
+  }, '{"version":3,"sourceRoot":"","sources":["loading.dart","indicator.dart","progress.dart","../theme.dart","container.dart","../easy_loading.dart"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;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","file":"../../../../../../../../../O:/packages/flutter_easyloading/src/widgets/loading.dart.lib.js"}');
+  // Exports:
+  return {
+    src__widgets__loading: loading,
+    src__widgets__indicator: indicator$,
+    src__widgets__progress: progress,
+    src__theme: theme,
+    src__widgets__container: container$,
+    src__easy_loading: easy_loading
+  };
+}));
+
+//# sourceMappingURL=loading.dart.lib.js.map
